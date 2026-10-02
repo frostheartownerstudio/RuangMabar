@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Ruang Mabar</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Firebase SDK Compat Version -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
     <style>
@@ -24,7 +22,6 @@
             padding-bottom: 40px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, #1e293b, #0f172a);
             color: white;
@@ -53,7 +50,6 @@
         }
         .btn-admin:hover { background: #1d4ed8; }
 
-        /* Container & Navigation Tabs */
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -91,13 +87,12 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; }
 
-        /* Cards & Notices */
         .card-box {
             background: white;
             border-radius: 16px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #3b82f6;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
             margin-bottom: 16px;
         }
 
@@ -108,10 +103,10 @@
             border-radius: 16px;
             color: #64748b;
             font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #3b82f6;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
-        /* Member Grid & Gelar / Badge */
         .member-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -122,8 +117,8 @@
             background: white;
             border-radius: 16px;
             padding: 18px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #3b82f6;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
         .member-header-row {
@@ -136,6 +131,69 @@
 
         .member-name { font-size: 1.15rem; font-weight: 700; color: #0f172a; }
 
+        /* Hiasan Nama Emas Shiny */
+        .name-gold-shiny {
+            background: linear-gradient(90deg, #b8860b, #ffd700, #ff8c00, #ffd700, #b8860b);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 800;
+            animation: goldShine 3s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes goldShine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Hiasan Nama Limited Shiny (Hijau Shiny Putih) */
+        .name-green-shiny {
+            background: linear-gradient(90deg, #15803d, #22c55e, #ffffff, #22c55e, #15803d);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 800;
+            animation: greenShine 2.5s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes greenShine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Teks Masa Berlaku di Card (Kecil & Warna Sesuai Hiasan Nama) */
+        .vip-time-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-top: 8px;
+            background: linear-gradient(90deg, #b8860b, #ffd700, #ff8c00, #ffd700, #b8860b);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: goldShine 3s linear infinite;
+            display: inline-block;
+        }
+
+        .green-time-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-top: 6px;
+            background: linear-gradient(90deg, #15803d, #22c55e, #ffffff, #22c55e, #15803d);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: greenShine 2.5s linear infinite;
+            display: inline-block;
+        }
+
         .member-gelar {
             background: #e0f2fe;
             color: #0369a1;
@@ -143,6 +201,13 @@
             font-weight: 600;
             padding: 2px 8px;
             border-radius: 20px;
+            border: 1px solid #3b82f6;
+        }
+
+        .member-gelar.vip {
+            background: #fef3c7;
+            color: #d97706;
+            border: 1px solid #f59e0b;
         }
 
         .member-bio { font-size: 0.85rem; color: #64748b; margin: 8px 0 14px; font-style: italic; }
@@ -171,16 +236,74 @@
             box-shadow: 0 2px 4px rgba(217, 119, 6, 0.2);
         }
 
-        /* Shop & Admin Delete List */
+        .vip-badge {
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            color: #3b2200;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid #ffe57f;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            font-size: 12px;
+        }
+
+        .vip-badge-shiny {
+            position: relative;
+            background: linear-gradient(135deg, #d4af37, #ffd700, #b38728);
+            color: #3d2400;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 12px;
+            border: 1px solid #fff3a8;
+            box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
+            overflow: hidden;
+            display: inline-block;
+            font-size: 12px;
+        }
+
+        .vip-badge-shiny::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                rgba(255, 255, 255, 0) 20%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0) 80%
+            );
+            transform: rotate(25deg);
+            animation: shine 2.5s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(25deg); }
+            20% { transform: translateX(100%) rotate(25deg); }
+            100% { transform: translateX(100%) rotate(25deg); }
+        }
+
         .shop-list { display: flex; flex-direction: column; gap: 12px; }
         .shop-item-card {
             display: flex; justify-content: space-between; align-items: center;
-            background: white; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;
+            background: white; padding: 16px; border-radius: 12px;
+            border: 1px solid #3b82f6;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .shop-title { font-weight: 700; font-size: 1rem; color: #0f172a; }
-        .shop-price { font-weight: 600; color: #16a34a; font-size: 0.95rem; }
-        .shop-discount-badge { color: #dc2626; font-weight: 700; font-size: 0.85rem; }
+        .shop-price { font-weight: 600; color: #2563eb; font-size: 0.95rem; }
         .shop-stock { font-size: 0.8rem; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 12px; }
+
+        .btn-buy {
+            background: #16a34a; color: white; border: none; padding: 8px 14px;
+            border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.85rem; transition: 0.2s;
+        }
+        .btn-buy:hover { background: #15803d; }
 
         .admin-member-row {
             display: flex; justify-content: space-between; align-items: center;
@@ -190,8 +313,8 @@
             background: #fee2e2; color: #ef4444; border: none; padding: 6px 12px;
             border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.8rem;
         }
+        .btn-del-mini:hover { background: #fca5a5; }
 
-        /* Password Input Wrapper with Eye Icon */
         .password-container {
             position: relative;
             display: flex;
@@ -217,7 +340,6 @@
         }
         .toggle-password-btn:hover { color: #1e293b; }
 
-        /* Modal Overlay & Base */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
@@ -229,6 +351,7 @@
             background: white; width: 100%; max-width: 500px; max-height: 85vh;
             border-radius: 20px; display: flex; flex-direction: column;
             overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border: 1px solid #3b82f6;
         }
 
         .modal-header {
@@ -272,15 +395,12 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <h1>Profil Ruang Mabar</h1>
         <button class="btn-admin" onclick="openAdminAuthModal()">⚙️ Admin</button>
     </header>
 
-    <!-- Main Container -->
     <div class="container">
-        <!-- Navigation Tabs -->
         <div class="nav-tabs">
             <button class="tab-btn active" onclick="switchTab('profil', event)">👥 Profil</button>
             <button class="tab-btn" onclick="switchTab('shop', event)">🛒 Shop</button>
@@ -288,33 +408,28 @@
             <button class="tab-btn" onclick="switchTab('personal', event)">⚙️ Personalisasi</button>
         </div>
 
-        <!-- 1. TAB PROFIL -->
         <div id="tab-profil" class="tab-content active">
             <div id="loading-profil" class="empty-notice">Memuat data Anggota...</div>
             <div id="empty-profil" class="empty-notice" style="display: none;">Belum ada data member.</div>
             <div id="member-list" class="member-grid"></div>
         </div>
 
-        <!-- 2. TAB SHOP -->
         <div id="tab-shop" class="tab-content">
             <div id="loading-shop" class="empty-notice">Memuat item Shop...</div>
             <div id="empty-shop" class="empty-notice" style="display: none;">Belum ada item di Shop.</div>
             <div id="shop-list" class="shop-list"></div>
         </div>
 
-        <!-- 3. TAB EVENT -->
         <div id="tab-event" class="tab-content">
             <div id="event-container">
                 <div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>
             </div>
         </div>
 
-        <!-- 4. TAB PERSONALISASI (Login & Edit Mandiri) -->
         <div id="tab-personal" class="tab-content">
             <div class="card-box">
                 <h3 style="margin-bottom: 12px; color: #0f172a;">🔑 Login Member</h3>
                 
-                <!-- Form Auth Member -->
                 <div id="member-login-box">
                     <div class="form-group">
                         <label>Pilih Nama Kamu:</label>
@@ -334,10 +449,21 @@
                     <button class="btn-action" style="width: 100%;" onclick="loginMember()">🔓 Masuk / Verifikasi</button>
                 </div>
 
-                <!-- Form Edit Profil Member (Tampil Setelah Login Success) -->
                 <div id="member-edit-box" style="display: none;">
-                    <div style="background: #e0f2fe; padding: 10px; border-radius: 8px; margin-bottom: 14px; color: #0369a1; font-size: 0.85rem;">
-                        ✅ Berhasil Login! Kamu bisa ubah Nama, Bio, dan Sandi kamu di bawah.
+                    <div style="background: #e0f2fe; padding: 10px; border-radius: 8px; margin-bottom: 14px; color: #0369a1; font-size: 0.85rem; border: 1px solid #3b82f6;">
+                        ✅ Berhasil Login! Kamu bisa atur Gelar, Hiasan Nama, Bio, dan Sandi kamu di bawah.
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pilih Gelar Kamu (Disediakan / Dibeli dari Shop):</label>
+                        <select id="editSelfGelarSelect"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>✨ Pilih Hiasan Nama:</label>
+                        <select id="editSelfHiasanNamaSelect">
+                            <option value="default">Default</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -365,7 +491,7 @@
 
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
 
-                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Item Yang Dimiliki:</h4>
+                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Item & Status Dimiliki:</h4>
                     <div id="owned-items-list" style="color: #64748b; font-size: 0.9rem;">
                         Belum memiliki item apapun.
                     </div>
@@ -374,14 +500,13 @@
         </div>
     </div>
 
-    <!-- Admin Auth Password Modal -->
     <div id="adminAuthModal" class="modal-overlay">
         <div class="modal-content" style="max-width: 380px;">
             <div class="modal-header">
                 <h2>🔐 Verifikasi Admin</h2>
                 <button class="btn-close" onclick="closeAdminAuthModal()">&times;</button>
             </div>
-            <div class="modal-body">
+             <div class="modal-body">
                 <div class="form-group">
                     <label>Masukkan Password Admin:</label>
                     <div class="password-container">
@@ -396,7 +521,6 @@
         </div>
     </div>
 
-    <!-- Admin Main Modal -->
     <div id="adminModal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
@@ -411,11 +535,12 @@
                         <option value="add-member">+ Tambah Member Baru</option>
                         <option value="manage-member">🗑️ Kelola / Hapus Member</option>
                         <option value="shop">+ Tambah Item Shop</option>
+                        <option value="manage-shop">🗑️ Kelola / Hapus Item Shop</option>
                         <option value="event">+ Tambah Event Baru</option>
+                        <option value="manage-event">🗑️ Kelola / Hapus Event</option>
                     </select>
                 </div>
 
-                <!-- 1. Form Edit & Absen Member (DEFAULT ADMIN SETTING) -->
                 <div id="formAdminEditMember">
                     <div class="form-group">
                         <label>Pilih Member Yang Mau Di-Setting:</label>
@@ -439,7 +564,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Gelar:</label>
+                            <label>Gelar Aktif:</label>
                             <input type="text" id="adminEditGelar" placeholder="-">
                         </div>
                         <div class="form-group">
@@ -451,7 +576,7 @@
                             <input type="number" id="adminEditLevel" min="1">
                         </div>
                         <div class="form-group">
-                            <label>Rank (Otomatis menyesuaikan Bintang saat Absen):</label>
+                            <label>Rank:</label>
                             <input type="text" id="adminEditRank">
                         </div>
                         <div class="form-group">
@@ -463,7 +588,7 @@
                             <input type="number" id="adminEditDiamond" min="0">
                         </div>
                         <div class="form-group">
-                            <label>Boost (Pengali Absen Bintang & Diamond):</label>
+                            <label>Boost Pengali 🔥:</label>
                             <input type="number" id="adminEditBoost" min="1" placeholder="Misal: 2">
                         </div>
                         <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
@@ -471,7 +596,6 @@
                             <label for="adminEditImmortal" style="margin: 0; cursor: pointer;">🏅 Berikan Lencana Immortal</label>
                         </div>
 
-                        <!-- Tombol Absen sebelum Tombol Simpan -->
                         <div class="btn-action-group">
                             <button type="button" class="btn-absen-admin" onclick="absenMemberAdmin()">⚡ Absen Member</button>
                             <button type="button" class="btn-action" onclick="saveAdminMemberChanges()">💾 Simpan Data</button>
@@ -479,7 +603,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Form Tambah Member Baru -->
                 <form id="formAdminAddMember" onsubmit="saveNewMember(event)" style="display: none;">
                     <div class="form-group">
                         <label>Nama Member:</label>
@@ -495,8 +618,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Gelar:</label>
-                        <input type="text" id="inputGelar" placeholder="-">
+                        <label>Gelar Awal:</label>
+                        <input type="text" id="inputGelar" placeholder="Pemula">
                     </div>
                     <div class="form-group">
                         <label>Bio Singkat:</label>
@@ -529,37 +652,44 @@
                     <button type="submit" class="btn-action" style="width:100%;">💾 Simpan Member</button>
                 </form>
 
-                <!-- 3. Panel Kelola / Hapus Member -->
                 <div id="panelAdminManageMember" style="display: none;">
                     <h4 style="margin-bottom: 10px;">Daftar Member:</h4>
                     <div id="adminMemberList"></div>
                 </div>
 
-                <!-- 4. Form Shop -->
                 <form id="formAdminShop" onsubmit="saveShopItem(event)" style="display: none;">
                     <div class="form-group">
-                        <label>Nama Item:</label>
-                        <input type="text" id="inputShopNama" placeholder="Contoh: VIP Pass 7 Hari" required>
+                        <label>Nama Item / Hiasan / Gelar:</label>
+                        <input type="text" id="inputShopNama" placeholder="Contoh: Limited Shiny / VIP Member" required>
                     </div>
                     <div class="form-group">
-                        <label>Harga (Rp):</label>
-                        <input type="number" id="inputShopHarga" placeholder="Contoh: 15000" required>
+                        <label>Tipe Item:</label>
+                        <select id="inputShopTipe" onchange="toggleShopDurasiInput(this.value)">
+                            <option value="vip">⚡ Status VIP (Boost 2x + Akses Nama VIP Emas + Gelar VIP)</option>
+                            <option value="hiasan">✨ Hiasan Nama Baru</option>
+                            <option value="gelar">🎭 Unlock Gelar Baru</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="groupShopDurasi">
+                        <label>Durasi Masa Aktif (Hari):</label>
+                        <input type="number" id="inputShopDurasi" value="14" min="1" placeholder="Contoh: 14">
+                    </div>
+                    <div class="form-group">
+                        <label>Harga (💎 Diamond):</label>
+                        <input type="number" id="inputShopHarga" placeholder="Contoh: 0" required>
                     </div>
                     <div class="form-group">
                         <label>Stok Item:</label>
-                        <input type="number" id="inputShopStok" value="10" min="0" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Ada Diskon (50%)?</label>
-                        <select id="inputShopDiskon">
-                            <option value="false">Tidak Ada Diskon</option>
-                            <option value="true">⚡ Diskon 50%</option>
-                        </select>
+                        <input type="number" id="inputShopStok" value="999" min="0" required>
                     </div>
                     <button type="submit" class="btn-action" style="width:100%;">🛒 Simpan Item Shop</button>
                 </form>
 
-                <!-- 5. Form Event -->
+                <div id="panelAdminManageShop" style="display: none;">
+                    <h4 style="margin-bottom: 10px;">Kelola Item Shop:</h4>
+                    <div id="adminShopList"></div>
+                </div>
+
                 <form id="formAdminEvent" onsubmit="saveEvent(event)" style="display: none;">
                     <div class="form-group">
                         <label>Judul Event:</label>
@@ -571,12 +701,16 @@
                     </div>
                     <button type="submit" class="btn-action" style="width:100%;">🎉 Simpan Event</button>
                 </form>
+
+                <div id="panelAdminManageEvent" style="display: none;">
+                    <h4 style="margin-bottom: 10px;">Kelola Event:</h4>
+                    <div id="adminEventList"></div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Konfigurasi Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyAeIVCyEF705xX7WY8tuOmM4ngTVneThNA",
             authDomain: "absen-rm.firebaseapp.com",
@@ -598,24 +732,52 @@
 
         let isAdminLoggedIn = false;
         let globalMembersData = {};
+        let globalShopData = {};
+        let globalEventsData = {};
         let activeLoggedInMemberKey = null;
 
-        // FUNGSI TOGGLE IKON MATA PASSWORD
+        function isVipActive(member) {
+            if (!member || !member.vipExpiresAt) return false;
+            return Date.now() < member.vipExpiresAt;
+        }
+
+        function isHiasanActive(member, hiasanKey) {
+            if (!member) return false;
+            if (hiasanKey === 'vip_gold') {
+                return isVipActive(member);
+            }
+            if (hiasanKey === 'limited_shiny') {
+                if (!member.limitedShinyExpiresAt) return false;
+                return Date.now() < member.limitedShinyExpiresAt;
+            }
+            return true;
+        }
+
+        function formatExpDate(timestamp) {
+            if (!timestamp) return '';
+            const d = new Date(timestamp);
+            const dateStr = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+            const timeStr = d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+            return `${dateStr} (${timeStr})`;
+        }
+
         function togglePassword(inputId, btn) {
             const input = document.getElementById(inputId);
             const isPassword = input.type === 'password';
             input.type = isPassword ? 'text' : 'password';
 
             if (isPassword) {
-                // SVG Mata Terbuka
                 btn.innerHTML = `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.88 9.88a3 3 0 104.24 4.24M1 1l22 22"/></svg>`;
             } else {
-                // SVG Mata Tertutup
                 btn.innerHTML = `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`;
             }
         }
 
-        // FUNGSI PERHITUNGAN RANK DAN GELAR BERDASARKAN BINTANG
+        function toggleShopDurasiInput(typeVal) {
+            const group = document.getElementById('groupShopDurasi');
+            group.style.display = (typeVal === 'vip' || typeVal === 'hiasan') ? 'block' : 'none';
+        }
+
         function getRankAndGelarByBintang(bintang) {
             if (bintang >= 1000) return { rank: "Demon King", gelar: "I am Demon king" };
             if (bintang >= 500)  return { rank: "Demon", gelar: "Demon Mode" };
@@ -627,10 +789,9 @@
             if (bintang >= 15)   return { rank: "Mythic", gelar: "Mythical" };
             if (bintang >= 10)   return { rank: "Legend", gelar: "Legendary" };
             if (bintang >= 5)    return { rank: "Epic", gelar: "-" };
-            return null; // < 5 Bintang tidak berubah otomatis
+            return null;
         }
 
-        // Switch Tab Navigation
         function switchTab(tabName, evt) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -639,7 +800,6 @@
             document.getElementById(`tab-${tabName}`).classList.add('active');
         }
 
-        // 1. LISTEN MEMBER DATA
         membersRef.on('value', (snapshot) => {
             document.getElementById('loading-profil').style.display = 'none';
             const memberList = document.getElementById('member-list');
@@ -662,23 +822,41 @@
 
             Object.keys(globalMembersData).forEach((key) => {
                 const item = globalMembersData[key];
+                const hasVip = isVipActive(item);
 
-                // Gelar di samping nama
+                // Menentukan tampilan Hiasan Nama
+                let nameClass = "member-name";
+                if (item.hiasanNama === 'vip_gold' && isVipActive(item)) {
+                    nameClass = "member-name name-gold-shiny";
+                } else if (item.hiasanNama === 'limited_shiny' && isHiasanActive(item, 'limited_shiny')) {
+                    nameClass = "member-name name-green-shiny";
+                }
+                
+                let isGelarVip = (item.gelar && item.gelar.toLowerCase().includes('vip'));
+                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+
                 const gelarHTML = (item.gelar && item.gelar !== '-') 
-                    ? `<span class="member-gelar">${item.gelar}</span>` 
+                    ? `<span class="${gelarClass}">${item.gelar}</span>` 
                     : '';
 
-                // Lencana Immortal di samping Level
                 const immortalBadgeHTML = item.lencanaImmortal 
                     ? `<span class="immortal-badge">🏅 Immortal</span>` 
                     : '';
 
-                // Render Kartu Member Publik
+                // Masa Berlaku dengan Teks Lebih Kecil & Warna Sesuai Hiasan Nama
+                let timeTagsHTML = '';
+                if (hasVip) {
+                    timeTagsHTML += `<div class="vip-time-tag">👑 VIP Aktif s/d: ${formatExpDate(item.vipExpiresAt)}</div>`;
+                }
+                if (isHiasanActive(item, 'limited_shiny')) {
+                    timeTagsHTML += `<div class="green-time-tag">✨ Limited Shiny s/d: ${formatExpDate(item.limitedShinyExpiresAt)}</div>`;
+                }
+
                 const card = document.createElement('div');
                 card.className = 'member-card';
                 card.innerHTML = `
                     <div class="member-header-row">
-                        <span class="member-name">${item.nama || 'Tanpa Nama'}</span>
+                        <span class="${nameClass}">${item.nama || 'Tanpa Nama'}</span>
                         ${gelarHTML}
                     </div>
                     <div class="member-bio">${item.bio || '-'}</div>
@@ -688,20 +866,19 @@
                         <div class="stat-item">💎 Diamond: ${item.diamond || 0}</div>
                         <div class="stat-item">🔥 Boost: ${item.boost || 1}x</div>
                         <div class="stat-item">📊 Lvl: ${item.level || 1} ${immortalBadgeHTML}</div>
-                    </div>
+                         </div>
+                    ${timeTagsHTML}
                 `;
                 memberList.appendChild(card);
 
-                // Admin Manage List
                 const adminRow = document.createElement('div');
                 adminRow.className = 'admin-member-row';
                 adminRow.innerHTML = `
                     <span><strong>${item.nama}</strong> (⭐ ${item.bintang || 0})</span>
-                    <button class="btn-del-mini" onclick="deleteMember('${key}')">❌ Hapus</button>
+           <button class="btn-del-mini" onclick="deleteMember('${key}')">❌ Hapus</button>
                 `;
                 adminMemberList.appendChild(adminRow);
 
-                // Populate Dropdown Selects
                 const opt1 = document.createElement('option');
                 opt1.value = key; opt1.innerText = item.nama;
                 selectSelf.appendChild(opt1);
@@ -711,18 +888,42 @@
                 adminSelectEdit.appendChild(opt2);
             });
 
-            // If active editing member in admin, refresh form
+            if (activeLoggedInMemberKey && globalMembersData[activeLoggedInMemberKey]) {
+                updateMemberPersonalView(globalMembersData[activeLoggedInMemberKey]);
+            }
+
             const currentAdminSelect = adminSelectEdit.value;
             if (currentAdminSelect && globalMembersData[currentAdminSelect]) {
                 loadMemberToAdminForm(currentAdminSelect);
             }
         });
 
-        // 2. LISTEN SHOP DATA
+        // Cek & Tambahkan otomatis Hiasan Nama "Limited Shiny" jika belum ada di database Shop
+        shopRef.once('value', (snapshot) => {
+            let hasLimitedShiny = false;
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                Object.values(data).forEach(item => {
+                    if (item.nama === 'Limited Shiny') hasLimitedShiny = true;
+                });
+            }
+            if (!hasLimitedShiny) {
+                shopRef.push().set({
+                    nama: 'Limited Shiny',
+                    tipe: 'hiasan',
+                    durasiHari: 14,
+                    harga: 0,
+                    stok: 999
+                });
+            }
+        });
+
         shopRef.on('value', (snapshot) => {
             document.getElementById('loading-shop').style.display = 'none';
             const shopList = document.getElementById('shop-list');
+            const adminShopList = document.getElementById('adminShopList');
             shopList.innerHTML = '';
+            adminShopList.innerHTML = '';
 
             if (!snapshot.exists()) {
                 document.getElementById('empty-shop').style.display = 'block';
@@ -730,53 +931,164 @@
             }
 
             document.getElementById('empty-shop').style.display = 'none';
-            const data = snapshot.val();
+            globalShopData = snapshot.val();
 
-            Object.keys(data).forEach((key) => {
-                const item = data[key];
-                const isDiskon = item.diskon === true || item.diskon === 'true';
-                const finalHarga = isDiskon ? item.harga * 0.5 : item.harga;
+            Object.keys(globalShopData).forEach((key) => {
+                const item = globalShopData[key];
 
                 const card = document.createElement('div');
                 card.className = 'shop-item-card';
                 card.innerHTML = `
                     <div>
                         <div class="shop-title">${item.nama}</div>
-                        <div class="shop-price">Rp ${finalHarga.toLocaleString('id-ID')}</div>
-                        ${isDiskon ? '<div class="shop-discount-badge">⚡ (Diskon 50%)</div>' : ''}
+                        <div class="shop-price">💎 ${item.harga || 0} Diamond</div>
                     </div>
-                    <div class="shop-stock">Stok: ${item.stok}</div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="shop-stock">Stok: ${item.stok || 0}</span>
+                        <button class="btn-buy" onclick="buyShopItem('${key}')">Beli Item</button>
+                    </div>
                 `;
                 shopList.appendChild(card);
+
+                let typeText = '🎭 Gelar Baru';
+                if (item.tipe === 'vip') typeText = `⚡ VIP (${item.durasiHari || 30} Hari)`;
+                if (item.tipe === 'hiasan') typeText = `✨ Hiasan Nama (${item.durasiHari || 14} Hari)`;
+
+                const adminRow = document.createElement('div');
+                adminRow.className = 'admin-member-row';
+                adminRow.innerHTML = `
+                    <span><strong>${item.nama}</strong> [${typeText}] - 💎${item.harga}</span>
+                    <button class="btn-del-mini" onclick="deleteShopItem('${key}')">❌ Hapus</button>
+                `;
+                adminShopList.appendChild(adminRow);
             });
         });
 
-        // 3. LISTEN EVENT DATA
         eventsRef.on('value', (snapshot) => {
             const container = document.getElementById('event-container');
+            const adminEventList = document.getElementById('adminEventList');
             container.innerHTML = '';
+            adminEventList.innerHTML = '';
 
             if (!snapshot.exists()) {
                 container.innerHTML = `<div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>`;
                 return;
             }
 
-            const data = snapshot.val();
-            Object.keys(data).forEach((key) => {
-                const ev = data[key];
+            globalEventsData = snapshot.val();
+            Object.keys(globalEventsData).forEach((key) => {
+                const ev = globalEventsData[key];
+
                 const card = document.createElement('div');
                 card.className = 'card-box';
                 card.innerHTML = `
                     <h3 style="color:#2563eb; margin-bottom: 6px;">🎉 ${ev.judul}</h3>
-                    <p style="font-size:0.9rem; color:#475569;">${ev.deskripsi}</p>
+                    <p style="font-size:0.9rem; color:#475569; clear: both;">${ev.deskripsi}</p>
                 `;
                 container.appendChild(card);
+
+                const adminRow = document.createElement('div');
+                adminRow.className = 'admin-member-row';
+                adminRow.innerHTML = `
+                    <span><strong>${ev.judul}</strong></span>
+                    <button class="btn-del-mini" onclick="deleteEvent('${key}')">❌ Hapus</button>
+                `;
+                adminEventList.appendChild(adminRow);
             });
         });
 
-        // ==========================================
-        // FITUR PERSONALISASI (LOGIN MEMBER)
-        // ==========================================
+        function buyShopItem(itemKey) {
+            if (!activeLoggedInMemberKey) {
+                alert("Silakan login dulu di tab Personalisasi untuk membeli item!");
+                switchTab('personal');
+                return;
+            }
+
+            const member = globalMembersData[activeLoggedInMemberKey];
+            const item = globalShopData[itemKey];
+
+            if (!member || !item) return;
+
+            if ((item.stok || 0) <= 0) {
+                alert("Stok item ini sudah habis!");
+                return;
+            }
+
+            if ((member.diamond || 0) < item.harga) {
+                alert(`Diamond kamu kurang! Kamu butuh 💎 ${item.harga} Diamond.`);
+                return;
+            }
+
+            let newDiamond = (member.diamond || 0) - item.harga;
+            let newBoost = member.boost || 1;
+            let unlocked = member.unlockedTitles || ["Pemula"];
+            if (!Array.isArray(unlocked)) unlocked = Object.values(unlocked);
+
+            let unlockedHiasan = member.unlockedHiasan || [];
+            if (!Array.isArray(unlockedHiasan)) unlockedHiasan = Object.values(unlockedHiasan);
+
+            let owned = member.ownedItems || [];
+            if (!Array.isArray(owned)) owned = Object.values(owned);
+
+            let updatePayload = {
+                diamond: newDiamond,
+                unlockedTitles: unlocked,
+                unlockedHiasan: unlockedHiasan,
+                ownedItems: owned
+            };
+
+            if (item.tipe === 'vip') {
+                const durasiHari = parseInt(item.durasiHari) || 30;
+                const now = Date.now();
+                let currentExp = member.vipExpiresAt || 0;
+                let newExp = (currentExp > now ? currentExp : now) + (durasiHari * 24 * 60 * 60 * 1000);
+
+                newBoost = Math.max(newBoost, 2);
+                if (!unlocked.includes("VIP Member")) unlocked.push("VIP Member");
+                if (!unlockedHiasan.includes("vip_gold")) unlockedHiasan.push("vip_gold");
+                owned.push(`Akses VIP & Nama Emas (${durasiHari} Hari)`);
+
+                updatePayload.boost = newBoost;
+                updatePayload.vipExpiresAt = newExp;
+                updatePayload.gelar = "VIP Member";
+            } else if (item.tipe === 'hiasan' || item.nama.toLowerCase().includes('limited shiny')) {
+                const durasiHari = parseInt(item.durasiHari) || 14;
+                const now = Date.now();
+                let hiasanKey = 'limited_shiny';
+                let currentExp = member.limitedShinyExpiresAt || 0;
+                let newExp = (currentExp > now ? currentExp : now) + (durasiHari * 24 * 60 * 60 * 1000);
+
+                if (!unlockedHiasan.includes(hiasanKey)) unlockedHiasan.push(hiasanKey);
+                owned.push(`Hiasan Nama: ${item.nama} (${durasiHari} Hari)`);
+
+                updatePayload.limitedShinyExpiresAt = newExp;
+                updatePayload.hiasanNama = hiasanKey;
+            } else {
+                if (!unlocked.includes(item.nama)) unlocked.push(item.nama);
+                owned.push(`Gelar: ${item.nama}`);
+            }
+
+            membersRef.child(activeLoggedInMemberKey).update(updatePayload);
+
+            shopRef.child(itemKey).update({
+                stok: item.stok - 1
+            }).then(() => {
+                alert(`🎉 Berhasil klaim/beli ${item.nama}! Hiasan nama dapat dipasang di menu Personalisasi.`);
+            });
+        }
+
+        function deleteShopItem(key) {
+            if (confirm("Yakin ingin menghapus item ini dari Shop?")) {
+                shopRef.child(key).remove().then(() => alert("Item berhasil dihapus!"));
+            }
+        }
+
+        function deleteEvent(key) {
+            if (confirm("Yakin ingin menghapus event ini?")) {
+                eventsRef.child(key).remove().then(() => alert("Event berhasil dihapus!"));
+            }
+        }
+
         function loginMember() {
             const key = document.getElementById('selectMemberSelf').value;
             const pinInput = document.getElementById('inputMemberPin').value;
@@ -794,24 +1106,89 @@
                 document.getElementById('member-login-box').style.display = 'none';
                 document.getElementById('member-edit-box').style.display = 'block';
 
-                document.getElementById('editSelfNama').value = member.nama || '';
-                document.getElementById('editSelfBio').value = member.bio || '';
-                document.getElementById('editSelfPin').value = realPin;
-
-                const itemsContainer = document.getElementById('owned-items-list');
-                if (member.ownedItems && Object.keys(member.ownedItems).length > 0) {
-                    itemsContainer.innerHTML = Object.values(member.ownedItems).map(i => `• ${i}`).join('<br>');
-                } else {
-                    itemsContainer.innerText = 'Belum memiliki item apapun.';
-                }
+                updateMemberPersonalView(member);
             } else {
                 alert("❌ Sandi / PIN Salah! (Sandi standar: 1234)");
+            }
+        }
+
+        function updateMemberPersonalView(member) {
+            document.getElementById('editSelfNama').value = member.nama || '';
+            document.getElementById('editSelfBio').value = member.bio || '';
+            document.getElementById('editSelfPin').value = member.pin || '1234';
+
+            // GELAR SELECT
+            const selectGelar = document.getElementById('editSelfGelarSelect');
+            selectGelar.innerHTML = '';
+
+            let unlocked = member.unlockedTitles || ["Pemula"];
+            if (!Array.isArray(unlocked)) unlocked = Object.values(unlocked);
+
+            if (member.gelar && !unlocked.includes(member.gelar)) {
+                unlocked.push(member.gelar);
+            }
+
+            unlocked.forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g;
+                opt.innerText = g;
+                if (g === member.gelar) opt.selected = true;
+                selectGelar.appendChild(opt);
+            });
+
+            // HIASAN NAMA SELECT
+            const selectHiasan = document.getElementById('editSelfHiasanNamaSelect');
+            selectHiasan.innerHTML = '<option value="default">Default</option>';
+
+            let unlockedHiasan = member.unlockedHiasan || [];
+            if (!Array.isArray(unlockedHiasan)) unlockedHiasan = Object.values(unlockedHiasan);
+
+            // Opsi Emas VIP
+            if (isVipActive(member) || unlockedHiasan.includes('vip_gold')) {
+                const optVip = document.createElement('option');
+                optVip.value = 'vip_gold';
+                optVip.innerText = 'Emas VIP (Shiny Gold)';
+                selectHiasan.appendChild(optVip);
+            }
+
+            // Opsi Limited Shiny (Hijau Shiny)
+            if (isHiasanActive(member, 'limited_shiny') || unlockedHiasan.includes('limited_shiny')) {
+                const optShiny = document.createElement('option');
+                optShiny.value = 'limited_shiny';
+                optShiny.innerText = 'Limited Shiny (Green White Shiny)';
+                selectHiasan.appendChild(optShiny);
+            }
+
+            if (member.hiasanNama) {
+                selectHiasan.value = member.hiasanNama;
+            } else {
+                selectHiasan.value = 'default';
+            }
+
+            const itemsContainer = document.getElementById('owned-items-list');
+            let owned = member.ownedItems || [];
+            if (!Array.isArray(owned)) owned = Object.values(owned);
+
+            let extraInfo = '';
+            if (isVipActive(member)) {
+                extraInfo += `<div style="color: #d97706; font-weight: 700; margin-bottom: 4px;">👑 VIP s/d: ${formatExpDate(member.vipExpiresAt)}</div>`;
+            }
+            if (isHiasanActive(member, 'limited_shiny')) {
+                extraInfo += `<div style="color: #16a34a; font-weight: 700; margin-bottom: 8px;">✨ Limited Shiny s/d: ${formatExpDate(member.limitedShinyExpiresAt)}</div>`;
+            }
+
+            if (owned.length > 0) {
+                itemsContainer.innerHTML = extraInfo + owned.map(i => `• ${i}`).join('<br>');
+            } else {
+                itemsContainer.innerHTML = extraInfo + 'Belum memiliki item khusus dari Shop.';
             }
         }
 
         function saveSelfProfile() {
             if (!activeLoggedInMemberKey) return;
 
+            const newGelar = document.getElementById('editSelfGelarSelect').value;
+            const newHiasan = document.getElementById('editSelfHiasanNamaSelect').value;
             const newNama = document.getElementById('editSelfNama').value.trim();
             const newBio = document.getElementById('editSelfBio').value;
             const newPin = document.getElementById('editSelfPin').value.trim();
@@ -822,11 +1199,13 @@
             }
 
             membersRef.child(activeLoggedInMemberKey).update({
+                gelar: newGelar || "Pemula",
+                hiasanNama: newHiasan || "default",
                 nama: newNama,
                 bio: newBio,
                 pin: newPin || "1234"
             }).then(() => {
-                alert("✅ Profil kamu berhasil diperbarui!");
+                alert("✅ Profil, Gelar & Hiasan Nama kamu berhasil diperbarui!");
             });
         }
 
@@ -837,9 +1216,6 @@
             document.getElementById('inputMemberPin').value = '';
         }
 
-        // ==========================================
-        // FITUR MODAL ADMIN & ABSEN REAL-TIME
-        // ==========================================
         function openAdminAuthModal() {
             if (isAdminLoggedIn) {
                 document.getElementById('adminModal').style.display = 'flex';
@@ -858,6 +1234,8 @@
                 isAdminLoggedIn = true;
                 closeAdminAuthModal();
                 document.getElementById('adminModal').style.display = 'flex';
+                shopRef.once('value', () => {});
+                eventsRef.once('value', () => {});
             } else {
                 alert("Password Admin Salah!");
             }
@@ -872,10 +1250,11 @@
             document.getElementById('formAdminAddMember').style.display = val === 'add-member' ? 'block' : 'none';
             document.getElementById('panelAdminManageMember').style.display = val === 'manage-member' ? 'block' : 'none';
             document.getElementById('formAdminShop').style.display = val === 'shop' ? 'block' : 'none';
+            document.getElementById('panelAdminManageShop').style.display = val === 'manage-shop' ? 'block' : 'none';
             document.getElementById('formAdminEvent').style.display = val === 'event' ? 'block' : 'none';
+            document.getElementById('panelAdminManageEvent').style.display = val === 'manage-event' ? 'block' : 'none';
         }
 
-        // Load Data Member ke Form Admin
         function loadMemberToAdminForm(key) {
             const fields = document.getElementById('adminMemberFields');
             if (!key || !globalMembersData[key]) {
@@ -898,7 +1277,6 @@
             document.getElementById('adminEditImmortal').checked = m.lencanaImmortal === true;
         }
 
-        // ABSEN MEMBER OLEH ADMIN (+1 ⭐ & +100 💎 * Boost Multiplier)
         function absenMemberAdmin() {
             const key = document.getElementById('adminSelectEditMember').value;
             if (!key) return;
@@ -908,11 +1286,9 @@
             let boostMultiplier = parseInt(document.getElementById('adminEditBoost').value) || 1;
             if (boostMultiplier < 1) boostMultiplier = 1;
 
-            // Tambah Bintang & Diamond sesuai Boost
             let newBintang = curBintang + (1 * boostMultiplier);
             let newDiamond = curDiamond + (100 * boostMultiplier);
 
-            // Cek update Rank & Gelar otomatis
             const autoRankGelar = getRankAndGelarByBintang(newBintang);
             let newRank = document.getElementById('adminEditRank').value;
             let newGelar = document.getElementById('adminEditGelar').value;
@@ -922,13 +1298,11 @@
                 newGelar = autoRankGelar.gelar;
             }
 
-            // Update UI
             document.getElementById('adminEditBintang').value = newBintang;
             document.getElementById('adminEditDiamond').value = newDiamond;
             document.getElementById('adminEditRank').value = newRank;
             document.getElementById('adminEditGelar').value = newGelar;
 
-            // Save ke Firebase langsung
             saveAdminMemberChanges(true);
         }
 
@@ -964,7 +1338,7 @@
             const autoRankGelar = getRankAndGelarByBintang(bintangVal);
 
             let rankVal = document.getElementById('inputRank').value;
-            let gelarVal = document.getElementById('inputGelar').value;
+            let gelarVal = document.getElementById('inputGelar').value || "Pemula";
 
             if (autoRankGelar) {
                 rankVal = autoRankGelar.rank;
@@ -975,13 +1349,16 @@
                 nama: document.getElementById('inputNama').value,
                 pin: document.getElementById('inputPinDefault').value || "1234",
                 gelar: gelarVal,
+                hiasanNama: "default",
                 bio: document.getElementById('inputBio').value,
                 level: parseInt(document.getElementById('inputLevel').value) || 1,
                 rank: rankVal,
                 bintang: bintangVal,
                 diamond: parseInt(document.getElementById('inputDiamond').value) || 0,
                 boost: parseInt(document.getElementById('inputBoost').value) || 1,
-                lencanaImmortal: document.getElementById('inputImmortalNew').checked
+                lencanaImmortal: document.getElementById('inputImmortalNew').checked,
+                unlockedTitles: [gelarVal],
+                unlockedHiasan: ["default"]
             }).then(() => {
                 alert("Member baru berhasil dibuat!");
                 document.getElementById('formAdminAddMember').reset();
@@ -991,11 +1368,15 @@
 
         function saveShopItem(e) {
             e.preventDefault();
+            const tipeVal = document.getElementById('inputShopTipe').value;
+            const durasiVal = parseInt(document.getElementById('inputShopDurasi').value) || 14;
+
             shopRef.push().set({
                 nama: document.getElementById('inputShopNama').value,
+                tipe: tipeVal,
+                durasiHari: (tipeVal === 'vip' || tipeVal === 'hiasan') ? durasiVal : 0,
                 harga: parseInt(document.getElementById('inputShopHarga').value) || 0,
-                stok: parseInt(document.getElementById('inputShopStok').value) || 0,
-                diskon: document.getElementById('inputShopDiskon').value === 'true'
+                stok: parseInt(document.getElementById('inputShopStok').value) || 0
             }).then(() => {
                 alert("Item shop berhasil disimpan!");
                 document.getElementById('formAdminShop').reset();
@@ -1024,4 +1405,4 @@
         }
     </script>
 </body>
-</html>
+            </html>
