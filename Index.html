@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Ruang Mabar</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Firebase SDK Compat Version -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 { font-size: 1.25rem; font-weight: 700; }
+
+        .btn-admin {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-admin:hover { background: #1d4ed8; }
+
+        /* Container & Navigation Tabs */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Cards & Notices */
+        .card-box {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+        }
+
+        .empty-notice {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 16px;
+            color: #64748b;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* Member Grid & Gelar / Badge */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .member-header-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .member-name { font-size: 1.15rem; font-weight: 700; color: #0f172a; }
+
+        .member-gelar {
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .member-bio { font-size: 0.85rem; color: #64748b; margin: 8px 0 14px; font-style: italic; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .stat-item { font-size: 0.85rem; font-weight: 600; color: #334155; }
+
+        .immortal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(217, 119, 6, 0.2);
+        }
+
+        /* Shop & Admin Delete List */
+        .shop-list { display: flex; flex-direction: column; gap: 12px; }
+        .shop-item-card {
+            display: flex; justify-content: space-between; align-items: center;
+            background: white; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;
+        }
+        .shop-title { font-weight: 700; font-size: 1rem; color: #0f172a; }
+        .shop-price { font-weight: 600; color: #16a34a; font-size: 0.95rem; }
+        .shop-discount-badge { color: #dc2626; font-weight: 700; font-size: 0.85rem; }
+        .shop-stock { font-size: 0.8rem; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 12px; }
+
+        .admin-member-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px; border-bottom: 1px solid #e2e8f0;
+        }
+        .btn-del-mini {
+            background: #fee2e2; color: #ef4444; border: none; padding: 6px 12px;
+            border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.8rem;
+        }
+
+        /* Password Input Wrapper with Eye Icon */
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-container input {
+            width: 100%;
+            padding-right: 40px !important;
+        }
+
+        .toggle-password-btn {
+            position: absolute;
+            right: 10px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            padding: 4px;
+        }
+        .toggle-password-btn:hover { color: #1e293b; }
+
+        /* Modal Overlay & Base */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
+            display: none; align-items: center; justify-content: center;
+            z-index: 1000; padding: 16px;
+        }
+
+        .modal-content {
+            background: white; width: 100%; max-width: 500px; max-height: 85vh;
+            border-radius: 20px; display: flex; flex-direction: column;
+            overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            padding: 16px 20px; border-bottom: 1px solid #e2e8f0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .btn-close {
+            background: #f1f5f9; border: none; width: 32px; height: 32px;
+            border-radius: 50%; cursor: pointer; font-size: 1.2rem;
+        }
+
+        .modal-body { padding: 20px; overflow-y: auto; flex: 1; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none;
+        }
+
+        .btn-action-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-action {
+            flex: 1;
+            background: #2563eb; color: white; border: none;
+            padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer;
+        }
+
+        .btn-absen-admin {
+            flex: 1;
+            background: #16a34a; color: white; border: none;
+            padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer;
+        }
+        .btn-absen-admin:hover { background: #15803d; }
+
+        .btn-secondary { background: #64748b; margin-top: 6px; width: 100%; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Profil Ruang Mabar</h1>
+        <button class="btn-admin" onclick="openAdminAuthModal()">⚙️ Admin</button>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('profil', event)">👥 Profil</button>
+            <button class="tab-btn" onclick="switchTab('shop', event)">🛒 Shop</button>
+            <button class="tab-btn" onclick="switchTab('event', event)">🎉 Event</button>
+            <button class="tab-btn" onclick="switchTab('personal', event)">⚙️ Personalisasi</button>
+        </div>
+
+        <!-- 1. TAB PROFIL -->
+        <div id="tab-profil" class="tab-content active">
+            <div id="loading-profil" class="empty-notice">Memuat data Anggota...</div>
+            <div id="empty-profil" class="empty-notice" style="display: none;">Belum ada data member.</div>
+            <div id="member-list" class="member-grid"></div>
+        </div>
+
+        <!-- 2. TAB SHOP -->
+        <div id="tab-shop" class="tab-content">
+            <div id="loading-shop" class="empty-notice">Memuat item Shop...</div>
+            <div id="empty-shop" class="empty-notice" style="display: none;">Belum ada item di Shop.</div>
+            <div id="shop-list" class="shop-list"></div>
+        </div>
+
+        <!-- 3. TAB EVENT -->
+        <div id="tab-event" class="tab-content">
+            <div id="event-container">
+                <div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>
+            </div>
+        </div>
+
+        <!-- 4. TAB PERSONALISASI (Login & Edit Mandiri) -->
+        <div id="tab-personal" class="tab-content">
+            <div class="card-box">
+                <h3 style="margin-bottom: 12px; color: #0f172a;">🔑 Login Member</h3>
+                
+                <!-- Form Auth Member -->
+                <div id="member-login-box">
+                    <div class="form-group">
+                        <label>Pilih Nama Kamu:</label>
+                        <select id="selectMemberSelf">
+                            <option value="">-- Pilih Nama Kamu --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Sandi / PIN:</label>
+                        <div class="password-container">
+                            <input type="password" id="inputMemberPin" placeholder="Sandi standar: 1234">
+                            <button type="button" class="toggle-password-btn" onclick="togglePassword('inputMemberPin', this)">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn-action" style="width: 100%;" onclick="loginMember()">🔓 Masuk / Verifikasi</button>
+                </div>
+
+                <!-- Form Edit Profil Member (Tampil Setelah Login Success) -->
+                <div id="member-edit-box" style="display: none;">
+                    <div style="background: #e0f2fe; padding: 10px; border-radius: 8px; margin-bottom: 14px; color: #0369a1; font-size: 0.85rem;">
+                        ✅ Berhasil Login! Kamu bisa ubah Nama, Bio, dan Sandi kamu di bawah.
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nama Member:</label>
+                        <input type="text" id="editSelfNama" placeholder="Nama Baru">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Bio Kamu:</label>
+                        <textarea id="editSelfBio" rows="3" placeholder="Tulis bio baru kamu..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ganti Sandi / PIN Baru:</label>
+                        <div class="password-container">
+                            <input type="password" id="editSelfPin" placeholder="Masukkan Sandi Baru">
+                            <button type="button" class="toggle-password-btn" onclick="togglePassword('editSelfPin', this)">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="btn-action" style="width: 100%;" onclick="saveSelfProfile()">💾 Simpan Perubahan</button>
+                    <button class="btn-action btn-secondary" onclick="logoutMember()">🔒 Keluar / Logout</button>
+
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Item Yang Dimiliki:</h4>
+                    <div id="owned-items-list" style="color: #64748b; font-size: 0.9rem;">
+                        Belum memiliki item apapun.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Auth Password Modal -->
+    <div id="adminAuthModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 380px;">
+            <div class="modal-header">
+                <h2>🔐 Verifikasi Admin</h2>
+                <button class="btn-close" onclick="closeAdminAuthModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Masukkan Password Admin:</label>
+                    <div class="password-container">
+                        <input type="password" id="inputAdminAuthPass" placeholder="Password Admin">
+                        <button type="button" class="toggle-password-btn" onclick="togglePassword('inputAdminAuthPass', this)">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn-action" style="width:100%;" onclick="submitAdminAuth()">Masuk Ruang Admin</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Main Modal -->
+    <div id="adminModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛠 Ruang Admin</h2>
+                <button class="btn-close" onclick="closeAdminModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Pilih Kelola Data:</label>
+                    <select id="adminMenuSelect" onchange="switchAdminMenu(this.value)">
+                        <option value="edit-member">✏️ Edit & Absen Member</option>
+                        <option value="add-member">+ Tambah Member Baru</option>
+                        <option value="manage-member">🗑️ Kelola / Hapus Member</option>
+                        <option value="shop">+ Tambah Item Shop</option>
+                        <option value="event">+ Tambah Event Baru</option>
+                    </select>
+                </div>
+
+                <!-- 1. Form Edit & Absen Member (DEFAULT ADMIN SETTING) -->
+                <div id="formAdminEditMember">
+                    <div class="form-group">
+                        <label>Pilih Member Yang Mau Di-Setting:</label>
+                        <select id="adminSelectEditMember" onchange="loadMemberToAdminForm(this.value)">
+                            <option value="">-- Pilih Member --</option>
+                        </select>
+                    </div>
+
+                    <div id="adminMemberFields" style="display: none;">
+                        <div class="form-group">
+                            <label>Nama Member:</label>
+                            <input type="text" id="adminEditNama" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Sandi / PIN Member:</label>
+                            <div class="password-container">
+                                <input type="password" id="adminEditPin" required>
+                                <button type="button" class="toggle-password-btn" onclick="togglePassword('adminEditPin', this)">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Gelar:</label>
+                            <input type="text" id="adminEditGelar" placeholder="-">
+                        </div>
+                        <div class="form-group">
+                            <label>Bio Singkat:</label>
+                            <input type="text" id="adminEditBio">
+                        </div>
+                        <div class="form-group">
+                            <label>Level:</label>
+                            <input type="number" id="adminEditLevel" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Rank (Otomatis menyesuaikan Bintang saat Absen):</label>
+                            <input type="text" id="adminEditRank">
+                        </div>
+                        <div class="form-group">
+                            <label>Bintang ⭐:</label>
+                            <input type="number" id="adminEditBintang" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Diamond 💎:</label>
+                            <input type="number" id="adminEditDiamond" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Boost (Pengali Absen Bintang & Diamond):</label>
+                            <input type="number" id="adminEditBoost" min="1" placeholder="Misal: 2">
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="adminEditImmortal" style="width: auto;">
+                            <label for="adminEditImmortal" style="margin: 0; cursor: pointer;">🏅 Berikan Lencana Immortal</label>
+                        </div>
+
+                        <!-- Tombol Absen sebelum Tombol Simpan -->
+                        <div class="btn-action-group">
+                            <button type="button" class="btn-absen-admin" onclick="absenMemberAdmin()">⚡ Absen Member</button>
+                            <button type="button" class="btn-action" onclick="saveAdminMemberChanges()">💾 Simpan Data</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Form Tambah Member Baru -->
+                <form id="formAdminAddMember" onsubmit="saveNewMember(event)" style="display: none;">
+                    <div class="form-group">
+                        <label>Nama Member:</label>
+                        <input type="text" id="inputNama" placeholder="Contoh: Budi" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Sandi / PIN Member (Default: 1234):</label>
+                        <div class="password-container">
+                            <input type="password" id="inputPinDefault" value="1234" required>
+                            <button type="button" class="toggle-password-btn" onclick="togglePassword('inputPinDefault', this)">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Gelar:</label>
+                        <input type="text" id="inputGelar" placeholder="-">
+                    </div>
+                    <div class="form-group">
+                        <label>Bio Singkat:</label>
+                        <input type="text" id="inputBio" placeholder="-">
+                    </div>
+                    <div class="form-group">
+                        <label>Level:</label>
+                        <input type="number" id="inputLevel" value="1" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rank:</label>
+                        <input type="text" id="inputRank" placeholder="Warrior">
+                    </div>
+                    <div class="form-group">
+                        <label>Bintang ⭐:</label>
+                        <input type="number" id="inputBintang" value="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Diamond 💎:</label>
+                        <input type="number" id="inputDiamond" value="0" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Boost Pengali 🔥:</label>
+                        <input type="number" id="inputBoost" value="1" min="1">
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="inputImmortalNew" style="width: auto;">
+                        <label for="inputImmortalNew" style="margin: 0; cursor: pointer;">🏅 Berikan Lencana Immortal</label>
+                    </div>
+                    <button type="submit" class="btn-action" style="width:100%;">💾 Simpan Member</button>
+                </form>
+
+                <!-- 3. Panel Kelola / Hapus Member -->
+                <div id="panelAdminManageMember" style="display: none;">
+                    <h4 style="margin-bottom: 10px;">Daftar Member:</h4>
+                    <div id="adminMemberList"></div>
+                </div>
+
+                <!-- 4. Form Shop -->
+                <form id="formAdminShop" onsubmit="saveShopItem(event)" style="display: none;">
+                    <div class="form-group">
+                        <label>Nama Item:</label>
+                        <input type="text" id="inputShopNama" placeholder="Contoh: VIP Pass 7 Hari" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Harga (Rp):</label>
+                        <input type="number" id="inputShopHarga" placeholder="Contoh: 15000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Stok Item:</label>
+                        <input type="number" id="inputShopStok" value="10" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Ada Diskon (50%)?</label>
+                        <select id="inputShopDiskon">
+                            <option value="false">Tidak Ada Diskon</option>
+                            <option value="true">⚡ Diskon 50%</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-action" style="width:100%;">🛒 Simpan Item Shop</button>
+                </form>
+
+                <!-- 5. Form Event -->
+                <form id="formAdminEvent" onsubmit="saveEvent(event)" style="display: none;">
+                    <div class="form-group">
+                        <label>Judul Event:</label>
+                        <input type="text" id="inputEventJudul" placeholder="Contoh: Turnamen Mabar Minggu" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Deskripsi Event:</label>
+                        <textarea id="inputEventDeskripsi" rows="3" placeholder="Tulis detail event..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-action" style="width:100%;">🎉 Simpan Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Konfigurasi Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAeIVCyEF705xX7WY8tuOmM4ngTVneThNA",
+            authDomain: "absen-rm.firebaseapp.com",
+            projectId: "absen-rm",
+            databaseURL: "https://absen-rm-default-rtdb.asia-southeast1.firebasedatabase.app",
+            storageBucket: "absen-rm.firebasestorage.app",
+            messagingSenderId: "26506220109",
+            appId: "1:26506220109:web:989d50860a034b2821c204",
+            measurementId: "G-97YH7MFP87"
+        };
+
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+        }
+        const database = firebase.database();
+        const membersRef = database.ref('members');
+        const shopRef = database.ref('shop');
+        const eventsRef = database.ref('events');
+
+        let isAdminLoggedIn = false;
+        let globalMembersData = {};
+        let activeLoggedInMemberKey = null;
+
+        // FUNGSI TOGGLE IKON MATA PASSWORD
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+
+            if (isPassword) {
+                // SVG Mata Terbuka
+                btn.innerHTML = `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.88 9.88a3 3 0 104.24 4.24M1 1l22 22"/></svg>`;
+            } else {
+                // SVG Mata Tertutup
+                btn.innerHTML = `<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>`;
+            }
+        }
+
+        // FUNGSI PERHITUNGAN RANK DAN GELAR BERDASARKAN BINTANG
+        function getRankAndGelarByBintang(bintang) {
+            if (bintang >= 1000) return { rank: "Demon King", gelar: "I am Demon king" };
+            if (bintang >= 500)  return { rank: "Demon", gelar: "Demon Mode" };
+            if (bintang >= 250)  return { rank: "Super Star", gelar: "I am Super Star" };
+            if (bintang >= 150)  return { rank: "Ancient", gelar: "Ancient Secret" };
+            if (bintang >= 100)  return { rank: "Immortal", gelar: "Immortal Master" };
+            if (bintang >= 50)   return { rank: "Glory", gelar: "Master of Glory" };
+            if (bintang >= 25)   return { rank: "Honor", gelar: "Honored" };
+            if (bintang >= 15)   return { rank: "Mythic", gelar: "Mythical" };
+            if (bintang >= 10)   return { rank: "Legend", gelar: "Legendary" };
+            if (bintang >= 5)    return { rank: "Epic", gelar: "-" };
+            return null; // < 5 Bintang tidak berubah otomatis
+        }
+
+        // Switch Tab Navigation
+        function switchTab(tabName, evt) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+            if (evt) evt.target.classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+        }
+
+        // 1. LISTEN MEMBER DATA
+        membersRef.on('value', (snapshot) => {
+            document.getElementById('loading-profil').style.display = 'none';
+            const memberList = document.getElementById('member-list');
+            const selectSelf = document.getElementById('selectMemberSelf');
+            const adminSelectEdit = document.getElementById('adminSelectEditMember');
+            const adminMemberList = document.getElementById('adminMemberList');
+            
+            memberList.innerHTML = '';
+            adminMemberList.innerHTML = '';
+            selectSelf.innerHTML = '<option value="">-- Pilih Nama Kamu --</option>';
+            adminSelectEdit.innerHTML = '<option value="">-- Pilih Member --</option>';
+
+            if (!snapshot.exists()) {
+                document.getElementById('empty-profil').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('empty-profil').style.display = 'none';
+            globalMembersData = snapshot.val();
+
+            Object.keys(globalMembersData).forEach((key) => {
+                const item = globalMembersData[key];
+
+                // Gelar di samping nama
+                const gelarHTML = (item.gelar && item.gelar !== '-') 
+                    ? `<span class="member-gelar">${item.gelar}</span>` 
+                    : '';
+
+                // Lencana Immortal di samping Level
+                const immortalBadgeHTML = item.lencanaImmortal 
+                    ? `<span class="immortal-badge">🏅 Immortal</span>` 
+                    : '';
+
+                // Render Kartu Member Publik
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.innerHTML = `
+                    <div class="member-header-row">
+                        <span class="member-name">${item.nama || 'Tanpa Nama'}</span>
+                        ${gelarHTML}
+                    </div>
+                    <div class="member-bio">${item.bio || '-'}</div>
+                    <div class="stats-grid">
+                        <div class="stat-item">🏆 Rank: ${item.rank || '-'}</div>
+                        <div class="stat-item">⭐ Bintang: ${item.bintang || 0}</div>
+                        <div class="stat-item">💎 Diamond: ${item.diamond || 0}</div>
+                        <div class="stat-item">🔥 Boost: ${item.boost || 1}x</div>
+                        <div class="stat-item">📊 Lvl: ${item.level || 1} ${immortalBadgeHTML}</div>
+                    </div>
+                `;
+                memberList.appendChild(card);
+
+                // Admin Manage List
+                const adminRow = document.createElement('div');
+                adminRow.className = 'admin-member-row';
+                adminRow.innerHTML = `
+                    <span><strong>${item.nama}</strong> (⭐ ${item.bintang || 0})</span>
+                    <button class="btn-del-mini" onclick="deleteMember('${key}')">❌ Hapus</button>
+                `;
+                adminMemberList.appendChild(adminRow);
+
+                // Populate Dropdown Selects
+                const opt1 = document.createElement('option');
+                opt1.value = key; opt1.innerText = item.nama;
+                selectSelf.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = key; opt2.innerText = item.nama;
+                adminSelectEdit.appendChild(opt2);
+            });
+
+            // If active editing member in admin, refresh form
+            const currentAdminSelect = adminSelectEdit.value;
+            if (currentAdminSelect && globalMembersData[currentAdminSelect]) {
+                loadMemberToAdminForm(currentAdminSelect);
+            }
+        });
+
+        // 2. LISTEN SHOP DATA
+        shopRef.on('value', (snapshot) => {
+            document.getElementById('loading-shop').style.display = 'none';
+            const shopList = document.getElementById('shop-list');
+            shopList.innerHTML = '';
+
+            if (!snapshot.exists()) {
+                document.getElementById('empty-shop').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('empty-shop').style.display = 'none';
+            const data = snapshot.val();
+
+            Object.keys(data).forEach((key) => {
+                const item = data[key];
+                const isDiskon = item.diskon === true || item.diskon === 'true';
+                const finalHarga = isDiskon ? item.harga * 0.5 : item.harga;
+
+                const card = document.createElement('div');
+                card.className = 'shop-item-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="shop-title">${item.nama}</div>
+                        <div class="shop-price">Rp ${finalHarga.toLocaleString('id-ID')}</div>
+                        ${isDiskon ? '<div class="shop-discount-badge">⚡ (Diskon 50%)</div>' : ''}
+                    </div>
+                    <div class="shop-stock">Stok: ${item.stok}</div>
+                `;
+                shopList.appendChild(card);
+            });
+        });
+
+        // 3. LISTEN EVENT DATA
+        eventsRef.on('value', (snapshot) => {
+            const container = document.getElementById('event-container');
+            container.innerHTML = '';
+
+            if (!snapshot.exists()) {
+                container.innerHTML = `<div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>`;
+                return;
+            }
+
+            const data = snapshot.val();
+            Object.keys(data).forEach((key) => {
+                const ev = data[key];
+                const card = document.createElement('div');
+                card.className = 'card-box';
+                card.innerHTML = `
+                    <h3 style="color:#2563eb; margin-bottom: 6px;">🎉 ${ev.judul}</h3>
+                    <p style="font-size:0.9rem; color:#475569;">${ev.deskripsi}</p>
+                `;
+                container.appendChild(card);
+            });
+        });
+
+        // ==========================================
+        // FITUR PERSONALISASI (LOGIN MEMBER)
+        // ==========================================
+        function loginMember() {
+            const key = document.getElementById('selectMemberSelf').value;
+            const pinInput = document.getElementById('inputMemberPin').value;
+
+            if (!key) {
+                alert("Pilih nama kamu dulu!");
+                return;
+            }
+
+            const member = globalMembersData[key];
+            const realPin = member.pin || "1234";
+
+            if (pinInput === realPin) {
+                activeLoggedInMemberKey = key;
+                document.getElementById('member-login-box').style.display = 'none';
+                document.getElementById('member-edit-box').style.display = 'block';
+
+                document.getElementById('editSelfNama').value = member.nama || '';
+                document.getElementById('editSelfBio').value = member.bio || '';
+                document.getElementById('editSelfPin').value = realPin;
+
+                const itemsContainer = document.getElementById('owned-items-list');
+                if (member.ownedItems && Object.keys(member.ownedItems).length > 0) {
+                    itemsContainer.innerHTML = Object.values(member.ownedItems).map(i => `• ${i}`).join('<br>');
+                } else {
+                    itemsContainer.innerText = 'Belum memiliki item apapun.';
+                }
+            } else {
+                alert("❌ Sandi / PIN Salah! (Sandi standar: 1234)");
+            }
+        }
+
+        function saveSelfProfile() {
+            if (!activeLoggedInMemberKey) return;
+
+            const newNama = document.getElementById('editSelfNama').value.trim();
+            const newBio = document.getElementById('editSelfBio').value;
+            const newPin = document.getElementById('editSelfPin').value.trim();
+
+            if (!newNama) {
+                alert("Nama tidak boleh kosong!");
+                return;
+            }
+
+            membersRef.child(activeLoggedInMemberKey).update({
+                nama: newNama,
+                bio: newBio,
+                pin: newPin || "1234"
+            }).then(() => {
+                alert("✅ Profil kamu berhasil diperbarui!");
+            });
+        }
+
+        function logoutMember() {
+            activeLoggedInMemberKey = null;
+            document.getElementById('member-login-box').style.display = 'block';
+            document.getElementById('member-edit-box').style.display = 'none';
+            document.getElementById('inputMemberPin').value = '';
+        }
+
+        // ==========================================
+        // FITUR MODAL ADMIN & ABSEN REAL-TIME
+        // ==========================================
+        function openAdminAuthModal() {
+            if (isAdminLoggedIn) {
+                document.getElementById('adminModal').style.display = 'flex';
+            } else {
+                document.getElementById('adminAuthModal').style.display = 'flex';
+            }
+        }
+
+        function closeAdminAuthModal() {
+            document.getElementById('adminAuthModal').style.display = 'none';
+        }
+
+        function submitAdminAuth() {
+            const pass = document.getElementById('inputAdminAuthPass').value;
+            if (pass === "ABSENRUANGMABAR") {
+                isAdminLoggedIn = true;
+                closeAdminAuthModal();
+                document.getElementById('adminModal').style.display = 'flex';
+            } else {
+                alert("Password Admin Salah!");
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+        }
+
+        function switchAdminMenu(val) {
+            document.getElementById('formAdminEditMember').style.display = val === 'edit-member' ? 'block' : 'none';
+            document.getElementById('formAdminAddMember').style.display = val === 'add-member' ? 'block' : 'none';
+            document.getElementById('panelAdminManageMember').style.display = val === 'manage-member' ? 'block' : 'none';
+            document.getElementById('formAdminShop').style.display = val === 'shop' ? 'block' : 'none';
+            document.getElementById('formAdminEvent').style.display = val === 'event' ? 'block' : 'none';
+        }
+
+        // Load Data Member ke Form Admin
+        function loadMemberToAdminForm(key) {
+            const fields = document.getElementById('adminMemberFields');
+            if (!key || !globalMembersData[key]) {
+                fields.style.display = 'none';
+                return;
+            }
+
+            fields.style.display = 'block';
+            const m = globalMembersData[key];
+
+            document.getElementById('adminEditNama').value = m.nama || '';
+            document.getElementById('adminEditPin').value = m.pin || '1234';
+            document.getElementById('adminEditGelar').value = m.gelar || '';
+            document.getElementById('adminEditBio').value = m.bio || '';
+            document.getElementById('adminEditLevel').value = m.level || 1;
+            document.getElementById('adminEditRank').value = m.rank || 'Warrior';
+            document.getElementById('adminEditBintang').value = m.bintang || 0;
+            document.getElementById('adminEditDiamond').value = m.diamond || 0;
+            document.getElementById('adminEditBoost').value = m.boost || 1;
+            document.getElementById('adminEditImmortal').checked = m.lencanaImmortal === true;
+        }
+
+        // ABSEN MEMBER OLEH ADMIN (+1 ⭐ & +100 💎 * Boost Multiplier)
+        function absenMemberAdmin() {
+            const key = document.getElementById('adminSelectEditMember').value;
+            if (!key) return;
+
+            let curBintang = parseInt(document.getElementById('adminEditBintang').value) || 0;
+            let curDiamond = parseInt(document.getElementById('adminEditDiamond').value) || 0;
+            let boostMultiplier = parseInt(document.getElementById('adminEditBoost').value) || 1;
+            if (boostMultiplier < 1) boostMultiplier = 1;
+
+            // Tambah Bintang & Diamond sesuai Boost
+            let newBintang = curBintang + (1 * boostMultiplier);
+            let newDiamond = curDiamond + (100 * boostMultiplier);
+
+            // Cek update Rank & Gelar otomatis
+            const autoRankGelar = getRankAndGelarByBintang(newBintang);
+            let newRank = document.getElementById('adminEditRank').value;
+            let newGelar = document.getElementById('adminEditGelar').value;
+
+            if (autoRankGelar) {
+                newRank = autoRankGelar.rank;
+                newGelar = autoRankGelar.gelar;
+            }
+
+            // Update UI
+            document.getElementById('adminEditBintang').value = newBintang;
+            document.getElementById('adminEditDiamond').value = newDiamond;
+            document.getElementById('adminEditRank').value = newRank;
+            document.getElementById('adminEditGelar').value = newGelar;
+
+            // Save ke Firebase langsung
+            saveAdminMemberChanges(true);
+        }
+
+        function saveAdminMemberChanges(isFromAbsen = false) {
+            const key = document.getElementById('adminSelectEditMember').value;
+            if (!key) return;
+
+            const updatedData = {
+                nama: document.getElementById('adminEditNama').value.trim(),
+                pin: document.getElementById('adminEditPin').value.trim() || '1234',
+                gelar: document.getElementById('adminEditGelar').value.trim(),
+                bio: document.getElementById('adminEditBio').value,
+                level: parseInt(document.getElementById('adminEditLevel').value) || 1,
+                rank: document.getElementById('adminEditRank').value.trim(),
+                bintang: parseInt(document.getElementById('adminEditBintang').value) || 0,
+                diamond: parseInt(document.getElementById('adminEditDiamond').value) || 0,
+                boost: parseInt(document.getElementById('adminEditBoost').value) || 1,
+                lencanaImmortal: document.getElementById('adminEditImmortal').checked
+            };
+
+            membersRef.child(key).update(updatedData).then(() => {
+                if (isFromAbsen) {
+                    alert(`✅ ABSEN BERHASIL!\nBintang +${1 * updatedData.boost}, Diamond +${100 * updatedData.boost}`);
+                } else {
+                    alert("✅ Perubahan Member Berhasil Disimpan!");
+                }
+            });
+        }
+
+        function saveNewMember(e) {
+            e.preventDefault();
+            const bintangVal = parseInt(document.getElementById('inputBintang').value) || 0;
+            const autoRankGelar = getRankAndGelarByBintang(bintangVal);
+
+            let rankVal = document.getElementById('inputRank').value;
+            let gelarVal = document.getElementById('inputGelar').value;
+
+            if (autoRankGelar) {
+                rankVal = autoRankGelar.rank;
+                gelarVal = autoRankGelar.gelar;
+            }
+
+            membersRef.push().set({
+                nama: document.getElementById('inputNama').value,
+                pin: document.getElementById('inputPinDefault').value || "1234",
+                gelar: gelarVal,
+                bio: document.getElementById('inputBio').value,
+                level: parseInt(document.getElementById('inputLevel').value) || 1,
+                rank: rankVal,
+                bintang: bintangVal,
+                diamond: parseInt(document.getElementById('inputDiamond').value) || 0,
+                boost: parseInt(document.getElementById('inputBoost').value) || 1,
+                lencanaImmortal: document.getElementById('inputImmortalNew').checked
+            }).then(() => {
+                alert("Member baru berhasil dibuat!");
+                document.getElementById('formAdminAddMember').reset();
+                closeAdminModal();
+            });
+        }
+
+        function saveShopItem(e) {
+            e.preventDefault();
+            shopRef.push().set({
+                nama: document.getElementById('inputShopNama').value,
+                harga: parseInt(document.getElementById('inputShopHarga').value) || 0,
+                stok: parseInt(document.getElementById('inputShopStok').value) || 0,
+                diskon: document.getElementById('inputShopDiskon').value === 'true'
+            }).then(() => {
+                alert("Item shop berhasil disimpan!");
+                document.getElementById('formAdminShop').reset();
+                closeAdminModal();
+            });
+        }
+
+        function saveEvent(e) {
+            e.preventDefault();
+            eventsRef.push().set({
+                judul: document.getElementById('inputEventJudul').value,
+                deskripsi: document.getElementById('inputEventDeskripsi').value
+            }).then(() => {
+                alert("Event berhasil ditambahkan!");
+                document.getElementById('formAdminEvent').reset();
+                closeAdminModal();
+            });
+        }
+
+        function deleteMember(key) {
+            if (confirm("Yakin mau hapus member ini dari database?")) {
+                membersRef.child(key).remove().then(() => {
+                    alert("Member dihapus!");
+                });
+            }
+        }
+    </script>
+</body>
+</html>
