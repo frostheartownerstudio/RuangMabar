@@ -487,7 +487,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Pilih Gelar Kamu (Disediakan / Dibeli dari Shop):</label>
+                        <label>Pilih Gelar Kamu:</label>
                         <select id="editSelfGelarSelect"></select>
                     </div>
 
@@ -519,11 +519,11 @@
                     </div>
 
                     <button class="btn-action" style="width: 100%;" onclick="saveSelfProfile()">💾 Simpan Perubahan</button>
-                    <button class="btn-action btn-secondary" onclick="logoutMember()">🔒 Keluar / Logout</button>
+                    <button class="btn-action btn-secondary" onclick="logoutMember()">🔒 Logout</button>
 
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
 
-                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Item & Status Dimiliki:</h4>
+                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Item & Status Yang Dimiliki:</h4>
                     <div id="owned-items-list" style="color: #64748b; font-size: 0.9rem;">
                         Belum memiliki item apapun.
                     </div>
@@ -547,7 +547,7 @@
         <!-- TAB CHAT -->
         <div id="tab-chat" class="tab-content">
             <div class="card-box" style="margin-bottom: 16px;">
-                <h3 style="margin-bottom: 10px; color: #0f172a;">💬 Obrolan Ruang Mabar</h3>
+                <h3 style="margin-bottom: 10px; color: #0f172a;">💬 Chat Ruang Mabar</h3>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <input type="text" id="inputChatMessage" placeholder="Tulis pesan kamu..." onkeydown="if(event.key==='Enter') sendChatMessage()" style="flex: 1; min-width: 200px; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none;">
                     <button class="btn-action" style="padding: 10px 20px; white-space: nowrap; flex: none;" onclick="sendChatMessage()">🚀 Kirim</button>
@@ -1346,28 +1346,28 @@
             if (isVipActive(member) || unlockedHiasan.includes('vip_gold')) {
                 const optVip = document.createElement('option');
                 optVip.value = 'vip_gold';
-                optVip.innerText = 'Emas VIP (Shiny Gold)';
+                optVip.innerText = 'Emas VIP (Emas Mewah)';
                 selectHiasan.appendChild(optVip);
             }
 
             if (isHiasanActive(member, 'limited_shiny') || unlockedHiasan.includes('limited_shiny')) {
                 const optShiny = document.createElement('option');
                 optShiny.value = 'limited_shiny';
-                optShiny.innerText = 'Limited Shiny (Green White Shiny)';
+                optShiny.innerText = 'Limited Shiny (Hijau bercahaya)';
                 selectHiasan.appendChild(optShiny);
             }
 
             if (unlockedHiasan.includes('keberuntungan')) {
                 const optKeberuntungan = document.createElement('option');
                 optKeberuntungan.value = 'keberuntungan';
-                optKeberuntungan.innerText = '🔴 Keberuntungan (Red White Shiny)';
+                optKeberuntungan.innerText = '🔴 Keberuntungan (Merah Bercahaya)';
                 selectHiasan.appendChild(optKeberuntungan);
             }
 
             if (unlockedHiasan.includes('terpilih')) {
                 const optTerpilih = document.createElement('option');
                 optTerpilih.value = 'terpilih';
-                optTerpilih.innerText = '💎 Terpilih (Diamond Blue Shiny)';
+                optTerpilih.innerText = '💎 Terpilih (Biru Berlian)';
                 selectHiasan.appendChild(optTerpilih);
             }
 
