@@ -113,18 +113,62 @@
             gap: 16px;
         }
 
-        .chat-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
         .member-card {
             background: white;
             border-radius: 16px;
             padding: 18px;
             border: 1px solid #3b82f6;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            position: relative;
+        }
+
+        .member-card.decor-yellow {
+            background: linear-gradient(135deg, #fef9c3 0%, #fde047 100%) !important;
+            border: 2.5px solid #15803d !important;
+            box-shadow: 0 8px 20px rgba(234, 179, 8, 0.3), inset 0 0 12px rgba(250, 204, 21, 0.4) !important;
+        }
+        .member-card.decor-yellow::before, .member-card.decor-yellow::after {
+            content: '★';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: #15803d;
+            color: #fef08a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            border: 2px solid #fef08a;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+            z-index: 2;
+        }
+        .member-card.decor-yellow::before { top: -10px; left: -10px; }
+        .member-card.decor-yellow::after { bottom: -10px; right: -10px; }
+
+        .btn-profile-detail {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            z-index: 5;
+        }
+        .btn-profile-detail:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
         }
 
         .member-header-row {
@@ -133,11 +177,11 @@
             gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 4px;
+            padding-right: 32px;
         }
 
         .member-name { font-size: 1.15rem; font-weight: 700; color: #0f172a; }
 
-        /* Hiasan Nama Emas Shiny */
         .name-gold-shiny {
             background: linear-gradient(90deg, #b8860b, #ffd700, #ff8c00, #ffd700, #b8860b);
             background-size: 200% auto;
@@ -148,12 +192,8 @@
             animation: goldShine 3s linear infinite;
             display: inline-block;
         }
+        @keyframes goldShine { to { background-position: 200% center; } }
 
-        @keyframes goldShine {
-            to { background-position: 200% center; }
-        }
-
-        /* Hiasan Nama Limited Shiny (Hijau Shiny Putih) */
         .name-green-shiny {
             background: linear-gradient(90deg, #15803d, #22c55e, #ffffff, #22c55e, #15803d);
             background-size: 200% auto;
@@ -164,12 +204,21 @@
             animation: greenShine 2.5s linear infinite;
             display: inline-block;
         }
+        @keyframes greenShine { to { background-position: 200% center; } }
 
-        @keyframes greenShine {
-            to { background-position: 200% center; }
+        .name-purple-shiny {
+            background: linear-gradient(90deg, #6b21a8, #a855f7, #ffffff, #a855f7, #6b21a8);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 800;
+            animation: purpleShine 2.5s linear infinite;
+            display: inline-block;
+            filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6));
         }
+        @keyframes purpleShine { to { background-position: 200% center; } }
 
-        /* Hiasan Nama Keberuntungan (Merah Shiny Putih) */
         .name-red-shiny {
             background: linear-gradient(90deg, #991b1b, #ef4444, #ffffff, #ef4444, #991b1b);
             background-size: 200% auto;
@@ -180,12 +229,8 @@
             animation: redShine 2.5s linear infinite;
             display: inline-block;
         }
+        @keyframes redShine { to { background-position: 200% center; } }
 
-        @keyframes redShine {
-            to { background-position: 200% center; }
-        }
-
-        /* Hiasan Nama Terpilih (Biru Berlian Shiny Biru Tua) */
         .name-diamond-shiny {
             background: linear-gradient(90deg, #1e3a8a, #0284c7, #38bdf8, #0284c7, #1e3a8a);
             background-size: 200% auto;
@@ -196,35 +241,37 @@
             animation: diamondShine 2.5s linear infinite;
             display: inline-block;
         }
+        @keyframes diamondShine { to { background-position: 200% center; } }
 
-        @keyframes diamondShine {
-            to { background-position: 200% center; }
-        }
-
-        .vip-time-tag {
+        .time-tag {
             font-size: 0.72rem;
             font-weight: 700;
-            margin-top: 8px;
+            margin-top: 6px;
+            display: block;
+        }
+        .vip-time-tag {
             background: linear-gradient(90deg, #b8860b, #ffd700, #ff8c00, #ffd700, #b8860b);
             background-size: 200% auto;
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
             animation: goldShine 3s linear infinite;
-            display: inline-block;
         }
-
         .green-time-tag {
-            font-size: 0.72rem;
-            font-weight: 700;
-            margin-top: 6px;
             background: linear-gradient(90deg, #15803d, #22c55e, #ffffff, #22c55e, #15803d);
             background-size: 200% auto;
             color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
             animation: greenShine 2.5s linear infinite;
-            display: inline-block;
+        }
+        .purple-time-tag {
+            background: linear-gradient(90deg, #6b21a8, #c084fc, #ffffff, #c084fc, #6b21a8);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: purpleShine 2.5s linear infinite;
         }
 
         .member-gelar {
@@ -249,7 +296,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            background: #f8fafc;
+            background: rgba(248, 250, 252, 0.8);
             padding: 10px;
             border-radius: 10px;
         }
@@ -280,6 +327,7 @@
         }
         .shop-title { font-weight: 700; font-size: 1rem; color: #0f172a; }
         .shop-price { font-weight: 600; color: #2563eb; font-size: 0.95rem; }
+        .shop-type-tag { font-size: 0.78rem; color: #64748b; font-weight: 600; margin-top: 2px; }
         .shop-stock { font-size: 0.8rem; color: #64748b; background: #f1f5f9; padding: 4px 10px; border-radius: 12px; }
 
         .btn-buy {
@@ -354,28 +402,14 @@
             width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none;
         }
 
-        .btn-action-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
         .btn-action {
             flex: 1;
             background: #2563eb; color: white; border: none;
             padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer;
         }
 
-        .btn-absen-admin {
-            flex: 1;
-            background: #16a34a; color: white; border: none;
-            padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer;
-        }
-        .btn-absen-admin:hover { background: #15803d; }
-
         .btn-secondary { background: #64748b; margin-top: 6px; width: 100%; }
 
-        /* Style Card Arcade */
         .arcade-card {
             background: linear-gradient(135deg, #1e1b4b, #312e81);
             color: white;
@@ -391,7 +425,6 @@
             box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
         }
 
-        /* Lucky Wheel Spinner Canvas Container */
         .wheel-container {
             position: relative;
             width: 280px;
@@ -419,7 +452,7 @@
             border-radius: 50%;
             border: 6px solid #312e81;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            transition: transform 4s cubic-bezier(0.15, 0.99, 0.18, 0.99);
+            transition: transform 2.5s cubic-bezier(0.15, 0.85, 0.35, 1.0);
         }
     </style>
 </head>
@@ -427,7 +460,7 @@
 
     <header>
         <h1>Profil Ruang Mabar</h1>
-        <button class="btn-admin" onclick="openAdminAuthModal()">⚙️ Admin</button>
+        <button class="btn-admin" onclick="openAdminModal()">⚙ Admin</button>
     </header>
 
     <div class="container">
@@ -435,29 +468,47 @@
             <button class="tab-btn active" onclick="switchTab('profil', event)">👥 Profil</button>
             <button class="tab-btn" onclick="switchTab('shop', event)">🛒 Shop</button>
             <button class="tab-btn" onclick="switchTab('event', event)">🎉 Event</button>
-            <button class="tab-btn" onclick="switchTab('personal', event)">⚙️ Personalisasi</button>
+            <button class="tab-btn" onclick="switchTab('personal', event)">⚙ Personalisasi</button>
             <button class="tab-btn" onclick="switchTab('arcade', event)">🕹️ Arcade</button>
             <button class="tab-btn" onclick="switchTab('chat', event)">💬 Chat</button>
         </div>
 
+        <!-- TAB PROFIL -->
         <div id="tab-profil" class="tab-content active">
+            <div class="card-box" style="margin-bottom: 16px; padding: 14px;">
+                <input type="text" id="searchProfileInput" placeholder="🔍 Cari profil nama..." oninput="filterAndRenderMembers()" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; outline: none; font-size: 0.95rem;">
+            </div>
+
             <div id="loading-profil" class="empty-notice">Memuat data Anggota...</div>
             <div id="empty-profil" class="empty-notice" style="display: none;">Belum ada data member.</div>
             <div id="member-list" class="member-grid"></div>
         </div>
 
+        <!-- TAB SHOP -->
         <div id="tab-shop" class="tab-content">
+            <div class="arcade-card" style="background: linear-gradient(135deg, #0f172a, #1e293b); border-color: #38bdf8; margin-bottom: 16px;" onclick="openMarketplaceModal()">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 1.2rem; color: #38bdf8; margin-bottom: 4px;">🏪 Marketplace</h3>
+                        <p style="font-size: 0.85rem; opacity: 0.9;">Jual-beli Hiasan Nama & Profil milik pengguna!</p>
+                    </div>
+                    <span style="font-size: 2rem;">🛍️</span>
+                </div>
+            </div>
+
             <div id="loading-shop" class="empty-notice">Memuat item Shop...</div>
             <div id="empty-shop" class="empty-notice" style="display: none;">Belum ada item di Shop.</div>
             <div id="shop-list" class="shop-list"></div>
         </div>
 
+        <!-- TAB EVENT -->
         <div id="tab-event" class="tab-content">
             <div id="event-container">
                 <div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>
             </div>
         </div>
 
+        <!-- TAB PERSONALISASI -->
         <div id="tab-personal" class="tab-content">
             <div class="card-box">
                 <h3 style="margin-bottom: 12px; color: #0f172a;">🔑 Login Member</h3>
@@ -478,16 +529,11 @@
                             </button>
                         </div>
                     </div>
-                    <button class="btn-action" style="width: 100%;" onclick="loginMember()">🔓 Masuk / Verifikasi</button>
+                    <button class="btn-action" style="width: 100%;" onclick="loginMember()">🔓 Masuk</button>
                 </div>
 
                 <div id="member-edit-box" style="display: none;">
-                    <div style="background: #e0f2fe; padding: 10px; border-radius: 8px; margin-bottom: 14px; color: #0369a1; font-size: 0.85rem; border: 1px solid #3b82f6;">
-                        ✅ Berhasil Login! Kamu bisa atur Gelar, Hiasan Nama, Bio, dan Sandi kamu di bawah.
-                    </div>
-
-                    <div class="form-group">
-                        <label>Pilih Gelar Kamu:</label>
+                    <label>Pilih Gelar Kamu:</label>
                         <select id="editSelfGelarSelect"></select>
                     </div>
 
@@ -495,6 +541,13 @@
                         <label>✨ Pilih Hiasan Nama:</label>
                         <select id="editSelfHiasanNamaSelect">
                             <option value="default">Default</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>🖼 Pilih Hiasan Profil:</label>
+                        <select id="editSelfHiasanProfilSelect">
+                            <option value="default">Default (Putih)</option>
                         </select>
                     </div>
 
@@ -509,6 +562,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label>🎮 Game Kesukaan:</label>
+                        <input type="text" id="editSelfGameKesukaan" placeholder="Contoh: Mobile Legends, PUBG, Roblox">
+                    </div>
+
+                    <div class="form-group">
                         <label>Ganti Sandi / PIN Baru:</label>
                         <div class="password-container">
                             <input type="password" id="editSelfPin" placeholder="Masukkan Sandi Baru">
@@ -519,12 +577,12 @@
                     </div>
 
                     <button class="btn-action" style="width: 100%;" onclick="saveSelfProfile()">💾 Simpan Perubahan</button>
-                    <button class="btn-action btn-secondary" onclick="logoutMember()">🔒 Logout</button>
+                    <button class="btn-action btn-secondary" onclick="logoutMember()">🔒 Keluar / Logout</button>
 
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
 
-                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Item & Status Yang Dimiliki:</h4>
-                    <div id="owned-items-list" style="color: #64748b; font-size: 0.9rem;">
+                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Inventory & Item Milik Kamu:</h4>
+                    <div id="owned-items-list" style="color: #64748b; font-size: 0.88rem; line-height: 1.6;">
                         Belum memiliki item apapun.
                     </div>
                 </div>
@@ -533,7 +591,7 @@
 
         <!-- TAB ARCADE -->
         <div id="tab-arcade" class="tab-content">
-      <div class="arcade-card" onclick="openLuckyWheelModal()">
+            <div class="arcade-card" onclick="openLuckyWheelModal()">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
                         <h3 style="font-size: 1.3rem; margin-bottom: 4px;">🎡 Lucky Wheel</h3>
@@ -546,20 +604,86 @@
 
         <!-- TAB CHAT -->
         <div id="tab-chat" class="tab-content">
-            <div class="card-box" style="margin-bottom: 16px;">
-                <h3 style="margin-bottom: 10px; color: #0f172a;">💬 Chat Ruang Mabar</h3>
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <input type="text" id="inputChatMessage" placeholder="Tulis pesan kamu..." onkeydown="if(event.key==='Enter') sendChatMessage()" style="flex: 1; min-width: 200px; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none;">
-                    <button class="btn-action" style="padding: 10px 20px; white-space: nowrap; flex: none;" onclick="sendChatMessage()">🚀 Kirim</button>
-                </div>
-                <div style="font-size: 0.78rem; color: #64748b; margin-top: 8px;">
-                    *Ayo mengobrol! Pastikan kamu sudah login di tab <strong>Personalisasi</strong> agar identitas kamu muncul.
-                </div>
-            </div>
+            <div class="card-box" style="margin-bottom: 16px; background: transparent; border: none; box-shadow: none; padding: 0;">
+                <div class="card-box" style="margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                        <span style="font-size: 1.2rem;">💬</span>
+                        <h3 style="color: #0f172a; font-size: 1.1rem;">Chat Ruang Mabar</h3>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; width: 100%;">
+                        <input type="text" id="inputChatMessage" placeholder="Tulis pesan kamu..." onkeydown="if(event.key==='Enter') sendChatMessage()" style="width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none; box-sizing: border-box;">
+                        <button class="btn-action" style="width: 100%; padding: 10px 16px;" onclick="sendChatMessage()">🚀 Kirim</button>
+                    </div>
 
-            <div id="loading-chat" class="empty-notice">Memuat obrolan...</div>
-            <div id="empty-chat" class="empty-notice" style="display: none;">Belum ada pesan chat. Jadilah yang pertama mengirim pesan!</div>
-            <div id="chat-list" class="chat-grid"></div>
+                    <small style="color: #64748b; font-size: 0.78rem;">*Ayo mengobrol! Pastikan kamu sudah login di tab <strong>Personalisasi</strong> agar identitas kamu muncul.</small>
+                </div>
+
+                <div id="loading-chat" class="empty-notice" style="margin-bottom: 12px;">Memuat obrolan...</div>
+                <div id="empty-chat" class="empty-notice" style="display: none; margin-bottom: 12px;">Belum ada pesan chat. Jadilah yang pertama mengirim pesan!</div>
+                
+                <div id="chat-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DETAIL PROFIL -->
+    <div id="profileDetailModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 440px;">
+            <div class="modal-header">
+                <h2>👤 Detail Profil</h2>
+                <button class="btn-close" onclick="closeProfileDetailModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="profileDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- MODAL MARKETPLACE -->
+    <div id="marketplaceModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 550px;">
+            <div class="modal-header">
+                <h2>🏪 Ruang Marketplace</h2>
+                <button class="btn-close" onclick="closeMarketplaceModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="arcade-card" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); border-color: #60a5fa; margin-bottom: 16px; text-align: center;" onclick="openSellItemModal()">
+                    <h3 style="font-size: 1.15rem; color: white;">➕ Jual Hiasan Nama / Profil Kamu</h3>
+                    <p style="font-size: 0.8rem; opacity: 0.9;">Tentukan harga (💎 Diamond) hiasan milikmu!</p>
+                </div>
+
+                <h4 style="margin-bottom: 10px; color: #0f172a;">Daftar Hiasan Dijual:</h4>
+                <div id="marketplace-item-list" class="shop-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL JUAL ITEM -->
+    <div id="sellItemModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 420px;">
+            <div class="modal-header">
+                <h2>🏷️ Penjualan Hiasan</h2>
+                <button class="btn-close" onclick="closeSellItemModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Pilih Hiasan dari Koleksi Kamu:</label>
+                    <select id="inputMarketSellItemSelect" onchange="updateSellItemMaxStock()"></select>
+                </div>
+                <div class="form-group">
+                    <label>Jenis/Tipe Item:</label>
+                    <input type="text" id="inputMarketSellTipe" readonly style="background: #f1f5f9; color: #64748b;">
+                </div>
+                <div class="form-group">
+                    <label>Harga Jual (💎 Diamond):</label>
+                    <input type="number" id="inputMarketSellHarga" placeholder="Masukkan harga per item" min="1">
+                </div>
+                <div class="form-group">
+                    <label>Jumlah Stok:</label>
+                    <input type="number" id="inputMarketSellStok" value="1" min="1" readonly style="background: #f1f5f9; color: #64748b;">
+                    <small id="sellStockNotice" style="color: #64748b; font-size: 0.75rem;"></small>
+                </div>
+                <button class="btn-action" style="width: 100%; margin-top: 10px;" onclick="submitSellItemMarketplace()">Jual Sekarang</button>
+            </div>
         </div>
     </div>
 
@@ -571,6 +695,10 @@
                 <button class="btn-close" onclick="closeLuckyWheelModal()">&times;</button>
             </div>
             <div class="modal-body" style="display: flex; flex-direction: column; align-items: center;">
+                <div id="luckyWheelUserDiamond" style="background: #e0f2fe; color: #0369a1; padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; margin-bottom: 8px;">
+                    💎 Diamond Kamu: 0
+                </div>
+
                 <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">
                     Biaya Spin: <strong style="color: #2563eb;">💎 50 Diamond</strong>
                 </p>
@@ -589,211 +717,131 @@
         </div>
     </div>
 
-    <div id="adminAuthModal" class="modal-overlay">
-        <div class="modal-content" style="max-width: 380px;">
-            <div class="modal-header">
-                <h2>🔐 Verifikasi Admin</h2>
-                <button class="btn-close" onclick="closeAdminAuthModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Masukkan Password Admin:</label>
-                    <div class="password-container">
-                        <input type="password" id="inputAdminAuthPass" placeholder="Password Admin">
-                        <button type="button" class="toggle-password-btn" onclick="togglePassword('inputAdminAuthPass', this)">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <button class="btn-action" style="width:100%;" onclick="submitAdminAuth()">Masuk Ruang Admin</button>
-            </div>
-        </div>
-    </div>
-
+    <!-- MODAL ADMIN -->
     <div id="adminModal" class="modal-overlay">
-        <div class="modal-content">
+        <div class="modal-content" style="max-width: 500px;">
             <div class="modal-header">
-                <h2>🛠 Ruang Admin</h2>
+                <h2>⚙️ Ruang Panel Admin</h2>
                 <button class="btn-close" onclick="closeAdminModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label>Pilih Kelola Data:</label>
-                    <select id="adminMenuSelect" onchange="switchAdminMenu(this.value)">
-                        <option value="edit-member">✏️ Edit & Absen Member</option>
-                        <option value="add-member">+ Tambah Member Baru</option>
-                        <option value="manage-member">🗑️ Kelola / Hapus Member</option>
-                        <option value="shop">+ Tambah Item Shop</option>
-                        <option value="manage-shop">🗑️ Kelola / Hapus Item Shop</option>
-                        <option value="event">+ Tambah Event Baru</option>
-                        <option value="manage-event">🗑️ Kelola / Hapus Event</option>
-                    </select>
-                </div>
-
-                <div id="formAdminEditMember">
+                <div id="admin-login-sec">
                     <div class="form-group">
-                        <label>Pilih Member Yang Mau Di-Setting:</label>
-                        <select id="adminSelectEditMember" onchange="loadMemberToAdminForm(this.value)">
-                            <option value="">-- Pilih Member --</option>
-                        </select>
-                    </div>
-
-                    <div id="adminMemberFields" style="display: none;">
-                        <div class="form-group">
-                            <label>Nama Member:</label>
-                            <input type="text" id="adminEditNama" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Sandi / PIN Member:</label>
-                            <div class="password-container">
-                                <input type="password" id="adminEditPin" required>
-                                <button type="button" class="toggle-password-btn" onclick="togglePassword('adminEditPin', this)">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Gelar Aktif:</label>
-                            <input type="text" id="adminEditGelar" placeholder="-">
-                        </div>
-                        <div class="form-group">
-                            <label>Bio Singkat:</label>
-                            <input type="text" id="adminEditBio">
-                        </div>
-                        <div class="form-group">
-                            <label>Level:</label>
-                            <input type="number" id="adminEditLevel" min="1">
-                        </div>
-                        <div class="form-group">
-                            <label>Rank:</label>
-                            <input type="text" id="adminEditRank">
-                        </div>
-                        <div class="form-group">
-                            <label>Bintang ⭐:</label>
-                            <input type="number" id="adminEditBintang" min="0">
-                        </div>
-                        <div class="form-group">
-                            <label>Diamond 💎:</label>
-                            <input type="number" id="adminEditDiamond" min="0">
-                        </div>
-                        <div class="form-group">
-                            <label>Boost Pengali 🔥:</label>
-                            <input type="number" id="adminEditBoost" min="1" placeholder="Misal: 2">
-                        </div>
-                        <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
-                            <input type="checkbox" id="adminEditImmortal" style="width: auto;">
-                            <label for="adminEditImmortal" style="margin: 0; cursor: pointer;">🏅 Berikan Lencana Immortal</label>
-                        </div>
-
-                        <div class="btn-action-group">
-                            <button type="button" class="btn-absen-admin" onclick="absenMemberAdmin()">⚡ Absen Member</button>
-                            <button type="button" class="btn-action" onclick="saveAdminMemberChanges()">💾 Simpan Data</button>
-                        </div>
-                    </div>
-                </div>
-
-                <form id="formAdminAddMember" onsubmit="saveNewMember(event)" style="display: none;">
-                    <div class="form-group">
-                        <label>Nama Member:</label>
-                        <input type="text" id="inputNama" placeholder="Contoh: Budi" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Sandi / PIN Member (Default: 1234):</label>
+                        <label>Masukkan Password Admin:</label>
                         <div class="password-container">
-                            <input type="password" id="inputPinDefault" value="1234" required>
-                            <button type="button" class="toggle-password-btn" onclick="togglePassword('inputPinDefault', this)">
+                            <input type="password" id="inputAdminAuthPass" placeholder="Password Admin">
+                            <button type="button" class="toggle-password-btn" onclick="togglePassword('inputAdminAuthPass', this)">
                                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                             </button>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>Gelar Awal:</label>
-                        <input type="text" id="inputGelar" placeholder="Pemula">
-                    </div>
-                    <div class="form-group">
-                        <label>Bio Singkat:</label>
-                        <input type="text" id="inputBio" placeholder="-">
-                    </div>
-                    <div class="form-group">
-                        <label>Level:</label>
-                        <input type="number" id="inputLevel" value="1" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Rank:</label>
-                        <input type="text" id="inputRank" placeholder="Warrior">
-                    </div>
-                    <div class="form-group">
-                        <label>Bintang ⭐:</label>
-                        <input type="number" id="inputBintang" value="0" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label>Diamond 💎:</label>
-                        <input type="number" id="inputDiamond" value="0" min="0">
-                    </div>
-                    <div class="form-group">
-                        <label>Boost Pengali 🔥:</label>
-                        <input type="number" id="inputBoost" value="1" min="1">
-                    </div>
-                    <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
-                        <input type="checkbox" id="inputImmortalNew" style="width: auto;">
-                        <label for="inputImmortalNew" style="margin: 0; cursor: pointer;">🏅 Berikan Lencana Immortal</label>
-                    </div>
-                    <button type="submit" class="btn-action" style="width:100%;">💾 Simpan Member</button>
-                </form>
-
-                <div id="panelAdminManageMember" style="display: none;">
-                    <h4 style="margin-bottom: 10px;">Daftar Member:</h4>
-                    <div id="adminMemberList"></div>
+                    <button class="btn-action" style="width:100%;" onclick="submitAdminAuth()">Masuk Dashboard Admin</button>
                 </div>
 
-                <form id="formAdminShop" onsubmit="saveShopItem(event)" style="display: none;">
+                <div id="admin-panel-sec" style="display: none;">
+                    <div style="background: #dcfce7; padding: 10px; border-radius: 8px; margin-bottom: 14px; color: #166534; font-size: 0.85rem; border: 1px solid #22c55e;">
+                        ✅ Terverifikasi sebagai Admin.
+                    </div>
+
+                    <h4 style="margin-bottom: 8px; color: #0f172a;">👤 Kelola Member</h4>
                     <div class="form-group">
-                        <label>Nama Item / Hiasan / Gelar:</label>
-                        <input type="text" id="inputShopNama" placeholder="Contoh: Limited Shiny / VIP Member" required>
+                        <label>Pilih Member:</label>
+                        <select id="adminSelectMember" onchange="adminLoadMemberToForm()"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rank Member:</label>
+                        <input type="text" id="adminMemberRank" placeholder="Contoh: Mythic, Immortal, Demon King">
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <div class="form-group" style="flex:1;">
+                            <label>⭐ Bintang:</label>
+                            <input type="number" id="adminMemberBintang" value="0">
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>💎 Diamond:</label>
+                            <input type="number" id="adminMemberDiamond" value="0">
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>📊 Level:</label>
+                            <input type="number" id="adminMemberLevel" value="1">
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" id="adminMemberImmortal" style="width: auto;">
+                        <label for="adminMemberImmortal" style="margin: 0; cursor: pointer;">🏅 Berikan Lencana Immortal</label>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <button class="btn-action" onclick="adminSaveMemberStats()">💾 Simpan Data Member</button>
+                        <button class="btn-action" style="background:#16a34a;" onclick="adminAddMember()">➕ Tambah Member</button>
+                    </div>
+
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid #cbd5e1;">
+
+                    <h4 style="margin-bottom: 8px; color: #0f172a;">🛒 Tambah Item Shop Resmi</h4>
+                    <div class="form-group">
+                        <label>Nama Item:</label>
+                        <input type="text" id="adminShopNama" placeholder="Contoh: Gelar Pro Player">
                     </div>
                     <div class="form-group">
                         <label>Tipe Item:</label>
-                        <select id="inputShopTipe" onchange="toggleShopDurasiInput(this.value)">
-                            <option value="vip">⚡ Status VIP (Boost 2x + Akses Nama VIP Emas + Gelar VIP)</option>
-                            <option value="hiasan">✨ Hiasan Nama Baru</option>
-                            <option value="gelar">🎭 Unlock Gelar Baru</option>
+                        <select id="adminShopTipe">
+                            <option value="Hiasan Nama">Hiasan Nama</option>
+                            <option value="Hiasan Profil">Hiasan Profil</option>
+                            <option value="VIP">VIP Status</option>
+                            <option value="Gelar">Gelar</option>
+                            <option value="Item">Item Biasa</option>
                         </select>
                     </div>
-                    <div class="form-group" id="groupShopDurasi">
-                        <label>Durasi Masa Aktif (Hari):</label>
-                        <input type="number" id="inputShopDurasi" value="14" min="1" placeholder="Contoh: 14">
+                    <div style="display: flex; gap: 10px;">
+                        <div class="form-group" style="flex:1;">
+                            <label>Harga (💎):</label>
+                            <input type="number" id="adminShopHarga" placeholder="50">
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>Stok Item:</label>
+                            <input type="number" id="adminShopStok" placeholder="999">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Harga (💎 Diamond):</label>
-                        <input type="number" id="inputShopHarga" placeholder="Contoh: 0" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Stok Item:</label>
-                        <input type="number" id="inputShopStok" value="999" min="0" required>
-                    </div>
-                    <button type="submit" class="btn-action" style="width:100%;">🛒 Simpan Item Shop</button>
-                </form>
+                    <button class="btn-action" style="width:100%; margin-bottom: 14px;" onclick="adminAddShopItem()">🛒 Tambah ke Shop</button>
 
-                <div id="panelAdminManageShop" style="display: none;">
-                    <h4 style="margin-bottom: 10px;">Kelola Item Shop:</h4>
-                    <div id="adminShopList"></div>
-                </div>
+                    <h5 style="margin-bottom: 8px; color: #334155;">🗑️ Kelola / Hapus Item Shop Resmi:</h5>
+                    <div id="admin-shop-delete-list" style="margin-bottom: 20px;"></div>
 
-                <form id="formAdminEvent" onsubmit="saveEvent(event)" style="display: none;">
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid #cbd5e1;">
+
+                    <h4 style="margin-bottom: 8px; color: #0f172a;">🎉 Buat / Kelola Event</h4>
                     <div class="form-group">
                         <label>Judul Event:</label>
-                        <input type="text" id="inputEventJudul" placeholder="Contoh: Turnamen Mabar Minggu" required>
+                        <input type="text" id="adminEventJudul" placeholder="Contoh: Turnamen Mabar Minggu Ini">
                     </div>
                     <div class="form-group">
-                        <label>Deskripsi Event:</label>
-                        <textarea id="inputEventDeskripsi" rows="3" placeholder="Tulis detail event..." required></textarea>
+                        <label>Pengumuman Event:</label>
+                        <textarea id="adminEventText" rows="3" placeholder="Tuliskan detail event di sini..."></textarea>
                     </div>
-                    <button type="submit" class="btn-action" style="width:100%;">🎉 Simpan Event</button>
-                </form>
+                    <button class="btn-action" style="width:100%; margin-bottom: 14px;" onclick="adminSaveEvent()">🚀 Publikasikan Event</button>
 
-                <div id="panelAdminManageEvent" style="display: none;">
-                    <h4 style="margin-bottom: 10px;">Kelola Event:</h4>
-                    <div id="adminEventList"></div>
+                    <h5 style="margin-bottom: 8px; color: #334155;">🗑️ Kelola / Hapus Event Aktif:</h5>
+                    <div id="admin-event-delete-list" style="margin-bottom: 20px;"></div>
+
+                    <hr style="margin: 20px 0; border: none; border-top: 1px solid #cbd5e1;">
+
+                    <h4 style="margin-bottom: 8px; color: #ef4444;">🗑️ Hapus Member</h4>
+                    <div id="admin-member-delete-list"></div>
+
+                    <div class="admin-section" style="margin-top: 15px;">
+                        <h3>💬 Kelola Chat</h3>
+                        <button type="button" onclick="adminClearAllChats()" style="background-color: #ef4444; color: white; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; margin-bottom: 10px;">
+                            🗑️ Hapus Semua Chat
+                        </button>
+
+                        <div id="admin-chat-delete-list" style="max-height: 200px; overflow-y: auto; background: #fff; padding: 8px; border-radius: 6px;"></div>
+                    </div>
+
+                    <button class="btn-action btn-secondary" style="margin-top:20px;" onclick="logoutAdmin()">🔒 Keluar Sesi Admin</button>
                 </div>
             </div>
         </div>
@@ -810,7 +858,7 @@
             appId: "1:26506220109:web:989d50860a034b2821c204",
             measurementId: "G-97YH7MFP87"
         };
-
+        
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
         }
@@ -819,23 +867,37 @@
         const shopRef = database.ref('shop');
         const eventsRef = database.ref('events');
         const chatsRef = database.ref('chats');
+        const marketplaceRef = database.ref('marketplace');
 
         let isAdminLoggedIn = false;
         let globalMembersData = {};
         let globalShopData = {};
         let globalEventsData = {};
         let globalChatsData = {};
+        let globalMarketplaceData = {};
         let activeLoggedInMemberKey = null;
 
-        // Configuration Prizes Lucky Wheel
+        const hiasanNamaMap = {
+            'keberuntungan': 'Hiasan Keberuntungan (Red Shiny)',
+            'terpilih': 'Hiasan Terpilih (Diamond Shiny)',
+            'spesial_ungu': 'Hiasan Spesial Ungu Shiny',
+            'limited_shiny': 'Hiasan Limited Shiny',
+            'vip_gold': 'Hiasan Emas VIP (Shiny Gold)'
+        };
+
+        const hiasanProfilMap = {
+            'kuning_border_ijo': 'Hiasan Profil Kuning Border Hijau'
+        };
+
         const wheelPrizes = [
-            { id: 'keberuntungan', name: 'Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan' },
-            { id: 'terpilih', name: 'Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan' },
+            { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan_nama' },
+            { id: 'terpilih', name: 'Hiasan Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan_nama' },
+            { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 5, color: '#a855f7', type: 'hiasan_nama' },
             { id: 'star_2', name: '+2 Star', label: '+2 Star', chance: 20, color: '#f59e0b', type: 'star', val: 2 },
             { id: 'star_5', name: '+5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
-            { id: 'dm_20', name: '+20 Diamond', label: '+20 Diamond', chance: 40, color: '#06b6d4', type: 'diamond', val: 20 },
-            { id: 'dm_50', name: '+50 Diamond', label: '+50 Diamond', chance: 15, color: '#3b82f6', type: 'diamond', val: 50 },
-            { id: 'dm_100', name: '+100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 }
+            { id: 'dm_20', name: 'Bonus 20 Diamond', label: '+20 Diamond', chance: 35, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'dm_50', name: 'Bonus 50 Diamond', label: '+50 Diamond', chance: 15, color: '#3b82f6', type: 'diamond', val: 50 },
+            { id: 'dm_100', name: 'Bonus 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 }
         ];
 
         let isSpinning = false;
@@ -857,12 +919,32 @@
 
         function isHiasanActive(member, hiasanKey) {
             if (!member) return false;
+            let unlockedH = member.unlockedHiasan || [];
+            if (!Array.isArray(unlockedH)) unlockedH = Object.values(unlockedH);
+
             if (hiasanKey === 'vip_gold') return isVipActive(member);
             if (hiasanKey === 'limited_shiny') {
-                if (!member.limitedShinyExpiresAt) return false;
-                return Date.now() < member.limitedShinyExpiresAt;
+                return member.limitedShinyExpiresAt ? Date.now() < member.limitedShinyExpiresAt : unlockedH.includes('limited_shiny');
             }
-            return true;
+            if (hiasanKey === 'spesial_ungu') {
+                return member.spesialUnguExpiresAt ? Date.now() < member.spesialUnguExpiresAt : unlockedH.includes('spesial_ungu');
+            }
+            return unlockedH.includes(hiasanKey);
+        }
+
+        function isHiasanProfilActive(member, profilKey) {
+            if (!member) return false;
+            if (profilKey === 'default') return true;
+            let unlockedP = member.unlockedHiasanProfil || [];
+            if (!Array.isArray(unlockedP)) unlockedP = Object.values(unlockedP);
+
+            if (profilKey === 'kuning_border_ijo') {
+                if (member.hiasanProfilKuningExpiresAt) {
+                    return Date.now() < member.hiasanProfilKuningExpiresAt;
+                }
+                return unlockedP.includes('kuning_border_ijo');
+            }
+            return unlockedP.includes(profilKey);
         }
 
         function formatExpDate(timestamp) {
@@ -885,410 +967,795 @@
             }
         }
 
-        function toggleShopDurasiInput(typeVal) {
-            const group = document.getElementById('groupShopDurasi');
-            group.style.display = (typeVal === 'vip' || typeVal === 'hiasan') ? 'block' : 'none';
-        }
-
-        function getRankAndGelarByBintang(bintang) {
-            if (bintang >= 1000) return { rank: "Demon King", gelar: "I am Demon king" };
-            if (bintang >= 500)  return { rank: "Demon", gelar: "Demon Mode" };
-            if (bintang >= 250)  return { rank: "Super Star", gelar: "I am Super Star" };
-            if (bintang >= 150)  return { rank: "Ancient", gelar: "Ancient Secret" };
-            if (bintang >= 100)  return { rank: "Immortal", gelar: "Immortal Master" };
-            if (bintang >= 50)   return { rank: "Glory", gelar: "Master of Glory" };
-            if (bintang >= 25)   return { rank: "Honor", gelar: "Honored" };
-            if (bintang >= 15)   return { rank: "Mythic", gelar: "Mythical" };
-            if (bintang >= 10)   return { rank: "Legend", gelar: "Legendary" };
-            if (bintang >= 5)    return { rank: "Epic", gelar: "-" };
-            return null;
-        }
-
         function switchTab(tabName, evt) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-            if (evt) evt.target.classList.add('active');
+            const activeBtn = evt ? evt.target : document.querySelector(`.tab-btn[onclick*="'${tabName}'"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+            
             document.getElementById(`tab-${tabName}`).classList.add('active');
         }
 
+        // FIREBASE LISTENERS
         membersRef.on('value', (snapshot) => {
             document.getElementById('loading-profil').style.display = 'none';
-            const memberList = document.getElementById('member-list');
-            const selectSelf = document.getElementById('selectMemberSelf');
-            const adminSelectEdit = document.getElementById('adminSelectEditMember');
-            const adminMemberList = document.getElementById('adminMemberList');
-            
-            memberList.innerHTML = '';
-            adminMemberList.innerHTML = '';
-            selectSelf.innerHTML = '<option value="">-- Pilih Nama Kamu --</option>';
-            adminSelectEdit.innerHTML = '<option value="">-- Pilih Member --</option>';
-
             if (!snapshot.exists()) {
                 document.getElementById('empty-profil').style.display = 'block';
                 globalMembersData = {};
-                renderChats();
+                filterAndRenderMembers();
                 return;
             }
 
             document.getElementById('empty-profil').style.display = 'none';
             globalMembersData = snapshot.val();
 
+            const selectSelf = document.getElementById('selectMemberSelf');
+            const currentSelectedSelf = selectSelf.value;
+            selectSelf.innerHTML = '<option value="">-- Pilih Nama Kamu --</option>';
+
             Object.keys(globalMembersData).forEach((key) => {
                 const item = globalMembersData[key];
-                const hasVip = isVipActive(item);
-
-                // Menentukan tampilan Hiasan Nama
-                let nameClass = "member-name";
-                if (item.hiasanNama === 'vip_gold' && isVipActive(item)) {
-                    nameClass = "member-name name-gold-shiny";
-                } else if (item.hiasanNama === 'limited_shiny' && isHiasanActive(item, 'limited_shiny')) {
-                    nameClass = "member-name name-green-shiny";
-                } else if (item.hiasanNama === 'keberuntungan') {
-                    nameClass = "member-name name-red-shiny";
-                } else if (item.hiasanNama === 'terpilih') {
-                    nameClass = "member-name name-diamond-shiny";
-                }
-                
-                let isGelarVip = (item.gelar && item.gelar.toLowerCase().includes('vip'));
-                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
-
-                const gelarHTML = (item.gelar && item.gelar !== '-') 
-                    ? `<span class="${gelarClass}">${item.gelar}</span>` 
-                    : '';
-
-                const immortalBadgeHTML = item.lencanaImmortal 
-                    ? `<span class="immortal-badge">🏅 Immortal</span>` 
-                    : '';
-
-                let timeTagsHTML = '';
-                if (hasVip) {
-                    timeTagsHTML += `<div class="vip-time-tag">👑 VIP Aktif s/d: ${formatExpDate(item.vipExpiresAt)}</div>`;
-                }
-                if (isHiasanActive(item, 'limited_shiny')) {
-                    timeTagsHTML += `<div class="green-time-tag">✨ Limited Shiny s/d: ${formatExpDate(item.limitedShinyExpiresAt)}</div>`;
-                }
-
-                const card = document.createElement('div');
-                card.className = 'member-card';
-                card.innerHTML = `
-                    <div class="member-header-row">
-                        <span class="${nameClass}">${item.nama || 'Tanpa Nama'}</span>
-                        ${gelarHTML}
-                    </div>
-                    <div class="member-bio">${item.bio || '-'}</div>
-                    <div class="stats-grid">
-                        <div class="stat-item">🏆 Rank: ${item.rank || '-'}</div>
-                        <div class="stat-item">⭐ Bintang: ${item.bintang || 0}</div>
-                        <div class="stat-item">💎 Diamond: ${item.diamond || 0}</div>
-                        <div class="stat-item">🔥 Boost: ${item.boost || 1}x</div>
-                        <div class="stat-item">📊 Lvl: ${item.level || 1} ${immortalBadgeHTML}</div>
-                    </div>
-                    ${timeTagsHTML}
-                `;
-                memberList.appendChild(card);
-
-                const adminRow = document.createElement('div');
-                adminRow.className = 'admin-member-row';
-                adminRow.innerHTML = `
-                    <span><strong>${item.nama}</strong> (⭐ ${item.bintang || 0})</span>
-                    <button class="btn-del-mini" onclick="deleteMember('${key}')">❌ Hapus</button>
-                `;
-                adminMemberList.appendChild(adminRow);
-
                 const opt1 = document.createElement('option');
                 opt1.value = key; opt1.innerText = item.nama;
+                if (key === currentSelectedSelf) opt1.selected = true;
                 selectSelf.appendChild(opt1);
-
-                const opt2 = document.createElement('option');
-                opt2.value = key; opt2.innerText = item.nama;
-                adminSelectEdit.appendChild(opt2);
             });
+
+            filterAndRenderMembers();
 
             if (activeLoggedInMemberKey && globalMembersData[activeLoggedInMemberKey]) {
                 updateMemberPersonalView(globalMembersData[activeLoggedInMemberKey]);
             }
 
-            const currentAdminSelect = adminSelectEdit.value;
-            if (currentAdminSelect && globalMembersData[currentAdminSelect]) {
-                loadMemberToAdminForm(currentAdminSelect);
+            if (isAdminLoggedIn) {
+                populateAdminMemberList();
             }
-
-            renderChats();
         });
 
         shopRef.on('value', (snapshot) => {
-            document.getElementById('loading-shop').style.display = 'none';
-            const shopList = document.getElementById('shop-list');
-            const adminShopList = document.getElementById('adminShopList');
-            shopList.innerHTML = '';
-            adminShopList.innerHTML = '';
+            const loading = document.getElementById('loading-shop');
+            const empty = document.getElementById('empty-shop');
+            if (loading) loading.style.display = 'none';
 
             if (!snapshot.exists()) {
-                document.getElementById('empty-shop').style.display = 'block';
+                if (empty) empty.style.display = 'block';
+                globalShopData = {};
+                renderShop();
+                if (isAdminLoggedIn) populateAdminShopList();
                 return;
             }
-
-            document.getElementById('empty-shop').style.display = 'none';
+            if (empty) empty.style.display = 'none';
             globalShopData = snapshot.val();
-
-            Object.keys(globalShopData).forEach((key) => {
-                const item = globalShopData[key];
-
-                const card = document.createElement('div');
-                card.className = 'shop-item-card';
-                card.innerHTML = `
-                    <div>
-                        <div class="shop-title">${item.nama}</div>
-                        <div class="shop-price">💎 ${item.harga || 0} Diamond</div>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span class="shop-stock">Stok: ${item.stok || 0}</span>
-                        <button class="btn-buy" onclick="buyShopItem('${key}')">Beli Item</button>
-                    </div>
-                `;
-                shopList.appendChild(card);
-
-                let typeText = '🎭 Gelar Baru';
-                if (item.tipe === 'vip') typeText = `⚡ VIP (${item.durasiHari || 30} Hari)`;
-                if (item.tipe === 'hiasan') typeText = `✨ Hiasan Nama (${item.durasiHari || 14} Hari)`;
-
-                const adminRow = document.createElement('div');
-                adminRow.className = 'admin-member-row';
-                adminRow.innerHTML = `
-                    <span><strong>${item.nama}</strong> [${typeText}] - 💎${item.harga}</span>
-                    <button class="btn-del-mini" onclick="deleteShopItem('${key}')">❌ Hapus</button>
-                `;
-                adminShopList.appendChild(adminRow);
-            });
+            renderShop();
+            if (isAdminLoggedIn) populateAdminShopList();
         });
 
         eventsRef.on('value', (snapshot) => {
             const container = document.getElementById('event-container');
-            const adminEventList = document.getElementById('adminEventList');
-            container.innerHTML = '';
-            adminEventList.innerHTML = '';
+            if (!container) return;
 
             if (!snapshot.exists()) {
-                container.innerHTML = `<div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>`;
+                container.innerHTML = '<div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>';
+                globalEventsData = {};
+                if (isAdminLoggedIn) populateAdminEventList();
                 return;
             }
 
             globalEventsData = snapshot.val();
-            Object.keys(globalEventsData).forEach((key) => {
-                const ev = globalEventsData[key];
+            container.innerHTML = '';
 
-                const card = document.createElement('div');
-                card.className = 'card-box';
-                card.innerHTML = `
-                    <h3 style="color:#2563eb; margin-bottom: 6px;">🎉 ${ev.judul}</h3>
-                    <p style="font-size:0.9rem; color:#475569; clear: both;">${ev.deskripsi}</p>
-                `;
-                container.appendChild(card);
+            const keys = Object.keys(globalEventsData);
+            if (keys.length === 0) {
+                container.innerHTML = '<div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>';
+            } else {
+                keys.forEach(key => {
+                    const item = globalEventsData[key];
+                    const card = document.createElement('div');
+                    card.className = 'card-box';
+                    card.style.cssText = 'border-color: #f59e0b; background: linear-gradient(135deg, #fffbeb, #fef3c7); margin-bottom: 12px;';
+                    card.innerHTML = `
+                        <h3 style="color: #d97706; margin-bottom: 8px;">🎉 ${escapeHTML(item.judul || 'Event Ruang Mabar')}</h3>
+                        <p style="font-size: 0.95rem; color: #1e293b; white-space: pre-line;">${escapeHTML(item.content || '')}</p>
+                    `;
+                    container.appendChild(card);
+                });
+            }
 
-                const adminRow = document.createElement('div');
-                adminRow.className = 'admin-member-row';
-                adminRow.innerHTML = `
-                    <span><strong>${ev.judul}</strong></span>
-                    <button class="btn-del-mini" onclick="deleteEvent('${key}')">❌ Hapus</button>
-                `;
-                adminEventList.appendChild(adminRow);
-            });
+            if (isAdminLoggedIn) populateAdminEventList();
         });
 
         chatsRef.on('value', (snapshot) => {
-            const loadingChat = document.getElementById('loading-chat');
-            if (loadingChat) loadingChat.style.display = 'none';
+            const loading = document.getElementById('loading-chat');
+            const empty = document.getElementById('empty-chat');
+            if (loading) loading.style.display = 'none';
 
             if (!snapshot.exists()) {
+                if (empty) empty.style.display = 'block';
                 globalChatsData = {};
-            } else {
-                globalChatsData = snapshot.val();
+                renderChats();
+                if (isAdminLoggedIn) populateAdminChatList();
+                return;
             }
+            if (empty) empty.style.display = 'none';
+            globalChatsData = snapshot.val();
             renderChats();
+            if (isAdminLoggedIn) populateAdminChatList();
         });
 
-        function sendChatMessage() {
+        marketplaceRef.on('value', (snapshot) => {
+            globalMarketplaceData = snapshot.exists() ? snapshot.val() : {};
+            renderMarketplace();
+        });
+
+        // RENDER PROFIL
+        function filterAndRenderMembers() {
+            const memberList = document.getElementById('member-list');
+            memberList.innerHTML = '';
+
+            const searchQuery = (document.getElementById('searchProfileInput').value || '').toLowerCase().trim();
+
+            const rankPriorityMap = {
+                "demon king": 100, "demon": 90, "super star": 80, "ancient": 70,
+                "immortal": 60, "glory": 50, "honor": 40, "mythic": 30,
+                "legend": 20, "epic": 10, "grandmaster": 8, "master": 6, "elite": 4, "warrior": 2
+            };
+
+            const sortedMemberKeys = Object.keys(globalMembersData).sort((a, b) => {
+                const mA = globalMembersData[a];
+                const mB = globalMembersData[b];
+                const priorityA = rankPriorityMap[(mA.rank || '').toLowerCase()] || 0;
+                const priorityB = rankPriorityMap[(mB.rank || '').toLowerCase()] || 0;
+
+                if (priorityA !== priorityB) return priorityB - priorityA;
+                const bintangA = Number(mA.bintang || 0);
+                const bintangB = Number(mB.bintang || 0);
+                if (bintangA !== bintangB) return bintangB - bintangA;
+                return Number(mB.level || 1) - Number(mA.level || 1);
+            });
+
+            sortedMemberKeys.forEach((key) => {
+                const item = globalMembersData[key];
+                const nama = (item.nama || '').toLowerCase();
+
+                if (searchQuery && !nama.includes(searchQuery)) return;
+
+                let decorClass = "member-card";
+                if (item.hiasanProfil === 'kuning_border_ijo' && isHiasanProfilActive(item, 'kuning_border_ijo')) {
+                    decorClass += " decor-yellow";
+                }
+
+                let nameClass = "member-name";
+                if (item.hiasanNama === 'vip_gold' && isVipActive(item)) {
+                    nameClass = "member-name name-gold-shiny";
+                } else if (item.hiasanNama === 'limited_shiny' && isHiasanActive(item, 'limited_shiny')) {
+                    nameClass = "member-name name-green-shiny";
+                } else if (item.hiasanNama === 'spesial_ungu' && isHiasanActive(item, 'spesial_ungu')) {
+                    nameClass = "member-name name-purple-shiny";
+                } else if (item.hiasanNama === 'keberuntungan' && isHiasanActive(item, 'keberuntungan')) {
+                    nameClass = "member-name name-red-shiny";
+                } else if (item.hiasanNama === 'terpilih' && isHiasanActive(item, 'terpilih')) {
+                    nameClass = "member-name name-diamond-shiny";
+                }
+                
+                let isGelarVip = (item.gelar && item.gelar.toLowerCase().includes('vip'));
+                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+                const gelarHTML = (item.gelar && item.gelar !== '-') ? `<span class="${gelarClass}">${escapeHTML(item.gelar)}</span>` : '';
+                const immortalBadgeHTML = item.lencanaImmortal ? `<span class="immortal-badge">🏅 Immortal</span>` : '';
+
+                let expirationsList = [];
+                if (isVipActive(item)) expirationsList.push({ exp: item.vipExpiresAt, html: `<span class="time-tag vip-time-tag">👑 VIP s/d: ${formatExpDate(item.vipExpiresAt)}</span>` });
+                if (isHiasanActive(item, 'limited_shiny')) expirationsList.push({ exp: item.limitedShinyExpiresAt, html: `<span class="time-tag green-time-tag">✨ Limited Shiny s/d: ${formatExpDate(item.limitedShinyExpiresAt)}</span>` });
+                if (isHiasanActive(item, 'spesial_ungu')) expirationsList.push({ exp: item.spesialUnguExpiresAt, html: `<span class="time-tag purple-time-tag">💜 Spesial Ungu s/d: ${formatExpDate(item.spesialUnguExpiresAt)}</span>` });
+                if (isHiasanProfilActive(item, 'kuning_border_ijo') && item.hiasanProfilKuningExpiresAt) expirationsList.push({ exp: item.hiasanProfilKuningExpiresAt, html: `<span class="time-tag" style="color: #15803d; font-weight:700;">💛 Hiasan Profil s/d: ${formatExpDate(item.hiasanProfilKuningExpiresAt)}</span>` });
+
+                expirationsList.sort((a, b) => a.exp - b.exp);
+                let visibleTimeTags = expirationsList.slice(0, 2).map(e => e.html).join('');
+
+                const card = document.createElement('div');
+                card.className = decorClass;
+                card.innerHTML = `
+                    <button class="btn-profile-detail" title="Lihat Detail Profil" onclick="openProfileDetailModal('${key}')">ℹ️</button>
+                    <div class="member-header-row">
+                        <span class="${nameClass}">${escapeHTML(item.nama || 'Tanpa Nama')}</span>
+                        ${gelarHTML}
+                    </div>
+                    <div class="member-bio">${escapeHTML(item.bio || '-')}</div>
+                    <div class="stats-grid">
+                        <div class="stat-item">🏆 Rank: ${escapeHTML(item.rank || '-')}</div>
+                        <div class="stat-item">⭐ Bintang: ${item.bintang || 0}</div>
+                        <div class="stat-item">💎 Diamond: ${item.diamond || 0}</div>
+                        <div class="stat-item">🔥 Boost: ${item.boost || 1}x</div>
+                        <div class="stat-item">📊 Lvl: ${item.level || 1} ${immortalBadgeHTML}</div>
+                    </div>
+                    ${visibleTimeTags}
+                `;
+                memberList.appendChild(card);
+            });
+        }
+
+        // RENDER SHOP
+        function renderShop() {
+            const shopList = document.getElementById('shop-list');
+            if (!shopList) return;
+            shopList.innerHTML = '';
+
+            Object.keys(globalShopData).forEach(key => {
+                const item = globalShopData[key];
+                const card = document.createElement('div');
+                card.className = 'shop-item-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="shop-title">${escapeHTML(item.nama)}</div>
+                        <div class="shop-type-tag">Tipe: ${escapeHTML(item.tipe || 'Item')}</div>
+                        <div class="shop-price">💎 ${item.harga || 0} Diamond</div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span class="shop-stock">Stok: ${item.stok !== undefined ? item.stok : '∞'}</span>
+                        <button class="btn-buy" onclick="buyShopItem('${key}')">Beli</button>
+                    </div>
+                `;
+                shopList.appendChild(card);
+            });
+        }
+
+        function buyShopItem(key) {
             if (!activeLoggedInMemberKey) {
-                alert("Silakan login dulu di tab Personalisasi untuk mengirim chat!");
+                alert("Silakan login terlebih dahulu di tab Personalisasi!");
+                switchTab('personal');
+                return;
+            }
+            const item = globalShopData[key];
+            const member = globalMembersData[activeLoggedInMemberKey];
+            if (!item || !member) return;
+
+            const harga = Number(item.harga || 0);
+            const userDiamond = Number(member.diamond || 0);
+
+            if (userDiamond < harga) {
+                alert("💎 Diamond kamu tidak cukup!");
+                return;
+            }
+
+            if (item.stok !== undefined && item.stok <= 0) {
+                alert("Stok item ini sudah habis!");
+                return;
+            }
+
+            const updates = {};
+            updates[`members/${activeLoggedInMemberKey}/diamond`] = userDiamond - harga;
+
+            if (item.stok !== undefined) {
+                updates[`shop/${key}/stok`] = item.stok - 1;
+            }
+
+            if (item.tipe === 'VIP') {
+                const now = Date.now();
+                const currentExp = (member.vipExpiresAt && member.vipExpiresAt > now) ? member.vipExpiresAt : now;
+                updates[`members/${activeLoggedInMemberKey}/vipExpiresAt`] = currentExp + (30 * 24 * 60 * 60 * 1000);
+                
+                let unlocked = member.unlockedTitles || ["Pemula"];
+                if (!Array.isArray(unlocked)) unlocked = Object.values(unlocked);
+                if (!unlocked.includes("VIP Member")) unlocked.push("VIP Member");
+                updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlocked;
+
+                let unlockedH = member.unlockedHiasan || [];
+                if (!Array.isArray(unlockedH)) unlockedH = Object.values(unlockedH);
+                if (!unlockedH.includes("vip_gold")) unlockedH.push("vip_gold");
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = unlockedH;
+
+            } else if (item.tipe === 'Hiasan Profil') {
+                let unlockedP = member.unlockedHiasanProfil || [];
+                if (!Array.isArray(unlockedP)) unlockedP = Object.values(unlockedP);
+                const profilKey = item.idHiasan || 'kuning_border_ijo';
+                if (!unlockedP.includes(profilKey)) unlockedP.push(profilKey);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
+
+                if (profilKey === 'kuning_border_ijo') {
+                    const now = Date.now();
+                    const currentExp = (member.hiasanProfilKuningExpiresAt && member.hiasanProfilKuningExpiresAt > now) ? member.hiasanProfilKuningExpiresAt : now;
+                    updates[`members/${activeLoggedInMemberKey}/hiasanProfilKuningExpiresAt`] = currentExp + (30 * 24 * 60 * 60 * 1000);
+                }
+
+            } else if (item.tipe === 'Hiasan Nama') {
+                let unlockedH = member.unlockedHiasan || [];
+                if (!Array.isArray(unlockedH)) unlockedH = Object.values(unlockedH);
+                const hiasanKey = item.idHiasan || item.nama;
+                if (!unlockedH.includes(hiasanKey)) unlockedH.push(hiasanKey);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = unlockedH;
+
+            } else if (item.tipe === 'Gelar') {
+                let unlocked = member.unlockedTitles || ["Pemula"];
+                if (!Array.isArray(unlocked)) unlocked = Object.values(unlocked);
+                if (!unlocked.includes(item.nama)) unlocked.push(item.nama);
+                updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlocked;
+            }
+
+            database.ref().update(updates).then(() => {
+                alert(`✅ Berhasil membeli ${item.nama}!`);
+            });
+        }
+
+        // RENDER CHAT
+        function renderChats() {
+            const chatList = document.getElementById('chat-list');
+            if (!chatList) return;
+            chatList.innerHTML = '';
+
+            const sortedKeys = Object.keys(globalChatsData).sort((a, b) => {
+                return (globalChatsData[a].timestamp || 0) - (globalChatsData[b].timestamp || 0);
+            });
+
+            sortedKeys.forEach(key => {
+                const chat = globalChatsData[key];
+
+                const chatCard = document.createElement('div');
+                chatCard.className = 'card-box';
+                chatCard.style.cssText = "margin-bottom: 12px; padding: 14px 18px; position: relative;";
+
+                const time = chat.timestamp ? new Date(chat.timestamp).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) + ', ' + new Date(chat.timestamp).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) : '';
+
+                let nameClass = "member-name";
+                if (chat.hiasanNama === 'vip_gold') nameClass = "member-name name-gold-shiny";
+                else if (chat.hiasanNama === 'limited_shiny') nameClass = "member-name name-green-shiny";
+                else if (chat.hiasanNama === 'spesial_ungu') nameClass = "member-name name-purple-shiny";
+                else if (chat.hiasanNama === 'keberuntungan') nameClass = "member-name name-red-shiny";
+                else if (chat.hiasanNama === 'terpilih') nameClass = "member-name name-diamond-shiny";
+
+                let isGelarVip = (chat.gelar && chat.gelar.toLowerCase().includes('vip'));
+                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+                const gelarHTML = (chat.gelar && chat.gelar !== '-') ? `<span class="${gelarClass}" style="font-size:0.7rem; padding:1px 8px;">${escapeHTML(chat.gelar)}</span>` : '';
+
+                const senderName = chat.sender || chat.nama || chat.username || chat.senderName || 'Member';
+
+                chatCard.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;">
+                        <span class="${nameClass}" style="font-size: 1.05rem;">${escapeHTML(senderName)}</span>
+                        ${gelarHTML}
+                    </div>
+                    <div style="font-size: 0.95rem; color: #1e293b; word-break: break-word; margin-bottom: 18px;">
+                        ${escapeHTML(chat.text || '')}
+                    </div>
+                    <div style="position: absolute; bottom: 10px; right: 16px; font-size: 0.72rem; color: #94a3b8; font-weight: 600;">
+                        ${time}
+                    </div>
+                `;
+                chatList.appendChild(chatCard);
+            });
+
+            chatList.scrollTop = chatList.scrollHeight;
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('inputChatMessage');
+            const text = input.value.trim();
+            if (!text) return;
+
+            if (!activeLoggedInMemberKey || !globalMembersData[activeLoggedInMemberKey]) {
+                alert("Silakan login terlebih dahulu di tab Personalisasi agar identitas kamu muncul!");
                 switchTab('personal');
                 return;
             }
 
-            const messageInput = document.getElementById('inputChatMessage');
-            const message = messageInput.value.trim();
+            const currentMember = globalMembersData[activeLoggedInMemberKey];
 
-            if (!message) {
-                alert("Tulis pesan terlebih dahulu!");
-                return;
-            }
-
-            chatsRef.push().set({
-                senderKey: activeLoggedInMemberKey,
-                message: message,
+            chatsRef.push({
+                sender: currentMember.nama || 'Member',
+                text: text,
+                gelar: currentMember.gelar || '-',
+                hiasanNama: currentMember.hiasanNama || 'default',
                 timestamp: firebase.database.ServerValue.TIMESTAMP
             }).then(() => {
-                messageInput.value = '';
+                input.value = '';
             }).catch((err) => {
                 alert("Gagal mengirim pesan: " + err.message);
             });
         }
 
-        function renderChats() {
-            const chatList = document.getElementById('chat-list');
-            const emptyChat = document.getElementById('empty-chat');
+        // MARKETPLACE LOGIC
+        function openMarketplaceModal() {
+            document.getElementById('marketplaceModal').style.display = 'flex';
+            renderMarketplace();
+        }
 
-            if (!chatList) return;
-            chatList.innerHTML = '';
+        function closeMarketplaceModal() {
+            document.getElementById('marketplaceModal').style.display = 'none';
+        }
 
-            if (!globalChatsData || Object.keys(globalChatsData).length === 0) {
-                if (emptyChat) emptyChat.style.display = 'block';
+        function renderMarketplace() {
+            const container = document.getElementById('marketplace-item-list');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const keys = Object.keys(globalMarketplaceData).filter(k => {
+                const item = globalMarketplaceData[k];
+                return item && Number(item.stock || 0) > 0;
+            });
+
+            if (keys.length === 0) {
+                container.innerHTML = '<div class="empty-notice" style="box-shadow:none;">Belum ada Hiasan yang dijual.</div>';
                 return;
             }
 
-            if (emptyChat) emptyChat.style.display = 'none';
-
-            Object.keys(globalChatsData).forEach((key) => {
-                const chat = globalChatsData[key];
-                const sender = (chat.senderKey && globalMembersData[chat.senderKey]) ? globalMembersData[chat.senderKey] : null;
-
-                const nama = sender ? (sender.nama || 'Tanpa Nama') : 'Anggota';
-                const hiasanNama = sender ? sender.hiasanNama : 'default';
-                const gelar = sender ? sender.gelar : '';
-
-                // Tampilan Hiasan Nama
-                let nameClass = "member-name";
-                if (hiasanNama === 'vip_gold' && sender && isVipActive(sender)) {
-                    nameClass = "member-name name-gold-shiny";
-                } else if (hiasanNama === 'limited_shiny' && sender && isHiasanActive(sender, 'limited_shiny')) {
-                    nameClass = "member-name name-green-shiny";
-                } else if (hiasanNama === 'keberuntungan') {
-                    nameClass = "member-name name-red-shiny";
-                } else if (hiasanNama === 'terpilih') {
-                    nameClass = "member-name name-diamond-shiny";
-                }
-
-                let isGelarVip = (gelar && gelar.toLowerCase().includes('vip'));
-                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
-
-                const gelarHTML = (gelar && gelar !== '-') 
-                    ? `<span class="${gelarClass}">${gelar}</span>` 
-                    : '';
-
-                let timeStr = '';
-                if (chat.timestamp) {
-                    const d = new Date(chat.timestamp);
-                    const dateStr = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
-                    const clockStr = d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-                    timeStr = `${dateStr}, ${clockStr}`;
-                }
-
+            keys.forEach(key => {
+                const item = globalMarketplaceData[key];
                 const card = document.createElement('div');
-                card.className = 'member-card';
+                card.className = 'shop-item-card';
                 card.innerHTML = `
-                    <div class="member-header-row">
-                        <span class="${nameClass}">${nama}</span>
-                        ${gelarHTML}
+                    <div>
+                        <div class="shop-title">${escapeHTML(item.itemName)}</div>
+                        <div class="shop-type-tag">Tipe: <strong>${escapeHTML(item.itemType)}</strong> | Penjual: <strong>${escapeHTML(item.sellerName)}</strong></div>
+                        <div class="shop-price">💎 ${item.price} Diamond</div>
                     </div>
-                    <div style="margin-top: 10px; font-size: 0.95rem; color: #1e293b; line-height: 1.5; word-break: break-word; white-space: pre-wrap;">${escapeHTML(chat.message)}</div>
-                    <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 8px; text-align: right;">${timeStr}</div>
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <span class="shop-stock">Stok: ${item.stock}</span>
+                        <button class="btn-buy" onclick="buyMarketplaceItem('${key}')">Beli</button>
+                    </div>
                 `;
-                chatList.appendChild(card);
+                container.appendChild(card);
             });
         }
 
-        function buyShopItem(itemKey) {
+        function openSellItemModal() {
             if (!activeLoggedInMemberKey) {
-                alert("Silakan login dulu di tab Personalisasi untuk membeli item!");
+                alert("Login terlebih dahulu di tab Personalisasi!");
                 switchTab('personal');
                 return;
             }
 
             const member = globalMembersData[activeLoggedInMemberKey];
-            const item = globalShopData[itemKey];
+            if (!member) return;
 
-            if (!member || !item) return;
+            const select = document.getElementById('inputMarketSellItemSelect');
+            select.innerHTML = '';
 
-            if ((item.stok || 0) <= 0) {
-                alert("Stok item ini sudah habis!");
+            let unlockedH = member.unlockedHiasan || [];
+            if (!Array.isArray(unlockedH)) unlockedH = Object.values(unlockedH);
+
+            let unlockedP = member.unlockedHiasanProfil || [];
+            if (!Array.isArray(unlockedP)) unlockedP = Object.values(unlockedP);
+
+            let availableItemsCount = 0;
+
+            unlockedH.forEach(hId => {
+                if (hId !== 'default' && hId !== 'vip_gold') {
+                    const label = hiasanNamaMap[hId] || hId;
+                    const opt = document.createElement('option');
+                    opt.value = `nama|${hId}`;
+                    opt.setAttribute('data-type', 'Hiasan Nama');
+                    opt.setAttribute('data-name', label);
+                    opt.innerText = `[Hiasan Nama] ${label}`;
+                    select.appendChild(opt);
+                    availableItemsCount++;
+                }
+            });
+
+            unlockedP.forEach(pId => {
+                if (pId !== 'default') {
+                    const label = hiasanProfilMap[pId] || pId;
+                    const opt = document.createElement('option');
+                    opt.value = `profil|${pId}`;
+                    opt.setAttribute('data-type', 'Hiasan Profil');
+                    opt.setAttribute('data-name', label);
+                    opt.innerText = `[Hiasan Profil] ${label}`;
+                    select.appendChild(opt);
+                    availableItemsCount++;
+                }
+            });
+
+            if (availableItemsCount === 0) {
+                alert("Kamu belum memiliki Hiasan Nama atau Hiasan Profil (selain default/VIP) untuk dijual!");
                 return;
             }
 
-            if ((member.diamond || 0) < item.harga) {
-                alert(`Diamond kamu kurang! Kamu butuh 💎 ${item.harga} Diamond.`);
+            updateSellItemMaxStock();
+            document.getElementById('sellItemModal').style.display = 'flex';
+        }
+
+        function closeSellItemModal() {
+            document.getElementById('sellItemModal').style.display = 'none';
+        }
+
+        function updateSellItemMaxStock() {
+            const select = document.getElementById('inputMarketSellItemSelect');
+            const selectedOpt = select.options[select.selectedIndex];
+            if (!selectedOpt) return;
+
+            const itemType = selectedOpt.getAttribute('data-type');
+            document.getElementById('inputMarketSellTipe').value = itemType;
+            document.getElementById('sellStockNotice').innerText = `Stok item yang dapat dijual: 1`;
+            document.getElementById('inputMarketSellStok').value = 1;
+        }
+
+        function submitSellItemMarketplace() {
+            if (!activeLoggedInMemberKey) return;
+            const select = document.getElementById('inputMarketSellItemSelect');
+            const selectedOpt = select.options[select.selectedIndex];
+            if (!selectedOpt) return;
+
+            const rawVal = select.value.split('|');
+            const category = rawVal[0];
+            const itemId = rawVal[1];
+            const itemType = selectedOpt.getAttribute('data-type');
+            const itemName = selectedOpt.getAttribute('data-name');
+            const harga = Number(document.getElementById('inputMarketSellHarga').value);
+            const member = globalMembersData[activeLoggedInMemberKey];
+
+            if (!harga || harga <= 0) {
+                alert("Harga jual harus lebih dari 0!");
                 return;
             }
 
-            let newDiamond = (member.diamond || 0) - item.harga;
-            let newBoost = member.boost || 1;
-            let unlocked = member.unlockedTitles || ["Pemula"];
-            if (!Array.isArray(unlocked)) unlocked = Object.values(unlocked);
+            const updates = {};
 
-            let unlockedHiasan = member.unlockedHiasan || [];
-            if (!Array.isArray(unlockedHiasan)) unlockedHiasan = Object.values(unlockedHiasan);
+            if (category === 'nama') {
+                let unlockedH = member.unlockedHiasan || [];
+                if (!Array.isArray(unlockedH)) unlockedH = Object.values(unlockedH);
+                unlockedH = unlockedH.filter(id => id !== itemId);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = unlockedH;
+                if (member.hiasanNama === itemId) {
+                    updates[`members/${activeLoggedInMemberKey}/hiasanNama`] = 'default';
+                }
+            } else if (category === 'profil') {
+                let unlockedP = member.unlockedHiasanProfil || [];
+                if (!Array.isArray(unlockedP)) unlockedP = Object.values(unlockedP);
+                unlockedP = unlockedP.filter(id => id !== itemId);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
+                if (member.hiasanProfil === itemId) {
+                    updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = 'default';
+                }
+            }
 
-            let owned = member.ownedItems || [];
-            if (!Array.isArray(owned)) owned = Object.values(owned);
-
-            let updatePayload = {
-                diamond: newDiamond,
-                unlockedTitles: unlocked,
-                unlockedHiasan: unlockedHiasan,
-                ownedItems: owned
+            const newMarketRef = marketplaceRef.push();
+            updates[`marketplace/${newMarketRef.key}`] = {
+                sellerKey: activeLoggedInMemberKey,
+                sellerName: member.nama,
+                category: category,
+                itemId: itemId,
+                itemName: itemName,
+                itemType: itemType,
+                price: harga,
+                stock: 1
             };
 
-            if (item.tipe === 'vip') {
-                const durasiHari = parseInt(item.durasiHari) || 30;
-                const now = Date.now();
-                let currentExp = member.vipExpiresAt || 0;
-                let newExp = (currentExp > now ? currentExp : now) + (durasiHari * 24 * 60 * 60 * 1000);
-
-                newBoost = Math.max(newBoost, 2);
-                if (!unlocked.includes("VIP Member")) unlocked.push("VIP Member");
-                if (!unlockedHiasan.includes("vip_gold")) unlockedHiasan.push("vip_gold");
-                owned.push(`Akses VIP & Nama Emas (${durasiHari} Hari)`);
-
-                updatePayload.boost = newBoost;
-                updatePayload.vipExpiresAt = newExp;
-                updatePayload.gelar = "VIP Member";
-            } else if (item.tipe === 'hiasan' || item.nama.toLowerCase().includes('limited shiny')) {
-                const durasiHari = parseInt(item.durasiHari) || 14;
-                const now = Date.now();
-                let hiasanKey = 'limited_shiny';
-                let currentExp = member.limitedShinyExpiresAt || 0;
-                let newExp = (currentExp > now ? currentExp : now) + (durasiHari * 24 * 60 * 60 * 1000);
-
-                if (!unlockedHiasan.includes(hiasanKey)) unlockedHiasan.push(hiasanKey);
-                owned.push(`Hiasan Nama: ${item.nama} (${durasiHari} Hari)`);
-
-                updatePayload.limitedShinyExpiresAt = newExp;
-                updatePayload.hiasanNama = hiasanKey;
-            } else {
-                if (!unlocked.includes(item.nama)) unlocked.push(item.nama);
-                owned.push(`Gelar: ${item.nama}`);
-            }
-
-            membersRef.child(activeLoggedInMemberKey).update(updatePayload);
-
-            shopRef.child(itemKey).update({
-                stok: item.stok - 1
-            }).then(() => {
-                alert(`🎉 Berhasil klaim/beli ${item.nama}! Hiasan nama dapat dipasang di menu Personalisasi.`);
+            database.ref().update(updates).then(() => {
+                alert("✅ Hiasan berhasil dipasang di Marketplace!");
+                closeSellItemModal();
             });
         }
 
-        function deleteShopItem(key) {
-            if (confirm("Yakin ingin menghapus item ini dari Shop?")) {
-                shopRef.child(key).remove().then(() => alert("Item berhasil dihapus!"));
+        function buyMarketplaceItem(marketKey) {
+            if (!activeLoggedInMemberKey) {
+                alert("Silakan login terlebih dahulu di tab Personalisasi untuk membeli!");
+                switchTab('personal');
+                return;
             }
+            const mItem = globalMarketplaceData[marketKey];
+            const buyer = globalMembersData[activeLoggedInMemberKey];
+            if (!mItem || !buyer) return;
+
+            if (mItem.sellerKey === activeLoggedInMemberKey) {
+                alert("Kamu tidak bisa membeli jualanmu sendiri!");
+                return;
+            }
+
+            const buyerDiamonds = Number(buyer.diamond || 0);
+            if (buyerDiamonds < mItem.price) {
+                alert("💎 Diamond kamu tidak cukup!");
+                return;
+            }
+
+            const seller = globalMembersData[mItem.sellerKey];
+            const sellerDiamonds = seller ? Number(seller.diamond || 0) : 0;
+
+            const updates = {};
+            updates[`members/${activeLoggedInMemberKey}/diamond`] = buyerDiamonds - mItem.price;
+            if (seller) {
+                updates[`members/${mItem.sellerKey}/diamond`] = sellerDiamonds + mItem.price;
+            }
+
+            if (mItem.category === 'nama') {
+                let buyerUnlockedH = buyer.unlockedHiasan || [];
+                if (!Array.isArray(buyerUnlockedH)) buyerUnlockedH = Object.values(buyerUnlockedH);
+                if (!buyerUnlockedH.includes(mItem.itemId)) buyerUnlockedH.push(mItem.itemId);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = buyerUnlockedH;
+            } else if (mItem.category === 'profil') {
+                let buyerUnlockedP = buyer.unlockedHiasanProfil || [];
+                if (!Array.isArray(buyerUnlockedP)) buyerUnlockedP = Object.values(buyerUnlockedP);
+                if (!buyerUnlockedP.includes(mItem.itemId)) buyerUnlockedP.push(mItem.itemId);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = buyerUnlockedP;
+            }
+
+            updates[`marketplace/${marketKey}`] = null;
+
+            database.ref().update(updates).then(() => {
+                alert(`✅ Berhasil membeli ${mItem.itemName}!`);
+            });
         }
 
-        function deleteEvent(key) {
-            if (confirm("Yakin ingin menghapus event ini?")) {
-                eventsRef.child(key).remove().then(() => alert("Event berhasil dihapus!"));
+        // ARCADE LOGIC
+        function openLuckyWheelModal() {
+            document.getElementById('luckyWheelModal').style.display = 'flex';
+            if (activeLoggedInMemberKey && globalMembersData[activeLoggedInMemberKey]) {
+                const dm = globalMembersData[activeLoggedInMemberKey].diamond || 0;
+                document.getElementById('luckyWheelUserDiamond').innerText = `💎 Diamond Kamu: ${dm}`;
+            } else {
+                document.getElementById('luckyWheelUserDiamond').innerText = `💎 Login untuk bermain`;
             }
+            drawWheel();
         }
 
+        function closeLuckyWheelModal() {
+            document.getElementById('luckyWheelModal').style.display = 'none';
+        }
+
+        function drawWheel() {
+            const canvas = document.getElementById('wheelCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const numPrizes = wheelPrizes.length;
+            const arc = (2 * Math.PI) / numPrizes;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            wheelPrizes.forEach((prize, index) => {
+                const angle = index * arc;
+                ctx.beginPath();
+                ctx.fillStyle = prize.color;
+                ctx.moveTo(140, 140);
+                ctx.arc(140, 140, 140, angle, angle + arc);
+                ctx.lineTo(140, 140);
+                ctx.fill();
+
+                ctx.save();
+                ctx.translate(140, 140);
+                ctx.rotate(angle + arc / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 12px Poppins, sans-serif";
+                ctx.fillText(prize.label, 130, 4);
+                ctx.restore();
+            });
+        }
+
+        function spinWheel() {
+            if (isSpinning) return;
+            if (!activeLoggedInMemberKey) {
+                alert("Login terlebih dahulu di tab Personalisasi untuk bermain!");
+                switchTab('personal');
+                return;
+            }
+
+            const member = globalMembersData[activeLoggedInMemberKey];
+            const diamonds = Number(member ? member.diamond : 0);
+
+            if (diamonds < 50) {
+                alert("💎 Diamond kamu tidak cukup untuk Spin (butuh 50 Diamond)!");
+                return;
+            }
+
+            isSpinning = true;
+            document.getElementById('spinResultMessage').innerText = '🌀 Memutar roda...';
+
+            const totalChance = wheelPrizes.reduce((sum, p) => sum + p.chance, 0);
+            let rand = Math.random() * totalChance;
+            let winningIndex = 0;
+
+            for (let i = 0; i < wheelPrizes.length; i++) {
+                if (rand < wheelPrizes[i].chance) {
+                    winningIndex = i;
+                    break;
+                }
+                rand -= wheelPrizes[i].chance;
+            }
+
+            const prize = wheelPrizes[winningIndex];
+            const numPrizes = wheelPrizes.length;
+            const arc = 360 / numPrizes;
+
+            const prizeCenterAngle = (winningIndex * arc) + (arc / 2);
+            let angleOffset = (270 - prizeCenterAngle) % 360;
+            if (angleOffset < 0) angleOffset += 360;
+
+            const currentBase = Math.ceil(currentWheelRotation / 360) * 360;
+            currentWheelRotation = currentBase + (360 * 5) + angleOffset;
+
+            const canvas = document.getElementById('wheelCanvas');
+            canvas.style.transform = `rotate(${currentWheelRotation}deg)`;
+
+            setTimeout(() => {
+                isSpinning = false;
+                document.getElementById('spinResultMessage').innerText = `🎉 Selamat! Kamu mendapatkan: ${prize.name}!`;
+
+                const updates = {};
+                let newDiamond = diamonds - 50;
+
+                if (prize.type === 'diamond') {
+                    newDiamond += prize.val;
+                } else if (prize.type === 'star') {
+                    updates[`members/${activeLoggedInMemberKey}/bintang`] = Number(member.bintang || 0) + prize.val;
+                } else if (prize.type === 'hiasan_nama') {
+                    let unlockedH = member.unlockedHiasan || [];
+                    if (!Array.isArray(unlockedH)) unlockedH = Object.values(unlockedH);
+                    if (!unlockedH.includes(prize.id)) unlockedH.push(prize.id);
+                    updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = unlockedH;
+
+                    if (prize.id === 'spesial_ungu') {
+                        const now = Date.now();
+                        const currentExp = (member.spesialUnguExpiresAt && member.spesialUnguExpiresAt > now) ? member.spesialUnguExpiresAt : now;
+                        updates[`members/${activeLoggedInMemberKey}/spesialUnguExpiresAt`] = currentExp + (7 * 24 * 60 * 60 * 1000);
+                    }
+                }
+
+                updates[`members/${activeLoggedInMemberKey}/diamond`] = newDiamond;
+
+                database.ref().update(updates).then(() => {
+                    document.getElementById('luckyWheelUserDiamond').innerText = `💎 Diamond Kamu: ${newDiamond}`;
+                });
+            }, 2500);
+        }
+
+        // UTILS & DETAIL PROFIL MODAL
+        function openProfileDetailModal(key) {
+            const m = globalMembersData[key];
+            if (!m) return;
+
+            const content = document.getElementById('profileDetailContent');
+            
+            let nameClass = "member-name";
+            if (m.hiasanNama === 'vip_gold' && isVipActive(m)) nameClass = "member-name name-gold-shiny";
+            else if (m.hiasanNama === 'limited_shiny' && isHiasanActive(m, 'limited_shiny')) nameClass = "member-name name-green-shiny";
+            else if (m.hiasanNama === 'spesial_ungu' && isHiasanActive(m, 'spesial_ungu')) nameClass = "member-name name-purple-shiny";
+            else if (m.hiasanNama === 'keberuntungan' && isHiasanActive(m, 'keberuntungan')) nameClass = "member-name name-red-shiny";
+            else if (m.hiasanNama === 'terpilih' && isHiasanActive(m, 'terpilih')) nameClass = "member-name name-diamond-shiny";
+
+            let isGelarVip = (m.gelar && m.gelar.toLowerCase().includes('vip'));
+            const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+            const gelarHTML = (m.gelar && m.gelar !== '-') ? `<span class="${gelarClass}">${escapeHTML(m.gelar)}</span>` : '-';
+
+            let allExpirationsHTML = '';
+            if (isVipActive(m)) allExpirationsHTML += `<div style="color: #b8860b;">• 👑 VIP Aktif s/d: ${formatExpDate(m.vipExpiresAt)}</div>`;
+            if (isHiasanActive(m, 'limited_shiny') && m.limitedShinyExpiresAt) allExpirationsHTML += `<div style="color: #15803d;">• ✨ Limited Shiny s/d: ${formatExpDate(m.limitedShinyExpiresAt)}</div>`;
+            if (isHiasanActive(m, 'spesial_ungu') && m.spesialUnguExpiresAt) allExpirationsHTML += `<div style="color: #7e22ce;">• 💜 Spesial Ungu s/d: ${formatExpDate(m.spesialUnguExpiresAt)}</div>`;
+            if (isHiasanProfilActive(m, 'kuning_border_ijo') && m.hiasanProfilKuningExpiresAt) allExpirationsHTML += `<div style="color: #15803d;">• 💛 Hiasan Profil Kuning s/d: ${formatExpDate(m.hiasanProfilKuningExpiresAt)}</div>`;
+
+            if (!allExpirationsHTML) allExpirationsHTML = '<div style="color:#94a3b8;">Tidak ada status/hiasan aktif berdurasi.</div>';
+
+            content.innerHTML = `
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <div style="width: 70px; height: 70px; background: #2563eb; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 10px;">👤</div>
+                    <div class="${nameClass}" style="font-size: 1.3rem;">${escapeHTML(m.nama || 'Tanpa Nama')}</div>
+                    <div style="margin-top: 4px;">Gelar: ${gelarHTML}</div>
+                </div>
+
+                <div class="card-box" style="padding: 12px; margin-bottom: 12px;">
+                    <h4 style="font-size: 0.9rem; color: #334155; margin-bottom: 4px;">📝 Bio:</h4>
+                    <p style="font-size: 0.85rem; color: #64748b; font-style: italic;">${escapeHTML(m.bio || 'Belum menulis bio.')}</p>
+                </div>
+
+                <div class="card-box" style="padding: 12px; margin-bottom: 12px;">
+                    <h4 style="font-size: 0.9rem; color: #334155; margin-bottom: 6px;">⏳ Seluruh Masa Aktif:</h4>
+                    <div style="font-size: 0.8rem;">${allExpirationsHTML}</div>
+                </div>
+
+                <div class="card-box" style="padding: 12px; margin-bottom: 0;">
+                    <h4 style="font-size: 0.9rem; color: #2563eb; margin-bottom: 6px;">🎮 Game Kesukaan & Info Lain:</h4>
+                    <div style="font-size: 0.85rem; color: #334155;">
+                        • <strong>Game Kesukaan:</strong> ${escapeHTML(m.gameKesukaan || 'Belum diisi')}<br>
+                        • <strong>Level Member:</strong> ${m.level || 1}<br>
+                        • <strong>Lencana:</strong> ${m.lencanaImmortal ? '🏅 Immortal' : 'Standar'}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('profileDetailModal').style.display = 'flex';
+        }
+
+        function closeProfileDetailModal() {
+            document.getElementById('profileDetailModal').style.display = 'none';
+        }
+
+        // PERSONALISASI / LOGIKA SELF EDIT
         function loginMember() {
             const key = document.getElementById('selectMemberSelf').value;
             const pinInput = document.getElementById('inputMemberPin').value;
@@ -1307,36 +1774,32 @@
                 document.getElementById('member-edit-box').style.display = 'block';
 
                 updateMemberPersonalView(member);
+                renderChats();
             } else {
-                alert("❌ Sandi / PIN Salah! (Sandi standar: 1234)");
+                alert("❌ Sandi / PIN Salah!");
             }
         }
 
         function updateMemberPersonalView(member) {
             document.getElementById('editSelfNama').value = member.nama || '';
             document.getElementById('editSelfBio').value = member.bio || '';
+            document.getElementById('editSelfGameKesukaan').value = member.gameKesukaan || '';
             document.getElementById('editSelfPin').value = member.pin || '1234';
 
-            // GELAR SELECT
             const selectGelar = document.getElementById('editSelfGelarSelect');
             selectGelar.innerHTML = '';
 
             let unlocked = member.unlockedTitles || ["Pemula"];
             if (!Array.isArray(unlocked)) unlocked = Object.values(unlocked);
-
-            if (member.gelar && !unlocked.includes(member.gelar)) {
-                unlocked.push(member.gelar);
-         }
+            if (member.gelar && !unlocked.includes(member.gelar)) unlocked.push(member.gelar);
 
             unlocked.forEach(g => {
                 const opt = document.createElement('option');
-                opt.value = g;
-                opt.innerText = g;
+                opt.value = g; opt.innerText = g;
                 if (g === member.gelar) opt.selected = true;
                 selectGelar.appendChild(opt);
             });
 
-            // HIASAN NAMA SELECT
             const selectHiasan = document.getElementById('editSelfHiasanNamaSelect');
             selectHiasan.innerHTML = '<option value="default">Default</option>';
 
@@ -1345,55 +1808,104 @@
 
             if (isVipActive(member) || unlockedHiasan.includes('vip_gold')) {
                 const optVip = document.createElement('option');
-                optVip.value = 'vip_gold';
-                optVip.innerText = 'Emas VIP (Emas Mewah)';
+                optVip.value = 'vip_gold'; optVip.innerText = '👑 Emas VIP (Shiny Gold)';
                 selectHiasan.appendChild(optVip);
             }
 
-            if (isHiasanActive(member, 'limited_shiny') || unlockedHiasan.includes('limited_shiny')) {
+            if (isHiasanActive(member, 'limited_shiny')) {
                 const optShiny = document.createElement('option');
-                optShiny.value = 'limited_shiny';
-                optShiny.innerText = 'Limited Shiny (Hijau bercahaya)';
+                optShiny.value = 'limited_shiny'; optShiny.innerText = '✨ Limited Shiny';
                 selectHiasan.appendChild(optShiny);
             }
 
+            if (isHiasanActive(member, 'spesial_ungu')) {
+                const optUngu = document.createElement('option');
+                optUngu.value = 'spesial_ungu'; optUngu.innerText = '💜 Spesial Ungu Shiny';
+                selectHiasan.appendChild(optUngu);
+            }
+
             if (unlockedHiasan.includes('keberuntungan')) {
-                const optKeberuntungan = document.createElement('option');
-                optKeberuntungan.value = 'keberuntungan';
-                optKeberuntungan.innerText = '🔴 Keberuntungan (Merah Bercahaya)';
-                selectHiasan.appendChild(optKeberuntungan);
+                const optRed = document.createElement('option');
+                optRed.value = 'keberuntungan'; optRed.innerText = '🔴 Keberuntungan (Red Shiny)';
+                selectHiasan.appendChild(optRed);
             }
 
             if (unlockedHiasan.includes('terpilih')) {
-                const optTerpilih = document.createElement('option');
-                optTerpilih.value = 'terpilih';
-                optTerpilih.innerText = '💎 Terpilih (Biru Berlian)';
-                selectHiasan.appendChild(optTerpilih);
+                const optDia = document.createElement('option');
+                optDia.value = 'terpilih'; optDia.innerText = '💎 Terpilih (Diamond Shiny)';
+                selectHiasan.appendChild(optDia);
             }
 
-            if (member.hiasanNama) {
-                selectHiasan.value = member.hiasanNama;
-            } else {
-                selectHiasan.value = 'default';
+            unlockedHiasan.forEach(h => {
+                if (!['default', 'vip_gold', 'limited_shiny', 'spesial_ungu', 'keberuntungan', 'terpilih'].includes(h)) {
+                    const optOther = document.createElement('option');
+                    optOther.value = h; optOther.innerText = h;
+                    selectHiasan.appendChild(optOther);
+                }
+            });
+
+            selectHiasan.value = member.hiasanNama || 'default';
+
+            const selectHiasanProfil = document.getElementById('editSelfHiasanProfilSelect');
+            selectHiasanProfil.innerHTML = '<option value="default">Default (Putih)</option>';
+
+            let unlockedP = member.unlockedHiasanProfil || [];
+            if (!Array.isArray(unlockedP)) unlockedP = Object.values(unlockedP);
+
+            if (unlockedP.includes('kuning_border_ijo') || isHiasanProfilActive(member, 'kuning_border_ijo')) {
+                const optY = document.createElement('option');
+                optY.value = 'kuning_border_ijo';
+                optY.innerText = '💛 Kuning Border Hijau';
+                selectHiasanProfil.appendChild(optY);
             }
 
-            const itemsContainer = document.getElementById('owned-items-list');
-            let owned = member.ownedItems || [];
-            if (!Array.isArray(owned)) owned = Object.values(owned);
+            unlockedP.forEach(p => {
+                if (!['default', 'kuning_border_ijo'].includes(p)) {
+                    const optP = document.createElement('option');
+                    optP.value = p;
+                    optP.innerText = p;
+                    selectHiasanProfil.appendChild(optP);
+                }
+            });
 
-            let extraInfo = '';
+            selectHiasanProfil.value = member.hiasanProfil || 'default';
+
+            const ownedContainer = document.getElementById('owned-items-list');
+            let invHTML = '';
+
             if (isVipActive(member)) {
-                extraInfo += `<div style="color: #d97706; font-weight: 700; margin-bottom: 4px;">👑 VIP s/d: ${formatExpDate(member.vipExpiresAt)}</div>`;
-            }
-            if (isHiasanActive(member, 'limited_shiny')) {
-                extraInfo += `<div style="color: #16a34a; font-weight: 700; margin-bottom: 8px;">✨ Limited Shiny s/d: ${formatExpDate(member.limitedShinyExpiresAt)}</div>`;
+                invHTML += `<div style="margin-bottom:8px; padding:8px; background:#fef3c7; border-radius:8px; border:1px solid #f59e0b; color:#b8860b;">
+                    <strong>👑 Status VIP:</strong> Aktif s/d ${formatExpDate(member.vipExpiresAt)}<br>
+                    <small style="color:#d97706;"><em>Manfaat: Gelar VIP, Nama Emas Shiny, Fitur Eksklusif.</em></small>
+                </div>`;
+            } else {
+                invHTML += `<div style="margin-bottom:8px; padding:6px 8px; background:#f1f5f9; border-radius:8px; color:#64748b;">
+                    <strong>👑 Status VIP:</strong> Tidak Aktif
+                </div>`;
             }
 
-            if (owned.length > 0) {
-                itemsContainer.innerHTML = extraInfo + owned.map(i => `• ${i}`).join('<br>');
-            } else {
-                itemsContainer.innerHTML = extraInfo + 'Belum memiliki item khusus dari Shop / Lucky Wheel.';
-            }
+            let activeHiasanList = unlockedHiasan.filter(h => h !== 'default').map(h => hiasanNamaMap[h] || h);
+            if (isVipActive(member) && !activeHiasanList.includes(hiasanNamaMap['vip_gold'])) activeHiasanList.push(hiasanNamaMap['vip_gold']);
+
+            invHTML += `<div style="margin-bottom:8px;">
+                <strong>✨ Hiasan Nama Dimiliki (${activeHiasanList.length}):</strong><br>
+                ${activeHiasanList.length ? activeHiasanList.map(h => `• ${escapeHTML(h)}`).join('<br>') : '<span style="color:#94a3b8;">Belum ada hiasan nama.</span>'}
+            </div>`;
+
+            let activeProfilList = unlockedP.filter(p => p !== 'default').map(p => hiasanProfilMap[p] || p);
+            invHTML += `<div style="margin-bottom:8px;">
+                <strong>🖼️ Hiasan Profil Dimiliki (${activeProfilList.length}):</strong><br>
+                ${activeProfilList.length ? activeProfilList.map(p => `• ${escapeHTML(p)}`).join('<br>') : '<span style="color:#94a3b8;">Belum ada hiasan profil.</span>'}
+            </div>`;
+
+            let unlockedT = member.unlockedTitles || ["Pemula"];
+            if (!Array.isArray(unlockedT)) unlockedT = Object.values(unlockedT);
+            invHTML += `<div style="margin-bottom:8px;">
+                <strong>🏷️ Gelar Dimiliki (${unlockedT.length}):</strong><br>
+                ${unlockedT.map(t => `• ${escapeHTML(t)}`).join('<br>')}
+            </div>`;
+
+            ownedContainer.innerHTML = invHTML;
         }
 
         function saveSelfProfile() {
@@ -1401,8 +1913,10 @@
 
             const newGelar = document.getElementById('editSelfGelarSelect').value;
             const newHiasan = document.getElementById('editSelfHiasanNamaSelect').value;
+            const newHiasanProfil = document.getElementById('editSelfHiasanProfilSelect').value;
             const newNama = document.getElementById('editSelfNama').value.trim();
             const newBio = document.getElementById('editSelfBio').value;
+            const newGameKesukaan = document.getElementById('editSelfGameKesukaan').value;
             const newPin = document.getElementById('editSelfPin').value.trim();
 
             if (!newNama) {
@@ -1413,11 +1927,13 @@
             membersRef.child(activeLoggedInMemberKey).update({
                 gelar: newGelar || "Pemula",
                 hiasanNama: newHiasan || "default",
+                hiasanProfil: newHiasanProfil || "default",
                 nama: newNama,
                 bio: newBio,
+                gameKesukaan: newGameKesukaan,
                 pin: newPin || "1234"
             }).then(() => {
-                alert("✅ Profil, Gelar & Hiasan Nama kamu berhasil diperbarui!");
+                alert("✅ Profil berhasil diperbarui!");
             });
         }
 
@@ -1425,181 +1941,22 @@
             activeLoggedInMemberKey = null;
             document.getElementById('member-login-box').style.display = 'block';
             document.getElementById('member-edit-box').style.display = 'none';
-            document.getElementById('inputMemberPin').value = '';
+            renderChats();
         }
 
-        /* --- FUNGSI LUCKY WHEEL --- */
-        function openLuckyWheelModal() {
-            document.getElementById('luckyWheelModal').style.display = 'flex';
-            document.getElementById('spinResultMessage').innerText = '';
-            drawWheel();
-        }
-
-        function closeLuckyWheelModal() {
-            if (isSpinning) return;
-            document.getElementById('luckyWheelModal').style.display = 'none';
-        }
-
-        function drawWheel() {
-            const canvas = document.getElementById('wheelCanvas');
-            const ctx = canvas.getContext('2d');
-            const numSlices = wheelPrizes.length;
-            const arcSize = (2 * Math.PI) / numSlices;
-            const radius = canvas.width / 2;
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < numSlices; i++) {
-                const angle = i * arcSize;
-                ctx.beginPath();
-                ctx.fillStyle = wheelPrizes[i].color;
-                ctx.moveTo(radius, radius);
-                ctx.arc(radius, radius, radius, angle, angle + arcSize);
-                ctx.lineTo(radius, radius);
-                ctx.fill();
-
-                // Garis Pemisah
-                ctx.strokeStyle = '#ffffff';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-
-                // Tulis Teks Hadiah
-                ctx.save();
-                ctx.translate(radius, radius);
-                ctx.rotate(angle + arcSize / 2);
-                ctx.textAlign = "right";
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 12px Poppins, sans-serif";
-                ctx.fillText(wheelPrizes[i].label, radius - 15, 4);
-                ctx.restore();
-            }
-        }
-
-        function getRandomPrizeByProbability() {
-            const rand = Math.random() * 100; // 0 s/d 100
-            let cumulative = 0;
-
-            for (let i = 0; i < wheelPrizes.length; i++) {
-                cumulative += wheelPrizes[i].chance;
-                if (rand <= cumulative) {
-                    return { prize: wheelPrizes[i], index: i };
-                }
-            }
-            return { prize: wheelPrizes[wheelPrizes.length - 1], index: wheelPrizes.length - 1 };
-        }
-
-        function spinWheel() {
-            if (isSpinning) return;
-
-            if (!activeLoggedInMemberKey) {
-                alert("Silakan login dulu di tab Personalisasi untuk bermain Lucky Wheel!");
-                closeLuckyWheelModal();
-                switchTab('personal');
-                return;
-            }
-
-            const member = globalMembersData[activeLoggedInMemberKey];
-            if (!member || (member.diamond || 0) < 50) {
-                alert("Diamond kamu kurang! Kamu butuh minimal 💎 50 Diamond untuk spin.");
-                return;
-            }
-
-            isSpinning = true;
-            document.getElementById('btnSpinWheel').disabled = true;
-            document.getElementById('spinResultMessage').innerHTML = '<span style="color:#64748b;">Memutar roda... Good luck! 🍀</span>';
-
-            // Potong 50 Diamond awal
-            const currentDiamond = (member.diamond || 0) - 50;
-            membersRef.child(activeLoggedInMemberKey).update({ diamond: currentDiamond });
-
-            // Tentukan Hadiah berdasarkan Prosentase
-            const chosen = getRandomPrizeByProbability();
-            const prize = chosen.prize;
-            const index = chosen.index;
-
-            const numSlices = wheelPrizes.length;
-            const sliceAngle = 360 / numSlices;
-            
-            // Hitung Sudut Berhenti
-            const targetAngle = 360 - (index * sliceAngle + sliceAngle / 2) - 90; 
-            const fullSpins = 5 * 360; 
-            const totalRotation = currentWheelRotation + fullSpins + ((targetAngle - (currentWheelRotation % 360) + 360) % 360);
-
-            currentWheelRotation = totalRotation;
-            const canvas = document.getElementById('wheelCanvas');
-            canvas.style.transform = `rotate(${totalRotation}deg)`;
-
-            setTimeout(() => {
-                isSpinning = false;
-                document.getElementById('btnSpinWheel').disabled = false;
-
-                // Proses Hadiah ke Firebase
-                let newBintang = member.bintang || 0;
-                let finalDiamond = currentDiamond;
-                let unlockedHiasan = member.unlockedHiasan || [];
-                if (!Array.isArray(unlockedHiasan)) unlockedHiasan = Object.values(unlockedHiasan);
-
-                let owned = member.ownedItems || [];
-                if (!Array.isArray(owned)) owned = Object.values(owned);
-
-                let resultTxt = "";
-
-                if (prize.type === 'hiasan') {
-                    if (!unlockedHiasan.includes(prize.id)) unlockedHiasan.push(prize.id);
-                    owned.push(`Hiasan Nama: ${prize.name}`);
-                    resultTxt = `🎉 Selamat! Kamu mendapatkan Hiasan Nama "${prize.name}"!`;
-                } else if (prize.type === 'star') {
-                    newBintang += prize.val;
-                    resultTxt = `⭐ Selamat! Kamu mendapatkan +${prize.val} Bintang!`;
-                } else if (prize.type === 'diamond') {
-                    finalDiamond += prize.val;
-                    resultTxt = `💎 Selamat! Kamu mendapatkan +${prize.val} Diamond!`;
-                }
-
-                // Cek Otomatis Rank Sesuai Bintang
-                const autoRankGelar = getRankAndGelarByBintang(newBintang);
-                let updatePayload = {
-                    bintang: newBintang,
-                    diamond: finalDiamond,
-                    unlockedHiasan: unlockedHiasan,
-                    ownedItems: owned
-                };
-
-                if (autoRankGelar) {
-                    updatePayload.rank = autoRankGelar.rank;
-                    if (!member.gelar || member.gelar === '-') {
-                        updatePayload.gelar = autoRankGelar.gelar;
-                    }
-                }
-
-                membersRef.child(activeLoggedInMemberKey).update(updatePayload);
-                document.getElementById('spinResultMessage').innerHTML = `<span style="color:#16a34a;">${resultTxt}</span>`;
-            }, 4000);
-        }
-
-        /* --- ADMIN MODAL FUNCTIONS --- */
-        function openAdminAuthModal() {
+        // ADMIN PANEL LOGIC
+        function openAdminModal() {
+            document.getElementById('adminModal').style.display = 'flex';
             if (isAdminLoggedIn) {
-                document.getElementById('adminModal').style.display = 'flex';
+                document.getElementById('admin-login-sec').style.display = 'none';
+                document.getElementById('admin-panel-sec').style.display = 'block';
+                populateAdminMemberList();
+                populateAdminShopList();
+                populateAdminEventList();
+                populateAdminChatList();
             } else {
-                document.getElementById('adminAuthModal').style.display = 'flex';
-            }
-        }
-
-        function closeAdminAuthModal() {
-            document.getElementById('adminAuthModal').style.display = 'none';
-        }
-
-        function submitAdminAuth() {
-            const pass = document.getElementById('inputAdminAuthPass').value;
-            if (pass === "ABSENRUANGMABAR") {
-                isAdminLoggedIn = true;
-                closeAdminAuthModal();
-                document.getElementById('adminModal').style.display = 'flex';
-                shopRef.once('value', () => {});
-                eventsRef.once('value', () => {});
-            } else {
-                alert("Password Admin Salah!");
+                document.getElementById('admin-login-sec').style.display = 'block';
+                document.getElementById('admin-panel-sec').style.display = 'none';
             }
         }
 
@@ -1607,163 +1964,250 @@
             document.getElementById('adminModal').style.display = 'none';
         }
 
-        function switchAdminMenu(val) {
-            document.getElementById('formAdminEditMember').style.display = val === 'edit-member' ? 'block' : 'none';
-            document.getElementById('formAdminAddMember').style.display = val === 'add-member' ? 'block' : 'none';
-            document.getElementById('panelAdminManageMember').style.display = val === 'manage-member' ? 'block' : 'none';
-            document.getElementById('formAdminShop').style.display = val === 'shop' ? 'block' : 'none';
-            document.getElementById('panelAdminManageShop').style.display = val === 'manage-shop' ? 'block' : 'none';
-            document.getElementById('formAdminEvent').style.display = val === 'event' ? 'block' : 'none';
-            document.getElementById('panelAdminManageEvent').style.display = val === 'manage-event' ? 'block' : 'none';
+        function submitAdminAuth() {
+            const pass = document.getElementById('inputAdminAuthPass').value;
+            if (pass === "ABSENRUANGMABAR") {
+                isAdminLoggedIn = true;
+                document.getElementById('inputAdminAuthPass').value = '';
+                openAdminModal();
+            } else {
+                alert("Password Admin Salah!");
+            }
         }
 
-        function loadMemberToAdminForm(key) {
-            const fields = document.getElementById('adminMemberFields');
-            if (!key || !globalMembersData[key]) {
-                fields.style.display = 'none';
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            openAdminModal();
+        }
+
+        function populateAdminMemberList() {
+            const select = document.getElementById('adminSelectMember');
+            if (!select) return;
+            const currentVal = select.value;
+            select.innerHTML = '<option value="">-- Pilih Member --</option>';
+            Object.keys(globalMembersData).forEach(key => {
+                const m = globalMembersData[key];
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.innerText = m.nama || 'Tanpa Nama';
+                if (key === currentVal) opt.selected = true;
+                select.appendChild(opt);
+            });
+
+            const delContainer = document.getElementById('admin-member-delete-list');
+            if (!delContainer) return;
+            delContainer.innerHTML = '';
+            Object.keys(globalMembersData).forEach(key => {
+                const m = globalMembersData[key];
+                const row = document.createElement('div');
+                row.className = 'admin-member-row';
+                row.innerHTML = `
+                    <span><strong>${escapeHTML(m.nama || 'Tanpa Nama')}</strong></span>
+                    <button class="btn-del-mini" onclick="adminDeleteMember('${key}')">🗑️ Hapus</button>
+                `;
+                delContainer.appendChild(row);
+            });
+        }
+
+        function populateAdminShopList() {
+            const shopDelContainer = document.getElementById('admin-shop-delete-list');
+            if (!shopDelContainer) return;
+            shopDelContainer.innerHTML = '';
+            
+            const keys = Object.keys(globalShopData);
+            if (keys.length === 0) {
+                shopDelContainer.innerHTML = '<small style="color:#94a3b8;">Belum ada item di Shop Resmi.</small>';
                 return;
             }
 
-            fields.style.display = 'block';
+            keys.forEach(key => {
+                const item = globalShopData[key];
+                const row = document.createElement('div');
+                row.className = 'admin-member-row';
+                row.innerHTML = `
+                    <span><strong>${escapeHTML(item.nama)}</strong> (${escapeHTML(item.tipe || 'Item')}) - 💎 ${item.harga || 0}</span>
+                    <button class="btn-del-mini" onclick="adminDeleteShopItem('${key}')">🗑️ Hapus</button>
+                `;
+                shopDelContainer.appendChild(row);
+            });
+        }
+
+        function populateAdminEventList() {
+            const container = document.getElementById('admin-event-delete-list');
+            if (!container) return;
+            container.innerHTML = '';
+            const keys = Object.keys(globalEventsData || {});
+            if (keys.length === 0) {
+                container.innerHTML = '<small style="color:#94a3b8;">Belum ada event aktif.</small>';
+                return;
+            }
+            keys.forEach(key => {
+                const item = globalEventsData[key];
+                const row = document.createElement('div');
+                row.className = 'admin-member-row';
+                row.innerHTML = `
+                    <span><strong>${escapeHTML(item.judul)}</strong></span>
+                    <button class="btn-del-mini" onclick="adminDeleteEvent('${key}')">🗑️ Hapus</button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function populateAdminChatList() {
+            const container = document.getElementById('admin-chat-delete-list');
+            if (!container) return;
+            container.innerHTML = '';
+            const keys = Object.keys(globalChatsData || {});
+            if (keys.length === 0) {
+                container.innerHTML = '<small style="color:#94a3b8;">Belum ada chat.</small>';
+                return;
+            }
+            keys.forEach(key => {
+                const item = globalChatsData[key];
+                const row = document.createElement('div');
+                row.className = 'admin-member-row';
+                row.style.fontSize = '0.8rem';
+                row.innerHTML = `
+                    <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:70%;"><strong>${escapeHTML(item.sender || 'Member')}:</strong> ${escapeHTML(item.text || '')}</span>
+                    <button class="btn-del-mini" onclick="adminDeleteChat('${key}')">🗑️ Hapus</button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function adminLoadMemberToForm() {
+            const key = document.getElementById('adminSelectMember').value;
+            if (!key || !globalMembersData[key]) return;
             const m = globalMembersData[key];
-
-            document.getElementById('adminEditNama').value = m.nama || '';
-            document.getElementById('adminEditPin').value = m.pin || '1234';
-            document.getElementById('adminEditGelar').value = m.gelar || '';
-            document.getElementById('adminEditBio').value = m.bio || '';
-            document.getElementById('adminEditLevel').value = m.level || 1;
-            document.getElementById('adminEditRank').value = m.rank || 'Warrior';
-            document.getElementById('adminEditBintang').value = m.bintang || 0;
-            document.getElementById('adminEditDiamond').value = m.diamond || 0;
-            document.getElementById('adminEditBoost').value = m.boost || 1;
-            document.getElementById('adminEditImmortal').checked = m.lencanaImmortal === true;
+            document.getElementById('adminMemberRank').value = m.rank || 'Warrior';
+            document.getElementById('adminMemberBintang').value = m.bintang || 0;
+            document.getElementById('adminMemberDiamond').value = m.diamond || 0;
+            document.getElementById('adminMemberLevel').value = m.level || 1;
+            document.getElementById('adminMemberImmortal').checked = !!m.lencanaImmortal;
         }
 
-        function absenMemberAdmin() {
-            const key = document.getElementById('adminSelectEditMember').value;
-            if (!key) return;
+        function adminSaveMemberStats() {
+            const key = document.getElementById('adminSelectMember').value;
+            if (!key) { alert("Pilih member dulu!"); return; }
 
-            let curBintang = parseInt(document.getElementById('adminEditBintang').value) || 0;
-            let curDiamond = parseInt(document.getElementById('adminEditDiamond').value) || 0;
-            let boostMultiplier = parseInt(document.getElementById('adminEditBoost').value) || 1;
-            if (boostMultiplier < 1) boostMultiplier = 1;
+            const rank = document.getElementById('adminMemberRank').value;
+            const bintang = Number(document.getElementById('adminMemberBintang').value);
+            const diamond = Number(document.getElementById('adminMemberDiamond').value);
+            const level = Number(document.getElementById('adminMemberLevel').value);
+            const immortal = document.getElementById('adminMemberImmortal').checked;
 
-            let newBintang = curBintang + (1 * boostMultiplier);
-            let newDiamond = curDiamond + (100 * boostMultiplier);
+            membersRef.child(key).update({
+                rank: rank,
+                bintang: bintang,
+                diamond: diamond,
+                level: level,
+                lencanaImmortal: immortal
+            }).then(() => {
+                alert("✅ Data member berhasil diperbarui admin!");
+            });
+        }
 
-            const autoRankGelar = getRankAndGelarByBintang(newBintang);
-            let newRank = document.getElementById('adminEditRank').value;
-            let newGelar = document.getElementById('adminEditGelar').value;
+        function adminAddMember() {
+            const nama = prompt("Masukkan Nama Member Baru:");
+            if (!nama || !nama.trim()) return;
+            
+            const newRef = membersRef.push();
+            newRef.set({
+                nama: nama.trim(),
+                pin: "1234",
+                rank: "Warrior",
+                bintang: 0,
+                diamond: 0,
+                level: 1,
+                boost: 1,
+                bio: "Member Ruang Mabar",
+                gelar: "Pemula",
+                unlockedTitles: ["Pemula"],
+                unlockedHiasan: ["default"],
+                unlockedHiasanProfil: ["default"]
+            }).then(() => {
+                alert("✅ Member baru berhasil ditambahkan!");
+            });
+        }
 
-            if (autoRankGelar) {
-                newRank = autoRankGelar.rank;
-                newGelar = autoRankGelar.gelar;
+        function adminDeleteMember(key) {
+            if (!confirm("Apakah Anda yakin ingin menghapus member ini?")) return;
+            membersRef.child(key).remove().then(() => {
+                alert("✅ Member berhasil dihapus!");
+            });
+        }
+
+        function adminAddShopItem() {
+            const nama = document.getElementById('adminShopNama').value.trim();
+            const tipe = document.getElementById('adminShopTipe').value;
+            const harga = Number(document.getElementById('adminShopHarga').value);
+            const stok = Number(document.getElementById('adminShopStok').value);
+
+            if (!nama || !harga) {
+                alert("Isi nama dan harga item dengan benar!");
+                return;
             }
 
-            document.getElementById('adminEditBintang').value = newBintang;
-            document.getElementById('adminEditDiamond').value = newDiamond;
-            document.getElementById('adminEditRank').value = newRank;
-            document.getElementById('adminEditGelar').value = newGelar;
-
-            saveAdminMemberChanges(true);
-        }
-
-        function saveAdminMemberChanges(isFromAbsen = false) {
-            const key = document.getElementById('adminSelectEditMember').value;
-            if (!key) return;
-
-            const updatedData = {
-                nama: document.getElementById('adminEditNama').value.trim(),
-                pin: document.getElementById('adminEditPin').value.trim() || '1234',
-                gelar: document.getElementById('adminEditGelar').value.trim(),
-                bio: document.getElementById('adminEditBio').value,
-                level: parseInt(document.getElementById('adminEditLevel').value) || 1,
-                rank: document.getElementById('adminEditRank').value.trim(),
-                bintang: parseInt(document.getElementById('adminEditBintang').value) || 0,
-                diamond: parseInt(document.getElementById('adminEditDiamond').value) || 0,
-                boost: parseInt(document.getElementById('adminEditBoost').value) || 1,
-                lencanaImmortal: document.getElementById('adminEditImmortal').checked
-            };
-
-            membersRef.child(key).update(updatedData).then(() => {
-                if (isFromAbsen) {
-                    alert(`✅ ABSEN BERHASIL!\nBintang +${1 * updatedData.boost}, Diamond +${100 * updatedData.boost}`);
-                } else {
-                    alert("✅ Perubahan Member Berhasil Disimpan!");
-                }
+            const newShopRef = shopRef.push();
+            newShopRef.set({
+                nama: nama,
+                tipe: tipe,
+                harga: harga,
+                stok: isNaN(stok) || stok < 0 ? 999 : stok
+            }).then(() => {
+                alert("✅ Item berhasil ditambahkan ke Shop!");
+                document.getElementById('adminShopNama').value = '';
+                document.getElementById('adminShopHarga').value = '';
+                document.getElementById('adminShopStok').value = '';
             });
         }
 
-        function saveNewMember(e) {
-            e.preventDefault();
-            const bintangVal = parseInt(document.getElementById('inputBintang').value) || 0;
-            const autoRankGelar = getRankAndGelarByBintang(bintangVal);
+        function adminDeleteShopItem(key) {
+            if (!confirm("Apakah Anda yakin ingin menghapus item ini dari shop?")) return;
+            shopRef.child(key).remove().then(() => {
+                alert("✅ Item shop berhasil dihapus!");
+            });
+        }
 
-            let rankVal = document.getElementById('inputRank').value;
-            let gelarVal = document.getElementById('inputGelar').value || "Pemula";
-
-            if (autoRankGelar) {
-                rankVal = autoRankGelar.rank;
-                gelarVal = autoRankGelar.gelar;
+        function adminSaveEvent() {
+            const judul = document.getElementById('adminEventJudul').value.trim();
+            const content = document.getElementById('adminEventText').value.trim();
+            if (!judul || !content) {
+                alert("Judul dan pengumuman event harus diisi!");
+                return;
             }
 
-            membersRef.push().set({
-                nama: document.getElementById('inputNama').value,
-                pin: document.getElementById('inputPinDefault').value || "1234",
-                gelar: gelarVal,
-                hiasanNama: "default",
-                bio: document.getElementById('inputBio').value,
-                level: parseInt(document.getElementById('inputLevel').value) || 1,
-                rank: rankVal,
-                bintang: bintangVal,
-                diamond: parseInt(document.getElementById('inputDiamond').value) || 0,
-                boost: parseInt(document.getElementById('inputBoost').value) || 1,
-                lencanaImmortal: document.getElementById('inputImmortalNew').checked,
-                unlockedTitles: [gelarVal],
-                unlockedHiasan: ["default"]
+            const newEventRef = eventsRef.push();
+            newEventRef.set({
+                judul: judul,
+                content: content,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
             }).then(() => {
-                alert("Member baru berhasil dibuat!");
-                document.getElementById('formAdminAddMember').reset();
-                closeAdminModal();
+                alert("✅ Event berhasil dipublikasikan!");
+                document.getElementById('adminEventJudul').value = '';
+                document.getElementById('adminEventText').value = '';
             });
         }
 
-        function saveShopItem(e) {
-            e.preventDefault();
-            const tipeVal = document.getElementById('inputShopTipe').value;
-            const durasiVal = parseInt(document.getElementById('inputShopDurasi').value) || 14;
-
-            shopRef.push().set({
-                nama: document.getElementById('inputShopNama').value,
-                tipe: tipeVal,
-                durasiHari: (tipeVal === 'vip' || tipeVal === 'hiasan') ? durasiVal : 0,
-                harga: parseInt(document.getElementById('inputShopHarga').value) || 0,
-                stok: parseInt(document.getElementById('inputShopStok').value) || 0
-            }).then(() => {
-                alert("Item shop berhasil disimpan!");
-                document.getElementById('formAdminShop').reset();
-                closeAdminModal();
+        function adminDeleteEvent(key) {
+            if (!confirm("Apakah Anda yakin ingin menghapus event ini?")) return;
+            eventsRef.child(key).remove().then(() => {
+                alert("✅ Event berhasil dihapus!");
             });
         }
 
-        function saveEvent(e) {
-            e.preventDefault();
-            eventsRef.push().set({
-                judul: document.getElementById('inputEventJudul').value,
-                deskripsi: document.getElementById('inputEventDeskripsi').value
-            }).then(() => {
-                alert("Event berhasil ditambahkan!");
-                document.getElementById('formAdminEvent').reset();
-                closeAdminModal();
+        function adminClearAllChats() {
+            if (!confirm("Apakah Anda yakin ingin menghapus SELURUH pesan chat?")) return;
+            chatsRef.remove().then(() => {
+                alert("✅ Semua chat berhasil dihapus!");
             });
         }
 
-        function deleteMember(key) {
-            if (confirm("Yakin mau hapus member ini dari database?")) {
-                membersRef.child(key).remove().then(() => {
-                    alert("Member dihapus!");
-                });
-            }
+        function adminDeleteChat(key) {
+            if (!confirm("Hapus pesan chat ini?")) return;
+            chatsRef.child(key).remove().then(() => {
+                alert("✅ Chat berhasil dihapus!");
+            });
         }
     </script>
 </body>
