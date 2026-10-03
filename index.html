@@ -113,6 +113,12 @@
             gap: 16px;
         }
 
+        .chat-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
         .member-card {
             background: white;
             border-radius: 16px;
@@ -144,9 +150,7 @@
         }
 
         @keyframes goldShine {
-            to {
-                background-position: 200% center;
-            }
+            to { background-position: 200% center; }
         }
 
         /* Hiasan Nama Limited Shiny (Hijau Shiny Putih) */
@@ -162,12 +166,41 @@
         }
 
         @keyframes greenShine {
-            to {
-                background-position: 200% center;
-            }
+            to { background-position: 200% center; }
         }
 
-        /* Teks Masa Berlaku di Card (Kecil & Warna Sesuai Hiasan Nama) */
+        /* Hiasan Nama Keberuntungan (Merah Shiny Putih) */
+        .name-red-shiny {
+            background: linear-gradient(90deg, #991b1b, #ef4444, #ffffff, #ef4444, #991b1b);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 800;
+            animation: redShine 2.5s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes redShine {
+            to { background-position: 200% center; }
+        }
+
+        /* Hiasan Nama Terpilih (Biru Berlian Shiny Biru Tua) */
+        .name-diamond-shiny {
+            background: linear-gradient(90deg, #1e3a8a, #0284c7, #38bdf8, #0284c7, #1e3a8a);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 800;
+            animation: diamondShine 2.5s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes diamondShine {
+            to { background-position: 200% center; }
+        }
+
         .vip-time-tag {
             font-size: 0.72rem;
             font-weight: 700;
@@ -234,56 +267,6 @@
             padding: 2px 6px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(217, 119, 6, 0.2);
-        }
-
-        .vip-badge {
-            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-            color: #3b2200;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 12px;
-            border: 1px solid #ffe57f;
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-            display: inline-block;
-            font-size: 12px;
-        }
-
-        .vip-badge-shiny {
-            position: relative;
-            background: linear-gradient(135deg, #d4af37, #ffd700, #b38728);
-            color: #3d2400;
-            font-weight: 700;
-            padding: 3px 12px;
-            border-radius: 12px;
-            border: 1px solid #fff3a8;
-            box-shadow: 0 2px 6px rgba(212, 175, 55, 0.4);
-            overflow: hidden;
-            display: inline-block;
-            font-size: 12px;
-        }
-
-        .vip-badge-shiny::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                60deg,
-                rgba(255, 255, 255, 0) 20%,
-                rgba(255, 255, 255, 0.7) 50%,
-                rgba(255, 255, 255, 0) 80%
-            );
-            transform: rotate(25deg);
-            animation: shine 2.5s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(25deg); }
-            20% { transform: translateX(100%) rotate(25deg); }
-            100% { transform: translateX(100%) rotate(25deg); }
         }
 
         .shop-list { display: flex; flex-direction: column; gap: 12px; }
@@ -391,6 +374,53 @@
         .btn-absen-admin:hover { background: #15803d; }
 
         .btn-secondary { background: #64748b; margin-top: 6px; width: 100%; }
+
+        /* Style Card Arcade */
+        .arcade-card {
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            color: white;
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid #6366f1;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
+        }
+        .arcade-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Lucky Wheel Spinner Canvas Container */
+        .wheel-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 10px auto;
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 22px solid #ef4444;
+            z-index: 10;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        #wheelCanvas {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 6px solid #312e81;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            transition: transform 4s cubic-bezier(0.15, 0.99, 0.18, 0.99);
+        }
     </style>
 </head>
 <body>
@@ -406,6 +436,8 @@
             <button class="tab-btn" onclick="switchTab('shop', event)">🛒 Shop</button>
             <button class="tab-btn" onclick="switchTab('event', event)">🎉 Event</button>
             <button class="tab-btn" onclick="switchTab('personal', event)">⚙️ Personalisasi</button>
+            <button class="tab-btn" onclick="switchTab('arcade', event)">🕹️ Arcade</button>
+            <button class="tab-btn" onclick="switchTab('chat', event)">💬 Chat</button>
         </div>
 
         <div id="tab-profil" class="tab-content active">
@@ -498,6 +530,63 @@
                 </div>
             </div>
         </div>
+
+        <!-- TAB ARCADE -->
+        <div id="tab-arcade" class="tab-content">
+      <div class="arcade-card" onclick="openLuckyWheelModal()">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 4px;">🎡 Lucky Wheel</h3>
+                        <p style="font-size: 0.85rem; opacity: 0.9;">Putar roda keberuntungan! Biaya: <strong>💎 50 Diamond</strong></p>
+                    </div>
+                    <span style="font-size: 2rem;">🎰</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CHAT -->
+        <div id="tab-chat" class="tab-content">
+            <div class="card-box" style="margin-bottom: 16px;">
+                <h3 style="margin-bottom: 10px; color: #0f172a;">💬 Obrolan Ruang Mabar</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="text" id="inputChatMessage" placeholder="Tulis pesan kamu..." onkeydown="if(event.key==='Enter') sendChatMessage()" style="flex: 1; min-width: 200px; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none;">
+                    <button class="btn-action" style="padding: 10px 20px; white-space: nowrap; flex: none;" onclick="sendChatMessage()">🚀 Kirim</button>
+                </div>
+                <div style="font-size: 0.78rem; color: #64748b; margin-top: 8px;">
+                    *Ayo mengobrol! Pastikan kamu sudah login di tab <strong>Personalisasi</strong> agar identitas kamu muncul.
+                </div>
+            </div>
+
+            <div id="loading-chat" class="empty-notice">Memuat obrolan...</div>
+            <div id="empty-chat" class="empty-notice" style="display: none;">Belum ada pesan chat. Jadilah yang pertama mengirim pesan!</div>
+            <div id="chat-list" class="chat-grid"></div>
+        </div>
+    </div>
+
+    <!-- MODAL LUCKY WHEEL -->
+    <div id="luckyWheelModal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 420px; text-align: center;">
+            <div class="modal-header">
+                <h2>🎡 Lucky Wheel</h2>
+                <button class="btn-close" onclick="closeLuckyWheelModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="display: flex; flex-direction: column; align-items: center;">
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">
+                    Biaya Spin: <strong style="color: #2563eb;">💎 50 Diamond</strong>
+                </p>
+
+                <div class="wheel-container">
+                    <div class="wheel-pointer"></div>
+                    <canvas id="wheelCanvas" width="280" height="280"></canvas>
+                </div>
+
+                <div id="spinResultMessage" style="min-height: 38px; margin: 10px 0; font-weight: 700; font-size: 0.95rem;"></div>
+
+                <button id="btnSpinWheel" class="btn-action" style="width: 100%; font-size: 1rem;" onclick="spinWheel()">
+                    🎰 Spin Sekarang (50 💎)
+                </button>
+            </div>
+        </div>
     </div>
 
     <div id="adminAuthModal" class="modal-overlay">
@@ -506,7 +595,7 @@
                 <h2>🔐 Verifikasi Admin</h2>
                 <button class="btn-close" onclick="closeAdminAuthModal()">&times;</button>
             </div>
-             <div class="modal-body">
+            <div class="modal-body">
                 <div class="form-group">
                     <label>Masukkan Password Admin:</label>
                     <div class="password-container">
@@ -729,12 +818,37 @@
         const membersRef = database.ref('members');
         const shopRef = database.ref('shop');
         const eventsRef = database.ref('events');
+        const chatsRef = database.ref('chats');
 
         let isAdminLoggedIn = false;
         let globalMembersData = {};
         let globalShopData = {};
         let globalEventsData = {};
+        let globalChatsData = {};
         let activeLoggedInMemberKey = null;
+
+        // Configuration Prizes Lucky Wheel
+        const wheelPrizes = [
+            { id: 'keberuntungan', name: 'Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan' },
+            { id: 'terpilih', name: 'Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan' },
+            { id: 'star_2', name: '+2 Star', label: '+2 Star', chance: 20, color: '#f59e0b', type: 'star', val: 2 },
+            { id: 'star_5', name: '+5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
+            { id: 'dm_20', name: '+20 Diamond', label: '+20 Diamond', chance: 40, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'dm_50', name: '+50 Diamond', label: '+50 Diamond', chance: 15, color: '#3b82f6', type: 'diamond', val: 50 },
+            { id: 'dm_100', name: '+100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 }
+        ];
+
+        let isSpinning = false;
+        let currentWheelRotation = 0;
+
+        function escapeHTML(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
 
         function isVipActive(member) {
             if (!member || !member.vipExpiresAt) return false;
@@ -743,9 +857,7 @@
 
         function isHiasanActive(member, hiasanKey) {
             if (!member) return false;
-            if (hiasanKey === 'vip_gold') {
-                return isVipActive(member);
-            }
+            if (hiasanKey === 'vip_gold') return isVipActive(member);
             if (hiasanKey === 'limited_shiny') {
                 if (!member.limitedShinyExpiresAt) return false;
                 return Date.now() < member.limitedShinyExpiresAt;
@@ -814,6 +926,8 @@
 
             if (!snapshot.exists()) {
                 document.getElementById('empty-profil').style.display = 'block';
+                globalMembersData = {};
+                renderChats();
                 return;
             }
 
@@ -830,6 +944,10 @@
                     nameClass = "member-name name-gold-shiny";
                 } else if (item.hiasanNama === 'limited_shiny' && isHiasanActive(item, 'limited_shiny')) {
                     nameClass = "member-name name-green-shiny";
+                } else if (item.hiasanNama === 'keberuntungan') {
+                    nameClass = "member-name name-red-shiny";
+                } else if (item.hiasanNama === 'terpilih') {
+                    nameClass = "member-name name-diamond-shiny";
                 }
                 
                 let isGelarVip = (item.gelar && item.gelar.toLowerCase().includes('vip'));
@@ -843,7 +961,6 @@
                     ? `<span class="immortal-badge">🏅 Immortal</span>` 
                     : '';
 
-                // Masa Berlaku dengan Teks Lebih Kecil & Warna Sesuai Hiasan Nama
                 let timeTagsHTML = '';
                 if (hasVip) {
                     timeTagsHTML += `<div class="vip-time-tag">👑 VIP Aktif s/d: ${formatExpDate(item.vipExpiresAt)}</div>`;
@@ -866,7 +983,7 @@
                         <div class="stat-item">💎 Diamond: ${item.diamond || 0}</div>
                         <div class="stat-item">🔥 Boost: ${item.boost || 1}x</div>
                         <div class="stat-item">📊 Lvl: ${item.level || 1} ${immortalBadgeHTML}</div>
-                         </div>
+                    </div>
                     ${timeTagsHTML}
                 `;
                 memberList.appendChild(card);
@@ -875,7 +992,7 @@
                 adminRow.className = 'admin-member-row';
                 adminRow.innerHTML = `
                     <span><strong>${item.nama}</strong> (⭐ ${item.bintang || 0})</span>
-           <button class="btn-del-mini" onclick="deleteMember('${key}')">❌ Hapus</button>
+                    <button class="btn-del-mini" onclick="deleteMember('${key}')">❌ Hapus</button>
                 `;
                 adminMemberList.appendChild(adminRow);
 
@@ -896,26 +1013,8 @@
             if (currentAdminSelect && globalMembersData[currentAdminSelect]) {
                 loadMemberToAdminForm(currentAdminSelect);
             }
-        });
 
-        // Cek & Tambahkan otomatis Hiasan Nama "Limited Shiny" jika belum ada di database Shop
-        shopRef.once('value', (snapshot) => {
-            let hasLimitedShiny = false;
-            if (snapshot.exists()) {
-                const data = snapshot.val();
-                Object.values(data).forEach(item => {
-                    if (item.nama === 'Limited Shiny') hasLimitedShiny = true;
-                });
-            }
-            if (!hasLimitedShiny) {
-                shopRef.push().set({
-                    nama: 'Limited Shiny',
-                    tipe: 'hiasan',
-                    durasiHari: 14,
-                    harga: 0,
-                    stok: 999
-                });
-            }
+            renderChats();
         });
 
         shopRef.on('value', (snapshot) => {
@@ -996,6 +1095,107 @@
                 adminEventList.appendChild(adminRow);
             });
         });
+
+        chatsRef.on('value', (snapshot) => {
+            const loadingChat = document.getElementById('loading-chat');
+            if (loadingChat) loadingChat.style.display = 'none';
+
+            if (!snapshot.exists()) {
+                globalChatsData = {};
+            } else {
+                globalChatsData = snapshot.val();
+            }
+            renderChats();
+        });
+
+        function sendChatMessage() {
+            if (!activeLoggedInMemberKey) {
+                alert("Silakan login dulu di tab Personalisasi untuk mengirim chat!");
+                switchTab('personal');
+                return;
+            }
+
+            const messageInput = document.getElementById('inputChatMessage');
+            const message = messageInput.value.trim();
+
+            if (!message) {
+                alert("Tulis pesan terlebih dahulu!");
+                return;
+            }
+
+            chatsRef.push().set({
+                senderKey: activeLoggedInMemberKey,
+                message: message,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            }).then(() => {
+                messageInput.value = '';
+            }).catch((err) => {
+                alert("Gagal mengirim pesan: " + err.message);
+            });
+        }
+
+        function renderChats() {
+            const chatList = document.getElementById('chat-list');
+            const emptyChat = document.getElementById('empty-chat');
+
+            if (!chatList) return;
+            chatList.innerHTML = '';
+
+            if (!globalChatsData || Object.keys(globalChatsData).length === 0) {
+                if (emptyChat) emptyChat.style.display = 'block';
+                return;
+            }
+
+            if (emptyChat) emptyChat.style.display = 'none';
+
+            Object.keys(globalChatsData).forEach((key) => {
+                const chat = globalChatsData[key];
+                const sender = (chat.senderKey && globalMembersData[chat.senderKey]) ? globalMembersData[chat.senderKey] : null;
+
+                const nama = sender ? (sender.nama || 'Tanpa Nama') : 'Anggota';
+                const hiasanNama = sender ? sender.hiasanNama : 'default';
+                const gelar = sender ? sender.gelar : '';
+
+                // Tampilan Hiasan Nama
+                let nameClass = "member-name";
+                if (hiasanNama === 'vip_gold' && sender && isVipActive(sender)) {
+                    nameClass = "member-name name-gold-shiny";
+                } else if (hiasanNama === 'limited_shiny' && sender && isHiasanActive(sender, 'limited_shiny')) {
+                    nameClass = "member-name name-green-shiny";
+                } else if (hiasanNama === 'keberuntungan') {
+                    nameClass = "member-name name-red-shiny";
+                } else if (hiasanNama === 'terpilih') {
+                    nameClass = "member-name name-diamond-shiny";
+                }
+
+                let isGelarVip = (gelar && gelar.toLowerCase().includes('vip'));
+                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+
+                const gelarHTML = (gelar && gelar !== '-') 
+                    ? `<span class="${gelarClass}">${gelar}</span>` 
+                    : '';
+
+                let timeStr = '';
+                if (chat.timestamp) {
+                    const d = new Date(chat.timestamp);
+                    const dateStr = d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+                    const clockStr = d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+                    timeStr = `${dateStr}, ${clockStr}`;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'member-card';
+                card.innerHTML = `
+                    <div class="member-header-row">
+                        <span class="${nameClass}">${nama}</span>
+                        ${gelarHTML}
+                    </div>
+                    <div style="margin-top: 10px; font-size: 0.95rem; color: #1e293b; line-height: 1.5; word-break: break-word; white-space: pre-wrap;">${escapeHTML(chat.message)}</div>
+                    <div style="font-size: 0.7rem; color: #94a3b8; margin-top: 8px; text-align: right;">${timeStr}</div>
+                `;
+                chatList.appendChild(card);
+            });
+        }
 
         function buyShopItem(itemKey) {
             if (!activeLoggedInMemberKey) {
@@ -1126,7 +1326,7 @@
 
             if (member.gelar && !unlocked.includes(member.gelar)) {
                 unlocked.push(member.gelar);
-            }
+         }
 
             unlocked.forEach(g => {
                 const opt = document.createElement('option');
@@ -1143,7 +1343,6 @@
             let unlockedHiasan = member.unlockedHiasan || [];
             if (!Array.isArray(unlockedHiasan)) unlockedHiasan = Object.values(unlockedHiasan);
 
-            // Opsi Emas VIP
             if (isVipActive(member) || unlockedHiasan.includes('vip_gold')) {
                 const optVip = document.createElement('option');
                 optVip.value = 'vip_gold';
@@ -1151,12 +1350,25 @@
                 selectHiasan.appendChild(optVip);
             }
 
-            // Opsi Limited Shiny (Hijau Shiny)
             if (isHiasanActive(member, 'limited_shiny') || unlockedHiasan.includes('limited_shiny')) {
                 const optShiny = document.createElement('option');
                 optShiny.value = 'limited_shiny';
                 optShiny.innerText = 'Limited Shiny (Green White Shiny)';
                 selectHiasan.appendChild(optShiny);
+            }
+
+            if (unlockedHiasan.includes('keberuntungan')) {
+                const optKeberuntungan = document.createElement('option');
+                optKeberuntungan.value = 'keberuntungan';
+                optKeberuntungan.innerText = '🔴 Keberuntungan (Red White Shiny)';
+                selectHiasan.appendChild(optKeberuntungan);
+            }
+
+            if (unlockedHiasan.includes('terpilih')) {
+                const optTerpilih = document.createElement('option');
+                optTerpilih.value = 'terpilih';
+                optTerpilih.innerText = '💎 Terpilih (Diamond Blue Shiny)';
+                selectHiasan.appendChild(optTerpilih);
             }
 
             if (member.hiasanNama) {
@@ -1180,7 +1392,7 @@
             if (owned.length > 0) {
                 itemsContainer.innerHTML = extraInfo + owned.map(i => `• ${i}`).join('<br>');
             } else {
-                itemsContainer.innerHTML = extraInfo + 'Belum memiliki item khusus dari Shop.';
+                itemsContainer.innerHTML = extraInfo + 'Belum memiliki item khusus dari Shop / Lucky Wheel.';
             }
         }
 
@@ -1216,6 +1428,156 @@
             document.getElementById('inputMemberPin').value = '';
         }
 
+        /* --- FUNGSI LUCKY WHEEL --- */
+        function openLuckyWheelModal() {
+            document.getElementById('luckyWheelModal').style.display = 'flex';
+            document.getElementById('spinResultMessage').innerText = '';
+            drawWheel();
+        }
+
+        function closeLuckyWheelModal() {
+            if (isSpinning) return;
+            document.getElementById('luckyWheelModal').style.display = 'none';
+        }
+
+        function drawWheel() {
+            const canvas = document.getElementById('wheelCanvas');
+            const ctx = canvas.getContext('2d');
+            const numSlices = wheelPrizes.length;
+            const arcSize = (2 * Math.PI) / numSlices;
+            const radius = canvas.width / 2;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < numSlices; i++) {
+                const angle = i * arcSize;
+                ctx.beginPath();
+                ctx.fillStyle = wheelPrizes[i].color;
+                ctx.moveTo(radius, radius);
+                ctx.arc(radius, radius, radius, angle, angle + arcSize);
+                ctx.lineTo(radius, radius);
+                ctx.fill();
+
+                // Garis Pemisah
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Tulis Teks Hadiah
+                ctx.save();
+                ctx.translate(radius, radius);
+                ctx.rotate(angle + arcSize / 2);
+                ctx.textAlign = "right";
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 12px Poppins, sans-serif";
+                ctx.fillText(wheelPrizes[i].label, radius - 15, 4);
+                ctx.restore();
+            }
+        }
+
+        function getRandomPrizeByProbability() {
+            const rand = Math.random() * 100; // 0 s/d 100
+            let cumulative = 0;
+
+            for (let i = 0; i < wheelPrizes.length; i++) {
+                cumulative += wheelPrizes[i].chance;
+                if (rand <= cumulative) {
+                    return { prize: wheelPrizes[i], index: i };
+                }
+            }
+            return { prize: wheelPrizes[wheelPrizes.length - 1], index: wheelPrizes.length - 1 };
+        }
+
+        function spinWheel() {
+            if (isSpinning) return;
+
+            if (!activeLoggedInMemberKey) {
+                alert("Silakan login dulu di tab Personalisasi untuk bermain Lucky Wheel!");
+                closeLuckyWheelModal();
+                switchTab('personal');
+                return;
+            }
+
+            const member = globalMembersData[activeLoggedInMemberKey];
+            if (!member || (member.diamond || 0) < 50) {
+                alert("Diamond kamu kurang! Kamu butuh minimal 💎 50 Diamond untuk spin.");
+                return;
+            }
+
+            isSpinning = true;
+            document.getElementById('btnSpinWheel').disabled = true;
+            document.getElementById('spinResultMessage').innerHTML = '<span style="color:#64748b;">Memutar roda... Good luck! 🍀</span>';
+
+            // Potong 50 Diamond awal
+            const currentDiamond = (member.diamond || 0) - 50;
+            membersRef.child(activeLoggedInMemberKey).update({ diamond: currentDiamond });
+
+            // Tentukan Hadiah berdasarkan Prosentase
+            const chosen = getRandomPrizeByProbability();
+            const prize = chosen.prize;
+            const index = chosen.index;
+
+            const numSlices = wheelPrizes.length;
+            const sliceAngle = 360 / numSlices;
+            
+            // Hitung Sudut Berhenti
+            const targetAngle = 360 - (index * sliceAngle + sliceAngle / 2) - 90; 
+            const fullSpins = 5 * 360; 
+            const totalRotation = currentWheelRotation + fullSpins + ((targetAngle - (currentWheelRotation % 360) + 360) % 360);
+
+            currentWheelRotation = totalRotation;
+            const canvas = document.getElementById('wheelCanvas');
+            canvas.style.transform = `rotate(${totalRotation}deg)`;
+
+            setTimeout(() => {
+                isSpinning = false;
+                document.getElementById('btnSpinWheel').disabled = false;
+
+                // Proses Hadiah ke Firebase
+                let newBintang = member.bintang || 0;
+                let finalDiamond = currentDiamond;
+                let unlockedHiasan = member.unlockedHiasan || [];
+                if (!Array.isArray(unlockedHiasan)) unlockedHiasan = Object.values(unlockedHiasan);
+
+                let owned = member.ownedItems || [];
+                if (!Array.isArray(owned)) owned = Object.values(owned);
+
+                let resultTxt = "";
+
+                if (prize.type === 'hiasan') {
+                    if (!unlockedHiasan.includes(prize.id)) unlockedHiasan.push(prize.id);
+                    owned.push(`Hiasan Nama: ${prize.name}`);
+                    resultTxt = `🎉 Selamat! Kamu mendapatkan Hiasan Nama "${prize.name}"!`;
+                } else if (prize.type === 'star') {
+                    newBintang += prize.val;
+                    resultTxt = `⭐ Selamat! Kamu mendapatkan +${prize.val} Bintang!`;
+                } else if (prize.type === 'diamond') {
+                    finalDiamond += prize.val;
+                    resultTxt = `💎 Selamat! Kamu mendapatkan +${prize.val} Diamond!`;
+                }
+
+                // Cek Otomatis Rank Sesuai Bintang
+                const autoRankGelar = getRankAndGelarByBintang(newBintang);
+                let updatePayload = {
+                    bintang: newBintang,
+                    diamond: finalDiamond,
+                    unlockedHiasan: unlockedHiasan,
+                    ownedItems: owned
+                };
+
+                if (autoRankGelar) {
+                    updatePayload.rank = autoRankGelar.rank;
+                    if (!member.gelar || member.gelar === '-') {
+                        updatePayload.gelar = autoRankGelar.gelar;
+                    }
+                }
+
+                membersRef.child(activeLoggedInMemberKey).update(updatePayload);
+                document.getElementById('spinResultMessage').innerHTML = `<span style="color:#16a34a;">${resultTxt}</span>`;
+            }, 4000);
+        }
+
+        /* --- ADMIN MODAL FUNCTIONS --- */
         function openAdminAuthModal() {
             if (isAdminLoggedIn) {
                 document.getElementById('adminModal').style.display = 'flex';
@@ -1405,4 +1767,4 @@
         }
     </script>
 </body>
-            </html>
+</html>
