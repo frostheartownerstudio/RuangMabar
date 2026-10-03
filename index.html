@@ -577,11 +577,11 @@
                     </div>
 
                     <button class="btn-action" style="width: 100%;" onclick="saveSelfProfile()">💾 Simpan Perubahan</button>
-                    <button class="btn-action btn-secondary" onclick="logoutMember()">🔒 Keluar / Logout</button>
+                    <button class="btn-action btn-secondary" onclick="logoutMember()">🔒 Logout</button>
 
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
 
-                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Inventory & Item Milik Kamu:</h4>
+                    <h4 style="margin-bottom: 10px; color: #0f172a;">📦 Inventory dan status aktif:</h4>
                     <div id="owned-items-list" style="color: #64748b; font-size: 0.88rem; line-height: 1.6;">
                         Belum memiliki item apapun.
                     </div>
@@ -891,12 +891,12 @@
 
         const wheelPrizes = [
             { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan_nama' },
-            { id: 'terpilih', name: 'Hiasan Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan_nama' },
+            { id: 'kuning_border_ijo', name: 'Hiasan Sang Bintang', label: 'Terpilih', chance: 2, color: '#38bdf8', type: 'hiasan_nama' },
             { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 5, color: '#a855f7', type: 'hiasan_nama' },
-            { id: 'star_2', name: '+2 Star', label: '+2 Star', chance: 20, color: '#f59e0b', type: 'star', val: 2 },
-            { id: 'star_5', name: '+5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
-            { id: 'dm_20', name: 'Bonus 20 Diamond', label: '+20 Diamond', chance: 35, color: '#06b6d4', type: 'diamond', val: 20 },
-            { id: 'dm_50', name: 'Bonus 50 Diamond', label: '+50 Diamond', chance: 15, color: '#3b82f6', type: 'diamond', val: 50 },
+            { id: 'star_2', name: '+2 Star', label: '+2 Star', chance: 23, color: '#f59e0b', type: 'star', val: 2 },
+            { id: 'star_5', name: '+5 Star', label: '+5 Star', chance: 10, color: '#eab308', type: 'star', val: 5 },
+            { id: 'dm_20', name: 'Bonus 20 Diamond', label: '+20 Diamond', chance: 40, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'dm_50', name: 'Bonus 50 Diamond', label: '+50 Diamond', chance: 10, color: '#3b82f6', type: 'diamond', val: 50 },
             { id: 'dm_100', name: 'Bonus 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 }
         ];
 
