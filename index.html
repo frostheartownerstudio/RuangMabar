@@ -472,7 +472,55 @@
             filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.6));
         }
 
-        .member-gelar {
+        .name-vip-plus-gold {
+            background: linear-gradient(90deg, #8a5a00, #d4af37, #fff7b2, #ffffff, #fff7b2, #d4af37, #8a5a00);
+            background-size: 250% auto; color: transparent; -webkit-background-clip: text; background-clip: text;
+            font-weight: 900; animation: vipPlusGoldShine 2.2s linear infinite; display: inline-block;
+            filter: drop-shadow(0 0 6px rgba(255,255,255,.85)) drop-shadow(0 0 5px rgba(212,175,55,.75));
+        }
+        @keyframes vipPlusGoldShine { 0% { background-position: 0% center; } 100% { background-position: 250% center; } }
+        .member-gelar.vip-plus {
+            background: linear-gradient(90deg,#8a5a00,#d4af37,#ffffff,#d4af37,#8a5a00); background-size:220% auto;
+            color:transparent !important; -webkit-background-clip:text; background-clip:text; border:1px solid #d4af37;
+            font-weight:900; animation:vipPlusGoldShine 2.2s linear infinite; filter:drop-shadow(0 0 5px rgba(255,255,255,.8));
+        }
+        .member-card.decor-vip-plus-gold, .card-box.decor-vip-plus-gold { background:linear-gradient(135deg,#fffdf0,#f7d774,#fff8cf,#d4af37,#fffdf0)!important; background-size:220% 220%!important; border:3px solid transparent!important; border-radius:18px!important; box-shadow:inset 0 0 10px rgba(255,255,255,.45),0 0 0 1px rgba(255,255,255,.95)!important; overflow:visible; position:relative; }
+        .member-card.decor-vip-plus-gold { border-image:linear-gradient(90deg,#8a5a00,#fff,#d4af37,#fff,#8a5a00) 1!important; animation:none!important; }
+        .member-card.decor-vip-plus-gold::before,.card-box.decor-vip-plus-gold::before { content:'✦'; position:absolute; width:30px;height:30px;top:-17px;left:-17px;border-radius:8px;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);color:#fff;font-size:13px;font-weight:900;background:linear-gradient(135deg,#8a5a00,#d4af37,#fff,#d4af37);border:2px solid #fff;box-shadow:0 2px 5px rgba(92,55,0,.22);z-index:4;pointer-events:none; }
+        .member-card.decor-vip-plus-gold::after,.card-box.decor-vip-plus-gold::after { content:'❖';position:absolute;bottom:-17px;right:-17px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);color:#fff;font-size:13px;font-weight:900;background:linear-gradient(135deg,#fff8cf,#d4af37,#fff);border:2px solid #fff;box-shadow:0 2px 5px rgba(92,55,0,.22);z-index:4;pointer-events:none; }
+        .member-card.decor-vip-plus-gold .member-name,.card-box.decor-vip-plus-gold .member-name,.member-card.decor-vip-plus-gold .member-bio,.card-box.decor-vip-plus-gold .member-bio,.member-card.decor-vip-plus-gold .stat-item,.card-box.decor-vip-plus-gold .stat-item { position:relative;z-index:3; }
+        @keyframes vipPlusCardGlow { 0%,100%{background-position:0% 50%}50%{background-position:100% 50%} }
+        @keyframes vipPlusBorderShine { 0%,100%{filter:brightness(1)}50%{filter:brightness(1.35) drop-shadow(0 0 7px rgba(255,255,255,.9))} }
+        @keyframes vipPlusCornerShine { 0%,100%{filter:brightness(1);transform:rotate(45deg) scale(1)}50%{filter:brightness(1.5) drop-shadow(0 0 7px rgba(255,255,255,.95));transform:rotate(45deg) scale(1.08)} }
+        .vip-plus-detail-decoration { position:relative;overflow:hidden;margin:0 0 16px;padding:18px;border-radius:16px;background:linear-gradient(135deg,#6b4600,#d4af37,#fff4b0,#d4af37,#7a5100);background-size:240% 240%;border:2px solid #fff;box-shadow:0 0 0 2px #d4af37,0 8px 25px rgba(212,175,55,.45),inset 0 0 20px rgba(255,255,255,.65);animation:vipPlusDetailGlow 4s ease-in-out infinite; }
+        .vip-plus-detail-decoration::before { content:'';position:absolute;width:24%;height:180%;top:-40%;left:-45%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(255,255,255,.55),transparent);animation:vipPlusDetailShine 3.4s ease-in-out infinite;pointer-events:none; }
+        .vip-plus-detail-decoration::after { content:'✦  ❖  ✦';position:absolute;top:7px;right:12px;color:#fff;letter-spacing:5px;text-shadow:0 0 9px rgba(255,255,255,.95),0 0 12px rgba(212,175,55,.9);animation:vipPlusCornerShine 2.5s ease-in-out infinite; }
+        .vip-plus-detail-decoration > * { position:relative;z-index:2; } .vip-plus-detail-title{color:#fff;font-weight:900;text-shadow:0 0 7px rgba(255,255,255,.9),0 2px 4px rgba(92,55,0,.65)} .vip-plus-detail-decoration .vip-plus-detail-value{color:#fffdf0;font-weight:800;text-shadow:0 0 6px rgba(255,255,255,.8)}
+        @keyframes vipPlusDetailShine { 0%,18%{left:-45%;opacity:0}32%{opacity:1}64%{left:125%;opacity:1}80%,100%{left:125%;opacity:0} }
+        @keyframes vipPlusDetailGlow { 0%,100%{background-position:0% 50%;box-shadow:0 0 0 2px #d4af37,0 8px 25px rgba(212,175,55,.45),inset 0 0 20px rgba(255,255,255,.65)}50%{background-position:100% 50%;box-shadow:0 0 0 2px #fff,0 0 28px rgba(255,255,255,.65),0 8px 30px rgba(212,175,55,.65),inset 0 0 24px rgba(255,255,255,.85)} }
+        .modal-body:has(.profile-detail-vip-plus-card) { padding:0; }
+        .profile-detail-vip-plus-card { position:relative; overflow:hidden; min-height:100%; width:100%; padding:18px 20px; margin:0; border-radius:0; background:linear-gradient(135deg,#fffdf0 0%,#f4d35e 24%,#fff8cf 48%,#d4af37 72%,#fffdf0 100%); background-size:240% 240%; border:0; border-top:2px solid #d4af37; border-bottom:2px solid #d4af37; box-shadow:inset 0 0 18px rgba(255,255,255,.72); animation:vipPlusDetailCardShine 4s ease-in-out infinite; }
+        .profile-detail-vip-plus-card::before { content:''; position:absolute; width:22%; height:180%; top:-40%; left:-42%; transform:rotate(18deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(255,255,255,.45),transparent); animation:vipPlusDetailCardSweep 3.6s ease-in-out infinite; pointer-events:none; }
+        .profile-detail-vip-plus-card::after { content:'✦  ❖  ✦'; position:absolute; top:8px; right:12px; color:#fff; font-weight:900; letter-spacing:4px; text-shadow:0 1px 4px rgba(92,55,0,.45); pointer-events:none; }
+        .profile-detail-vip-plus-card > * { position:relative; z-index:2; }
+        /* Nuansa emas samar pada kotak putih di dalam Detail Profil VIP Plus */
+        .profile-detail-vip-plus-card .stats-grid {
+            background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,248,220,.72), rgba(255,255,255,.94)) !important;
+            border: 1px solid rgba(212,175,55,.22);
+            box-shadow: inset 0 0 10px rgba(212,175,55,.08);
+        }
+        .profile-detail-vip-plus-card .stat-item { color:#334155; }
+        .profile-detail-vip-plus-card [style*="background: #f8fafc"],
+        .profile-detail-vip-plus-card [style*="background:#f8fafc"],
+        .profile-detail-vip-plus-card [style*="background: white"],
+        .profile-detail-vip-plus-card [style*="background:white"] {
+            background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,248,220,.58), rgba(255,255,255,.96)) !important;
+            border-color: rgba(212,175,55,.2) !important;
+        }
+        @keyframes vipPlusDetailCardSweep { 0%,18%{left:-42%;opacity:0}32%{opacity:1}64%{left:125%;opacity:1}80%,100%{left:125%;opacity:0} }
+        @keyframes vipPlusDetailCardShine { 0%,100%{background-position:0% 50%}50%{background-position:100% 50%} }
+
+.member-gelar {
             background: #e0f2fe;
             color: #0369a1;
             font-size: 0.75rem;
@@ -499,7 +547,7 @@
             border-radius: 10px;
         }
 
-                .stat-item { font-size: 0.85rem; font-weight: 600; color: #334155; }
+        .stat-item { font-size: 0.85rem; font-weight: 600; color: #334155; }
 
         .immortal-badge {
             display: inline-flex;
@@ -715,7 +763,7 @@
 <body>
 
     <header>
-             <h1>Profil Ruang Mabar</h1>
+        <h1>Profil Ruang Mabar</h1>
         <div class="header-btn-group">
             <button class="btn-admin" onclick="openModal('adminModal')">⚙️ Admin</button>
         </div>
@@ -811,6 +859,14 @@
                         <label>🖼️ Pilih Hiasan Profil:</label>
                         <select id="editSelfHiasanProfilSelect">
                             <option value="default">Default (Putih)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>✨ Hiasan Detail Profil:</label>
+                        <select id="editSelfHiasanDetailProfilSelect">
+                            <option value="default">Default (Putih)</option>
+                            <option value="vip_plus_gold">Hiasan Detail Profil VIP Plus</option>
                         </select>
                     </div>
 
@@ -965,7 +1021,7 @@
     </div>
 
     <!-- MODAL JUAL ITEM -->
-        <div id="sellItemModal" class="modal-overlay">
+    <div id="sellItemModal" class="modal-overlay">
         <div class="modal-content" style="max-width: 420px;">
             <div class="modal-header">
                 <h2>🏷 Penjualan Hiasan</h2>
@@ -1099,6 +1155,7 @@
                             <option value="Hiasan Nama">Hiasan Nama</option>
                             <option value="Hiasan Profil">Hiasan Profil</option>
                             <option value="VIP">VIP Status</option>
+                            <option value="VIP Plus">VIP Plus Status</option>
                             <option value="Gelar">Gelar</option>
                             <option value="Item">Item Biasa</option>
                         </select>
@@ -1166,6 +1223,7 @@
                                 <option value="hiasan_nama">Hiasan Nama</option>
                                 <option value="hiasan_profil">Hiasan Profil (Diamond)</option>
                                 <option value="gelar">Gelar</option>
+                                <option value="vip_plus">VIP Plus Status</option>
                             </select>
                         </div>
                         <div class="form-group" id="adminCodeValContainer">
@@ -1238,7 +1296,7 @@
     </div>
 
     <script>
-    const firebaseConfig = {
+        const firebaseConfig = {
             apiKey: "AIzaSyAeIVCyEF705xX7WY8tuOmM4ngTVneThNA",
             authDomain: "absen-rm.firebaseapp.com",
             projectId: "absen-rm",
@@ -1276,19 +1334,25 @@
             'terpilih': 'Terpilih',
             'spesial_ungu': 'Ungu Shiny',
             'limited_shiny': 'Limited Shiny',
-            'vip_gold': 'Emas VIP (Shiny Gold)'
+            'vip_gold': 'Emas VIP (Shiny Gold)',
+            'vip_plus_gold': 'Emas VIP Plus (Ultra Shiny Gold)'
         };
 
         const hiasanProfilMap = {
             'kuning_border_ijo': 'Hiasan Profil Kuning',
             'biru_bercahaya': 'Hiasan Profil Diamond',
             'hitam_ornamen': 'Hiasan Profil Hitam Ornamen',
-            'hijau_ornamen': 'Hiasan Profil Hijau Ornamen'
+            'hijau_ornamen': 'Hiasan Profil Hijau Ornamen',
+            'vip_plus_gold': 'Hiasan Profil VIP Plus Gold Shiny'
         };
 
         // PEMETAAN EMOJI KHUSUS UNTUK MASA AKTIF ITEM
         function getItemDurationEmoji(itemId) {
             switch (itemId) {
+                case 'vip_plus_gold':
+                case 'VIP Plus':
+                case 'VIP Plus Member':
+                    return '👑';
                 case 'vip_gold':
                 case 'VIP':
                 case 'VIP Member':
@@ -1317,6 +1381,10 @@
         // PEMETAAN EFEK SHINY TERANG UNTUK TEKS MASA AKTIF
         function getItemDurationShinyClass(itemId) {
             switch (itemId) {
+                case 'vip_plus_gold':
+                case 'VIP Plus':
+                case 'VIP Plus Member':
+                    return 'duration-gold-shiny';
                 case 'vip_gold':
                 case 'VIP':
                 case 'VIP Member':
@@ -1681,6 +1749,25 @@
             } else if (codeData.type === 'hiasan_profil') {
                 addItemToInventory(updates, activeLoggedInMemberKey, member, { itemId: codeData.preset, itemType: 'Hiasan Profil' });
                 stackItemDuration(updates, activeLoggedInMemberKey, member, codeData.preset, 7);
+            } else if (codeData.type === 'vip_plus') {
+                updates[`members/${activeLoggedInMemberKey}/isVip`] = true;
+                updates[`members/${activeLoggedInMemberKey}/isVipPlus`] = true;
+                updates[`members/${activeLoggedInMemberKey}/boost`] = Math.max(Number(member.boost || 1), 3);
+
+                addItemToInventory(updates, activeLoggedInMemberKey, member, { itemId: 'vip_plus_gold', itemType: 'Hiasan Nama' });
+                let unlockedP = getItemArray(member.unlockedHiasanProfil);
+                unlockedP.push('vip_plus_gold');
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
+                updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = 'vip_plus_gold';
+                updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = 'vip_plus_gold';
+                let unlockedDetail = getItemArray(member.unlockedHiasanDetailProfil);
+                if (!unlockedDetail.includes('vip_plus_gold')) unlockedDetail.push('vip_plus_gold');
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanDetailProfil`] = unlockedDetail;
+
+                let unlockedT = getItemArray(member.unlockedTitles);
+                unlockedT.push('VIP Plus Member');
+                updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlockedT;
+                updates[`members/${activeLoggedInMemberKey}/gelar`] = 'VIP Plus Member';
             } else if (codeData.type === 'gelar') {
                 const gelar = String(codeData.gelar || '').trim();
                 if (gelar) {
@@ -1837,24 +1924,12 @@
 
             const searchQuery = (document.getElementById('searchProfileInput').value || '').toLowerCase().trim();
 
-            const rankPriorityMap = {
-                "demon": 900, "super star": 800, "ancient": 700, "immortal": 600,
-                "glory": 500, "honor": 400, "mythic": 300, "legend": 200,
-                "epic": 100, "grandmaster": 80, "master": 60, "elite": 40, "warrior": 20
-            };
-
             const sortedMemberKeys = Object.keys(globalMembersData).sort((a, b) => {
                 const mA = globalMembersData[a];
                 const mB = globalMembersData[b];
-                const rankA = getRankFromBintang(mA.bintang, mA.rank);
-                const rankB = getRankFromBintang(mB.bintang, mB.rank);
-                const priorityA = rankPriorityMap[rankA.toLowerCase()] || 0;
-                const priorityB = rankPriorityMap[rankB.toLowerCase()] || 0;
-
-                if (priorityA !== priorityB) return priorityB - priorityA;
                 const bintangA = Number(mA.bintang || 0);
                 const bintangB = Number(mB.bintang || 0);
-                if (bintangA !== bintangB) return bintangB - bintangB;
+                if (bintangA !== bintangB) return bintangB - bintangA;
                 return Number(mB.level || 1) - Number(mA.level || 1);
             });
 
@@ -1865,7 +1940,9 @@
                 if (searchQuery && !nama.includes(searchQuery)) return;
 
                 let decorClass = "member-card";
-                if (item.hiasanProfil === 'kuning_border_ijo') {
+                if (item.hiasanProfil === 'vip_plus_gold') {
+                    decorClass += " decor-vip-plus-gold";
+                } else if (item.hiasanProfil === 'kuning_border_ijo') {
                     decorClass += " decor-yellow";
                 } else if (item.hiasanProfil === 'biru_bercahaya') {
                     decorClass += " decor-biru-bercahaya";
@@ -1876,7 +1953,9 @@
                 }
 
                 let nameClass = "member-name";
-                if (String(item.hiasanNama || '').trim() === 'vip_gold') {
+                if (String(item.hiasanNama || '').trim() === 'vip_plus_gold') {
+                    nameClass = "member-name name-vip-plus-gold";
+                } else if (String(item.hiasanNama || '').trim() === 'vip_gold') {
                     nameClass = "member-name name-gold-shiny";
                 } else if (String(item.hiasanNama || '').trim() === 'limited_shiny') {
                     nameClass = "member-name name-green-shiny";
@@ -1884,12 +1963,13 @@
                     nameClass = "member-name name-purple-shiny";
                 } else if (String(item.hiasanNama || '').trim() === 'keberuntungan') {
                     nameClass = "member-name name-red-shiny";
-                   } else if (String(item.hiasanNama || '').trim() === 'terpilih') {
+                } else if (String(item.hiasanNama || '').trim() === 'terpilih') {
                     nameClass = "member-name name-diamond-shiny";
                 }
                 
+                let isGelarVipPlus = (item.gelar && item.gelar.toLowerCase().includes('vip plus'));
                 let isGelarVip = (item.gelar && item.gelar.toLowerCase().includes('vip'));
-                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+                const gelarClass = isGelarVipPlus ? "member-gelar vip-plus" : (isGelarVip ? "member-gelar vip" : "member-gelar");
                 const gelarHTML = (item.gelar && item.gelar !== '-') ? `<span class="${gelarClass}">${escapeHTML(item.gelar)}</span>` : '';
                 const immortalBadgeHTML = item.lencanaImmortal ? `<span class="immortal-badge">🏅 Immortal</span>` : '';
 
@@ -1953,7 +2033,9 @@
             if (!content) return;
 
             let nameClass = "member-name";
-            if (member.hiasanNama === 'vip_gold') {
+            if (member.hiasanNama === 'vip_plus_gold') {
+                nameClass = "member-name name-vip-plus-gold";
+            } else if (member.hiasanNama === 'vip_gold') {
                 nameClass = "member-name name-gold-shiny";
             } else if (member.hiasanNama === 'limited_shiny') {
                 nameClass = "member-name name-green-shiny";
@@ -2014,11 +2096,17 @@
                 durationItemsHTML = `<div style="color: #64748b; font-style: italic; font-size: 0.85rem;">Tidak ada hiasan/status berdurasi</div>`;
             }
 
+            let isGelarVipPlus = (member.gelar && member.gelar.toLowerCase().includes('vip plus'));
             let isGelarVip = (member.gelar && member.gelar.toLowerCase().includes('vip'));
-            const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+            const gelarClass = isGelarVipPlus ? "member-gelar vip-plus" : (isGelarVip ? "member-gelar vip" : "member-gelar");
             const gelarHTML = (member.gelar && member.gelar !== '-') ? `<span class="${gelarClass}">${escapeHTML(member.gelar)}</span>` : '<span style="color:#94a3b8;">-</span>';
 
+            const useVipPlusDetail = member.hiasanDetailProfil === 'vip_plus_gold';
+            const detailCardStart = useVipPlusDetail ? '<div class="profile-detail-vip-plus-card">' : '';
+            const detailCardEnd = useVipPlusDetail ? '</div>' : '';
+
             content.innerHTML = `
+                ${detailCardStart}
                 <div style="text-align: center; margin-bottom: 16px;">
                     <h3 style="font-size: 1.2rem; margin-bottom: 4px;">
                         <span class="${nameClass}" style="font-size: 1.25rem;">${escapeHTML(member.nama || 'Anggota')}</span>
@@ -2054,6 +2142,7 @@
                         ${durationItemsHTML}
                     </div>
                 </div>
+                ${detailCardEnd}
             `;
 
             openModal('profileDetailModal');
@@ -2065,6 +2154,12 @@
             activeLoggedInMemberKey = activeLoggedInMemberKey || document.getElementById('selectMemberSelf').value;
 
             document.getElementById('editSelfNama').value = member.nama || '';
+            const hiasanDetailProfilSelect = document.getElementById('editSelfHiasanDetailProfilSelect');
+            if (hiasanDetailProfilSelect) {
+                hiasanDetailProfilSelect.value = member.hiasanDetailProfil === 'vip_plus_gold' ? 'vip_plus_gold' : 'default';
+                const vipPlusDetailOption = hiasanDetailProfilSelect.querySelector('option[value=\"vip_plus_gold\"]');
+                if (vipPlusDetailOption) vipPlusDetailOption.disabled = !member.isVipPlus;
+            }
             document.getElementById('editSelfBio').value = member.bio || '';
             document.getElementById('editSelfGameKesukaan').value = member.gameKesukaan || '';
 
@@ -2139,9 +2234,13 @@
                 }
 
                 // Status VIP
-                if (member.isVip) {
+                if (member.isVip || member.isVipPlus) {
                     html += `<div style="font-weight: 700; color: #0f172a; margin-top: 8px; margin-bottom: 2px;">• Status Member</div>`;
-                    html += `<div style="padding-left: 8px; color: #334155;">- "VIP Member Status" (1x)</div>`;
+                    if (member.isVipPlus) {
+                        html += `<div style="padding-left: 8px; color: #334155;">- "VIP Plus Member Status" (1x)</div>`;
+                    } else {
+                        html += `<div style="padding-left: 8px; color: #334155;">- "VIP Member Status" (1x)</div>`;
+                    }
                 }
 
                 if (!html) html = 'Belum memiliki item apapun.';
@@ -2188,7 +2287,14 @@
             const newGelar = document.getElementById('editSelfGelarSelect').value;
             const newHiasanNama = document.getElementById('editSelfHiasanNamaSelect').value.trim();
             const newHiasanProfil = document.getElementById('editSelfHiasanProfilSelect').value.trim();
+            const newHiasanDetailProfil = document.getElementById('editSelfHiasanDetailProfilSelect').value.trim();
             const newPin = document.getElementById('editSelfPin').value.trim();
+
+            const currentMember = globalMembersData[activeLoggedInMemberKey];
+            if (newHiasanDetailProfil === 'vip_plus_gold' && !(currentMember && currentMember.isVipPlus)) {
+                alert('❌ Hiasan Detail Profil VIP Plus hanya dapat digunakan oleh member VIP Plus!');
+                return;
+            }
 
             if (!newNama) { alert("Nama tidak boleh kosong!"); return; }
 
@@ -2199,6 +2305,7 @@
             updates[`members/${activeLoggedInMemberKey}/gelar`] = newGelar;
             updates[`members/${activeLoggedInMemberKey}/hiasanNama`] = newHiasanNama;
             updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = newHiasanProfil;
+            updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = newHiasanDetailProfil;
 
             if (newPin) {
                 updates[`members/${activeLoggedInMemberKey}/pin`] = newPin;
@@ -2219,7 +2326,7 @@
             Object.keys(globalShopData).forEach(key => {
                 const item = globalShopData[key];
                 const masaBerlakuText = item.masaBerlakuTipe === 'custom' ? `Custom (${item.masaBerlakuHari || 0} Hari)` : 'Permanen';
-                const benefitText = item.tipe === 'VIP' ? ' • Gelar VIP Member • Boost 2x • Hiasan Nama VIP (Gold Shiny)' : '';
+                const benefitText = item.tipe === 'VIP' ? ' • Gelar VIP Member • Boost 2x • Hiasan Nama VIP (Gold Shiny)' : (item.tipe === 'VIP Plus' ? ' • Gelar VIP Plus Member • Boost 3x • Hiasan Nama & Profil VIP Plus Gold Shiny' : '');
 
                 const card = document.createElement('div');
                 card.className = 'shop-item-card';
@@ -2290,9 +2397,30 @@
                 updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlockedT;
                 updates[`members/${activeLoggedInMemberKey}/gelar`] = item.gelarValue;
                 stackItemDuration(updates, activeLoggedInMemberKey, member, item.gelarValue, addedDays);
+            } else if (item.tipe === 'VIP Plus') {
+                updates[`members/${activeLoggedInMemberKey}/isVip`] = true;
+                updates[`members/${activeLoggedInMemberKey}/isVipPlus`] = true;
+                updates[`members/${activeLoggedInMemberKey}/boost`] = Math.max(Number(member.boost || 1), 3);
+
+                let unlockedH = getItemArray(member.unlockedHiasan);
+                unlockedH.push('vip_plus_gold');
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = unlockedH;
+                updates[`members/${activeLoggedInMemberKey}/hiasanNama`] = 'vip_plus_gold';
+
+                let unlockedP = getItemArray(member.unlockedHiasanProfil);
+                unlockedP.push('vip_plus_gold');
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
+                updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = 'vip_plus_gold';
+
+                let unlockedT = getItemArray(member.unlockedTitles);
+                unlockedT.push('VIP Plus Member');
+                updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlockedT;
+                updates[`members/${activeLoggedInMemberKey}/gelar`] = 'VIP Plus Member';
+
+                stackItemDuration(updates, activeLoggedInMemberKey, member, 'vip_plus_gold', addedDays);
             } else if (item.tipe === 'VIP') {
                 updates[`members/${activeLoggedInMemberKey}/isVip`] = true;
-                let boostVal = Math.max(Number(member.boost || 1), 2);
+                let boostVal = member.isVipPlus ? Math.max(Number(member.boost || 1), 3) : Math.max(Number(member.boost || 1), 2);
                 updates[`members/${activeLoggedInMemberKey}/boost`] = boostVal;
 
                 let unlockedH = getItemArray(member.unlockedHiasan);
@@ -2362,6 +2490,7 @@
 
             const hiasanCounts = getItemCounts(getItemArray(member.unlockedHiasan));
             Object.keys(hiasanCounts).forEach(id => {
+                if (['vip_gold', 'vip_plus_gold'].includes(id)) return;
                 if (hiasanCounts[id] >= 2) {
                     const opt = document.createElement('option');
                     opt.value = `nama|${id}`;
@@ -2372,6 +2501,7 @@
 
             const profilCounts = getItemCounts(getItemArray(member.unlockedHiasanProfil));
             Object.keys(profilCounts).forEach(id => {
+                if (['vip_gold', 'vip_plus_gold'].includes(id)) return;
                 if (profilCounts[id] >= 2) {
                     const opt = document.createElement('option');
                     opt.value = `profil|${id}`;
@@ -2417,6 +2547,10 @@
             if (harga <= 0) { alert("Harga jual minimal 1 Diamond!"); return; }
 
             const [tipeKey, itemId] = val.split('|');
+            if (['vip_gold', 'vip_plus_gold'].includes(itemId) || tipeKey === 'vip' || tipeKey === 'vip_plus') {
+                alert("❌ Manfaat VIP / VIP Plus tidak dapat dijual di Marketplace!");
+                return;
+            }
             const member = globalMembersData[activeLoggedInMemberKey];
             const memberKey = activeLoggedInMemberKey;
 
@@ -2526,7 +2660,9 @@
                 const chat = globalChatsData[key];
                 
                 let decorClass = "card-box";
-                if (chat.hiasanProfil === 'kuning_border_ijo') {
+                if (chat.hiasanProfil === 'vip_plus_gold') {
+                    decorClass += " decor-vip-plus-gold";
+                } else if (chat.hiasanProfil === 'kuning_border_ijo') {
                     decorClass += " decor-yellow";
                 } else if (chat.hiasanProfil === 'biru_bercahaya') {
                     decorClass += " decor-biru-bercahaya";
@@ -2543,14 +2679,16 @@
                 const time = chat.timestamp ? new Date(chat.timestamp).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }) + ', ' + new Date(chat.timestamp).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) : '';
 
                 let nameClass = "member-name";
-                if (chat.hiasanNama === 'vip_gold') nameClass = "member-name name-gold-shiny";
+                if (chat.hiasanNama === 'vip_plus_gold') nameClass = "member-name name-vip-plus-gold";
+                else if (chat.hiasanNama === 'vip_gold') nameClass = "member-name name-gold-shiny";
                 else if (chat.hiasanNama === 'limited_shiny') nameClass = "member-name name-green-shiny";
                 else if (chat.hiasanNama === 'spesial_ungu') nameClass = "member-name name-purple-shiny";
                 else if (chat.hiasanNama === 'keberuntungan') nameClass = "member-name name-red-shiny";
                 else if (chat.hiasanNama === 'terpilih') nameClass = "member-name name-diamond-shiny";
 
+                let isGelarVipPlus = (chat.gelar && chat.gelar.toLowerCase().includes('vip plus'));
                 let isGelarVip = (chat.gelar && chat.gelar.toLowerCase().includes('vip'));
-                const gelarClass = isGelarVip ? "member-gelar vip" : "member-gelar";
+                const gelarClass = isGelarVipPlus ? "member-gelar vip-plus" : (isGelarVip ? "member-gelar vip" : "member-gelar");
                 const gelarHTML = (chat.gelar && chat.gelar !== '-') ? `<span class="${gelarClass}" style="font-size:0.7rem; padding:1px 8px;">${escapeHTML(chat.gelar)}</span>` : '';
 
                 const senderName = chat.sender || chat.nama || chat.username || 'Member';
@@ -2603,11 +2741,15 @@
             { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan_nama' },
             { id: 'terpilih', name: 'Hiasan Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan_nama' },
             { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 5, color: '#a855f7', type: 'hiasan_nama' },
-            { id: 'star_2', name: '+2 Star', label: '+2 Star', chance: 20, color: '#f59e0b', type: 'star', val: 2 },
-            { id: 'star_5', name: '+5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
-            { id: 'dm_20', name: 'Bonus 20 Diamond', label: '+20 Diamond', chance: 35, color: '#06b6d4', type: 'diamond', val: 20 },
-            { id: 'dm_50', name: 'Bonus 50 Diamond', label: '+50 Diamond', chance: 15, color: '#3b82f6', type: 'diamond', val: 50 },
-            { id: 'dm_100', name: 'Bonus 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 }
+            { id: 'star_2', name: 'Dapat 2 Star', label: '+2 Star', chance: 10, color: '#f59e0b', type: 'star', val: 2 },
+            { id: 'star_5', name: 'Dapat 5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
+            { id: 'dm_100', name: 'Super Zonk! -100 Diamond', label: '-100 Diamond', chance: 1, color: '#6366f1', type: 'diamond', val: -100 },
+            { id: 'dm_50', name: 'Zonk! -50 Diamond', label: '-50 Diamond', chance: 10, color: '#10b981', type: 'diamond', val: -50 },
+            { id: 'dm_20', name: 'Dapat 20 Diamond', label: '+20 Diamond', chance: 20, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'star_10', name: 'Dapat 10 Star', label: '+10 Star', chance: 2, color: '#3b82f6', type: 'diamond', val: 10 },
+            { id: 'dm_100', name: 'Dapat 100 Diamond', label: '+100 Diamond', chance: 6, color: '#8b5cf6', type: 'diamond', val: 100 },
+            { id: 'dm_250', name: 'Selamat! dapat 250 Diamond', label: '+250 Diamond', chance: 3, color: '#22c55e', type: 'diamond', val: 250 },
+            { id: 'dm_500', name: 'SELAMAT! dapat 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 }
         ];
 
          let isSpinning = false;
@@ -2756,6 +2898,7 @@
                 gelarContainer.style.display = 'none';
                 const opts = [
                     { val: 'vip_gold', label: 'Emas VIP (Shiny Gold)' },
+                    { val: 'vip_plus_gold', label: 'Emas VIP Plus (Ultra Shiny Gold)' },
                     { val: 'limited_shiny', label: 'Limited Shiny' },
                     { val: 'spesial_ungu', label: 'Ungu Shiny' },
                     { val: 'keberuntungan', label: 'Keberuntungan' },
@@ -2772,7 +2915,8 @@
                     { val: 'biru_bercahaya', label: 'Hiasan Profil Diamond' },
                     { val: 'kuning_border_ijo', label: 'Hiasan Profil Kuning' },
                     { val: 'hitam_ornamen', label: 'Hiasan Profil Hitam Ornamen' },
-                    { val: 'hijau_ornamen', label: 'Hiasan Profil Hijau Ornamen' }
+                    { val: 'hijau_ornamen', label: 'Hiasan Profil Hijau Ornamen' },
+                    { val: 'vip_plus_gold', label: 'Hiasan Profil VIP Plus Gold Shiny' }
                 ];
                 opts.forEach(o => {
                     const opt = document.createElement('option');
@@ -2843,8 +2987,11 @@
             if (type === 'hiasan_nama' || type === 'hiasan_profil') {
                 document.getElementById('adminCodeValContainer').style.display = 'none';
                 document.getElementById('adminCodePresetContainer').style.display = 'block';
+            } else if (type === 'gelar' || type === 'vip_plus') {
+                document.getElementById('adminCodeValContainer').style.display = 'none';
+                document.getElementById('adminCodePresetContainer').style.display = 'none';
             } else {
-                document.getElementById('adminCodeValContainer').style.display = type === 'gelar' ? 'none' : 'block';
+                document.getElementById('adminCodeValContainer').style.display = 'block';
                 document.getElementById('adminCodePresetContainer').style.display = 'none';
             }
         }
@@ -2868,7 +3015,7 @@
                 preset: preset,
                 gelar: gelar,
                 redeemMode: redeemMode,
-                label: type === 'gelar' ? gelar : ((type === 'hiasan_nama' || type === 'hiasan_profil') ? preset : `${value} ${type}`)
+                label: type === 'gelar' ? gelar : (type === 'vip_plus' ? 'VIP Plus Member' : ((type === 'hiasan_nama' || type === 'hiasan_profil') ? preset : `${value} ${type}`))
             };
 
             codesRef.child(codeText).set(codeData).then(() => {
@@ -2919,7 +3066,7 @@
         }
 
         function populateAdminCodeList() {
-                        const list = document.getElementById('admin-code-delete-list');
+            const list = document.getElementById('admin-code-delete-list');
             if (!list) return;
             list.innerHTML = '';
             const keys = Object.keys(globalCodesData);
