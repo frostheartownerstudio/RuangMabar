@@ -275,6 +275,17 @@
             50% { background-position: 100% 50%; }
         }
 
+        .member-card .btn-profile-detail, .card-box .btn-profile-detail {
+            position: absolute !important;
+            top: 8px !important;
+            right: 8px !important;
+            left: auto !important;
+            bottom: auto !important;
+            z-index: 5 !important;
+            margin: 0 !important;
+            transform: none !important;
+        }
+
         .btn-profile-detail {
             position: absolute;
             top: 12px;
@@ -484,6 +495,7 @@
             color:transparent !important; -webkit-background-clip:text; background-clip:text; border:1px solid #d4af37;
             font-weight:900; animation:vipPlusGoldShine 2.2s linear infinite; filter:drop-shadow(0 0 5px rgba(255,255,255,.8));
         }
+        /* HIASAN PROFIL VIP PLUS GOLD */
         .member-card.decor-vip-plus-gold, .card-box.decor-vip-plus-gold { background:linear-gradient(135deg,#fffdf0,#f7d774,#fff8cf,#d4af37,#fffdf0)!important; background-size:220% 220%!important; border:3px solid transparent!important; border-radius:18px!important; box-shadow:inset 0 0 10px rgba(255,255,255,.45),0 0 0 1px rgba(255,255,255,.95)!important; overflow:visible; position:relative; }
         .member-card.decor-vip-plus-gold { border-image:linear-gradient(90deg,#8a5a00,#fff,#d4af37,#fff,#8a5a00) 1!important; animation:none!important; }
         .member-card.decor-vip-plus-gold::before,.card-box.decor-vip-plus-gold::before { content:'✦'; position:absolute; width:30px;height:30px;top:-17px;left:-17px;border-radius:8px;display:flex;align-items:center;justify-content:center;transform:rotate(45deg);color:#fff;font-size:13px;font-weight:900;background:linear-gradient(135deg,#8a5a00,#d4af37,#fff,#d4af37);border:2px solid #fff;box-shadow:0 2px 5px rgba(92,55,0,.22);z-index:4;pointer-events:none; }
@@ -498,6 +510,132 @@
         .vip-plus-detail-decoration > * { position:relative;z-index:2; } .vip-plus-detail-title{color:#fff;font-weight:900;text-shadow:0 0 7px rgba(255,255,255,.9),0 2px 4px rgba(92,55,0,.65)} .vip-plus-detail-decoration .vip-plus-detail-value{color:#fffdf0;font-weight:800;text-shadow:0 0 6px rgba(255,255,255,.8)}
         @keyframes vipPlusDetailShine { 0%,18%{left:-45%;opacity:0}32%{opacity:1}64%{left:125%;opacity:1}80%,100%{left:125%;opacity:0} }
         @keyframes vipPlusDetailGlow { 0%,100%{background-position:0% 50%;box-shadow:0 0 0 2px #d4af37,0 8px 25px rgba(212,175,55,.45),inset 0 0 20px rgba(255,255,255,.65)}50%{background-position:100% 50%;box-shadow:0 0 0 2px #fff,0 0 28px rgba(255,255,255,.65),0 8px 30px rgba(212,175,55,.65),inset 0 0 24px rgba(255,255,255,.85)} }
+        .modal-body:has(.profile-detail-vip-plus-card) { padding:0; }
+        .profile-detail-vip-plus-card { position:relative; overflow:hidden; min-height:100%; width:100%; padding:18px 20px; margin:0; border-radius:0; background:linear-gradient(135deg,#fffdf0 0%,#f4d35e 24%,#fff8cf 48%,#d4af37 72%,#fffdf0 100%); background-size:240% 240%; border:0; border-top:2px solid #d4af37; border-bottom:2px solid #d4af37; box-shadow:inset 0 0 18px rgba(255,255,255,.72); animation:vipPlusDetailCardShine 4s ease-in-out infinite; }
+        .profile-detail-vip-plus-card::before { content:''; position:absolute; width:22%; height:180%; top:-40%; left:-42%; transform:rotate(18deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(255,255,255,.45),transparent); animation:vipPlusDetailCardSweep 3.6s ease-in-out infinite; pointer-events:none; }
+        .profile-detail-vip-plus-card::after { content:'✦  ❖  ✦'; position:absolute; top:8px; right:12px; color:#fff; font-weight:900; letter-spacing:4px; text-shadow:0 1px 4px rgba(92,55,0,.45); pointer-events:none; }
+        .profile-detail-vip-plus-card > * { position:relative; z-index:2; }
+        /* HIASAN PROFIL CRYSTAL UNGU */
+        .member-card.decor-crystal-ungu, .card-box.decor-crystal-ungu {
+            position: relative;
+            background: linear-gradient(135deg, #faf5ff 0%, #e9d5ff 42%, #c084fc 72%, #f5f3ff 100%) !important;
+            border: 3px solid #a855f7 !important;
+            border-radius: 18px !important;
+            box-shadow: 0 10px 28px rgba(126,34,206,.25), inset 0 0 18px rgba(255,255,255,.7), 0 0 0 1px rgba(255,255,255,.85) !important;
+            overflow: hidden;
+        }
+        .member-card.decor-crystal-ungu::before, .card-box.decor-crystal-ungu::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: .72;
+            animation: crystalUnguCrackShine 2.8s ease-in-out infinite;
+            background:
+                linear-gradient(132deg, transparent 0 24%, rgba(126,34,206,.72) 24.5%, transparent 25.2% 100%),
+                linear-gradient(48deg, transparent 0 38%, rgba(168,85,247,.68) 38.5%, transparent 39.2% 100%),
+                linear-gradient(166deg, transparent 0 55%, rgba(109,40,217,.62) 55.5%, transparent 56.2% 100%),
+                linear-gradient(22deg, transparent 0 68%, rgba(192,132,252,.75) 68.5%, transparent 69.2% 100%),
+                linear-gradient(108deg, transparent 0 78%, rgba(124,58,237,.62) 78.5%, transparent 79.2% 100%);
+        }
+        .member-card.decor-crystal-ungu::after, .card-box.decor-crystal-ungu::after {
+            display: none !important;
+        }
+        .member-card.decor-crystal-ungu > *, .card-box.decor-crystal-ungu > * { position: relative; z-index: 3; }
+        .member-card.decor-crystal-ungu .stats-grid, .card-box.decor-crystal-ungu .stats-grid {
+            background: rgba(255,255,255,.52);
+            border: 1px solid rgba(126,34,206,.16);
+        }
+        @keyframes crystalUnguCrackShine {
+            0%, 100% { opacity: .58; filter: brightness(1); }
+            45% { opacity: .95; filter: brightness(1.7); }
+            62% { opacity: .72; filter: brightness(1.15); }
+        }
+
+        /* HIASAN PROFIL LANGIT MALAM */
+        .member-card.decor-aurora-cerah, .card-box.decor-aurora-cerah {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, #020617 0%, #0f172a 42%, #172554 72%, #020617 100%) !important;
+            border: 3px solid #64748b !important;
+            border-radius: 18px !important;
+            box-shadow: 0 10px 30px rgba(2,6,23,.45), inset 0 0 24px rgba(96,165,250,.18), 0 0 0 1px rgba(148,163,184,.5) !important;
+        }
+        .member-card.decor-aurora-cerah::before, .card-box.decor-aurora-cerah::before {
+            content: '✦';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            color: #ffffff;
+            font-size: 10px;
+            line-height: 1;
+            text-shadow:
+                8vw 7vh 0 #ffffff,
+                21vw 16vh 0 #ffffff,
+                34vw 6vh 0 #ffffff,
+                48vw 22vh 0 #ffffff,
+                62vw 10vh 0 #ffffff,
+                78vw 25vh 0 #ffffff,
+                91vw 9vh 0 #ffffff,
+                14vw 48vh 0 #ffffff,
+                29vw 63vh 0 #ffffff,
+                45vw 49vh 0 #ffffff,
+                59vw 70vh 0 #ffffff,
+                74vw 54vh 0 #ffffff,
+                88vw 72vh 0 #ffffff,
+                5vw 88vh 0 #ffffff,
+                23vw 82vh 0 #ffffff,
+                39vw 91vh 0 #ffffff,
+                56vw 84vh 0 #ffffff,
+                71vw 94vh 0 #ffffff,
+                94vw 87vh 0 #ffffff;
+            filter: drop-shadow(0 0 4px rgba(255,255,255,.55));
+            opacity: .88;
+            animation: langitMalamStars 8s ease-in-out infinite;
+        }
+        
+        @keyframes langitMalamStars {
+            0%, 100% {
+                opacity: .78;
+                filter: blur(0) saturate(1);
+                transform: translateX(-3px) scale(.96);
+            }
+            50% {
+                opacity: 1;
+                filter: blur(0) saturate(1);
+                transform: translateX(3px) scale(1.045);
+            }
+        }
+
+
+        .member-card.decor-aurora-cerah > *, .card-box.decor-aurora-cerah > * { position: relative; z-index: 3; }
+        .member-card.decor-aurora-cerah .stats-grid, .card-box.decor-aurora-cerah .stats-grid {
+            background: rgba(15,23,42,.62);
+            border: 1px solid rgba(148,163,184,.28);
+        }
+        .member-card.decor-aurora-cerah .member-bio,
+        .member-card.decor-aurora-cerah .stat-item,
+                .card-box.decor-aurora-cerah .member-bio,
+        .card-box.decor-aurora-cerah .stat-item,
+                .card-box.decor-aurora-cerah .chat-message-text {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        .member-card.decor-aurora-cerah .member-name,
+        .card-box.decor-aurora-cerah .member-name {
+            -webkit-text-fill-color: initial;
+        }
+        @keyframes langitMalamParticles {
+            0%, 100% { transform: translate3d(-2px, 0, 0) scale(0.94) rotate(45deg); opacity: .52; filter: blur(1.2px) saturate(.72); }
+            50% { transform: translate3d(3px, -2px, 0) scale(1.02) rotate(48deg); opacity: .98; filter: blur(0) saturate(1.35); }
+        }
+        @keyframes langitMalamParticlesFar {
+            0%, 100% { transform: translate3d(2px, 0, 0) scale(0.94) rotate(45deg); opacity: .38; filter: blur(1.3px) saturate(.68); }
+            50% { transform: translate3d(-3px, 2px, 0) scale(1.01) rotate(42deg); opacity: .9; filter: blur(0) saturate(1.3); }
+        }
+
         .modal-body:has(.profile-detail-vip-plus-card) { padding:0; }
         .profile-detail-vip-plus-card { position:relative; overflow:hidden; min-height:100%; width:100%; padding:18px 20px; margin:0; border-radius:0; background:linear-gradient(135deg,#fffdf0 0%,#f4d35e 24%,#fff8cf 48%,#d4af37 72%,#fffdf0 100%); background-size:240% 240%; border:0; border-top:2px solid #d4af37; border-bottom:2px solid #d4af37; box-shadow:inset 0 0 18px rgba(255,255,255,.72); animation:vipPlusDetailCardShine 4s ease-in-out infinite; }
         .profile-detail-vip-plus-card::before { content:''; position:absolute; width:22%; height:180%; top:-40%; left:-42%; transform:rotate(18deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(255,255,255,.45),transparent); animation:vipPlusDetailCardSweep 3.6s ease-in-out infinite; pointer-events:none; }
@@ -624,7 +762,7 @@
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
             display: none; align-items: center; justify-content: center;
-            z-index: 1000; padding: 16px;
+            z-index: 2000; padding: 16px;
         }
 
         .modal-content {
@@ -690,7 +828,7 @@
         }
 
         .result-modal-overlay {
-            position: fixed; inset: 0; z-index: 3000;
+        position: fixed; inset: 0; z-index: 3000;
             display: none; align-items: center; justify-content: center;
             padding: 16px; background: rgba(15,23,42,.58);
             backdrop-filter: blur(4px);
@@ -1070,7 +1208,7 @@
                 <hr style="margin: 15px 0; border: none; border-top: 1px solid #cbd5e1;">
 
                 <div id="admin-login-sec">
-                    <div class="form-group">
+                        <div class="form-group">
                         <label>Masukkan Password Admin:</label>
                         <div class="password-container">
                             <input type="password" id="inputAdminAuthPass" placeholder="Password Admin">
@@ -1089,7 +1227,7 @@
 
                     <div style="background: #eff6ff; padding: 14px; border-radius: 10px; border: 1px solid #3b82f6; margin-bottom: 20px;">
                         <h4 style="margin-bottom: 6px; color: #1e40af;">📅 Menu Absen Harian Anggota</h4>
-                        <p style="font-size: 0.8rem; color: #1e3a8a; margin-bottom: 10px;">Pilih member lalu lakukan absen. Hadiah dasar +100 💎 dan +1 ⭐, lalu dikalikan Boost member.</p>
+                        <p style="font-size: 0.8rem; color: #1e3a8a; margin-bottom: 10px;">Pilih member lalu lakukan absen. Hadiah dasar +100 💎, +1 ⭐, dan +1 Level, lalu Diamond dan Bintang dikalikan Boost member.</p>
                         <div class="form-group" style="margin-bottom:10px;">
                             <label>Pilih Nama Member:</label>
                             <select id="adminAbsenMemberSelect"></select>
@@ -1181,6 +1319,13 @@
                         <label>Jumlah Hari Masa Berlaku:</label>
                         <input type="number" id="adminShopCustomHari" placeholder="Contoh: 7, 30" min="1">
                     </div>
+                    <div class="form-group">
+                        <label>Tipe Pembelian:</label>
+                        <select id="adminShopTipePembelian">
+                            <option value="bebas">Bebas Beli</option>
+                            <option value="1x">1x Beli</option>
+                        </select>
+                    </div>
 
                     <div style="display: flex; gap: 10px;">
                         <div class="form-group" style="flex:1;">
@@ -1237,6 +1382,7 @@
                                 <option value="kuning_border_ijo">Hiasan Profil Kuning</option>
                                 <option value="hitam_ornamen">Hiasan Profil Hitam Ornamen</option>
                                 <option value="hijau_ornamen">Hiasan Profil Hijau Ornamen</option>
+                                <option value="crystal_ungu">Hiasan Profil Crystal Ungu</option>
                                 <option value="vip_gold">Hiasan Nama VIP Gold</option>
                                 <option value="limited_shiny">Hiasan Nama Limited Shiny</option>
                             </select>
@@ -1296,7 +1442,7 @@
     </div>
 
     <script>
-        const firebaseConfig = {
+      const firebaseConfig = {
             apiKey: "AIzaSyAeIVCyEF705xX7WY8tuOmM4ngTVneThNA",
             authDomain: "absen-rm.firebaseapp.com",
             projectId: "absen-rm",
@@ -1328,6 +1474,27 @@
         let globalCodesData = {};
         let globalArcadeData = {};
         let activeLoggedInMemberKey = null;
+        let presenceMemberKey = null;
+
+        function setMemberOnlineStatus(memberKey, isOnline) {
+            if (!memberKey) return;
+            const statusRef = database.ref(`members/${memberKey}/onlineStatus`);
+            if (isOnline) {
+                statusRef.onDisconnect().set(false);
+                statusRef.set(true);
+                presenceMemberKey = memberKey;
+            } else {
+                statusRef.onDisconnect().cancel();
+                statusRef.set(false);
+                if (presenceMemberKey === memberKey) presenceMemberKey = null;
+            }
+        }
+
+        database.ref('.info/connected').on('value', snapshot => {
+            if (snapshot.val() === true && activeLoggedInMemberKey) {
+                setMemberOnlineStatus(activeLoggedInMemberKey, true);
+            }
+        });
 
         const hiasanNamaMap = {
             'keberuntungan': 'Keberuntungan',
@@ -1343,7 +1510,9 @@
             'biru_bercahaya': 'Hiasan Profil Diamond',
             'hitam_ornamen': 'Hiasan Profil Hitam Ornamen',
             'hijau_ornamen': 'Hiasan Profil Hijau Ornamen',
-            'vip_plus_gold': 'Hiasan Profil VIP Plus Gold Shiny'
+            'vip_plus_gold': 'Hiasan Profil VIP Plus Gold Shiny',
+            'crystal_ungu': 'Hiasan Profil Crystal Ungu',
+            'aurora_cerah': 'Hiasan Profil Langit Malam'
         };
 
         // PEMETAAN EMOJI KHUSUS UNTUK MASA AKTIF ITEM
@@ -1471,10 +1640,27 @@
             const msg = document.getElementById('resultModalMessage');
             if (!overlay || !title || !msg) return;
 
-            const text = String(message || '');
+            const rawText = String(message || '');
+            const text = rawText.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, m => m === 'ℹ️' ? m : '').replace(/\s{2,}/g, ' ').replace(/^[ \t]+|[ \t]+$/gm, '').replace(/\n[ \t]+/g, '\n').trim();
+            const isLoginRequired = /login.*dulu|login.*terlebih dahulu|silakan login|harus login|masuk.*dulu|masuk.*terlebih dahulu/i.test(text);
+            const isSinglePurchaseError = /sekali beli|hanya dapat dibeli 1x|dibeli 1x/i.test(text);
+            const isMemberVerification = /member.*verifikasi|verifikasi.*member|member.*terverifikasi|verifikasi berhasil/i.test(text);
+            const isMemberLoginSuccess = /selamat datang kembali/i.test(text);
             const isSuccess = /berhasil|tersimpan|diperbarui|ditambahkan|dibuat|dibeli|dipublikasikan|dihapus|dibersihkan|diklaim|dipasang|dikirim|terverifikasi/i.test(text);
-            title.textContent = forceTitle || (isSuccess ? 'Berhasil' : 'Pemberitahuan');
-            icon.textContent = isSuccess ? '✅' : 'ℹ️';
+            const isError = /salah|gagal|kesalahan|tidak cukup|tidak valid|tidak ditemukan|tidak dapat|tidak bisa|habis|wajib|minimal|terlebih dahulu|belum/i.test(text);
+            if (isLoginRequired) {
+                title.textContent = forceTitle || 'Pemberitahuan';
+                icon.textContent = 'ℹ️';
+            } else if (isSinglePurchaseError) {
+                title.textContent = forceTitle || 'Pemberitahuan';
+                icon.textContent = '❌';
+            } else if (isMemberVerification || isMemberLoginSuccess) {
+                title.textContent = forceTitle || 'Berhasil';
+                icon.textContent = '✅';
+            } else {
+                title.textContent = forceTitle || (isSuccess && !isError ? 'Berhasil' : 'Pemberitahuan');
+                icon.textContent = isSuccess && !isError ? '✅' : '❌';
+            }
             msg.textContent = text;
             overlay.classList.remove('show');
             void overlay.offsetWidth;
@@ -1582,14 +1768,16 @@
             const boost = Math.max(0, Number(member.boost || 1));
             const bonusDiamond = 100 * boost;
             const bonusBintang = 1 * boost;
+            const bonusLevel = 1;
 
             const updates = {};
             updates[`members/${selectedKey}/lastAbsen`] = today;
             updates[`members/${selectedKey}/diamond`] = Number(member.diamond || 0) + bonusDiamond;
             updates[`members/${selectedKey}/bintang`] = Number(member.bintang || 0) + bonusBintang;
+            updates[`members/${selectedKey}/level`] = Number(member.level || 1) + bonusLevel;
 
             database.ref().update(updates).then(() => {
-                alert(`🎉 Absen Berhasil!\n\nMember: ${member.nama || 'Member'}\nHadiah: +${bonusDiamond} 💎 Diamond\n+${bonusBintang} ⭐ Bintang\nBoost: ${boost}x`);
+                alert(`🎉 Absen Berhasil!\n\nMember: ${member.nama || 'Member'}\nHadiah: +${bonusDiamond} 💎 Diamond\n+${bonusBintang} ⭐ Bintang\n+${bonusLevel} Level\nBoost: ${boost}x`);
             }).catch(err => {
                 alert("Absen gagal disimpan: " + (err.message || "Terjadi kesalahan."));
             });
@@ -1610,7 +1798,7 @@
                 populateAdminCodeList();
                 alert("✅ Terverifikasi sebagai Admin!");
             } else {
-                alert("❌ Password Admin Salah!");
+                alert(" Password Admin Salah!");
             }
         }
 
@@ -1731,12 +1919,17 @@
 
             const codeData = globalCodesData[codeInput];
             if (!codeData) {
-                alert("❌ Kode tidak valid atau sudah kadaluarsa!");
+                alert(" Kode tidak valid atau sudah kadaluarsa!");
                 return;
             }
 
             const redeemMode = codeData.redeemMode || 'once';
             const member = globalMembersData[activeLoggedInMemberKey];
+            const redeemedBy = codeData.redeemedBy || {};
+            if (redeemedBy[activeLoggedInMemberKey]) {
+                alert(" Kamu sudah pernah redeem kode ini! Kode hanya bisa digunakan 1x oleh akun yang sama.");
+                return;
+            }
             const updates = {};
 
             if (codeData.type === 'diamond') {
@@ -1780,6 +1973,8 @@
 
             if (redeemMode === 'once') {
                 updates[`codes/${codeInput}`] = null;
+            } else {
+                updates[`codes/${codeInput}/redeemedBy/${activeLoggedInMemberKey}`] = true;
             }
 
             database.ref().update(updates).then(() => {
@@ -1822,7 +2017,20 @@
 
             filterAndRenderMembers();
 
-            if (activeLoggedInMemberKey && globalMembersData[activeLoggedInMemberKey]) {
+            const savedMemberKey = localStorage.getItem('ruangMabarLoggedInMemberKey');
+            if (savedMemberKey && globalMembersData[savedMemberKey]) {
+                activeLoggedInMemberKey = savedMemberKey;
+                const savedMember = globalMembersData[savedMemberKey];
+                const savedSelect = document.getElementById('selectMemberSelf');
+                if (savedSelect) savedSelect.value = savedMemberKey;
+                document.getElementById('member-login-box').style.display = 'none';
+                document.getElementById('member-edit-box').style.display = 'block';
+                updateMemberPersonalView(savedMember);
+                setMemberOnlineStatus(savedMemberKey, true);
+            } else if (savedMemberKey) {
+                localStorage.removeItem('ruangMabarLoggedInMemberKey');
+                activeLoggedInMemberKey = null;
+            } else if (activeLoggedInMemberKey && globalMembersData[activeLoggedInMemberKey]) {
                 updateMemberPersonalView(globalMembersData[activeLoggedInMemberKey]);
             }
 
@@ -1863,7 +2071,11 @@
             globalEventsData = snapshot.val();
             container.innerHTML = '';
 
-            const keys = Object.keys(globalEventsData);
+            const keys = Object.keys(globalEventsData).sort((a, b) => {
+                const aTime = Number(globalEventsData[a].createdAt || 0);
+                const bTime = Number(globalEventsData[b].createdAt || 0);
+                return bTime - aTime;
+            });
             if (keys.length === 0) {
                 container.innerHTML = '<div class="empty-notice">Admin belum ngadain event, tunggu kabar selanjutnya!</div>';
             } else {
@@ -1950,6 +2162,10 @@
                     decorClass += " decor-hitam-ornamen";
                 } else if (item.hiasanProfil === 'hijau_ornamen') {
                     decorClass += " decor-hijau-ornamen";
+                } else if (item.hiasanProfil === 'crystal_ungu') {
+                    decorClass += " decor-crystal-ungu";
+                } else if (item.hiasanProfil === 'aurora_cerah') {
+                    decorClass += " decor-aurora-cerah";
                 }
 
                 let nameClass = "member-name";
@@ -2100,6 +2316,10 @@
             let isGelarVip = (member.gelar && member.gelar.toLowerCase().includes('vip'));
             const gelarClass = isGelarVipPlus ? "member-gelar vip-plus" : (isGelarVip ? "member-gelar vip" : "member-gelar");
             const gelarHTML = (member.gelar && member.gelar !== '-') ? `<span class="${gelarClass}">${escapeHTML(member.gelar)}</span>` : '<span style="color:#94a3b8;">-</span>';
+            const isOnline = member.onlineStatus === true;
+            const statusHTML = isOnline
+                ? '<div style="margin-top: 8px; font-size: 0.88rem; font-weight: 700; color: #16a34a;">🟢 Online</div>'
+                : '<div style="margin-top: 8px; font-size: 0.88rem; font-weight: 700; color: #64748b;">⚫ Offline</div>';
 
             const useVipPlusDetail = member.hiasanDetailProfil === 'vip_plus_gold';
             const detailCardStart = useVipPlusDetail ? '<div class="profile-detail-vip-plus-card">' : '';
@@ -2112,6 +2332,7 @@
                         <span class="${nameClass}" style="font-size: 1.25rem;">${escapeHTML(member.nama || 'Anggota')}</span>
                     </h3>
                     <div>Gelar: ${gelarHTML}</div>
+                    ${statusHTML}
                 </div>
 
                 <div class="stats-grid" style="margin-bottom: 16px;">
@@ -2119,11 +2340,11 @@
                     <div class="stat-item">⭐ Bintang: ${member.bintang || 0}</div>
                     <div class="stat-item">💎 Diamond: ${member.diamond || 0}</div>
                     <div class="stat-item">⚡ Boost: ${member.boost || 1}x</div>
-                    <div class="stat-item">📊 Level: ${member.level || 1}</div>
+                    <div class="stat-item">📊 Level: ${member.level || 1}${member.lencanaImmortal ? '<div style="margin-top: 6px;"><span class="immortal-badge">🏅 Immortal</span></div>' : ''}</div>
                     <div class="stat-item">🎮 Game: ${escapeHTML(member.gameKesukaan || '-')}</div>
                 </div>
 
-                <div style="background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 14px;">
+ <div style="background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 14px;">
                     <div style="font-weight: 600; font-size: 0.85rem; color: #334155; margin-bottom: 4px;">📝 Bio:</div>
                     <div style="font-size: 0.85rem; color: #64748b; font-style: italic;">${escapeHTML(member.bio || '-')}</div>
                 </div>
@@ -2261,16 +2482,20 @@
             const storedPin = m.pin || "1234";
             if (pin === storedPin) {
                 activeLoggedInMemberKey = memberKey;
+                localStorage.setItem('ruangMabarLoggedInMemberKey', memberKey);
+                setMemberOnlineStatus(memberKey, true);
                 document.getElementById('member-login-box').style.display = 'none';
                 document.getElementById('member-edit-box').style.display = 'block';
                 updateMemberPersonalView(m);
-                alert(`✅ Selamat datang, ${m.nama}!`);
+                alert(`Selamat datang kembali, ${m.nama}!`);
             } else {
-                alert("❌ Sandi / PIN salah!");
+                alert(" Sandi / PIN salah!");
             }
         }
 
         function logoutMember() {
+            if (activeLoggedInMemberKey) setMemberOnlineStatus(activeLoggedInMemberKey, false);
+            localStorage.removeItem('ruangMabarLoggedInMemberKey');
             activeLoggedInMemberKey = null;
             document.getElementById('member-login-box').style.display = 'block';
             document.getElementById('member-edit-box').style.display = 'none';
@@ -2292,7 +2517,7 @@
 
             const currentMember = globalMembersData[activeLoggedInMemberKey];
             if (newHiasanDetailProfil === 'vip_plus_gold' && !(currentMember && currentMember.isVipPlus)) {
-                alert('❌ Hiasan Detail Profil VIP Plus hanya dapat digunakan oleh member VIP Plus!');
+                alert(' Hiasan Detail Profil VIP Plus hanya dapat digunakan oleh member VIP Plus!');
                 return;
             }
 
@@ -2323,24 +2548,28 @@
             if (!shopList) return;
             shopList.innerHTML = '';
 
-            Object.keys(globalShopData).forEach(key => {
+            Object.keys(globalShopData).sort((a, b) => {
+                const aTime = Number(globalShopData[a].createdAt || 0);
+                const bTime = Number(globalShopData[b].createdAt || 0);
+                return bTime - aTime;
+            }).forEach(key => {
                 const item = globalShopData[key];
-                const masaBerlakuText = item.masaBerlakuTipe === 'custom' ? `Custom (${item.masaBerlakuHari || 0} Hari)` : 'Permanen';
+                const masaBerlakuText = item.masaBerlakuTipe === 'custom' ? `⏳ ${item.masaBerlakuHari || 0} Hari` : '♾️ Permanen';
                 const benefitText = item.tipe === 'VIP' ? ' • Gelar VIP Member • Boost 2x • Hiasan Nama VIP (Gold Shiny)' : (item.tipe === 'VIP Plus' ? ' • Gelar VIP Plus Member • Boost 3x • Hiasan Nama & Profil VIP Plus Gold Shiny' : '');
 
                 const card = document.createElement('div');
                 card.className = 'shop-item-card';
+                card.style.flexDirection = 'column';
+                card.style.alignItems = 'stretch';
                 card.innerHTML = `
                     <div>
                         <div class="shop-title">${escapeHTML(item.nama)}</div>
                         <div class="shop-type-tag">Tipe: ${escapeHTML(item.tipe)}${escapeHTML(benefitText)}</div>
                         <div style="font-size: 0.8rem; color: #64748b; margin-top: 2px;">Masa Berlaku: <strong>${escapeHTML(masaBerlakuText)}</strong></div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <div>
-                            <div class="shop-price">💎 ${item.harga || 0}</div>
-                            <div class="shop-stock">Stok: ${item.stok || 0}</div>
-                        </div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr auto; align-items:center; gap:10px; width:100%; margin-top:8px; padding-top:10px; border-top:1px solid #e2e8f0;">
+                        <div class="shop-price">💎 ${item.harga || 0}</div>
+                        <div class="shop-stock" style="justify-self:start;">Stok: ${item.stok || 0}</div>
                         <button class="btn-buy" onclick="buyShopItem('${key}')">Beli</button>
                     </div>
                 `;
@@ -2359,23 +2588,33 @@
             if (!item) return;
 
             const member = globalMembersData[activeLoggedInMemberKey];
+            const tipePembelian = item.tipePembelian || 'bebas';
+            const purchasedShopItems = member.shopPurchases || {};
+            if (tipePembelian === '1x' && purchasedShopItems[shopKey]) {
+                alert(" Item ini hanya dapat dibeli 1x!");
+                return;
+            }
+
             const currentDiamond = Number(member.diamond || 0);
             const price = Number(item.harga || 0);
             const stock = Number(item.stok || 0);
 
             if (stock <= 0) {
-                alert("❌ Stok item ini sudah habis!");
+                alert(" Stok item ini sudah habis!");
                 return;
             }
 
             if (currentDiamond < price) {
-                alert("❌ Diamond kamu tidak cukup untuk membeli item ini!");
+                alert(" Diamond kamu tidak cukup untuk membeli item ini!");
                 return;
             }
 
             const updates = {};
             updates[`members/${activeLoggedInMemberKey}/diamond`] = currentDiamond - price;
             updates[`shop/${shopKey}/stok`] = stock - 1;
+            if (tipePembelian === '1x') {
+                updates[`members/${activeLoggedInMemberKey}/shopPurchases/${shopKey}`] = true;
+            }
 
             const addedDays = (item.masaBerlakuTipe === 'custom') ? Number(item.masaBerlakuHari || 0) : 0;
 
@@ -2447,7 +2686,11 @@
             if (!list) return;
             list.innerHTML = '';
 
-            const keys = Object.keys(globalMarketplaceData);
+            const keys = Object.keys(globalMarketplaceData).sort((a, b) => {
+                const aTime = Number(globalMarketplaceData[a].createdAt || 0);
+                const bTime = Number(globalMarketplaceData[b].createdAt || 0);
+                return bTime - aTime;
+            });
             if (keys.length === 0) {
                 list.innerHTML = '<div class="empty-notice" style="padding: 16px;">Belum ada hiasan yang dijual di marketplace.</div>';
                 return;
@@ -2459,12 +2702,15 @@
 
                 const card = document.createElement('div');
                 card.className = 'shop-item-card';
+                const isSeller = activeLoggedInMemberKey && item.sellerKey === activeLoggedInMemberKey;
+                card.style.position = 'relative';
                 card.innerHTML = `
+                                    ${isSeller ? `<button title="Edit Harga" aria-label="Edit Harga" style="position:absolute; top:10px; right:10px; width:34px; height:34px; border:1px solid #cbd5e1; border-radius:10px; background:#f8fafc; color:#334155; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center;" onclick="editMarketplacePrice('${key}')">✏️</button>` : ''}
                     <div>
                         <div class="shop-title">${escapeHTML(itemName)}</div>
                         <div class="shop-type-tag">Tipe: ${escapeHTML(item.tipe)} • Penjual: ${escapeHTML(item.sellerName || 'Member')}</div>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
                         <div>
                             <div class="shop-price">💎 ${item.harga || 0}</div>
                             <div class="shop-stock">Stok: ${item.stok || 0}</div>
@@ -2548,7 +2794,7 @@
 
             const [tipeKey, itemId] = val.split('|');
             if (['vip_gold', 'vip_plus_gold'].includes(itemId) || tipeKey === 'vip' || tipeKey === 'vip_plus') {
-                alert("❌ Manfaat VIP / VIP Plus tidak dapat dijual di Marketplace!");
+                alert(" Manfaat VIP / VIP Plus tidak dapat dijual di Marketplace!");
                 return;
             }
             const member = globalMembersData[activeLoggedInMemberKey];
@@ -2585,12 +2831,34 @@
                 harga: harga,
                 stok: 1,
                 sellerKey: memberKey,
-                sellerName: member.nama || 'Member'
+                sellerName: member.nama || 'Member',
+                createdAt: Date.now()
             };
 
             database.ref().update(updates).then(() => {
                 closeModal('sellItemModal');
                 alert("✅ Hiasan berhasil dipasang di Marketplace!");
+            });
+        }
+
+        function editMarketplacePrice(marketKey) {
+            if (!activeLoggedInMemberKey) return;
+            const item = globalMarketplaceData[marketKey];
+            if (!item) return;
+            if (item.sellerKey !== activeLoggedInMemberKey) {
+                alert(" Hanya penjual item ini yang dapat mengedit harga.");
+                return;
+            }
+
+            const currentPrice = Number(item.harga || 0);
+            const newPrice = Number(prompt("Masukkan harga baru (Diamond):", currentPrice));
+            if (!Number.isFinite(newPrice) || newPrice <= 0) {
+                alert(" Harga harus berupa angka minimal 1 Diamond!");
+                return;
+            }
+
+            marketplaceRef.child(marketKey).update({ harga: newPrice }).then(() => {
+                alert("✅ Harga Marketplace berhasil diperbarui!");
             });
         }
 
@@ -2605,7 +2873,7 @@
             if (!marketItem) return;
 
             if (marketItem.sellerKey === activeLoggedInMemberKey) {
-                alert("❌ Kamu tidak bisa membeli item yang kamu jual sendiri!");
+                alert(" Kamu tidak bisa membeli item yang kamu jual sendiri!");
                 return;
             }
 
@@ -2615,7 +2883,7 @@
             const buyerDiamond = Number(buyer.diamond || 0);
 
             if (buyerDiamond < price) {
-                alert("❌ Diamond kamu tidak cukup!");
+                alert(" Diamond kamu tidak cukup!");
                 return;
             }
 
@@ -2670,6 +2938,10 @@
                     decorClass += " decor-hitam-ornamen";
                 } else if (chat.hiasanProfil === 'hijau_ornamen') {
                     decorClass += " decor-hijau-ornamen";
+                } else if (chat.hiasanProfil === 'crystal_ungu') {
+                    decorClass += " decor-crystal-ungu";
+                } else if (chat.hiasanProfil === 'aurora_cerah') {
+                    decorClass += " decor-aurora-cerah";
                 }
 
                 const chatCard = document.createElement('div');
@@ -2738,18 +3010,18 @@
 
         // ARCADE & LUCKY WHEEL
         const wheelPrizes = [
-            { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan_nama' },
-            { id: 'terpilih', name: 'Hiasan Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan_nama' },
-            { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 5, color: '#a855f7', type: 'hiasan_nama' },
-            { id: 'star_2', name: 'Dapat 2 Star', label: '+2 Star', chance: 10, color: '#f59e0b', type: 'star', val: 2 },
+            { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 3, color: '#ef4444', type: 'hiasan_nama' },
+            { id: 'crystal_ungu', name: 'Hiasan Crystal Ungu', label: 'Crystal Ungu', chance: 2, color: '#38bdf8', type: 'hiasan_profil' },
+            { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 3, color: '#a855f7', type: 'hiasan_nama' },
+            { id: 'star_2', name: 'Dapat 2 Star', label: '+2 Star', chance: 15, color: '#f59e0b', type: 'star', val: 2 },
             { id: 'star_5', name: 'Dapat 5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
             { id: 'dm_100', name: 'Super Zonk! -100 Diamond', label: '-100 Diamond', chance: 1, color: '#6366f1', type: 'diamond', val: -100 },
             { id: 'dm_50', name: 'Zonk! -50 Diamond', label: '-50 Diamond', chance: 10, color: '#10b981', type: 'diamond', val: -50 },
-            { id: 'dm_20', name: 'Dapat 20 Diamond', label: '+20 Diamond', chance: 20, color: '#06b6d4', type: 'diamond', val: 20 },
-            { id: 'star_10', name: 'Dapat 10 Star', label: '+10 Star', chance: 2, color: '#3b82f6', type: 'diamond', val: 10 },
-            { id: 'dm_100', name: 'Dapat 100 Diamond', label: '+100 Diamond', chance: 6, color: '#8b5cf6', type: 'diamond', val: 100 },
-            { id: 'dm_250', name: 'Selamat! dapat 250 Diamond', label: '+250 Diamond', chance: 3, color: '#22c55e', type: 'diamond', val: 250 },
-            { id: 'dm_500', name: 'SELAMAT! dapat 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 }
+            { id: 'dm_20', name: 'Hadiah 20 Diamond', label: '+20 Diamond', chance: 15, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'star_10', name: 'Hadiah 10 Star', label: '+10 Star', chance: 2, color: '#3b82f6', type: 'diamond', val: 10 },
+            { id: 'dm_100', name: 'Hadiah 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 },
+            { id: 'dm_250', name: 'Hadiah 250 Diamond', label: '+250 Diamond', chance: 3, color: '#22c55e', type: 'diamond', val: 250 },
+            { id: 'dm_500', name: 'Hadiah 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 }
         ];
 
          let isSpinning = false;
@@ -2877,6 +3149,13 @@
                         expiresAt: expiresAt,
                         count: 1
                     });
+                } else if (prize.type === 'hiasan_profil') {
+                    addItemToInventory(updates, activeLoggedInMemberKey, member, {
+                        itemId: prize.id,
+                        itemName: prize.name,
+                        itemType: 'Hiasan Profil',
+                        count: 1
+                    });
                 }
 
                 updates[`members/${activeLoggedInMemberKey}/diamond`] = newDiamond;
@@ -2916,7 +3195,9 @@
                     { val: 'kuning_border_ijo', label: 'Hiasan Profil Kuning' },
                     { val: 'hitam_ornamen', label: 'Hiasan Profil Hitam Ornamen' },
                     { val: 'hijau_ornamen', label: 'Hiasan Profil Hijau Ornamen' },
-                    { val: 'vip_plus_gold', label: 'Hiasan Profil VIP Plus Gold Shiny' }
+                    { val: 'vip_plus_gold', label: 'Hiasan Profil VIP Plus Gold Shiny' },
+                    { val: 'crystal_ungu', label: 'Hiasan Profil Crystal Ungu' },
+                    { val: 'aurora_cerah', label: 'Hiasan Profil Langit Malam' }
                 ];
                 opts.forEach(o => {
                     const opt = document.createElement('option');
@@ -2945,6 +3226,7 @@
             const gelarInput = document.getElementById('adminShopGelarInput').value.trim();
             const masaTipe = document.getElementById('adminShopMasaBerlakuTipe').value;
             const masaHari = Number(document.getElementById('adminShopCustomHari').value || 0);
+            const tipePembelian = document.getElementById('adminShopTipePembelian').value;
             const harga = Number(document.getElementById('adminShopHarga').value || 0);
             const stok = Number(document.getElementById('adminShopStok').value || 0);
 
@@ -2957,8 +3239,10 @@
                 gelarValue: (tipe === 'Gelar') ? gelarInput : '',
                 masaBerlakuTipe: masaTipe,
                 masaBerlakuHari: masaHari,
+                tipePembelian: tipePembelian,
                 harga: harga,
-                stok: stok
+                stok: stok,
+                createdAt: Date.now()
             };
 
             shopRef.push(newItem).then(() => {
@@ -2974,7 +3258,7 @@
             const content = document.getElementById('adminEventText').value.trim();
             if (!judul) { alert("Judul event tidak boleh kosong!"); return; }
 
-            eventsRef.push({ judul: judul, content: content }).then(() => {
+            eventsRef.push({ judul: judul, content: content, createdAt: Date.now() }).then(() => {
                 alert("✅ Event berhasil dipublikasikan!");
                 document.getElementById('adminEventJudul').value = '';
                 document.getElementById('adminEventText').value = '';
@@ -3005,7 +3289,7 @@
 
             if (!codeText) { alert("Ketik kode unik terlebih dahulu!"); return; }
             if (type === 'gelar' && !gelar) { alert("Masukkan gelar terlebih dahulu!"); return; }
-            if (globalCodesData[codeText]) { alert("❌ Kode tersebut sudah ada! Gunakan kode lain."); return; }
+            if (globalCodesData[codeText]) { alert(" Kode tersebut sudah ada! Gunakan kode lain."); return; }
 
             const redeemMode = document.getElementById('adminCodeRedeemMode').value;
 
