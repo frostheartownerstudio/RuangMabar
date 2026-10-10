@@ -1208,7 +1208,7 @@
                 <hr style="margin: 15px 0; border: none; border-top: 1px solid #cbd5e1;">
 
                 <div id="admin-login-sec">
-                        <div class="form-group">
+                    <div class="form-group">
                         <label>Masukkan Password Admin:</label>
                         <div class="password-container">
                             <input type="password" id="inputAdminAuthPass" placeholder="Password Admin">
@@ -1442,7 +1442,7 @@
     </div>
 
     <script>
-      const firebaseConfig = {
+        const firebaseConfig = {
             apiKey: "AIzaSyAeIVCyEF705xX7WY8tuOmM4ngTVneThNA",
             authDomain: "absen-rm.firebaseapp.com",
             projectId: "absen-rm",
@@ -1776,9 +1776,8 @@
             updates[`members/${selectedKey}/bintang`] = Number(member.bintang || 0) + bonusBintang;
             updates[`members/${selectedKey}/level`] = Number(member.level || 1) + bonusLevel;
 
-            database.ref().update(updates).then(() => {
-                alert(`🎉 Absen Berhasil!\n\nMember: ${member.nama || 'Member'}\nHadiah: +${bonusDiamond} 💎 Diamond\n+${bonusBintang} ⭐ Bintang\n+${bonusLevel} Level\nBoost: ${boost}x`);
-            }).catch(err => {
+            alert(`🎉 Absen Berhasil!\n\nMember: ${member.nama || 'Member'}\nHadiah: +${bonusDiamond} 💎 Diamond\n+${bonusBintang} ⭐ Bintang\n+${bonusLevel} Level\nBoost: ${boost}x`);
+            database.ref().update(updates).catch(err => {
                 alert("Absen gagal disimpan: " + (err.message || "Terjadi kesalahan."));
             });
         }
@@ -1870,9 +1869,8 @@
             updates[`members/${key}/boost`] = Number(document.getElementById('adminMemberBoost').value || 1);
             updates[`members/${key}/lencanaImmortal`] = document.getElementById('adminMemberImmortal').checked;
 
-            database.ref().update(updates).then(() => {
-                alert("✅ Data member berhasil diperbarui!");
-            }).catch(err => {
+            alert("✅ Data member berhasil diperbarui!");
+            database.ref().update(updates).catch(err => {
                 alert("Gagal memperbarui member: " + err.message);
             });
         }
@@ -1884,7 +1882,7 @@
             newRef.set({
                 nama: name.trim(),
                 pin: "1234",
-                rank: "Warrior",
+            rank: "Warrior",
                 bintang: 0,
                 diamond: 0,
                 level: 1,
@@ -1892,14 +1890,14 @@
                 gelar: "-",
                 bio: "Member Ruang Mabar",
                 lencanaImmortal: false
-            }).then(() => {
-                alert("✅ Member baru berhasil ditambahkan!");
             });
+            alert("✅ Member baru berhasil ditambahkan!");
         }
 
         function adminDeleteMember(key) {
             if (confirm("Yakin hapus member ini beserta datanya?")) {
-                membersRef.child(key).remove().then(() => alert("✅ Member berhasil dihapus!"));
+                alert("✅ Member berhasil dihapus!");
+                membersRef.child(key).remove();
             }
         }
 
@@ -1977,10 +1975,9 @@
                 updates[`codes/${codeInput}/redeemedBy/${activeLoggedInMemberKey}`] = true;
             }
 
-            database.ref().update(updates).then(() => {
-                const modeText = redeemMode === 'unlimited' ? 'tak terbatas' : '1x';
-                alert(`🎉 Berhasil klaim kode reward: ${codeData.label || codeInput}!\nMode redeem: ${modeText}.`);
-            });
+            const modeText = redeemMode === 'unlimited' ? 'tak terbatas' : '1x';
+            alert(`🎉 Berhasil klaim kode reward: ${codeData.label || codeInput}!\nMode redeem: ${modeText}.`);
+            database.ref().update(updates);
         }
 
         // LISTENERS FIREBASE
@@ -2152,7 +2149,7 @@
                 if (searchQuery && !nama.includes(searchQuery)) return;
 
                 let decorClass = "member-card";
-                if (item.hiasanProfil === 'vip_plus_gold') {
+                if (item.hiasanProfil === 'vip_plus_gold' && hasActiveVipPlus(item)) {
                     decorClass += " decor-vip-plus-gold";
                 } else if (item.hiasanProfil === 'kuning_border_ijo') {
                     decorClass += " decor-yellow";
@@ -2169,7 +2166,7 @@
                 }
 
                 let nameClass = "member-name";
-                if (String(item.hiasanNama || '').trim() === 'vip_plus_gold') {
+                if (String(item.hiasanNama || '').trim() === 'vip_plus_gold' && hasActiveVipPlus(item)) {
                     nameClass = "member-name name-vip-plus-gold";
                 } else if (String(item.hiasanNama || '').trim() === 'vip_gold') {
                     nameClass = "member-name name-gold-shiny";
@@ -2241,7 +2238,7 @@
         }
 
         // BUKA DETAIL PROFIL MODAL DENGAN MASA AKTIF SHINY DAN EMOJI VARIATIF
-          function openProfileDetailModal(key) {
+                  function openProfileDetailModal(key) {
             const member = globalMembersData[key];
             if (!member) return;
 
@@ -2249,7 +2246,7 @@
             if (!content) return;
 
             let nameClass = "member-name";
-            if (member.hiasanNama === 'vip_plus_gold') {
+            if (member.hiasanNama === 'vip_plus_gold' && hasActiveVipPlus(member)) {
                 nameClass = "member-name name-vip-plus-gold";
             } else if (member.hiasanNama === 'vip_gold') {
                 nameClass = "member-name name-gold-shiny";
@@ -2321,7 +2318,7 @@
                 ? '<div style="margin-top: 8px; font-size: 0.88rem; font-weight: 700; color: #16a34a;">🟢 Online</div>'
                 : '<div style="margin-top: 8px; font-size: 0.88rem; font-weight: 700; color: #64748b;">⚫ Offline</div>';
 
-            const useVipPlusDetail = member.hiasanDetailProfil === 'vip_plus_gold';
+            const useVipPlusDetail = member.hiasanDetailProfil === 'vip_plus_gold' && hasActiveVipPlus(member);
             const detailCardStart = useVipPlusDetail ? '<div class="profile-detail-vip-plus-card">' : '';
             const detailCardEnd = useVipPlusDetail ? '</div>' : '';
 
@@ -2344,7 +2341,7 @@
                     <div class="stat-item">🎮 Game: ${escapeHTML(member.gameKesukaan || '-')}</div>
                 </div>
 
- <div style="background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 14px;">
+                <div style="background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 14px;">
                     <div style="font-weight: 600; font-size: 0.85rem; color: #334155; margin-bottom: 4px;">📝 Bio:</div>
                     <div style="font-size: 0.85rem; color: #64748b; font-style: italic;">${escapeHTML(member.bio || '-')}</div>
                 </div>
@@ -2370,23 +2367,55 @@
         }
 
         // RENDER INVENTORY SESUAI FORMAT YANG DIMINTA
+        function hasActiveVipPlus(member) {
+            if (!member) return false;
+            const exp = Number(member.itemExpiries && member.itemExpiries.vip_plus_gold || 0);
+            // Expiry yang tercatat harus masih aktif; tanpa expiry berarti permanen jika dimiliki.
+            if (exp) return exp > Date.now();
+            return !!member.isVipPlus || getItemArray(member.unlockedHiasan).includes('vip_plus_gold') || getItemArray(member.unlockedHiasanProfil).includes('vip_plus_gold') || getItemArray(member.unlockedHiasanDetailProfil).includes('vip_plus_gold');
+        }
+
+        function isItemAvailable(member, itemId) {
+            if (!member || !itemId) return false;
+            const expiries = member.itemExpiries || {};
+            const exp = Number(expiries[itemId] || 0);
+            return !exp || exp > Date.now();
+        }
+
+        function clearExpiredVipPlusState(updates, memberKey, member) {
+            if (!member || !member.isVipPlus) return;
+            const exp = Number(member.itemExpiries && member.itemExpiries.vip_plus_gold || 0);
+            if (exp && exp <= Date.now()) {
+                updates[`members/${memberKey}/isVip`] = false;
+                updates[`members/${memberKey}/isVipPlus`] = false;
+                updates[`members/${memberKey}/boost`] = Math.max(1, Math.min(Number(member.boost || 1), 2));
+                if (member.hiasanNama === 'vip_plus_gold') updates[`members/${memberKey}/hiasanNama`] = 'default';
+                if (member.hiasanProfil === 'vip_plus_gold') updates[`members/${memberKey}/hiasanProfil`] = 'default';
+                if (member.hiasanDetailProfil === 'vip_plus_gold') updates[`members/${memberKey}/hiasanDetailProfil`] = 'default';
+                if (member.gelar === 'VIP Plus Member') updates[`members/${memberKey}/gelar`] = '-';
+            }
+        }
+
         function updateMemberPersonalView(member) {
             if (!member) return;
             activeLoggedInMemberKey = activeLoggedInMemberKey || document.getElementById('selectMemberSelf').value;
+            const expiredVipUpdates = {};
+            clearExpiredVipPlusState(expiredVipUpdates, activeLoggedInMemberKey, member);
+            if (Object.keys(expiredVipUpdates).length) database.ref().update(expiredVipUpdates);
 
             document.getElementById('editSelfNama').value = member.nama || '';
             const hiasanDetailProfilSelect = document.getElementById('editSelfHiasanDetailProfilSelect');
             if (hiasanDetailProfilSelect) {
                 hiasanDetailProfilSelect.value = member.hiasanDetailProfil === 'vip_plus_gold' ? 'vip_plus_gold' : 'default';
                 const vipPlusDetailOption = hiasanDetailProfilSelect.querySelector('option[value=\"vip_plus_gold\"]');
-                if (vipPlusDetailOption) vipPlusDetailOption.disabled = !member.isVipPlus;
+                if (vipPlusDetailOption) vipPlusDetailOption.disabled = !hasActiveVipPlus(member);
             }
             document.getElementById('editSelfBio').value = member.bio || '';
             document.getElementById('editSelfGameKesukaan').value = member.gameKesukaan || '';
 
             const gelarSelect = document.getElementById('editSelfGelarSelect');
             gelarSelect.innerHTML = '<option value="-">Tanpa Gelar (-)</option>';
-            const titles = getItemArray(member.unlockedTitles);
+            const titles = getItemArray(member.unlockedTitles).filter(title => isItemAvailable(member, title));
             titles.forEach(t => {
                 const opt = document.createElement('option');
                 opt.value = t; opt.textContent = t;
@@ -2396,7 +2425,7 @@
 
             const hiasanNamaSelect = document.getElementById('editSelfHiasanNamaSelect');
             hiasanNamaSelect.innerHTML = '<option value="default">Default</option>';
-            const unlockedH = getItemArray(member.unlockedHiasan);
+            const unlockedH = getItemArray(member.unlockedHiasan).filter(id => isItemAvailable(member, id) && (id !== 'vip_plus_gold' || hasActiveVipPlus(member)));
             [...new Set(unlockedH)].forEach(id => {
                 const opt = document.createElement('option');
                 opt.value = id; opt.textContent = hiasanNamaMap[id] || id;
@@ -2406,7 +2435,7 @@
 
             const hiasanProfilSelect = document.getElementById('editSelfHiasanProfilSelect');
             hiasanProfilSelect.innerHTML = '<option value="default">Default (Putih)</option>';
-            const unlockedP = getItemArray(member.unlockedHiasanProfil);
+            const unlockedP = getItemArray(member.unlockedHiasanProfil).filter(id => isItemAvailable(member, id) && (id !== 'vip_plus_gold' || hasActiveVipPlus(member)));
             [...new Set(unlockedP)].forEach(id => {
                 const opt = document.createElement('option');
                 opt.value = id; opt.textContent = hiasanProfilMap[id] || id;
@@ -2420,7 +2449,7 @@
                 let html = '';
 
                 // Hiasan Nama
-                const hiasanNamaCounts = getItemCounts(getItemArray(member.unlockedHiasan));
+                const hiasanNamaCounts = getItemCounts(getItemArray(member.unlockedHiasan).filter(id => isItemAvailable(member, id)));
                 const hiasanNamaKeys = Object.keys(hiasanNamaCounts);
                 if (hiasanNamaKeys.length > 0) {
                     html += `<div style="font-weight: 700; color: #0f172a; margin-top: 4px; margin-bottom: 2px;">• Hiasan Nama</div>`;
@@ -2432,7 +2461,7 @@
                 }
 
                 // Hiasan Profil
-                const hiasanProfilCounts = getItemCounts(getItemArray(member.unlockedHiasanProfil));
+                const hiasanProfilCounts = getItemCounts(getItemArray(member.unlockedHiasanProfil).filter(id => isItemAvailable(member, id)));
                 const hiasanProfilKeys = Object.keys(hiasanProfilCounts);
                 if (hiasanProfilKeys.length > 0) {
                     html += `<div style="font-weight: 700; color: #0f172a; margin-top: 8px; margin-bottom: 2px;">• Hiasan Profil</div>`;
@@ -2455,9 +2484,9 @@
                 }
 
                 // Status VIP
-                if (member.isVip || member.isVipPlus) {
+                if (member.isVip || hasActiveVipPlus(member)) {
                     html += `<div style="font-weight: 700; color: #0f172a; margin-top: 8px; margin-bottom: 2px;">• Status Member</div>`;
-                    if (member.isVipPlus) {
+                    if (hasActiveVipPlus(member)) {
                         html += `<div style="padding-left: 8px; color: #334155;">- "VIP Plus Member Status" (1x)</div>`;
                     } else {
                         html += `<div style="padding-left: 8px; color: #334155;">- "VIP Member Status" (1x)</div>`;
@@ -2481,6 +2510,9 @@
 
             const storedPin = m.pin || "1234";
             if (pin === storedPin) {
+                const expiredVipUpdates = {};
+                clearExpiredVipPlusState(expiredVipUpdates, memberKey, m);
+                if (Object.keys(expiredVipUpdates).length) database.ref().update(expiredVipUpdates);
                 activeLoggedInMemberKey = memberKey;
                 localStorage.setItem('ruangMabarLoggedInMemberKey', memberKey);
                 setMemberOnlineStatus(memberKey, true);
@@ -2516,12 +2548,26 @@
             const newPin = document.getElementById('editSelfPin').value.trim();
 
             const currentMember = globalMembersData[activeLoggedInMemberKey];
-            if (newHiasanDetailProfil === 'vip_plus_gold' && !(currentMember && currentMember.isVipPlus)) {
+            if (newHiasanDetailProfil === 'vip_plus_gold' && !hasActiveVipPlus(currentMember)) {
                 alert(' Hiasan Detail Profil VIP Plus hanya dapat digunakan oleh member VIP Plus!');
                 return;
             }
 
             if (!newNama) { alert("Nama tidak boleh kosong!"); return; }
+            if ((newHiasanNama !== 'default' && !isItemAvailable(currentMember, newHiasanNama)) ||
+                (newHiasanProfil !== 'default' && !isItemAvailable(currentMember, newHiasanProfil)) ||
+                (newGelar !== '-' && !isItemAvailable(currentMember, newGelar)) ||
+                (newHiasanDetailProfil === 'vip_plus_gold' && !isItemAvailable(currentMember, 'vip_plus_gold'))) {
+                alert('Masa aktif item sudah habis. Pilih item lain yang masih aktif atau permanen.');
+                updateMemberPersonalView(currentMember);
+                return;
+            }
+            if (!hasActiveVipPlus(currentMember)) {
+                if (newHiasanNama === 'vip_plus_gold' || newHiasanProfil === 'vip_plus_gold' || newHiasanDetailProfil === 'vip_plus_gold' || newGelar === 'VIP Plus Member') {
+                    alert(' VIP Plus kamu sudah tidak aktif.');
+                    return;
+                }
+            }
 
             const updates = {};
             updates[`members/${activeLoggedInMemberKey}/nama`] = newNama;
@@ -2530,16 +2576,15 @@
             updates[`members/${activeLoggedInMemberKey}/gelar`] = newGelar;
             updates[`members/${activeLoggedInMemberKey}/hiasanNama`] = newHiasanNama;
             updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = newHiasanProfil;
-            updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = newHiasanDetailProfil;
+       updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = newHiasanDetailProfil;
 
             if (newPin) {
                 updates[`members/${activeLoggedInMemberKey}/pin`] = newPin;
                 document.getElementById('editSelfPin').value = '';
             }
 
-            database.ref().update(updates).then(() => {
-                alert("✅ Profil kamu berhasil disimpan!");
-            });
+            alert("✅ Profil kamu berhasil disimpan!");
+            database.ref().update(updates);
         }
 
         // RENDER SHOP
@@ -2578,6 +2623,7 @@
         }
 
         function buyShopItem(shopKey) {
+            playUiSound('buy');
             if (!activeLoggedInMemberKey) {
                 alert("Silakan login terlebih dahulu di tab Personalisasi sebelum membeli item!");
                 switchTab('personal');
@@ -2623,19 +2669,22 @@
                 unlockedH.push(item.preset);
                 updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = unlockedH;
                 updates[`members/${activeLoggedInMemberKey}/hiasanNama`] = item.preset;
-                stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
+                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
+                else updates[`members/${activeLoggedInMemberKey}/itemExpiries/${item.preset}`] = null;
             } else if (item.tipe === 'Hiasan Profil') {
                 let unlockedP = getItemArray(member.unlockedHiasanProfil);
                 unlockedP.push(item.preset);
                 updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
                 updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = item.preset;
-                stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
+                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
+                else updates[`members/${activeLoggedInMemberKey}/itemExpiries/${item.preset}`] = null;
             } else if (item.tipe === 'Gelar') {
                 let unlockedT = getItemArray(member.unlockedTitles);
                 unlockedT.push(item.gelarValue);
                 updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlockedT;
                 updates[`members/${activeLoggedInMemberKey}/gelar`] = item.gelarValue;
-                stackItemDuration(updates, activeLoggedInMemberKey, member, item.gelarValue, addedDays);
+                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.gelarValue, addedDays);
+                else updates[`members/${activeLoggedInMemberKey}/itemExpiries/${item.gelarValue}`] = null;
             } else if (item.tipe === 'VIP Plus') {
                 updates[`members/${activeLoggedInMemberKey}/isVip`] = true;
                 updates[`members/${activeLoggedInMemberKey}/isVipPlus`] = true;
@@ -2650,13 +2699,15 @@
                 unlockedP.push('vip_plus_gold');
                 updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
                 updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = 'vip_plus_gold';
+                updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = 'vip_plus_gold';
 
                 let unlockedT = getItemArray(member.unlockedTitles);
                 unlockedT.push('VIP Plus Member');
                 updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlockedT;
                 updates[`members/${activeLoggedInMemberKey}/gelar`] = 'VIP Plus Member';
 
-                stackItemDuration(updates, activeLoggedInMemberKey, member, 'vip_plus_gold', addedDays);
+                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, 'vip_plus_gold', addedDays);
+                else updates[`members/${activeLoggedInMemberKey}/itemExpiries/vip_plus_gold`] = null;
             } else if (item.tipe === 'VIP') {
                 updates[`members/${activeLoggedInMemberKey}/isVip`] = true;
                 let boostVal = member.isVipPlus ? Math.max(Number(member.boost || 1), 3) : Math.max(Number(member.boost || 1), 2);
@@ -2672,12 +2723,12 @@
                 updates[`members/${activeLoggedInMemberKey}/unlockedTitles`] = unlockedT;
                 updates[`members/${activeLoggedInMemberKey}/gelar`] = 'VIP Member';
 
-                stackItemDuration(updates, activeLoggedInMemberKey, member, 'vip_gold', addedDays);
+                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, 'vip_gold', addedDays);
+                else updates[`members/${activeLoggedInMemberKey}/itemExpiries/vip_gold`] = null;
             }
 
-            database.ref().update(updates).then(() => {
-                alert(`🎉 Berhasil membeli ${item.nama}!`);
-            });
+            alert(`🎉 Berhasil membeli ${item.nama}!`);
+            database.ref().update(updates);
         }
 
         // RENDER MARKETPLACE
@@ -2705,7 +2756,7 @@
                 const isSeller = activeLoggedInMemberKey && item.sellerKey === activeLoggedInMemberKey;
                 card.style.position = 'relative';
                 card.innerHTML = `
-                                    ${isSeller ? `<button title="Edit Harga" aria-label="Edit Harga" style="position:absolute; top:10px; right:10px; width:34px; height:34px; border:1px solid #cbd5e1; border-radius:10px; background:#f8fafc; color:#334155; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center;" onclick="editMarketplacePrice('${key}')">✏️</button>` : ''}
+                    ${isSeller ? `<button title="Edit Harga" aria-label="Edit Harga" style="position:absolute; top:10px; right:10px; width:34px; height:34px; border:1px solid #cbd5e1; border-radius:10px; background:#f8fafc; color:#334155; cursor:pointer; font-size:1rem; display:flex; align-items:center; justify-content:center;" onclick="editMarketplacePrice('${key}')">✏️</button>` : ''}
                     <div>
                         <div class="shop-title">${escapeHTML(itemName)}</div>
                         <div class="shop-type-tag">Tipe: ${escapeHTML(item.tipe)} • Penjual: ${escapeHTML(item.sellerName || 'Member')}</div>
@@ -2835,10 +2886,9 @@
                 createdAt: Date.now()
             };
 
-            database.ref().update(updates).then(() => {
-                closeModal('sellItemModal');
-                alert("✅ Hiasan berhasil dipasang di Marketplace!");
-            });
+            closeModal('sellItemModal');
+            alert("✅ Hiasan berhasil dipasang di Marketplace!");
+            database.ref().update(updates);
         }
 
         function editMarketplacePrice(marketKey) {
@@ -2857,9 +2907,8 @@
                 return;
             }
 
-            marketplaceRef.child(marketKey).update({ harga: newPrice }).then(() => {
-                alert("✅ Harga Marketplace berhasil diperbarui!");
-            });
+            alert("✅ Harga Marketplace berhasil diperbarui!");
+            marketplaceRef.child(marketKey).update({ harga: newPrice });
         }
 
         function buyMarketplaceItem(marketKey) {
@@ -2909,19 +2958,18 @@
 
             updates[`marketplace/${marketKey}`] = null;
 
-            database.ref().update(updates).then(() => {
-                alert("🎉 Berhasil membeli item dari Marketplace!");
-            });
+            alert("🎉 Berhasil membeli item dari Marketplace!");
+            database.ref().update(updates);
         }
 
         // RENDER CHAT
-        function renderChats() {
+                function renderChats() {
             const chatList = document.getElementById('chat-list');
             if (!chatList) return;
             chatList.innerHTML = '';
 
             const sortedKeys = Object.keys(globalChatsData).sort((a, b) => {
-                return (globalChatsData[a].timestamp || 0) - (globalChatsData[b].timestamp || 0);
+                return (globalChatsData[b].timestamp || 0) - (globalChatsData[a].timestamp || 0);
             });
 
             sortedKeys.forEach(key => {
@@ -2981,7 +3029,38 @@
             });
         }
 
+        function playUiSound(type = 'click') {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                const ctx = window.__ruangMabarAudioCtx || (window.__ruangMabarAudioCtx = new AudioCtx());
+                if (ctx.state === 'suspended') ctx.resume();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain); gain.connect(ctx.destination);
+                const now = ctx.currentTime;
+                const freq = type === 'buy' ? 720 : (type === 'chat' ? 560 : (type === 'wheel' ? 330 : 620));
+                osc.frequency.setValueAtTime(freq, now);
+                osc.frequency.exponentialRampToValueAtTime(freq * (type === 'wheel' ? 1.8 : 1.15), now + (type === 'wheel' ? 0.12 : 0.07));
+                gain.gain.setValueAtTime(0.0001, now);
+                gain.gain.exponentialRampToValueAtTime(0.055, now + 0.008);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + (type === 'wheel' ? 0.16 : 0.09));
+                osc.start(now); osc.stop(now + (type === 'wheel' ? 0.17 : 0.1));
+            } catch (e) {}
+        }
+
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('button');
+            if (!target) return;
+            if (target.closest('#adminModal')) return;
+            if (target.closest('input, select, textarea')) return;
+            if (target.id === 'spinWheelButton' || target.classList.contains('btn-buy')) return;
+            if (target.getAttribute('onclick') && /sendChatMessage|buyShopItem|spinWheel/i.test(target.getAttribute('onclick'))) return;
+            playUiSound('click');
+        });
+
         function sendChatMessage() {
+            playUiSound('chat');
             if (!activeLoggedInMemberKey) {
                 alert("Silakan login terlebih dahulu di tab Personalisasi untuk bisa mengirim chat!");
                 switchTab('personal');
@@ -3088,6 +3167,7 @@
             }
 
             isSpinning = true;
+            playUiSound('wheel');
             document.getElementById('spinResultMessage').innerText = '🌀 Memutar roda...';
 
             const totalChance = wheelPrizes.reduce((sum, p) => sum + p.chance, 0);
@@ -3245,12 +3325,11 @@
                 createdAt: Date.now()
             };
 
-            shopRef.push(newItem).then(() => {
-                alert("✅ Item berhasil ditambahkan ke Shop!");
-                document.getElementById('adminShopNama').value = '';
-                document.getElementById('adminShopHarga').value = '';
-                document.getElementById('adminShopStok').value = '';
-            });
+            alert("✅ Item berhasil ditambahkan ke Shop!");
+            document.getElementById('adminShopNama').value = '';
+            document.getElementById('adminShopHarga').value = '';
+            document.getElementById('adminShopStok').value = '';
+            shopRef.push(newItem);
         }
 
         function adminSaveEvent() {
@@ -3258,11 +3337,10 @@
             const content = document.getElementById('adminEventText').value.trim();
             if (!judul) { alert("Judul event tidak boleh kosong!"); return; }
 
-            eventsRef.push({ judul: judul, content: content, createdAt: Date.now() }).then(() => {
-                alert("✅ Event berhasil dipublikasikan!");
-                document.getElementById('adminEventJudul').value = '';
-                document.getElementById('adminEventText').value = '';
-            });
+            alert("✅ Event berhasil dipublikasikan!");
+            document.getElementById('adminEventJudul').value = '';
+            document.getElementById('adminEventText').value = '';
+            eventsRef.push({ judul: judul, content: content, createdAt: Date.now() });
         }
 
         function toggleAdminRewardInput() {
@@ -3302,10 +3380,9 @@
                 label: type === 'gelar' ? gelar : (type === 'vip_plus' ? 'VIP Plus Member' : ((type === 'hiasan_nama' || type === 'hiasan_profil') ? preset : `${value} ${type}`))
             };
 
-            codesRef.child(codeText).set(codeData).then(() => {
-                alert(`✅ Kode reward ${codeText} berhasil dibuat!`);
-                document.getElementById('adminCodeText').value = '';
-            });
+            alert(`✅ Kode reward ${codeText} berhasil dibuat!`);
+            document.getElementById('adminCodeText').value = '';
+            codesRef.child(codeText).set(codeData);
         }
 
         function adminAddArcadeLink() {
@@ -3315,12 +3392,40 @@
 
             if (!judul || !link) { alert("Judul dan Link wajib diisi!"); return; }
 
-            arcadeRef.push({ judul, deskripsi, link }).then(() => {
-                alert("✅ Tautan arcade berhasil ditambahkan!");
-                document.getElementById('adminArcadeJudul').value = '';
-                document.getElementById('adminArcadeDeskripsi').value = '';
-                document.getElementById('adminArcadeLink').value = '';
+            alert("✅ Tautan arcade berhasil ditambahkan!");
+            document.getElementById('adminArcadeJudul').value = '';
+            document.getElementById('adminArcadeDeskripsi').value = '';
+            document.getElementById('adminArcadeLink').value = '';
+            arcadeRef.push({ judul, deskripsi, link, createdAt: Date.now() });
+        }
+
+        function renderArcadeLinks() {
+            const list = document.getElementById('arcade-link-list');
+            if (!list) return;
+            list.innerHTML = '';
+            const keys = Object.keys(globalArcadeData || {});
+            if (!keys.length) {
+                list.innerHTML = '<div class="empty-notice">Belum ada game atau website Arcade yang ditautkan.</div>';
+                return;
+            }
+            keys.sort((a, b) => Number(globalArcadeData[b]?.createdAt || 0) - Number(globalArcadeData[a]?.createdAt || 0));
+            keys.forEach(key => {
+                const item = globalArcadeData[key] || {};
+                const card = document.createElement('div');
+                card.className = 'arcade-card';
+                card.style.marginTop = '12px';
+                card.innerHTML = `
+                    <h3 style="font-size:1.05rem; margin-bottom:5px;">${escapeHTML(item.judul || 'Arcade')}</h3>
+                    ${item.deskripsi ? `<p style="font-size:.8rem; opacity:.9; margin-bottom:8px;">${escapeHTML(item.deskripsi)}</p>` : ''}
+                    <a href="${escapeHTML(item.link || '#')}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" style="display:inline-block;">Buka</a>
+                `;
+                list.appendChild(card);
             });
+        }
+
+        function adminDeleteArcade(key) {
+            if (!key || !globalArcadeData[key]) return;
+            arcadeRef.child(key).remove();
         }
 
         function populateAdminShopList() {
@@ -3372,7 +3477,8 @@
         function adminDeleteRedeemCode(encodedCode) {
             const code = decodeURIComponent(encodedCode);
             if (!globalCodesData[code]) return;
-            codesRef.child(code).remove().then(() => alert(`✅ Kode ${code} berhasil dihapus dari daftar redeem.`));
+            alert(`✅ Kode ${code} berhasil dihapus dari daftar redeem.`);
+            codesRef.child(code).remove();
         }
 
         function populateAdminArcadeList() {
@@ -3383,7 +3489,7 @@
                 const item = globalArcadeData[key];
                 const row = document.createElement('div');
                 row.className = 'admin-member-row';
-                row.innerHTML = `<span><strong>${escapeHTML(item.judul)}</strong></span><button class="btn-del-mini" onclick="arcadeRef.child('${key}').remove()">🗑️ Hapus</button>`;
+                row.innerHTML = `<span><strong>${escapeHTML(item.judul)}</strong></span><button class="btn-del-mini" onclick="adminDeleteArcade('${key}')">🗑️ Hapus</button>`;
                 list.appendChild(row);
             });
         }
@@ -3413,7 +3519,8 @@
 
         function adminClearAllChats() {
             if (confirm("Hapus SELURUH isi pesan chat?")) {
-                chatsRef.remove().then(() => alert("✅ Seluruh chat dibersihkan!"));
+                alert("✅ Seluruh chat dibersihkan!");
+                chatsRef.remove();
             }
         }
 
