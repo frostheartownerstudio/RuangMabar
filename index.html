@@ -410,6 +410,35 @@
         }
         @keyframes diamondShine { to { background-position: 200% center; } }
 
+
+        /* 5 HIASAN NAMA BARU: warna berbeda dengan kilau putih terang */
+        .name-rose-shiny,.name-cyan-shiny,.name-orange-shiny,.name-silver-shiny,.name-rainbow-shiny {
+            background-size: 200% auto; color: transparent !important; -webkit-text-fill-color: transparent !important;
+            -webkit-background-clip: text !important; background-clip: text !important; font-weight: 800;
+            display: inline-block; animation: newNameWhiteShine 2.5s linear infinite;
+        }
+        .name-rose-shiny { background-image: linear-gradient(90deg,#9f1239 0%,#fb7185 22%,#ffe4e6 36%,#fff 46%,#fff 54%,#ffe4e6 64%,#fb7185 78%,#9f1239 100%); }
+        .name-cyan-shiny { background-image: linear-gradient(90deg,#155e75 0%,#06b6d4 22%,#cffafe 36%,#fff 46%,#fff 54%,#cffafe 64%,#22d3ee 78%,#155e75 100%); }
+        .name-orange-shiny { background-image: linear-gradient(90deg,#9a3412 0%,#f97316 22%,#fff7ed 36%,#fff 46%,#fff 54%,#fff7ed 64%,#fb923c 78%,#9a3412 100%); }
+        .name-silver-shiny { background-image: linear-gradient(90deg,#475569 0%,#94a3b8 22%,#f8fafc 36%,#fff 46%,#fff 54%,#f8fafc 64%,#cbd5e1 78%,#475569 100%); }
+        .name-rainbow-shiny { background-image: linear-gradient(90deg,#ef4444 0%,#f97316 16%,#fde047 28%,#a7f3d0 38%,#fff 46%,#fff 54%,#93c5fd 64%,#a78bfa 76%,#ef4444 100%); }
+        @keyframes newNameWhiteShine { to { background-position: 200% center; } }
+
+        /* 5 HIASAN DETAIL PROFIL BARU: masing-masing punya motif tersendiri */
+        .profile-detail-aurora { position:relative; overflow:hidden; background:linear-gradient(135deg,#052e16,#0f766e,#164e63,#312e81); color:#f0fdfa; border-top:3px solid #5eead4; border-bottom:3px solid #a7f3d0; box-shadow:inset 0 0 24px rgba(94,234,212,.22); }
+        .profile-detail-aurora::before { content:' '; position:absolute; inset:-30% -10%; pointer-events:none; background:repeating-linear-gradient(115deg,transparent 0 24px,rgba(167,243,208,.18) 27px 34px,transparent 38px 58px); animation:detailAuroraFlow 7s ease-in-out infinite alternate; }
+        @keyframes detailAuroraFlow { from{transform:translateX(-4%) skewX(-7deg)}to{transform:translateX(5%) skewX(7deg)} }
+        .profile-detail-circuit { position:relative; overflow:hidden; background:linear-gradient(135deg,#020617,#172554); color:#dbeafe; border-top:3px solid #38bdf8; border-bottom:3px solid #2563eb; box-shadow:inset 0 0 22px rgba(56,189,248,.2); }
+        .profile-detail-circuit::before { content:' '; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 48%,rgba(56,189,248,.25) 49%,transparent 51%),linear-gradient(0deg,transparent 48%,rgba(96,165,250,.18) 49%,transparent 51%); background-size:28px 28px; }
+        .profile-detail-ocean { position:relative; overflow:hidden; background:linear-gradient(160deg,#082f49,#0369a1,#0e7490); color:#ecfeff; border-top:4px solid #67e8f9; border-bottom:4px solid #155e75; box-shadow:inset 0 0 25px rgba(103,232,249,.2); }
+        .profile-detail-ocean::before { content:'〰 〜 〰 〜 〰'; position:absolute; left:0; right:0; bottom:8px; font-size:2rem; letter-spacing:8px; color:rgba(207,250,254,.2); white-space:nowrap; pointer-events:none; }
+                .profile-detail-prism { position:relative; overflow:hidden; background:linear-gradient(125deg,#fff7ed,#fbcfe8,#ddd6fe,#bfdbfe,#ccfbf1,#fff7ed); color:#312e81; border:3px solid #fff !important; box-shadow:inset 0 0 0 2px rgba(129,140,248,.55),0 0 18px rgba(196,181,253,.35); }
+        .profile-detail-prism::before { content:' '; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(135deg,transparent 0 30px,rgba(255,255,255,.75) 31px 33px,transparent 35px 62px); }
+        .profile-detail-galaxy { position:relative; overflow:hidden; background:radial-gradient(circle at 18% 20%,#7c3aed 0 2px,transparent 3px),radial-gradient(circle at 78% 65%,#67e8f9 0 2px,transparent 3px),radial-gradient(circle at 60% 18%,#fff 0 1px,transparent 2px),linear-gradient(135deg,#020617,#312e81 55%,#581c87); color:#f5f3ff; border-top:3px solid #c4b5fd; border-bottom:3px solid #818cf8; box-shadow:inset 0 0 28px rgba(167,139,250,.25); }
+        .profile-detail-aurora > *, .profile-detail-circuit > *, .profile-detail-ocean > *, .profile-detail-prism > *, .profile-detail-galaxy > * { position:relative; z-index:1; }
+        .profile-detail-aurora .stat-item,.profile-detail-circuit .stat-item,.profile-detail-ocean .stat-item,.profile-detail-galaxy .stat-item { color:inherit !important; }
+        .profile-detail-aurora .stats-grid,.profile-detail-circuit .stats-grid,.profile-detail-ocean .stats-grid,.profile-detail-galaxy .stats-grid { background:rgba(2,6,23,.24) !important; border:1px solid rgba(255,255,255,.18); }
+
         /* KELAS EFEK SHINY TERANG UNTUK MASA AKTIF */
         .duration-gold-shiny {
             background: linear-gradient(90deg, #b8860b, #ffd700, #ffffff, #ffd700, #b8860b);
@@ -482,6 +511,39 @@
             display: inline-block;
             filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.6));
         }
+
+        /* Masa aktif mengikuti warna dan efek shiny dari 5 hiasan nama baru */
+        .duration-rose-shiny,.duration-cyan-shiny,.duration-orange-shiny,.duration-silver-shiny,.duration-rainbow-shiny {
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 800;
+            animation: newNameWhiteShine 2.5s linear infinite;
+            display: inline-block;
+        }
+        .duration-rose-shiny { background-image: linear-gradient(90deg,#9f1239,#fb7185,#fff,#ffe4e6,#fff,#fb7185,#9f1239); }
+        .duration-cyan-shiny { background-image: linear-gradient(90deg,#155e75,#06b6d4,#fff,#cffafe,#fff,#22d3ee,#155e75); }
+        .duration-orange-shiny { background-image: linear-gradient(90deg,#9a3412,#f97316,#fff7ed,#fff,#fff7ed,#fb923c,#9a3412); }
+        .duration-silver-shiny { background-image: linear-gradient(90deg,#475569,#cbd5e1,#fff,#f8fafc,#fff,#94a3b8,#475569); }
+        .duration-rainbow-shiny { background-image: linear-gradient(90deg,#ef4444,#f97316,#fde047,#fff,#34d399,#38bdf8,#a78bfa,#fff,#ef4444); }
+
+        /* Masa aktif mengikuti warna masing-masing hiasan detail profil */
+        .duration-detail-aurora,.duration-detail-circuit,.duration-detail-ocean,.duration-detail-prism,.duration-detail-galaxy {
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-weight: 800;
+            animation: detailDurationShine 3s linear infinite;
+            display: inline-block;
+        }
+        .duration-detail-aurora { background-image: linear-gradient(90deg,#047857,#2dd4bf,#ecfdf5,#a7f3d0,#0f766e); }
+        .duration-detail-circuit { background-image: linear-gradient(90deg,#1d4ed8,#38bdf8,#eff6ff,#60a5fa,#1e3a8a); }
+        .duration-detail-ocean { background-image: linear-gradient(90deg,#155e75,#06b6d4,#ecfeff,#67e8f9,#0369a1); }
+        .duration-detail-prism { background-image: linear-gradient(90deg,#f472b6,#a78bfa,#60a5fa,#5eead4,#fde68a,#f472b6); }
+        .duration-detail-galaxy { background-image: linear-gradient(90deg,#6d28d9,#a78bfa,#f5f3ff,#c4b5fd,#7e22ce); }
+        @keyframes detailDurationShine { to { background-position: 200% center; } }
 
         .name-vip-plus-gold {
             background: linear-gradient(90deg, #8a5a00, #d4af37, #fff7b2, #ffffff, #fff7b2, #d4af37, #8a5a00);
@@ -828,7 +890,7 @@
         }
 
         .result-modal-overlay {
-        position: fixed; inset: 0; z-index: 3000;
+            position: fixed; inset: 0; z-index: 3000;
             display: none; align-items: center; justify-content: center;
             padding: 16px; background: rgba(15,23,42,.58);
             backdrop-filter: blur(4px);
@@ -896,7 +958,553 @@
             .btn-admin { padding: 7px 10px; font-size: 0.78rem; }
             .header-btn-group { margin-left: auto; }
         }
-   </style>
+   
+
+        /* PENYESUAIAN HIASAN DETAIL PROFIL BARU: memenuhi popup dan kotak bernuansa */
+        .modal-body:has(.profile-detail-aurora),
+        .modal-body:has(.profile-detail-circuit),
+        .modal-body:has(.profile-detail-ocean),
+        .modal-body:has(.profile-detail-prism),
+        .modal-body:has(.profile-detail-galaxy) { padding: 0 !important; }
+        .profile-detail-aurora,
+        .profile-detail-circuit,
+        .profile-detail-ocean,
+        .profile-detail-prism,
+        .profile-detail-galaxy {
+            box-sizing: border-box; width: 100%; min-height: 100%; margin: 0; padding: 18px 20px;
+            border-radius: 0; isolation: isolate;
+        }
+        .profile-detail-aurora { animation: detailAuroraGlow 5s ease-in-out infinite; }
+        @keyframes detailAuroraGlow {
+            0%,100% { box-shadow: inset 0 0 24px rgba(94,234,212,.22), 0 0 12px rgba(45,212,191,.12); }
+            50% { box-shadow: inset 0 0 32px rgba(94,234,212,.34), 0 0 24px rgba(45,212,191,.3); }
+        }
+        .profile-detail-aurora::after {
+            content: ''; position: absolute; width: 22%; height: 180%; top: -40%; left: -42%;
+            transform: rotate(18deg); pointer-events: none; z-index: 0;
+            background: linear-gradient(90deg,transparent,rgba(255,255,255,.36),rgba(204,251,241,.5),transparent);
+            animation: detailAuroraSweep 6s ease-in-out infinite;
+        }
+        @keyframes detailAuroraSweep { 0%,20%{left:-42%;opacity:0}35%{opacity:.8}65%{left:125%;opacity:.8}80%,100%{left:125%;opacity:0} }
+
+        /* Kotak informasi mengikuti palet masing-masing dekorasi, tetap lebih samar */
+        .profile-detail-aurora .stats-grid,
+        .profile-detail-aurora > div[style*="background: #f8fafc"],
+        .profile-detail-aurora > div[style*="background:#f8fafc"],
+        .profile-detail-circuit .stats-grid,
+        .profile-detail-circuit > div[style*="background: #f8fafc"],
+        .profile-detail-circuit > div[style*="background:#f8fafc"],
+        .profile-detail-ocean .stats-grid,
+        .profile-detail-ocean > div[style*="background: #f8fafc"],
+        .profile-detail-ocean > div[style*="background:#f8fafc"],
+        .profile-detail-galaxy .stats-grid,
+        .profile-detail-galaxy > div[style*="background: #f8fafc"],
+        .profile-detail-galaxy > div[style*="background:#f8fafc"] {
+            background: linear-gradient(135deg,rgba(2,6,23,.48),rgba(15,23,42,.28),rgba(2,6,23,.42)) !important;
+            border: 1px solid rgba(167,243,252,.2) !important;
+            box-shadow: inset 0 0 14px rgba(148,163,184,.08);
+        }
+        .profile-detail-aurora .stat-item,.profile-detail-circuit .stat-item,
+        .profile-detail-ocean .stat-item,.profile-detail-galaxy .stat-item { color:#f0fdfa !important; }
+        .profile-detail-aurora > div[style*="background: #f8fafc"] *,
+        .profile-detail-aurora > div[style*="background:#f8fafc"] *,
+        .profile-detail-circuit > div[style*="background: #f8fafc"] *,
+        .profile-detail-circuit > div[style*="background:#f8fafc"] *,
+        .profile-detail-ocean > div[style*="background: #f8fafc"] *,
+        .profile-detail-ocean > div[style*="background:#f8fafc"] *,
+        .profile-detail-galaxy > div[style*="background: #f8fafc"] *,
+        .profile-detail-galaxy > div[style*="background:#f8fafc"] * { color:#e0f2fe !important; }
+
+        .profile-detail-prism .stats-grid,
+        .profile-detail-prism > div[style*="background: #f8fafc"],
+        .profile-detail-prism > div[style*="background:#f8fafc"] {
+            background: linear-gradient(135deg,rgba(255,255,255,.62),rgba(221,214,254,.58),rgba(204,251,241,.56),rgba(251,207,232,.58)) !important;
+            border: 1px solid rgba(129,140,248,.28) !important;
+            box-shadow: inset 0 0 14px rgba(255,255,255,.28);
+        }
+        .profile-detail-prism .stat-item { color:#37306f !important; }
+        .profile-detail-prism > div[style*="background: #f8fafc"] *,
+        .profile-detail-prism > div[style*="background:#f8fafc"] * { color:#43386f !important; }
+
+        /* Prisma Pelangi: hilangkan garis putih dan ganti dengan sapuan shiny warna-warni */
+        .profile-detail-prism::before {
+            content: ''; position: absolute; width: 24%; height: 190%; top: -45%; left: -45%;
+            inset-block: auto; inset-inline: auto; pointer-events: none; z-index: 0;
+            transform: rotate(18deg);
+            background: linear-gradient(90deg,transparent,rgba(244,114,182,.24),rgba(255,255,255,.72),rgba(96,165,250,.3),rgba(94,234,212,.3),transparent);
+            animation: detailPrismShine 4.2s ease-in-out infinite;
+        }
+        .profile-detail-prism::after {
+            content: '✦  ◇  ✧'; position: absolute; top: 8px; right: 12px; z-index: 0;
+            color: rgba(255,255,255,.88); letter-spacing: 5px; font-weight: 900;
+            text-shadow: 0 0 8px rgba(167,139,250,.8),0 0 12px rgba(244,114,182,.55); pointer-events: none;
+        }
+        @keyframes detailPrismShine { 0%,18%{left:-45%;opacity:0}32%{opacity:.95}64%{left:125%;opacity:.95}80%,100%{left:125%;opacity:0} }
+
+        /* Galaksi Bintang: sapuan shiny plus glow lembut bernuansa aurora */
+        .profile-detail-galaxy { animation: detailGalaxyAuroraGlow 4.8s ease-in-out infinite; }
+        .profile-detail-galaxy::before {
+            content: ''; position: absolute; width: 22%; height: 190%; top: -45%; left: -42%;
+            transform: rotate(18deg); pointer-events: none; z-index: 0;
+            background: linear-gradient(90deg,transparent,rgba(255,255,255,.58),rgba(196,181,253,.68),rgba(103,232,249,.42),transparent);
+            animation: detailGalaxyShine 4.4s ease-in-out infinite;
+        }
+        .profile-detail-galaxy::after {
+            content: '✦   ·   ✧   ·   ✦'; position: absolute; top: 8px; right: 12px; z-index: 0;
+            color: rgba(224,231,255,.9); letter-spacing: 3px; font-weight: 900;
+            text-shadow: 0 0 8px rgba(196,181,253,.95),0 0 16px rgba(103,232,249,.72); pointer-events: none;
+            animation: detailGalaxyStars 3.6s ease-in-out infinite;
+        }
+        @keyframes detailGalaxyShine { 0%,18%{left:-42%;opacity:0}32%{opacity:.9}64%{left:125%;opacity:.9}80%,100%{left:125%;opacity:0} }
+        @keyframes detailGalaxyAuroraGlow {
+            0%,100% { box-shadow: inset 0 0 28px rgba(167,139,250,.25),0 0 12px rgba(124,58,237,.18); }
+            50% { box-shadow: inset 0 0 38px rgba(103,232,249,.22),0 0 26px rgba(139,92,246,.42),0 0 34px rgba(45,212,191,.18); }
+        }
+        @keyframes detailGalaxyStars { 0%,100%{opacity:.62;filter:brightness(1)}50%{opacity:1;filter:brightness(1.5)} }
+
+
+        /* Prisma Pelangi: pertahankan motif garis warna-warni, tanpa efek sapuan shiny */
+        .profile-detail-prism::before {
+            content: ' ' !important;
+            position: absolute !important;
+            inset: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            top: 0 !important;
+            left: 0 !important;
+            transform: none !important;
+            pointer-events: none !important;
+            z-index: 0 !important;
+            background: repeating-linear-gradient(135deg, transparent 0 30px, rgba(255,255,255,.42) 31px 33px, transparent 35px 62px) !important;
+            animation: none !important;
+        }
+
+        /* Galaksi Bintang: hilangkan sapuan shiny, pertahankan motif bintang dan warna dasar */
+        .profile-detail-galaxy::before {
+            content: none !important;
+            animation: none !important;
+        }
+        .profile-detail-galaxy {
+            animation: none !important;
+            box-shadow: inset 0 0 28px rgba(167,139,250,.25) !important;
+        }
+
+        .profile-detail-prism > *,
+        .profile-detail-galaxy > * { position: relative; z-index: 2; }
+
+        /* Teks masa aktif di semua hiasan detail mengikuti warna/shiny item seperti card profil */
+        .profile-detail-aurora [class*="duration-"],
+        .profile-detail-circuit [class*="duration-"],
+        .profile-detail-ocean [class*="duration-"],
+        .profile-detail-prism [class*="duration-"],
+        .profile-detail-galaxy [class*="duration-"] {
+            color: transparent !important;
+            -webkit-text-fill-color: transparent !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+        }
+
+        
+        /* PERBAIKAN: Prisma Pelangi dan Galaksi Bintang memakai glow lembut, tanpa garis putih/sapuan shiny */
+        .profile-detail-prism {
+            animation: prismSoftGlow 3.8s ease-in-out infinite !important;
+            box-shadow: inset 0 0 18px rgba(196,181,253,.38), 0 0 12px rgba(244,114,182,.32), 0 0 22px rgba(129,140,248,.25) !important;
+        }
+        .profile-detail-prism::before {
+            content: none !important;
+            display: none !important;
+            animation: none !important;
+            background: none !important;
+        }
+        .profile-detail-prism::after {
+            content: '✦  ◇  ✧' !important;
+            color: rgba(255,255,255,.9) !important;
+            text-shadow: 0 0 5px rgba(167,139,250,.95), 0 0 10px rgba(244,114,182,.8) !important;
+        }
+        @keyframes prismSoftGlow {
+            0%,100% { box-shadow: inset 0 0 18px rgba(196,181,253,.32), 0 0 9px rgba(244,114,182,.25), 0 0 15px rgba(129,140,248,.2); }
+            50% { box-shadow: inset 0 0 24px rgba(196,181,253,.48), 0 0 17px rgba(244,114,182,.45), 0 0 27px rgba(129,140,248,.38); }
+        }
+        .profile-detail-galaxy {
+            animation: galaxySoftGlow 4.2s ease-in-out infinite !important;
+            box-shadow: inset 0 0 25px rgba(167,139,250,.25), 0 0 12px rgba(124,58,237,.3) !important;
+        }
+        .profile-detail-galaxy::before { content: none !important; display:none !important; animation:none !important; }
+        .profile-detail-galaxy::after { animation: detailGalaxyStars 3.6s ease-in-out infinite !important; }
+        @keyframes galaxySoftGlow {
+            0%,100% { box-shadow: inset 0 0 25px rgba(167,139,250,.25), 0 0 10px rgba(124,58,237,.25); }
+            50% { box-shadow: inset 0 0 34px rgba(167,139,250,.4), 0 0 22px rgba(139,92,246,.48), 0 0 30px rgba(45,212,191,.14); }
+        }
+
+        .member-card.decor-sakura-bersemi > *, .card-box.decor-sakura-bersemi > *,
+        .member-card.decor-api-naga > *, .card-box.decor-api-naga > *,
+        .member-card.decor-petir-neon > *, .card-box.decor-petir-neon > *,
+        .member-card.decor-emerald-venom > *, .card-box.decor-emerald-venom > *,
+        .member-card.decor-debu-kosmik > *, .card-box.decor-debu-kosmik > * { position:relative; z-index:3; }
+
+        /* 5 HIASAN PROFIL BARU: animasi ringan dan partikel berbeda */
+        .member-card.decor-sakura-bersemi, .card-box.decor-sakura-bersemi {
+            position:relative; overflow:hidden; background:linear-gradient(135deg,#fff1f2,#fbcfe8 48%,#fce7f3) !important;
+            border:2px solid #f472b6 !important; box-shadow:0 0 14px rgba(244,114,182,.25), inset 0 0 16px rgba(255,255,255,.7) !important;
+            animation:sakuraBreath 4s ease-in-out infinite;
+        }
+        .decor-sakura-bersemi::before { content:'✿  ·   ❀   ·  ✿'; position:absolute; inset:8px 8px auto auto; color:#be185d; opacity:.7; font-size:13px; letter-spacing:4px; pointer-events:none; z-index:1; animation:sakuraPetals 5s ease-in-out infinite; }
+        .decor-sakura-bersemi::after { content:'✧'; position:absolute; left:12%; bottom:15%; color:#ec4899; font-size:10px; pointer-events:none; z-index:1; text-shadow:18px -18px #f472b6,42px -4px #db2777,65px -23px #f9a8d4,90px -10px #ec4899; animation:sakuraFloat 6s ease-in-out infinite; }
+        @keyframes sakuraBreath { 0%,100%{box-shadow:0 0 10px rgba(244,114,182,.2),inset 0 0 14px rgba(255,255,255,.65)}50%{box-shadow:0 0 22px rgba(244,114,182,.42),inset 0 0 20px rgba(255,255,255,.85)} }
+        @keyframes sakuraPetals { 0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(5px) rotate(3deg)} }
+        @keyframes sakuraFloat { 0%,100%{transform:translate(0,0);opacity:.45}50%{transform:translate(8px,-5px);opacity:.95} }
+
+        .member-card.decor-api-naga, .card-box.decor-api-naga {
+            position:relative; overflow:hidden; background:linear-gradient(135deg,#431407,#9a3412 48%,#7f1d1d) !important;
+            border:2px solid #fb923c !important; color:#fff7ed; box-shadow:0 0 14px rgba(249,115,22,.28),inset 0 0 18px rgba(251,146,60,.14) !important;
+        }
+        .decor-api-naga .member-name,.decor-api-naga .member-bio,.decor-api-naga .stat-item,.decor-api-naga .chat-message-text { color:#fff7ed !important; -webkit-text-fill-color:#fff7ed !important; }
+        .decor-api-naga::before { content:'♨  ◆  ♨'; position:absolute; top:7px; right:10px; color:#fdba74; letter-spacing:5px; font-size:13px; z-index:1; pointer-events:none; text-shadow:0 0 8px #f97316; animation:dragonEmbers 2.8s ease-in-out infinite; }
+        .decor-api-naga::after { content:'•'; position:absolute; left:10%; bottom:12%; color:#fbbf24; font-size:12px; z-index:1; pointer-events:none; text-shadow:22px -18px #fb923c,47px -4px #fde68a,73px -22px #f97316,100px -8px #fdba74; animation:emberDrift 4s linear infinite; }
+        @keyframes dragonEmbers { 0%,100%{opacity:.65;filter:brightness(1)}50%{opacity:1;filter:brightness(1.45)} }
+        @keyframes emberDrift { 0%{transform:translateY(3px);opacity:.45}50%{transform:translateY(-8px);opacity:1}100%{transform:translateY(3px);opacity:.45} }
+
+        .member-card.decor-petir-neon, .card-box.decor-petir-neon {
+            position:relative; overflow:hidden; background:linear-gradient(135deg,#111827,#172554 55%,#312e81) !important;
+            border:2px solid #67e8f9 !important; box-shadow:0 0 12px rgba(34,211,238,.3),inset 0 0 16px rgba(59,130,246,.18) !important;
+            animation:neonPulse 3.2s ease-in-out infinite;
+        }
+        .decor-petir-neon .member-name,.decor-petir-neon .member-bio,.decor-petir-neon .stat-item,.decor-petir-neon .chat-message-text { color:#ecfeff !important; -webkit-text-fill-color:#ecfeff !important; }
+        .decor-petir-neon::before { content:'ϟ'; position:absolute; top:5px; right:13px; color:#a5f3fc; font-size:25px; z-index:1; pointer-events:none; text-shadow:0 0 6px #22d3ee,0 0 14px #3b82f6; animation:lightningFlash 3.5s steps(2,end) infinite; }
+        .decor-petir-neon::after { content:'·'; position:absolute; left:13%; bottom:15%; color:#67e8f9; font-size:12px; z-index:1; pointer-events:none; text-shadow:24px -19px #22d3ee,49px -3px #a5f3fc,76px -24px #60a5fa,104px -9px #c4b5fd; animation:neonDots 4.5s ease-in-out infinite; }
+        @keyframes neonPulse { 0%,100%{box-shadow:0 0 10px rgba(34,211,238,.2),inset 0 0 12px rgba(59,130,246,.12)}50%{box-shadow:0 0 22px rgba(34,211,238,.5),inset 0 0 20px rgba(59,130,246,.25)} }
+        @keyframes lightningFlash { 0%,84%,88%,100%{opacity:.55}85%,87%{opacity:1;filter:brightness(1.8)} }
+        @keyframes neonDots { 0%,100%{transform:translateX(-3px);opacity:.45}50%{transform:translateX(5px);opacity:1} }
+
+        .member-card.decor-emerald-venom, .card-box.decor-emerald-venom {
+            position:relative; overflow:hidden; background:linear-gradient(135deg,#022c22,#065f46 52%,#064e3b) !important;
+            border:2px solid #34d399 !important; box-shadow:0 0 14px rgba(52,211,153,.25),inset 0 0 18px rgba(167,243,208,.12) !important;
+        }
+        .decor-emerald-venom .member-name,.decor-emerald-venom .member-bio,.decor-emerald-venom .stat-item,.decor-emerald-venom .chat-message-text { color:#ecfdf5 !important; -webkit-text-fill-color:#ecfdf5 !important; }
+        .decor-emerald-venom::before { content:'❖  ⟡  ❖'; position:absolute; top:7px; right:10px; color:#a7f3d0; font-size:12px; letter-spacing:4px; z-index:1; pointer-events:none; text-shadow:0 0 8px rgba(52,211,153,.8); animation:venomPulse 3.4s ease-in-out infinite; }
+        .decor-emerald-venom::after { content:'·'; position:absolute; left:12%; bottom:14%; color:#6ee7b7; font-size:12px; z-index:1; pointer-events:none; text-shadow:20px -16px #34d399,42px -4px #a7f3d0,68px -22px #10b981,95px -7px #6ee7b7; animation:venomFloat 5s ease-in-out infinite; }
+        @keyframes venomPulse { 0%,100%{opacity:.55;filter:brightness(.9)}50%{opacity:1;filter:brightness(1.35)} }
+        @keyframes venomFloat { 0%,100%{transform:translateY(2px);opacity:.4}50%{transform:translateY(-5px);opacity:.95} }
+
+        .member-card.decor-debu-kosmik, .card-box.decor-debu-kosmik {
+            position:relative; overflow:hidden; background:linear-gradient(135deg,#1e1b4b,#312e81 48%,#0f172a) !important;
+            border:2px solid #a78bfa !important; box-shadow:0 0 14px rgba(167,139,250,.28),inset 0 0 18px rgba(196,181,253,.12) !important;
+        }
+        .decor-debu-kosmik .member-name,.decor-debu-kosmik .member-bio,.decor-debu-kosmik .stat-item,.decor-debu-kosmik .chat-message-text { color:#f5f3ff !important; -webkit-text-fill-color:#f5f3ff !important; }
+        .decor-debu-kosmik::before { content:'✦  ·  ✧'; position:absolute; top:7px; right:11px; color:#ddd6fe; font-size:13px; letter-spacing:4px; z-index:1; pointer-events:none; text-shadow:0 0 8px #a78bfa; animation:cosmicTwinkle 3s ease-in-out infinite; }
+        .decor-debu-kosmik::after { content:'·'; position:absolute; left:10%; bottom:14%; color:#c4b5fd; font-size:12px; z-index:1; pointer-events:none; text-shadow:18px -18px #f5f3ff,40px -5px #a78bfa,62px -23px #818cf8,88px -9px #67e8f9,112px -20px #ddd6fe; animation:cosmicDrift 6s ease-in-out infinite; }
+        @keyframes cosmicTwinkle { 0%,100%{opacity:.55;transform:scale(.96)}50%{opacity:1;transform:scale(1.08)} }
+        @keyframes cosmicDrift { 0%,100%{transform:translate(0,0);opacity:.45}50%{transform:translate(7px,-5px);opacity:1} }
+
+        
+        /* FIX LANJUTAN: glow lebih kuat, kilau bergerak, partikel lebih ramai
+           khusus untuk lima hiasan profil baru. */
+        .member-card.decor-sakura-bersemi,
+        .card-box.decor-sakura-bersemi {
+            box-shadow: 0 0 10px rgba(244,114,182,.55), 0 0 24px rgba(236,72,153,.35),
+                        inset 0 0 20px rgba(255,255,255,.78) !important;
+            animation: sakuraPremiumGlow 3.2s ease-in-out infinite;
+        }
+        .member-card.decor-api-naga,
+        .card-box.decor-api-naga {
+            box-shadow: 0 0 12px rgba(249,115,22,.62), 0 0 27px rgba(239,68,68,.32),
+                        inset 0 0 22px rgba(251,146,60,.22) !important;
+            animation: dragonPremiumGlow 2.6s ease-in-out infinite;
+        }
+        .member-card.decor-petir-neon,
+        .card-box.decor-petir-neon {
+            box-shadow: 0 0 12px rgba(34,211,238,.62), 0 0 28px rgba(59,130,246,.38),
+                        inset 0 0 22px rgba(96,165,250,.22) !important;
+            animation: neonPulse 2.4s ease-in-out infinite;
+        }
+        .member-card.decor-emerald-venom,
+        .card-box.decor-emerald-venom {
+            box-shadow: 0 0 12px rgba(52,211,153,.62), 0 0 27px rgba(16,185,129,.38),
+                        inset 0 0 22px rgba(167,243,208,.2) !important;
+            animation: emeraldPremiumGlow 2.8s ease-in-out infinite;
+        }
+        .member-card.decor-debu-kosmik,
+        .card-box.decor-debu-kosmik {
+            box-shadow: 0 0 12px rgba(167,139,250,.62), 0 0 30px rgba(124,58,237,.42),
+                        inset 0 0 24px rgba(192,132,252,.22) !important;
+            animation: galaxyPremiumGlow 3.4s ease-in-out infinite;
+        }
+
+        /* Kilau putih tipis bergerak di seluruh permukaan; motif ikon tetap terlihat. */
+        .decor-sakura-bersemi::before,
+        .decor-api-naga::before,
+        .decor-petir-neon::before,
+        .decor-emerald-venom::before,
+        .decor-debu-kosmik::before {
+            inset: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            padding: 7px 10px !important;
+            text-align: right !important;
+            background: linear-gradient(112deg, transparent 0%, transparent 35%,
+                rgba(255,255,255,.05) 42%, rgba(255,255,255,.32) 49%,
+                rgba(255,255,255,.07) 55%, transparent 63%, transparent 100%);
+            background-size: 240% 100%;
+            animation: premiumDecorationShine 4.2s ease-in-out infinite !important;
+            pointer-events: none !important;
+        }
+        .decor-sakura-bersemi::before { color:#be185d; text-shadow:0 0 8px #fff,0 0 15px #f472b6,0 0 24px #ec4899 !important; }
+        .decor-api-naga::before { color:#ffedd5; text-shadow:0 0 8px #fb923c,0 0 16px #f97316,0 0 24px #ef4444 !important; }
+        .decor-petir-neon::before { color:#ecfeff; text-shadow:0 0 8px #fff,0 0 16px #22d3ee,0 0 26px #3b82f6 !important; }
+        .decor-emerald-venom::before { color:#d1fae5; text-shadow:0 0 8px #a7f3d0,0 0 17px #34d399,0 0 25px #10b981 !important; }
+        .decor-debu-kosmik::before { color:#f5f3ff; text-shadow:0 0 8px #fff,0 0 16px #a78bfa,0 0 26px #7c3aed !important; }
+
+        /* Partikel tambahan, tetap berada di lapisan dekorasi di belakang teks. */
+        .decor-sakura-bersemi::after {
+            text-shadow: 18px -18px #f472b6, 42px -4px #db2777, 65px -23px #f9a8d4,
+                90px -10px #ec4899, 118px -30px #fff, 143px -6px #fbcfe8,
+                168px -22px #fb7185, 194px -2px #f9a8d4, 220px -28px #fff,
+                245px -10px #ec4899, 270px -25px #fbcfe8, 296px -3px #fb7185,
+                24px -45px #fff, 75px -48px #f9a8d4, 130px -55px #ec4899,
+                186px -46px #fff, 240px -52px #f472b6 !important;
+            filter: drop-shadow(0 0 5px rgba(244,114,182,.9));
+        }
+        .decor-api-naga::after {
+            text-shadow: 22px -18px #fb923c,47px -4px #fde68a,73px -22px #f97316,
+                100px -8px #fdba74,128px -28px #fff7ed,154px -10px #ef4444,
+                181px -35px #fbbf24,207px -15px #fb923c,235px -30px #fff,
+                260px -6px #f97316,286px -26px #fbbf24,312px -12px #fdba74,
+                38px -48px #fbbf24,92px -58px #fb923c,148px -48px #fff7ed,
+                202px -60px #ef4444,258px -50px #fbbf24 !important;
+            filter: drop-shadow(0 0 5px rgba(249,115,22,.95));
+        }
+        .decor-petir-neon::after {
+            text-shadow: 24px -19px #22d3ee,49px -3px #a5f3fc,76px -24px #60a5fa,
+                104px -9px #c4b5fd,130px -32px #fff,158px -13px #22d3ee,
+                185px -28px #60a5fa,211px -7px #a5f3fc,239px -34px #818cf8,
+                266px -14px #fff,293px -27px #22d3ee,320px -8px #60a5fa,
+                40px -52px #67e8f9,94px -60px #fff,150px -50px #a5f3fc,
+                207px -62px #38bdf8,263px -53px #c4b5fd !important;
+            filter: drop-shadow(0 0 5px rgba(34,211,238,.95));
+        }
+        .decor-emerald-venom::after {
+            text-shadow: 22px -18px #6ee7b7,48px -5px #34d399,74px -24px #a7f3d0,
+                101px -9px #10b981,129px -31px #ecfdf5,156px -13px #6ee7b7,
+                183px -28px #34d399,210px -6px #d1fae5,238px -34px #10b981,
+                265px -12px #a7f3d0,292px -28px #ecfdf5,319px -8px #34d399,
+                39px -51px #a7f3d0,94px -60px #34d399,149px -49px #fff,
+                205px -62px #6ee7b7,261px -52px #10b981 !important;
+            filter: drop-shadow(0 0 5px rgba(52,211,153,.95));
+        }
+        .decor-debu-kosmik::after {
+            text-shadow: 20px -17px #c4b5fd,44px -5px #a78bfa,70px -25px #fff,
+                96px -8px #818cf8,123px -31px #e9d5ff,150px -11px #c4b5fd,
+                177px -28px #7c3aed,204px -6px #fff,231px -33px #a78bfa,
+                258px -12px #ddd6fe,285px -27px #818cf8,312px -8px #fff,
+                36px -50px #a78bfa,91px -59px #fff,147px -48px #c4b5fd,
+                202px -61px #7c3aed,258px -52px #e9d5ff !important;
+            filter: drop-shadow(0 0 5px rgba(167,139,250,.95));
+        }
+
+        /* Kotak statistik/ikon dibuat seperti kaca transparan mengikuti hiasan aktif. */
+        .member-card.decor-sakura-bersemi .stats-grid, .card-box.decor-sakura-bersemi .stats-grid {
+            background:rgba(255,255,255,.42) !important; border:1px solid rgba(190,24,93,.22) !important;
+            box-shadow:inset 0 0 12px rgba(255,255,255,.35); backdrop-filter:blur(3px);
+        }
+        .member-card.decor-api-naga .stats-grid, .card-box.decor-api-naga .stats-grid {
+            background:rgba(40,10,4,.42) !important; border:1px solid rgba(253,186,116,.3) !important;
+            box-shadow:inset 0 0 12px rgba(251,146,60,.15); backdrop-filter:blur(3px);
+        }
+        .member-card.decor-petir-neon .stats-grid, .card-box.decor-petir-neon .stats-grid {
+            background:rgba(2,6,23,.48) !important; border:1px solid rgba(103,232,249,.3) !important;
+            box-shadow:inset 0 0 12px rgba(34,211,238,.13); backdrop-filter:blur(3px);
+        }
+        .member-card.decor-emerald-venom .stats-grid, .card-box.decor-emerald-venom .stats-grid {
+            background:rgba(2,44,34,.45) !important; border:1px solid rgba(167,243,208,.28) !important;
+            box-shadow:inset 0 0 12px rgba(52,211,153,.14); backdrop-filter:blur(3px);
+        }
+        .member-card.decor-debu-kosmik .stats-grid, .card-box.decor-debu-kosmik .stats-grid {
+            background:rgba(15,10,40,.5) !important; border:1px solid rgba(196,181,253,.3) !important;
+            box-shadow:inset 0 0 12px rgba(167,139,250,.16); backdrop-filter:blur(3px);
+        }
+
+        /* Hiasan nama harus tetap memakai gradasi/shiny walau kartu profil berwarna gelap/terang. */
+        .decor-sakura-bersemi .member-name[class*="name-"],
+        .decor-api-naga .member-name[class*="name-"],
+        .decor-petir-neon .member-name[class*="name-"],
+        .decor-emerald-venom .member-name[class*="name-"],
+        .decor-debu-kosmik .member-name[class*="name-"] {
+            color:transparent !important;
+            -webkit-text-fill-color:transparent !important;
+            -webkit-background-clip:text !important;
+            background-clip:text !important;
+            position:relative; z-index:4 !important;
+            filter:drop-shadow(0 0 4px rgba(255,255,255,.35));
+        }
+        .decor-sakura-bersemi .member-name:not([class*="name-"]),
+        .decor-api-naga .member-name:not([class*="name-"]),
+        .decor-petir-neon .member-name:not([class*="name-"]),
+        .decor-emerald-venom .member-name:not([class*="name-"]),
+        .decor-debu-kosmik .member-name:not([class*="name-"]) {
+            color:#fff !important; -webkit-text-fill-color:#fff !important;
+            text-shadow:0 0 5px rgba(255,255,255,.28);
+        }
+        @keyframes premiumDecorationShine {
+            0%,12% { background-position:130% 0; }
+            72%,100% { background-position:-130% 0; }
+        }
+        @keyframes sakuraPremiumGlow {
+            0%,100% { box-shadow:0 0 10px rgba(244,114,182,.38),0 0 18px rgba(236,72,153,.2),inset 0 0 16px rgba(255,255,255,.7); }
+            50% { box-shadow:0 0 20px rgba(244,114,182,.78),0 0 34px rgba(236,72,153,.48),inset 0 0 24px rgba(255,255,255,.92); }
+        }
+        @keyframes dragonPremiumGlow {
+            0%,100% { box-shadow:0 0 12px rgba(249,115,22,.42),0 0 20px rgba(239,68,68,.22),inset 0 0 18px rgba(251,146,60,.15); }
+            50% { box-shadow:0 0 22px rgba(249,115,22,.82),0 0 35px rgba(239,68,68,.48),inset 0 0 25px rgba(251,146,60,.28); }
+        }
+        @keyframes emeraldPremiumGlow {
+            0%,100% { box-shadow:0 0 12px rgba(52,211,153,.4),0 0 20px rgba(16,185,129,.22),inset 0 0 18px rgba(167,243,208,.13); }
+            50% { box-shadow:0 0 22px rgba(52,211,153,.82),0 0 35px rgba(16,185,129,.48),inset 0 0 25px rgba(167,243,208,.24); }
+        }
+        @keyframes galaxyPremiumGlow {
+            0%,100% { box-shadow:0 0 12px rgba(167,139,250,.4),0 0 20px rgba(124,58,237,.22),inset 0 0 18px rgba(192,132,252,.14); }
+            50% { box-shadow:0 0 22px rgba(167,139,250,.82),0 0 36px rgba(124,58,237,.5),inset 0 0 27px rgba(192,132,252,.27); }
+        }
+
+    
+        /* PATCH: kilau berjalan mulus tanpa jeda di tengah loop */
+        .decor-sakura-bersemi::before,
+        .decor-api-naga::before,
+        .decor-petir-neon::before,
+        .decor-emerald-venom::before,
+        .decor-debu-kosmik::before {
+            background-size: 220% 100% !important;
+            animation: premiumDecorationShineSmooth 3.8s linear infinite !important;
+        }
+        @keyframes premiumDecorationShineSmooth {
+            0% { background-position: 220% 0; }
+            100% { background-position: -220% 0; }
+        }
+
+        /* Tiap hiasan punya motif khas, bukan cuma beda warna */
+        .member-card.decor-sakura-bersemi,
+        .card-box.decor-sakura-bersemi {
+            border: 3px solid #f9a8d4 !important;
+            outline: 1px solid rgba(255,255,255,.72);
+            outline-offset: -6px;
+        }
+        .decor-sakura-bersemi::after {
+            content: '✿' !important;
+            text-shadow:
+                18px -18px #f472b6,42px -4px #db2777,65px -23px #f9a8d4,
+                90px -10px #ec4899,118px -30px #fff,143px -6px #fbcfe8,
+                168px -22px #fb7185,194px -2px #f9a8d4,220px -28px #fff,
+                245px -10px #ec4899,270px -25px #fbcfe8,296px -3px #fb7185,
+                24px -45px #fff,75px -48px #f9a8d4,130px -55px #ec4899,
+                186px -46px #fff,240px -52px #f472b6,
+                35px -70px #fbcfe8,105px -75px #fff,175px -72px #fb7185,
+                250px -78px #f9a8d4,310px -65px #fff !important;
+            filter: drop-shadow(0 0 6px rgba(244,114,182,.95));
+        }
+        .member-card.decor-api-naga,
+        .card-box.decor-api-naga {
+            border: 3px solid #fb923c !important;
+            outline: 1px dashed rgba(254,215,170,.85);
+            outline-offset: -6px;
+        }
+        .decor-api-naga::after {
+            content: '♨' !important;
+            text-shadow:
+                22px -18px #fb923c,47px -4px #fde68a,73px -22px #f97316,
+                100px -8px #fdba74,128px -28px #fff7ed,154px -10px #ef4444,
+                181px -35px #fbbf24,207px -15px #fb923c,235px -30px #fff,
+                260px -6px #f97316,286px -26px #fbbf24,312px -12px #fdba74,
+                38px -48px #fbbf24,92px -58px #fb923c,148px -48px #fff7ed,
+                202px -60px #ef4444,258px -50px #fbbf24,
+                58px -76px #fff7ed,125px -82px #f97316,195px -76px #fbbf24,
+                275px -82px #fb923c,330px -70px #fff !important;
+            filter: drop-shadow(0 0 6px rgba(249,115,22,.98));
+        }
+        .member-card.decor-petir-neon,
+        .card-box.decor-petir-neon {
+            border: 3px solid #67e8f9 !important;
+            outline: 1px solid rgba(255,255,255,.8);
+            outline-offset: -6px;
+        }
+        .decor-petir-neon::after {
+            content: 'ϟ' !important;
+            text-shadow:
+                24px -19px #22d3ee,49px -3px #a5f3fc,76px -24px #60a5fa,
+                104px -9px #c4b5fd,130px -32px #fff,158px -13px #22d3ee,
+                185px -28px #60a5fa,211px -7px #a5f3fc,239px -34px #818cf8,
+                266px -14px #fff,293px -27px #22d3ee,320px -8px #60a5fa,
+                40px -52px #67e8f9,94px -60px #fff,150px -50px #a5f3fc,
+                207px -62px #38bdf8,263px -53px #c4b5fd,
+                65px -78px #fff,135px -85px #22d3ee,215px -80px #60a5fa,
+                285px -86px #a5f3fc,345px -75px #fff !important;
+            filter: drop-shadow(0 0 6px rgba(34,211,238,.98));
+        }
+        .member-card.decor-emerald-venom,
+        .card-box.decor-emerald-venom {
+            border: 3px solid #6ee7b7 !important;
+            outline: 1px dashed rgba(167,243,208,.85);
+            outline-offset: -6px;
+        }
+        .decor-emerald-venom::after {
+            content: '⬡' !important;
+            text-shadow:
+                22px -18px #6ee7b7,48px -5px #34d399,74px -24px #a7f3d0,
+                101px -9px #10b981,129px -31px #ecfdf5,156px -13px #6ee7b7,
+                183px -28px #34d399,210px -6px #d1fae5,238px -34px #10b981,
+                265px -12px #a7f3d0,292px -28px #ecfdf5,319px -8px #34d399,
+                39px -51px #a7f3d0,94px -60px #34d399,149px -49px #fff,
+                205px -62px #6ee7b7,261px -52px #10b981,
+                60px -77px #6ee7b7,130px -84px #ecfdf5,200px -77px #34d399,
+                275px -85px #a7f3d0,335px -73px #6ee7b7 !important;
+            filter: drop-shadow(0 0 6px rgba(52,211,153,.98));
+        }
+        .member-card.decor-debu-kosmik,
+        .card-box.decor-debu-kosmik {
+            border: 3px solid #c4b5fd !important;
+            outline: 1px dotted rgba(237,233,254,.9);
+            outline-offset: -6px;
+        }
+        .decor-debu-kosmik::after {
+            content: '✧' !important;
+            text-shadow:
+                20px -17px #c4b5fd,44px -5px #a78bfa,70px -25px #fff,
+                96px -8px #818cf8,123px -31px #e9d5ff,150px -11px #c4b5fd,
+                177px -28px #7c3aed,204px -6px #fff,231px -33px #a78bfa,
+                258px -12px #ddd6fe,285px -27px #818cf8,312px -8px #fff,
+                36px -50px #a78bfa,91px -59px #fff,147px -48px #c4b5fd,
+                202px -61px #7c3aed,258px -52px #e9d5ff,
+                55px -76px #fff,125px -82px #c4b5fd,195px -76px #a78bfa,
+                270px -84px #fff,330px -72px #818cf8 !important;
+            filter: drop-shadow(0 0 6px rgba(167,139,250,.98));
+        }
+
+        /* Border kotak statistik dibuat senada dan lebih jelas untuk tiap motif */
+        .member-card.decor-sakura-bersemi .stats-grid,
+        .card-box.decor-sakura-bersemi .stats-grid {
+            border: 2px solid rgba(244,114,182,.82) !important;
+            box-shadow: inset 0 0 12px rgba(255,255,255,.38), 0 0 8px rgba(244,114,182,.22) !important;
+        }
+        .member-card.decor-api-naga .stats-grid,
+        .card-box.decor-api-naga .stats-grid {
+            border: 2px solid rgba(251,146,60,.88) !important;
+            box-shadow: inset 0 0 12px rgba(251,146,60,.18), 0 0 8px rgba(249,115,22,.24) !important;
+        }
+        .member-card.decor-petir-neon .stats-grid,
+        .card-box.decor-petir-neon .stats-grid {
+            border: 2px solid rgba(103,232,249,.9) !important;
+            box-shadow: inset 0 0 12px rgba(34,211,238,.18), 0 0 8px rgba(34,211,238,.25) !important;
+        }
+        .member-card.decor-emerald-venom .stats-grid,
+        .card-box.decor-emerald-venom .stats-grid {
+            border: 2px solid rgba(110,231,183,.9) !important;
+            box-shadow: inset 0 0 12px rgba(52,211,153,.18), 0 0 8px rgba(52,211,153,.24) !important;
+        }
+        .member-card.decor-debu-kosmik .stats-grid,
+        .card-box.decor-debu-kosmik .stats-grid {
+            border: 2px solid rgba(196,181,253,.9) !important;
+            box-shadow: inset 0 0 12px rgba(167,139,250,.2), 0 0 8px rgba(167,139,250,.25) !important;
+        }
+
+</style>
 </head>
 <body>
 
@@ -1292,6 +1900,7 @@
                         <select id="adminShopTipe" onchange="updateShopPresetOptions()">
                             <option value="Hiasan Nama">Hiasan Nama</option>
                             <option value="Hiasan Profil">Hiasan Profil</option>
+                            <option value="Hiasan Detail Profil">Hiasan Detail Profil</option>
                             <option value="VIP">VIP Status</option>
                             <option value="VIP Plus">VIP Plus Status</option>
                             <option value="Gelar">Gelar</option>
@@ -1442,7 +2051,7 @@
     </div>
 
     <script>
-        const firebaseConfig = {
+      const firebaseConfig = {
             apiKey: "AIzaSyAeIVCyEF705xX7WY8tuOmM4ngTVneThNA",
             authDomain: "absen-rm.firebaseapp.com",
             projectId: "absen-rm",
@@ -1485,7 +2094,7 @@
                 presenceMemberKey = memberKey;
             } else {
                 statusRef.onDisconnect().cancel();
-                statusRef.set(false);
+               statusRef.set(false);
                 if (presenceMemberKey === memberKey) presenceMemberKey = null;
             }
         }
@@ -1502,7 +2111,12 @@
             'spesial_ungu': 'Ungu Shiny',
             'limited_shiny': 'Limited Shiny',
             'vip_gold': 'Emas VIP (Shiny Gold)',
-            'vip_plus_gold': 'Emas VIP Plus (Ultra Shiny Gold)'
+            'vip_plus_gold': 'Emas VIP Plus (Ultra Shiny Gold)',
+            'rose_shiny': 'Mawar Pink Shiny',
+            'cyan_shiny': 'Biru Cyan Shiny',
+            'orange_shiny': 'Jingga Api Shiny',
+            'silver_shiny': 'Perak Kristal Shiny',
+            'rainbow_shiny': 'Pelangi Prisma Shiny'
         };
 
         const hiasanProfilMap = {
@@ -1512,7 +2126,30 @@
             'hijau_ornamen': 'Hiasan Profil Hijau Ornamen',
             'vip_plus_gold': 'Hiasan Profil VIP Plus Gold Shiny',
             'crystal_ungu': 'Hiasan Profil Crystal Ungu',
-            'aurora_cerah': 'Hiasan Profil Langit Malam'
+            'aurora_cerah': 'Hiasan Profil Langit Malam',
+            'sakura_bersemi': 'Hiasan Profil Sakura Bersemi',
+            'api_naga': 'Hiasan Profil Api Naga',
+            'petir_neon': 'Hiasan Profil Petir Neon',
+            'emerald_venom': 'Hiasan Profil Racun Emerald',
+            'debu_kosmik': 'Hiasan Profil Debu Kosmik'
+        };
+        const hiasanDetailProfilMap = {
+            'vip_plus_gold': 'Hiasan Detail Profil VIP Plus',
+            'detail_aurora': 'Aurora Menari',
+            'detail_circuit': 'Cyber Circuit',
+            'detail_ocean': 'Gelombang Samudra',
+            'detail_prism': 'Prisma Pelangi',
+            'detail_galaxy': 'Galaksi Bintang'
+        };
+        const hiasanNamaClassMap = {
+            'rose_shiny':'name-rose-shiny','cyan_shiny':'name-cyan-shiny',
+            'orange_shiny':'name-orange-shiny','silver_shiny':'name-silver-shiny',
+            'rainbow_shiny':'name-rainbow-shiny'
+        };
+        const hiasanDetailClassMap = {
+            'vip_plus_gold':'profile-detail-vip-plus-card','detail_aurora':'profile-detail-aurora',
+            'detail_circuit':'profile-detail-circuit','detail_ocean':'profile-detail-ocean',
+            'detail_prism':'profile-detail-prism','detail_galaxy':'profile-detail-galaxy'
         };
 
         // PEMETAAN EMOJI KHUSUS UNTUK MASA AKTIF ITEM
@@ -1569,10 +2206,30 @@
                     return 'duration-diamond-shiny';
                 case 'kuning_border_ijo':
                     return 'duration-yellow-shiny';
+                case 'rose_shiny':
+                    return 'duration-rose-shiny';
+                case 'cyan_shiny':
+                    return 'duration-cyan-shiny';
+                case 'orange_shiny':
+                    return 'duration-orange-shiny';
+                case 'silver_shiny':
+                    return 'duration-silver-shiny';
+                case 'rainbow_shiny':
+                    return 'duration-rainbow-shiny';
                 case 'hitam_ornamen':
                     return 'duration-diamond-shiny';
                 case 'hijau_ornamen':
                     return 'duration-green-shiny';
+                case 'detail_aurora':
+                    return 'duration-detail-aurora';
+                case 'detail_circuit':
+                    return 'duration-detail-circuit';
+                case 'detail_ocean':
+                    return 'duration-detail-ocean';
+                case 'detail_prism':
+                    return 'duration-detail-prism';
+                case 'detail_galaxy':
+                    return 'duration-detail-galaxy';
                 default:
                     return 'duration-gold-shiny';
             }
@@ -1882,7 +2539,7 @@
             newRef.set({
                 nama: name.trim(),
                 pin: "1234",
-            rank: "Warrior",
+                rank: "Warrior",
                 bintang: 0,
                 diamond: 0,
                 level: 1,
@@ -2163,6 +2820,16 @@
                     decorClass += " decor-crystal-ungu";
                 } else if (item.hiasanProfil === 'aurora_cerah') {
                     decorClass += " decor-aurora-cerah";
+                } else if (item.hiasanProfil === 'sakura_bersemi') {
+                    decorClass += " decor-sakura-bersemi";
+                } else if (item.hiasanProfil === 'api_naga') {
+                    decorClass += " decor-api-naga";
+                } else if (item.hiasanProfil === 'petir_neon') {
+                    decorClass += " decor-petir-neon";
+                } else if (item.hiasanProfil === 'emerald_venom') {
+                    decorClass += " decor-emerald-venom";
+                } else if (item.hiasanProfil === 'debu_kosmik') {
+                    decorClass += " decor-debu-kosmik";
                 }
 
                 let nameClass = "member-name";
@@ -2178,6 +2845,9 @@
                     nameClass = "member-name name-red-shiny";
                 } else if (String(item.hiasanNama || '').trim() === 'terpilih') {
                     nameClass = "member-name name-diamond-shiny";
+                }
+                else if (hiasanNamaClassMap[String(item.hiasanNama || '').trim()]) {
+                    nameClass = "member-name " + hiasanNamaClassMap[String(item.hiasanNama || '').trim()];
                 }
                 
                 let isGelarVipPlus = (item.gelar && item.gelar.toLowerCase().includes('vip plus'));
@@ -2207,6 +2877,7 @@
                         let itemName = itemId;
                         if (hiasanNamaMap[itemId]) itemName = hiasanNamaMap[itemId];
                         else if (hiasanProfilMap[itemId]) itemName = hiasanProfilMap[itemId];
+                        else if (hiasanDetailProfilMap[itemId]) itemName = hiasanDetailProfilMap[itemId];
 
                         const emoji = getItemDurationEmoji(itemId);
                         const shinyClass = getItemDurationShinyClass(itemId);
@@ -2238,7 +2909,7 @@
         }
 
         // BUKA DETAIL PROFIL MODAL DENGAN MASA AKTIF SHINY DAN EMOJI VARIATIF
-                  function openProfileDetailModal(key) {
+          function openProfileDetailModal(key) {
             const member = globalMembersData[key];
             if (!member) return;
 
@@ -2258,6 +2929,9 @@
                 nameClass = "member-name name-red-shiny";
             } else if (member.hiasanNama === 'terpilih') {
                 nameClass = "member-name name-diamond-shiny";
+            }
+            else if (hiasanNamaClassMap[member.hiasanNama]) {
+                nameClass = "member-name " + hiasanNamaClassMap[member.hiasanNama];
             }
 
             let hiasanNamaText = 'Default';
@@ -2293,6 +2967,7 @@
                         let itemName = itemId;
                         if (hiasanNamaMap[itemId]) itemName = hiasanNamaMap[itemId];
                         else if (hiasanProfilMap[itemId]) itemName = hiasanProfilMap[itemId];
+                        else if (hiasanDetailProfilMap[itemId]) itemName = hiasanDetailProfilMap[itemId];
 
                         const emoji = getItemDurationEmoji(itemId);
                         const shinyClass = getItemDurationShinyClass(itemId);
@@ -2318,9 +2993,16 @@
                 ? '<div style="margin-top: 8px; font-size: 0.88rem; font-weight: 700; color: #16a34a;">🟢 Online</div>'
                 : '<div style="margin-top: 8px; font-size: 0.88rem; font-weight: 700; color: #64748b;">⚫ Offline</div>';
 
-            const useVipPlusDetail = member.hiasanDetailProfil === 'vip_plus_gold' && hasActiveVipPlus(member);
-            const detailCardStart = useVipPlusDetail ? '<div class="profile-detail-vip-plus-card">' : '';
-            const detailCardEnd = useVipPlusDetail ? '</div>' : '';
+            const activeDetailId = member.hiasanDetailProfil || 'default';
+            let hiasanDetailText = 'Default (Putih)';
+            if (activeDetailId !== 'default' && hiasanDetailProfilMap[activeDetailId]) {
+                hiasanDetailText = hiasanDetailProfilMap[activeDetailId];
+            } else if (activeDetailId !== 'default') {
+                hiasanDetailText = activeDetailId;
+            }
+            const detailClass = activeDetailId === 'vip_plus_gold' && !hasActiveVipPlus(member) ? '' : (hiasanDetailClassMap[activeDetailId] || '');
+            const detailCardStart = detailClass ? `<div class="${detailClass}">` : '';
+            const detailCardEnd = detailClass ? '</div>' : '';
 
             content.innerHTML = `
                 ${detailCardStart}
@@ -2351,6 +3033,7 @@
                     <div style="font-size: 0.82rem; color: #475569; display: flex; flex-direction: column; gap: 4px;">
                         <div>✨ Hiasan Nama: <strong>${escapeHTML(hiasanNamaText)}</strong></div>
                         <div>🖼️ Hiasan Profil: <strong>${escapeHTML(hiasanProfilText)}</strong></div>
+                        <div>🎨 Hiasan Detail Profil: <strong>${escapeHTML(hiasanDetailText)}</strong></div>
                     </div>
                 </div>
 
@@ -2406,9 +3089,16 @@
             document.getElementById('editSelfNama').value = member.nama || '';
             const hiasanDetailProfilSelect = document.getElementById('editSelfHiasanDetailProfilSelect');
             if (hiasanDetailProfilSelect) {
-                hiasanDetailProfilSelect.value = member.hiasanDetailProfil === 'vip_plus_gold' ? 'vip_plus_gold' : 'default';
-                const vipPlusDetailOption = hiasanDetailProfilSelect.querySelector('option[value=\"vip_plus_gold\"]');
-                if (vipPlusDetailOption) vipPlusDetailOption.disabled = !hasActiveVipPlus(member);
+                hiasanDetailProfilSelect.innerHTML = '<option value="default">Default (Putih)</option>';
+                const unlockedDetail = [...new Set(getItemArray(member.unlockedHiasanDetailProfil).filter(id => isItemAvailable(member, id)))];
+                unlockedDetail.forEach(id => {
+                    const opt = document.createElement('option');
+                    opt.value = id;
+                    opt.textContent = hiasanDetailProfilMap[id] || id;
+                    if (id === 'vip_plus_gold' && !hasActiveVipPlus(member)) opt.disabled = true;
+                    hiasanDetailProfilSelect.appendChild(opt);
+                });
+                hiasanDetailProfilSelect.value = unlockedDetail.includes(member.hiasanDetailProfil) ? member.hiasanDetailProfil : 'default';
             }
             document.getElementById('editSelfBio').value = member.bio || '';
             document.getElementById('editSelfGameKesukaan').value = member.gameKesukaan || '';
@@ -2469,6 +3159,17 @@
                         const name = hiasanProfilMap[id] || id;
                         const count = hiasanProfilCounts[id];
                         html += `<div style="padding-left: 8px; color: #334155;">- "${escapeHTML(name)}" (${count}x)</div>`;
+                    });
+                }
+
+                // Hiasan Detail Profil
+                const hiasanDetailCounts = getItemCounts(getItemArray(member.unlockedHiasanDetailProfil).filter(id => isItemAvailable(member, id)));
+                const hiasanDetailKeys = Object.keys(hiasanDetailCounts);
+                if (hiasanDetailKeys.length > 0) {
+                    html += `<div style="font-weight: 700; color: #0f172a; margin-top: 8px; margin-bottom: 2px;">• Hiasan Detail Profil</div>`;
+                    hiasanDetailKeys.forEach(id => {
+                        const name = hiasanDetailProfilMap[id] || id;
+                        html += `<div style="padding-left: 8px; color: #334155;">- "${escapeHTML(name)}" (${hiasanDetailCounts[id]}x)</div>`;
                     });
                 }
 
@@ -2557,7 +3258,7 @@
             if ((newHiasanNama !== 'default' && !isItemAvailable(currentMember, newHiasanNama)) ||
                 (newHiasanProfil !== 'default' && !isItemAvailable(currentMember, newHiasanProfil)) ||
                 (newGelar !== '-' && !isItemAvailable(currentMember, newGelar)) ||
-                (newHiasanDetailProfil === 'vip_plus_gold' && !isItemAvailable(currentMember, 'vip_plus_gold'))) {
+                (newHiasanDetailProfil !== 'default' && (!isItemAvailable(currentMember, newHiasanDetailProfil) || !getItemArray(currentMember.unlockedHiasanDetailProfil).includes(newHiasanDetailProfil)))) {
                 alert('Masa aktif item sudah habis. Pilih item lain yang masih aktif atau permanen.');
                 updateMemberPersonalView(currentMember);
                 return;
@@ -2576,7 +3277,7 @@
             updates[`members/${activeLoggedInMemberKey}/gelar`] = newGelar;
             updates[`members/${activeLoggedInMemberKey}/hiasanNama`] = newHiasanNama;
             updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = newHiasanProfil;
-       updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = newHiasanDetailProfil;
+            updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = newHiasanDetailProfil;
 
             if (newPin) {
                 updates[`members/${activeLoggedInMemberKey}/pin`] = newPin;
@@ -2676,6 +3377,13 @@
                 unlockedP.push(item.preset);
                 updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
                 updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = item.preset;
+                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
+                else updates[`members/${activeLoggedInMemberKey}/itemExpiries/${item.preset}`] = null;
+            } else if (item.tipe === 'Hiasan Detail Profil') {
+                let unlockedD = getItemArray(member.unlockedHiasanDetailProfil);
+                unlockedD.push(item.preset);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanDetailProfil`] = unlockedD;
+                updates[`members/${activeLoggedInMemberKey}/hiasanDetailProfil`] = item.preset;
                 if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
                 else updates[`members/${activeLoggedInMemberKey}/itemExpiries/${item.preset}`] = null;
             } else if (item.tipe === 'Gelar') {
@@ -2913,7 +3621,7 @@
 
         function buyMarketplaceItem(marketKey) {
             if (!activeLoggedInMemberKey) {
-                alert("Silakan login terlebih dahulu di tab Personalisasi sebelum membeli di marketplace!");
+            alert("Silakan login terlebih dahulu di tab Personalisasi sebelum membeli di marketplace!");
                 switchTab('personal');
                 return;
             }
@@ -2963,7 +3671,7 @@
         }
 
         // RENDER CHAT
-                function renderChats() {
+        function renderChats() {
             const chatList = document.getElementById('chat-list');
             if (!chatList) return;
             chatList.innerHTML = '';
@@ -2990,6 +3698,16 @@
                     decorClass += " decor-crystal-ungu";
                 } else if (chat.hiasanProfil === 'aurora_cerah') {
                     decorClass += " decor-aurora-cerah";
+                } else if (chat.hiasanProfil === 'sakura_bersemi') {
+                    decorClass += " decor-sakura-bersemi";
+                } else if (chat.hiasanProfil === 'api_naga') {
+                    decorClass += " decor-api-naga";
+                } else if (chat.hiasanProfil === 'petir_neon') {
+                    decorClass += " decor-petir-neon";
+                } else if (chat.hiasanProfil === 'emerald_venom') {
+                    decorClass += " decor-emerald-venom";
+                } else if (chat.hiasanProfil === 'debu_kosmik') {
+                    decorClass += " decor-debu-kosmik";
                 }
 
                 const chatCard = document.createElement('div');
@@ -3005,6 +3723,7 @@
                 else if (chat.hiasanNama === 'spesial_ungu') nameClass = "member-name name-purple-shiny";
                 else if (chat.hiasanNama === 'keberuntungan') nameClass = "member-name name-red-shiny";
                 else if (chat.hiasanNama === 'terpilih') nameClass = "member-name name-diamond-shiny";
+                else if (hiasanNamaClassMap[chat.hiasanNama]) nameClass = "member-name " + hiasanNamaClassMap[chat.hiasanNama];
 
                 let isGelarVipPlus = (chat.gelar && chat.gelar.toLowerCase().includes('vip plus'));
                 let isGelarVip = (chat.gelar && chat.gelar.toLowerCase().includes('vip'));
@@ -3089,18 +3808,14 @@
 
         // ARCADE & LUCKY WHEEL
         const wheelPrizes = [
-            { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 3, color: '#ef4444', type: 'hiasan_nama' },
-            { id: 'crystal_ungu', name: 'Hiasan Crystal Ungu', label: 'Crystal Ungu', chance: 2, color: '#38bdf8', type: 'hiasan_profil' },
-            { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 3, color: '#a855f7', type: 'hiasan_nama' },
-            { id: 'star_2', name: 'Dapat 2 Star', label: '+2 Star', chance: 15, color: '#f59e0b', type: 'star', val: 2 },
-            { id: 'star_5', name: 'Dapat 5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
-            { id: 'dm_100', name: 'Super Zonk! -100 Diamond', label: '-100 Diamond', chance: 1, color: '#6366f1', type: 'diamond', val: -100 },
-            { id: 'dm_50', name: 'Zonk! -50 Diamond', label: '-50 Diamond', chance: 10, color: '#10b981', type: 'diamond', val: -50 },
-            { id: 'dm_20', name: 'Hadiah 20 Diamond', label: '+20 Diamond', chance: 15, color: '#06b6d4', type: 'diamond', val: 20 },
-            { id: 'star_10', name: 'Hadiah 10 Star', label: '+10 Star', chance: 2, color: '#3b82f6', type: 'diamond', val: 10 },
-            { id: 'dm_100', name: 'Hadiah 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 },
-            { id: 'dm_250', name: 'Hadiah 250 Diamond', label: '+250 Diamond', chance: 3, color: '#22c55e', type: 'diamond', val: 250 },
-            { id: 'dm_500', name: 'Hadiah 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 }
+            { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan_nama' },
+            { id: 'terpilih', name: 'Hiasan Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan_nama' },
+            { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 5, color: '#a855f7', type: 'hiasan_nama' },
+            { id: 'star_2', name: '+2 Star', label: '+2 Star', chance: 20, color: '#f59e0b', type: 'star', val: 2 },
+            { id: 'star_5', name: '+5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
+            { id: 'dm_20', name: 'Bonus 20 Diamond', label: '+20 Diamond', chance: 35, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'dm_50', name: 'Bonus 50 Diamond', label: '+50 Diamond', chance: 15, color: '#3b82f6', type: 'diamond', val: 50 },
+            { id: 'dm_100', name: 'Bonus 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 }
         ];
 
          let isSpinning = false;
@@ -3261,7 +3976,12 @@
                     { val: 'limited_shiny', label: 'Limited Shiny' },
                     { val: 'spesial_ungu', label: 'Ungu Shiny' },
                     { val: 'keberuntungan', label: 'Keberuntungan' },
-                    { val: 'terpilih', label: 'Terpilih' }
+                    { val: 'terpilih', label: 'Terpilih' },
+                    { val: 'rose_shiny', label: 'Mawar Pink Shiny' },
+                    { val: 'cyan_shiny', label: 'Biru Cyan Shiny' },
+                    { val: 'orange_shiny', label: 'Jingga Api Shiny' },
+                    { val: 'silver_shiny', label: 'Perak Kristal Shiny' },
+                    { val: 'rainbow_shiny', label: 'Pelangi Prisma Shiny' }
                 ];
                 opts.forEach(o => {
                     const opt = document.createElement('option');
@@ -3277,7 +3997,26 @@
                     { val: 'hijau_ornamen', label: 'Hiasan Profil Hijau Ornamen' },
                     { val: 'vip_plus_gold', label: 'Hiasan Profil VIP Plus Gold Shiny' },
                     { val: 'crystal_ungu', label: 'Hiasan Profil Crystal Ungu' },
-                    { val: 'aurora_cerah', label: 'Hiasan Profil Langit Malam' }
+                    { val: 'aurora_cerah', label: 'Hiasan Profil Langit Malam' },
+                    { val: 'sakura_bersemi', label: 'Hiasan Profil Sakura Bersemi' },
+                    { val: 'api_naga', label: 'Hiasan Profil Api Naga' },
+                    { val: 'petir_neon', label: 'Hiasan Profil Petir Neon' },
+                    { val: 'emerald_venom', label: 'Hiasan Profil Racun Emerald' },
+                    { val: 'debu_kosmik', label: 'Hiasan Profil Debu Kosmik' }
+                ];
+                opts.forEach(o => {
+                    const opt = document.createElement('option');
+                    opt.value = o.val; opt.textContent = o.label;
+                    presetSelect.appendChild(opt);
+                });
+            } else if (tipe === 'Hiasan Detail Profil') {
+                gelarContainer.style.display = 'none';
+                const opts = [
+                    { val: 'detail_aurora', label: 'Aurora Menari' },
+                    { val: 'detail_circuit', label: 'Cyber Circuit' },
+                    { val: 'detail_ocean', label: 'Gelombang Samudra' },
+                    { val: 'detail_prism', label: 'Prisma Pelangi' },
+                    { val: 'detail_galaxy', label: 'Galaksi Bintang' }
                 ];
                 opts.forEach(o => {
                     const opt = document.createElement('option');
@@ -3399,6 +4138,28 @@
             arcadeRef.push({ judul, deskripsi, link, createdAt: Date.now() });
         }
 
+
+        function openArcadeSite(judul, link) {
+            const destination = String(link || '').trim();
+            if (!destination) {
+                showResultPopup('Link website Arcade belum tersedia.');
+                return;
+            }
+            let parsedUrl;
+            try {
+                parsedUrl = new URL(destination, window.location.href);
+            } catch (error) {
+                showResultPopup('Link website Arcade tidak valid.');
+                return;
+            }
+            if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+                showResultPopup('Link website Arcade tidak valid.');
+                return;
+            }
+            const confirmed = window.confirm(`Yakin, ingin pergi ke ${String(judul || 'website ini')} dan menutup Profil Ruang Mabar?`);
+            if (confirmed) window.location.href = parsedUrl.href;
+        }
+
         function renderArcadeLinks() {
             const list = document.getElementById('arcade-link-list');
             if (!list) return;
@@ -3414,11 +4175,20 @@
                 const card = document.createElement('div');
                 card.className = 'arcade-card';
                 card.style.marginTop = '12px';
+                card.setAttribute('role', 'link');
+                card.setAttribute('tabindex', '0');
                 card.innerHTML = `
                     <h3 style="font-size:1.05rem; margin-bottom:5px;">${escapeHTML(item.judul || 'Arcade')}</h3>
                     ${item.deskripsi ? `<p style="font-size:.8rem; opacity:.9; margin-bottom:8px;">${escapeHTML(item.deskripsi)}</p>` : ''}
-                    <a href="${escapeHTML(item.link || '#')}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" style="display:inline-block;">Buka</a>
+                    <span style="display:inline-block; text-decoration:underline; font-size:.88rem;">Buka website ↗</span>
                 `;
+                card.addEventListener('click', () => openArcadeSite(item.judul || 'Arcade', item.link || ''));
+                card.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        openArcadeSite(item.judul || 'Arcade', item.link || '');
+                    }
+                });
                 list.appendChild(card);
             });
         }
@@ -3530,3 +4300,4 @@
     </script>
 </body>
 </html>
+            
