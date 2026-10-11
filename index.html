@@ -3808,14 +3808,19 @@
 
         // ARCADE & LUCKY WHEEL
         const wheelPrizes = [
-            { id: 'keberuntungan', name: 'Hiasan Keberuntungan', label: 'Keberuntungan', chance: 5, color: '#ef4444', type: 'hiasan_nama' },
-            { id: 'terpilih', name: 'Hiasan Terpilih', label: 'Terpilih', chance: 10, color: '#38bdf8', type: 'hiasan_nama' },
-            { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 5, color: '#a855f7', type: 'hiasan_nama' },
-            { id: 'star_2', name: '+2 Star', label: '+2 Star', chance: 20, color: '#f59e0b', type: 'star', val: 2 },
-            { id: 'star_5', name: '+5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
-            { id: 'dm_20', name: 'Bonus 20 Diamond', label: '+20 Diamond', chance: 35, color: '#06b6d4', type: 'diamond', val: 20 },
-            { id: 'dm_50', name: 'Bonus 50 Diamond', label: '+50 Diamond', chance: 15, color: '#3b82f6', type: 'diamond', val: 50 },
-            { id: 'dm_100', name: 'Bonus 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 }
+            { id: 'silver_shiny', name: 'Hiasan Perak', label: 'Perak', chance: 3, color: '#ef4444', type: 'hiasan_nama' },
+            { id: 'debu_kosmik', name: 'Hiasan Debu Kosmik', label: 'Debu Kosmik', chance: 2, color: '#38bdf8', type: 'hiasan_profil' },
+            { id: 'api_naga', name: 'Hiasan Api Naga', label: 'Berapi', chance: 2, color: '#14b8a6', type: 'hiasan_profil' },
+            { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 3, color: '#a855f7', type: 'hiasan_nama' },
+            { id: 'star_2', name: 'Dapat 2 Star', label: '+2 Star', chance: 15, color: '#f59e0b', type: 'star', val: 2 },
+            { id: 'star_5', name: 'Dapat 5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
+            { id: 'dm_100', name: 'Super Zonk! -100 Diamond', label: '-100 Diamond', chance: 1, color: '#6366f1', type: 'diamond', val: -100 },
+            { id: 'dm_50', name: 'Zonk! -50 Diamond', label: '-50 Diamond', chance: 10, color: '#10b981', type: 'diamond', val: -50 },
+            { id: 'dm_20', name: 'Hadiah 20 Diamond', label: '+20 Diamond', chance: 15, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'star_10', name: 'Hadiah 10 Star', label: '+10 Star', chance: 2, color: '#3b82f6', type: 'diamond', val: 10 },
+            { id: 'dm_100', name: 'Hadiah 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 },
+            { id: 'dm_250', name: 'Hadiah 250 Diamond', label: '+250 Diamond', chance: 3, color: '#22c55e', type: 'diamond', val: 250 },
+            { id: 'dm_500', name: 'Hadiah 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 }
         ];
 
          let isSpinning = false;
