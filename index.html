@@ -432,7 +432,7 @@
         .profile-detail-circuit::before { content:' '; position:absolute; inset:0; pointer-events:none; background:linear-gradient(90deg,transparent 48%,rgba(56,189,248,.25) 49%,transparent 51%),linear-gradient(0deg,transparent 48%,rgba(96,165,250,.18) 49%,transparent 51%); background-size:28px 28px; }
         .profile-detail-ocean { position:relative; overflow:hidden; background:linear-gradient(160deg,#082f49,#0369a1,#0e7490); color:#ecfeff; border-top:4px solid #67e8f9; border-bottom:4px solid #155e75; box-shadow:inset 0 0 25px rgba(103,232,249,.2); }
         .profile-detail-ocean::before { content:'〰 〜 〰 〜 〰'; position:absolute; left:0; right:0; bottom:8px; font-size:2rem; letter-spacing:8px; color:rgba(207,250,254,.2); white-space:nowrap; pointer-events:none; }
-                .profile-detail-prism { position:relative; overflow:hidden; background:linear-gradient(125deg,#fff7ed,#fbcfe8,#ddd6fe,#bfdbfe,#ccfbf1,#fff7ed); color:#312e81; border:3px solid #fff !important; box-shadow:inset 0 0 0 2px rgba(129,140,248,.55),0 0 18px rgba(196,181,253,.35); }
+        .profile-detail-prism { position:relative; overflow:hidden; background:linear-gradient(125deg,#fff7ed,#fbcfe8,#ddd6fe,#bfdbfe,#ccfbf1,#fff7ed); color:#312e81; border:3px solid #fff !important; box-shadow:inset 0 0 0 2px rgba(129,140,248,.55),0 0 18px rgba(196,181,253,.35); }
         .profile-detail-prism::before { content:' '; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(135deg,transparent 0 30px,rgba(255,255,255,.75) 31px 33px,transparent 35px 62px); }
         .profile-detail-galaxy { position:relative; overflow:hidden; background:radial-gradient(circle at 18% 20%,#7c3aed 0 2px,transparent 3px),radial-gradient(circle at 78% 65%,#67e8f9 0 2px,transparent 3px),radial-gradient(circle at 60% 18%,#fff 0 1px,transparent 2px),linear-gradient(135deg,#020617,#312e81 55%,#581c87); color:#f5f3ff; border-top:3px solid #c4b5fd; border-bottom:3px solid #818cf8; box-shadow:inset 0 0 28px rgba(167,139,250,.25); }
         .profile-detail-aurora > *, .profile-detail-circuit > *, .profile-detail-ocean > *, .profile-detail-prism > *, .profile-detail-galaxy > * { position:relative; z-index:1; }
@@ -1132,7 +1132,7 @@
         .profile-detail-galaxy::before { content: none !important; display:none !important; animation:none !important; }
         .profile-detail-galaxy::after { animation: detailGalaxyStars 3.6s ease-in-out infinite !important; }
         @keyframes galaxySoftGlow {
-            0%,100% { box-shadow: inset 0 0 25px rgba(167,139,250,.25), 0 0 10px rgba(124,58,237,.25); }
+                        0%,100% { box-shadow: inset 0 0 25px rgba(167,139,250,.25), 0 0 10px rgba(124,58,237,.25); }
             50% { box-shadow: inset 0 0 34px rgba(167,139,250,.4), 0 0 22px rgba(139,92,246,.48), 0 0 30px rgba(45,212,191,.14); }
         }
 
@@ -1241,18 +1241,19 @@
             height: auto !important;
             padding: 7px 10px !important;
             text-align: right !important;
-            background: linear-gradient(112deg, transparent 0%, transparent 35%,
-                rgba(255,255,255,.05) 42%, rgba(255,255,255,.32) 49%,
-                rgba(255,255,255,.07) 55%, transparent 63%, transparent 100%);
-            background-size: 240% 100%;
-            animation: premiumDecorationShine 4.2s ease-in-out infinite !important;
+            background: linear-gradient(112deg, transparent 0%, transparent 30%,
+                rgba(255,255,255,.04) 39%, rgba(255,255,255,.12) 48%,
+                rgba(255,255,255,.05) 53%, transparent 63%, transparent 100%) !important;
+            background-size: 240% 100% !important;
+            animation: premiumDecorationShine 5s linear infinite !important;
             pointer-events: none !important;
         }
-        .decor-sakura-bersemi::before { color:#be185d; text-shadow:0 0 8px #fff,0 0 15px #f472b6,0 0 24px #ec4899 !important; }
-        .decor-api-naga::before { color:#ffedd5; text-shadow:0 0 8px #fb923c,0 0 16px #f97316,0 0 24px #ef4444 !important; }
-        .decor-petir-neon::before { color:#ecfeff; text-shadow:0 0 8px #fff,0 0 16px #22d3ee,0 0 26px #3b82f6 !important; }
-        .decor-emerald-venom::before { color:#d1fae5; text-shadow:0 0 8px #a7f3d0,0 0 17px #34d399,0 0 25px #10b981 !important; }
-        .decor-debu-kosmik::before { color:#f5f3ff; text-shadow:0 0 8px #fff,0 0 16px #a78bfa,0 0 26px #7c3aed !important; }
+        /* Kilau pojok kanan bawah mengikuti warna tiap hiasan, bukan putih menyilaukan. */
+        .decor-sakura-bersemi::before { background-image:linear-gradient(112deg,transparent 0%,transparent 30%,rgba(244,114,182,.10) 39%,rgba(236,72,153,.42) 48%,rgba(251,207,232,.14) 53%,transparent 63%,transparent 100%) !important; color:#be185d; text-shadow:0 0 8px #fff,0 0 15px #f472b6,0 0 24px #ec4899 !important; }
+        .decor-api-naga::before { background-image:linear-gradient(112deg,transparent 0%,transparent 30%,rgba(251,146,60,.12) 39%,rgba(249,115,22,.48) 48%,rgba(253,186,116,.16) 53%,transparent 63%,transparent 100%) !important; color:#ffedd5; text-shadow:0 0 8px #fb923c,0 0 16px #f97316,0 0 24px #ef4444 !important; }
+        .decor-petir-neon::before { background-image:linear-gradient(112deg,transparent 0%,transparent 30%,rgba(34,211,238,.12) 39%,rgba(14,165,233,.48) 48%,rgba(96,165,250,.16) 53%,transparent 63%,transparent 100%) !important; color:#ecfeff; text-shadow:0 0 8px #fff,0 0 16px #22d3ee,0 0 26px #3b82f6 !important; }
+        .decor-emerald-venom::before { background-image:linear-gradient(112deg,transparent 0%,transparent 30%,rgba(52,211,153,.12) 39%,rgba(16,185,129,.48) 48%,rgba(110,231,183,.16) 53%,transparent 63%,transparent 100%) !important; color:#d1fae5; text-shadow:0 0 8px #a7f3d0,0 0 17px #34d399,0 0 25px #10b981 !important; }
+        .decor-debu-kosmik::before { background-image:linear-gradient(112deg,transparent 0%,transparent 30%,rgba(167,139,250,.12) 39%,rgba(124,58,237,.48) 48%,rgba(196,181,253,.16) 53%,transparent 63%,transparent 100%) !important; color:#f5f3ff; text-shadow:0 0 8px #fff,0 0 16px #a78bfa,0 0 26px #7c3aed !important; }
 
         /* Partikel tambahan, tetap berada di lapisan dekorasi di belakang teks. */
         .decor-sakura-bersemi::after {
@@ -1345,8 +1346,9 @@
             text-shadow:0 0 5px rgba(255,255,255,.28);
         }
         @keyframes premiumDecorationShine {
-            0%,12% { background-position:130% 0; }
-            72%,100% { background-position:-130% 0; }
+            0%,8% { background-position:-130% 0; }
+            82% { background-position:130% 0; }
+            100% { background-position:130% 0; }
         }
         @keyframes sakuraPremiumGlow {
             0%,100% { box-shadow:0 0 10px rgba(244,114,182,.38),0 0 18px rgba(236,72,153,.2),inset 0 0 16px rgba(255,255,255,.7); }
@@ -1366,19 +1368,7 @@
         }
 
     
-        /* PATCH: kilau berjalan mulus tanpa jeda di tengah loop */
-        .decor-sakura-bersemi::before,
-        .decor-api-naga::before,
-        .decor-petir-neon::before,
-        .decor-emerald-venom::before,
-        .decor-debu-kosmik::before {
-            background-size: 220% 100% !important;
-            animation: premiumDecorationShineSmooth 3.8s linear infinite !important;
-        }
-        @keyframes premiumDecorationShineSmooth {
-            0% { background-position: 220% 0; }
-            100% { background-position: -220% 0; }
-        }
+        /* Shiny memakai pseudo-element motif yang sudah ada agar motif tidak hilang. */
 
         /* Tiap hiasan punya motif khas, bukan cuma beda warna */
         .member-card.decor-sakura-bersemi,
@@ -1504,6 +1494,157 @@
             box-shadow: inset 0 0 12px rgba(167,139,250,.2), 0 0 8px rgba(167,139,250,.25) !important;
         }
 
+
+        /* Shiny bergerak diagonal dari pojok kiri atas ke pojok kanan bawah. */
+        .rm-decoration-shine {
+            position:absolute !important; inset:0 !important;
+            width:100% !important; height:100% !important; z-index:2 !important;
+            display:block; pointer-events:none; overflow:hidden; border-radius:inherit;
+            background:linear-gradient(135deg,transparent 0%,transparent 38%,rgba(255,255,255,.12) 44%,rgba(255,255,255,.42) 49%,rgba(255,255,255,.18) 53%,transparent 60%,transparent 100%);
+            background-size:260% 260%; background-position:0% 0%;
+            animation:rmDecorationShineSweep 3.5s linear infinite;
+        }
+        .rm-decoration-particles {
+            position:absolute !important; inset:0 !important; z-index:2 !important;
+            display:block; pointer-events:none; overflow:hidden; border-radius:inherit;
+        }
+        .rm-decoration-particles span {
+            position:absolute; display:block; width:4px; height:4px; border-radius:50%;
+            background:var(--particle-color,#fff); box-shadow:0 0 6px 2px var(--particle-glow,rgba(255,255,255,.7));
+            opacity:.2; animation:rmDecorationParticleFloat var(--particle-speed,3.2s) ease-in-out infinite;
+            animation-delay:var(--particle-delay,0s); will-change:transform,opacity;
+        }
+        .rm-decoration-particles span:nth-child(3n) { width:3px;height:3px; }
+        .rm-decoration-particles span:nth-child(4n) { width:5px;height:5px; }
+        @keyframes rmDecorationShineSweep {
+            /* Arah sapuan dibalik agar terlihat dari kiri atas menuju kanan bawah. */
+            0%,10% { background-position:100% 100%; opacity:0; }
+            18% { opacity:.58; }
+            82% { background-position:0% 0%; opacity:.52; }
+            92%,100% { background-position:0% 0%; opacity:0; }
+        }
+        /* Hilangkan cahaya putih di pojok kanan bawah tanpa mengubah partikel lain. */
+        .rm-decoration-particles span[style*="left: 90%"] {
+            text-shadow:none !important;
+            box-shadow:none !important;
+            filter:none !important;
+            opacity:0 !important;
+        }
+        @keyframes rmDecorationParticleFloat {
+            0%,100% { transform:translate3d(0,5px,0) scale(.55); opacity:.18; }
+            45% { transform:translate3d(4px,-7px,0) scale(1.15); opacity:.95; }
+            70% { transform:translate3d(-3px,-11px,0) scale(.8); opacity:.52; }
+        }
+
+        /* Ornamen kanan bawah memakai warna tema tanpa cahaya/glow putih. */
+        .decor-sakura-bersemi::after,
+        .decor-api-naga::after,
+        .decor-petir-neon::after,
+        .decor-emerald-venom::after,
+        .decor-debu-kosmik::after {
+            left:auto !important; right:10px !important; bottom:8px !important;
+            width:auto !important; height:auto !important; font-size:18px !important;
+            line-height:1 !important; text-shadow:none !important; filter:none !important;
+            background:transparent !important; border:0 !important; box-shadow:none !important;
+            opacity:.92 !important; animation:none !important;
+        }
+        .decor-sakura-bersemi::after { content:'✿  ❀' !important; color:#ec4899 !important; }
+        .decor-api-naga::after { content:'♨  ◆' !important; color:#fdba74 !important; }
+        .decor-petir-neon::after { content:'ϟ  ✦' !important; color:#22d3ee !important; }
+        .decor-emerald-venom::after { content:'❖  ✧' !important; color:#34d399 !important; }
+        .decor-debu-kosmik::after { content:'✦  ✧' !important; color:#a78bfa !important; }
+
+
+        /* Quest layout: rapikan tab dan pisahkan setiap misi dalam card tersendiri. */
+        #tab-quest .quest-subtabs {
+            display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px;
+            margin:16px 0; padding:6px; background:#eef2f7; border:1px solid #dbe3ee;
+            border-radius:14px;
+        }
+        #tab-quest .quest-subtab {
+            min-width:0; border:1px solid transparent; border-radius:10px;
+            padding:11px 8px; background:transparent; color:#475569;
+            font-size:.88rem; font-weight:700; line-height:1.35; cursor:pointer;
+            transition:background .18s ease, color .18s ease, box-shadow .18s ease;
+        }
+        #tab-quest .quest-subtab.active {
+            background:#fff; color:#1d4ed8; border-color:#cbdcfb;
+            box-shadow:0 2px 7px rgba(15,23,42,.08);
+        }
+        #tab-quest .quest-panel { display:none; }
+        #tab-quest .quest-panel.active { display:flex; flex-direction:column; gap:12px; }
+        #tab-quest .quest-top-note {
+            padding:11px 13px; border:1px solid #dbeafe; border-left:4px solid #3b82f6;
+            border-radius:10px; background:#eff6ff; color:#334155; font-size:.86rem;
+            line-height:1.55; overflow-wrap:anywhere;
+        }
+        #tab-quest .quest-card {
+            display:flex; flex-direction:column; gap:12px; min-width:0;
+            padding:15px; background:#fff; border:1px solid #dbe3ee; border-radius:14px;
+            box-shadow:0 3px 10px rgba(15,23,42,.045); overflow:hidden;
+        }
+        #tab-quest .quest-card-head {
+            display:flex; align-items:flex-start; gap:12px; min-width:0;
+        }
+        #tab-quest .quest-card-icon {
+            display:flex; align-items:center; justify-content:center; flex:0 0 44px;
+            width:44px; height:44px; border-radius:12px; background:#eff6ff;
+            border:1px solid #dbeafe; font-size:1.35rem;
+        }
+        #tab-quest .quest-card-head h4 {
+            margin:1px 0 6px; color:#0f172a; font-size:1rem; font-weight:800;
+            line-height:1.4; overflow-wrap:anywhere;
+        }
+        #tab-quest .quest-card-head p {
+            margin:0; color:#475569; font-size:.9rem; line-height:1.55;
+            overflow-wrap:anywhere;
+        }
+        #tab-quest .quest-reward {
+            display:inline-flex; align-items:center; flex-wrap:wrap; gap:4px;
+            margin-top:9px; padding:6px 9px; border:1px solid #bbf7d0;
+            border-radius:8px; background:#f0fdf4; color:#166534;
+            font-size:.84rem; font-weight:750; line-height:1.4; overflow-wrap:anywhere;
+        }
+        #tab-quest .quest-progress {
+            height:8px; width:100%; overflow:hidden; border-radius:999px;
+            background:#e2e8f0; border:1px solid #e2e8f0;
+        }
+        #tab-quest .quest-progress span {
+            display:block; height:100%; border-radius:999px;
+            background:linear-gradient(90deg,#3b82f6,#6366f1); transition:width .25s ease;
+        }
+        #tab-quest .quest-card-foot {
+            display:flex; align-items:center; justify-content:space-between; gap:10px;
+            flex-wrap:wrap; padding-top:11px; border-top:1px solid #e2e8f0;
+        }
+        #tab-quest .quest-progress-label {
+            color:#64748b; font-size:.82rem; line-height:1.45; font-weight:600;
+            overflow-wrap:anywhere; flex:1 1 145px;
+        }
+        #tab-quest .quest-claim-btn {
+            flex:0 0 auto; max-width:100%; padding:9px 13px; border:0;
+            border-radius:9px; background:#2563eb; color:#fff; font-size:.84rem;
+            font-weight:750; line-height:1.35; cursor:pointer; white-space:normal;
+            transition:background .18s ease, opacity .18s ease;
+        }
+        #tab-quest .quest-claim-btn:not(:disabled):hover { background:#1d4ed8; }
+        #tab-quest .quest-claim-btn:disabled { background:#e2e8f0; color:#64748b; cursor:not-allowed; }
+        #tab-quest .quest-login-required {
+            padding:12px 14px; border:1px solid #fde68a; border-radius:10px;
+            background:#fffbeb; color:#92400e; font-size:.9rem; line-height:1.5;
+        }
+        @media (max-width:480px) {
+            #tab-quest .quest-subtabs { gap:5px; padding:4px; }
+            #tab-quest .quest-subtab { padding:9px 4px; font-size:.76rem; }
+            #tab-quest .quest-card { padding:12px; gap:10px; }
+            #tab-quest .quest-card-head { gap:9px; }
+            #tab-quest .quest-card-icon { flex-basis:38px; width:38px; height:38px; font-size:1.15rem; }
+            #tab-quest .quest-card-head h4 { font-size:.94rem; }
+            #tab-quest .quest-card-head p { font-size:.84rem; }
+            #tab-quest .quest-card-foot { align-items:stretch; }
+            #tab-quest .quest-claim-btn { width:100%; }
+        }
+
 </style>
 </head>
 <body>
@@ -1522,6 +1663,7 @@
             <button class="tab-btn" onclick="switchTab('event')">🎉 Event</button>
             <button class="tab-btn" onclick="switchTab('personal')">⚙️ Personalisasi</button>
             <button class="tab-btn" onclick="switchTab('arcade')">🕹 Arcade</button>
+            <button class="tab-btn" onclick="switchTab('quest')">🎯 Quest</button>
             <button class="tab-btn" onclick="switchTab('chat')">💬 Chat</button>
         </div>
 
@@ -1651,6 +1793,23 @@
                         Belum memiliki item apapun.
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- TAB QUEST -->
+        <div id="tab-quest" class="tab-content">
+            <div class="card-box">
+                <h3 style="color:#0f172a; margin-bottom:5px;">🎯 Quest Ruang Mabar</h3>
+                <p style="font-size:.82rem; color:#64748b;">Selesaikan misi, klaim hadiah, dan kumpulkan lebih banyak diamond serta star.</p>
+                <div class="quest-subtabs">
+                    <button class="quest-subtab active" onclick="switchQuestTab('daily',this)">🌞 Misi Harian</button>
+                    <button class="quest-subtab" onclick="switchQuestTab('weekly',this)">📅 Misi Mingguan</button>
+                    <button class="quest-subtab" onclick="switchQuestTab('special',this)">🏆 Misi Khusus</button>
+                </div>
+                <div id="quest-login-required" class="quest-login-required">Login di tab Personalisasi untuk melihat progres dan mengklaim hadiah Quest.</div>
+                <div id="quest-panel-daily" class="quest-panel active"></div>
+                <div id="quest-panel-weekly" class="quest-panel"></div>
+                <div id="quest-panel-special" class="quest-panel"></div>
             </div>
         </div>
 
@@ -2084,6 +2243,8 @@
         let globalArcadeData = {};
         let activeLoggedInMemberKey = null;
         let presenceMemberKey = null;
+        let lastKnownMemberStars = {};
+        let questTimeTicker = null;
 
         function setMemberOnlineStatus(memberKey, isOnline) {
             if (!memberKey) return;
@@ -2094,7 +2255,7 @@
                 presenceMemberKey = memberKey;
             } else {
                 statusRef.onDisconnect().cancel();
-               statusRef.set(false);
+                statusRef.set(false);
                 if (presenceMemberKey === memberKey) presenceMemberKey = null;
             }
         }
@@ -2392,7 +2553,12 @@
         }
 
         function stackItemDuration(updates, memberKey, member, itemId, addedDays) {
-            if (!addedDays || addedDays <= 0) return 0;
+            // Item permanen menghapus expiry lama, termasuk masa trial yang masih berjalan.
+            if (!addedDays || addedDays <= 0) {
+                updates[`members/${memberKey}/itemExpiries/${itemId}`] = null;
+                if (member.itemExpiries) delete member.itemExpiries[itemId];
+                return 0;
+            }
             const now = Date.now();
             const addedMs = addedDays * 86400000;
             const currentExp = (member.itemExpiries && Number(member.itemExpiries[itemId])) || 0;
@@ -2403,6 +2569,58 @@
             member.itemExpiries[itemId] = newExp;
             updates[`members/${memberKey}/itemExpiries/${itemId}`] = newExp;
             return newExp;
+        }
+
+        // Hapus item yang masa aktifnya sudah lewat dari inventory dan lepaskan jika sedang dipakai.
+        function cleanupExpiredItemsForMember(memberKey, member) {
+            if (!member || !member.itemExpiries) return;
+            const now = Date.now();
+            const updates = {};
+            const expiredIds = Object.keys(member.itemExpiries).filter(id => {
+                const exp = Number(member.itemExpiries[id] || 0);
+                return exp > 0 && exp <= now;
+            });
+            if (!expiredIds.length) return;
+
+            const categories = [
+                ['unlockedHiasan', 'hiasanNama', 'default'],
+                ['unlockedHiasanProfil', 'hiasanProfil', 'default'],
+                ['unlockedHiasanDetailProfil', 'hiasanDetailProfil', 'default'],
+                ['unlockedTitles', 'gelar', '-']
+            ];
+            expiredIds.forEach(id => {
+                categories.forEach(([field, equippedField, fallback]) => {
+                    const arr = getItemArray(member[field]);
+                    const filtered = arr.filter(item => item !== id);
+                    if (filtered.length !== arr.length) {
+                        updates[`members/${memberKey}/${field}`] = filtered;
+                        member[field] = filtered;
+                    }
+                    if (member[equippedField] === id) {
+                        updates[`members/${memberKey}/${equippedField}`] = fallback;
+                        member[equippedField] = fallback;
+                    }
+                });
+                updates[`members/${memberKey}/itemExpiries/${id}`] = null;
+                delete member.itemExpiries[id];
+                if (id === 'spesial_ungu') {
+                    updates[`members/${memberKey}/spesialUnguExpiresAt`] = null;
+                    if (member.spesialUnguExpiresAt) delete member.spesialUnguExpiresAt;
+                }
+            });
+
+            if (expiredIds.includes('vip_plus_gold')) {
+                updates[`members/${memberKey}/isVipPlus`] = false;
+                updates[`members/${memberKey}/isVip`] = false;
+                updates[`members/${memberKey}/boost`] = Math.max(1, Math.min(Number(member.boost || 1), 2));
+                if (member.gelar === 'VIP Plus Member') {
+                    updates[`members/${memberKey}/gelar`] = '-';
+                    member.gelar = '-';
+                }
+                member.isVipPlus = false;
+                member.isVip = false;
+            }
+            if (Object.keys(updates).length) database.ref().update(updates).catch(err => console.error('Gagal membersihkan item kedaluwarsa:', err));
         }
 
         // ABSEN ADMIN
@@ -2637,6 +2855,195 @@
             database.ref().update(updates);
         }
 
+        // QUEST SYSTEM: progres tersimpan di Firebase per member.
+        function questWibDate(ts = Date.now()) {
+            return new Date(ts + 7 * 60 * 60 * 1000).toISOString().slice(0, 10);
+        }
+        function questWeekStart(dateStr = questWibDate()) {
+            const d = new Date(dateStr + 'T00:00:00Z');
+            const day = d.getUTCDay();
+            d.setUTCDate(d.getUTCDate() - ((day + 6) % 7));
+            return d.toISOString().slice(0, 10);
+        }
+        function questWeekEnd(start) {
+            const d = new Date(start + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + 7); return d.toISOString().slice(0, 10);
+        }
+        function questDataFor(member) { return (member && member.questData) || {}; }
+        function questDailyFor(member, date = questWibDate()) { return questDataFor(member).daily?.[date] || {}; }
+        function questWeeklyFor(member, start = questWeekStart()) { return questDataFor(member).weekly?.[start] || {}; }
+        function mutateQuestData(memberKey, mutator) {
+              if (!memberKey) return Promise.resolve();
+            return database.ref(`members/${memberKey}/questData`).transaction(current => {
+                current = current && typeof current === 'object' ? current : {};
+                mutator(current);
+                return current;
+            }).then(() => {
+                if (activeLoggedInMemberKey === memberKey) renderQuestUI();
+            }).catch(err => console.error('Quest update failed:', err));
+        }
+        function questMarkDaily(memberKey, field, value = true) {
+            const date = questWibDate();
+            return mutateQuestData(memberKey, q => { q.daily = q.daily || {}; q.daily[date] = q.daily[date] || {}; q.daily[date][field] = value; });
+        }
+        function recordQuestChat() {
+            if (!activeLoggedInMemberKey) return;
+            return questMarkDaily(activeLoggedInMemberKey, 'chatDone', true);
+        }
+        function recordQuestShopPurchase() {
+            if (!activeLoggedInMemberKey) return;
+            const date = questWibDate(), week = questWeekStart(date), key = activeLoggedInMemberKey;
+            return mutateQuestData(key, q => {
+                q.daily = q.daily || {}; q.daily[date] = q.daily[date] || {};
+                q.daily[date].shopPurchases = Number(q.daily[date].shopPurchases || 0) + 1;
+                q.weekly = q.weekly || {}; q.weekly[week] = q.weekly[week] || {};
+                q.weekly[week].shopPurchases = Number(q.weekly[week].shopPurchases || 0) + 1;
+            });
+        }
+        function recordQuestStars(amount) {
+            if (!activeLoggedInMemberKey || amount <= 0) return;
+            const date = questWibDate(), week = questWeekStart(date), key = activeLoggedInMemberKey;
+            return mutateQuestData(key, q => {
+                q.daily = q.daily || {}; q.daily[date] = q.daily[date] || {};
+                q.daily[date].stars = Number(q.daily[date].stars || 0) + amount;
+                q.weekly = q.weekly || {}; q.weekly[week] = q.weekly[week] || {};
+                q.weekly[week].stars = Number(q.weekly[week].stars || 0) + amount;
+            });
+        }
+        function recordQuestLogin(memberKey) {
+            const date = questWibDate(), week = questWeekStart(date);
+            return mutateQuestData(memberKey, q => {
+                q.loginDates = q.loginDates || {};
+                if (!q.loginDates[date]) {
+                    const yesterday = new Date(date + 'T00:00:00Z'); yesterday.setUTCDate(yesterday.getUTCDate() - 1);
+                    const y = yesterday.toISOString().slice(0, 10);
+                    q.loginStreak = q.lastLoginDate === y ? Number(q.loginStreak || 0) + 1 : 1;
+                    q.loginDates[date] = true;
+                    q.lastLoginDate = date;
+                }
+                q.weekly = q.weekly || {}; q.weekly[week] = q.weekly[week] || {};
+                q.weekly[week].loginDates = q.weekly[week].loginDates || {};
+                q.weekly[week].loginDates[date] = true;
+            });
+        }
+        function startQuestTimeTracking() {
+            if (questTimeTicker) clearInterval(questTimeTicker);
+            questTimeTicker = setInterval(() => {
+                const key = activeLoggedInMemberKey;
+                if (!key || !globalMembersData[key]) return;
+                const date = questWibDate(), week = questWeekStart(date);
+                mutateQuestData(key, q => {
+                    q.daily = q.daily || {}; q.daily[date] = q.daily[date] || {};
+                    q.daily[date].minutes = Number(q.daily[date].minutes || 0) + 1;
+                    q.weekly = q.weekly || {}; q.weekly[week] = q.weekly[week] || {};
+                    q.weekly[week].minutes = Number(q.weekly[week].minutes || 0) + 1;
+                });
+            }, 60000);
+        }
+        function questDailyCompletedCount(member) {
+            const q = questDataFor(member), start = questWeekStart(), end = questWeekEnd(start);
+            let count = 0;
+            Object.keys(q.daily || {}).forEach(date => {
+                if (date < start || date >= end) return;
+                const d = q.daily[date] || {};
+                const dailyCoreDone = !!d.chatDone && Number(d.stars || 0) >= 10 && Number(d.shopPurchases || 0) >= 1 && Number(d.minutes || 0) >= 10;
+                if (d.chatDone) count++;
+                if (Number(d.stars || 0) >= 10) count++;
+                if (Number(d.shopPurchases || 0) >= 1) count++;
+                if (Number(d.minutes || 0) >= 10) count++;
+                if (dailyCoreDone) count++; // bonus penyelesaian semua misi harian
+            });
+            return count;
+        }
+        function questDefinitions(member) {
+            const date = questWibDate(), week = questWeekStart(date), d = questDailyFor(member, date), w = questWeeklyFor(member, week), q = questDataFor(member);
+            const dailyCount = questDailyCompletedCount(member);
+            const daily = [
+                {id:'chat', icon:'💬', title:'Aktif Mengobrol', desc:'Kirim minimal 1 chat yang berhasil terkirim hari ini.', reward:'50 diamond', done:!!d.chatDone, diamond:50},
+                {id:'stars', icon:'⭐', title:'Pemburu Bintang', desc:'Dapatkan 10 star baru hari ini.', reward:'200 diamond', progress:Number(d.stars||0), target:10, done:Number(d.stars||0)>=10, diamond:200},
+                {id:'shop', icon:'🛒', title:'Pembeli Aktif', desc:'Beli minimal 1 item dari Shop Resmi hari ini.', reward:'100 diamond', progress:Number(d.shopPurchases||0), target:1, done:Number(d.shopPurchases||0)>=1, diamond:100},
+                {id:'time', icon:'⏱️', title:'Luangkan Waktu', desc:'Berada di website selama 10 menit. Waktu dihitung saat login dan website terbuka, termasuk ketika AFK.', reward:'100 diamond', progress:Number(d.minutes||0), target:10, done:Number(d.minutes||0)>=10, diamond:100},
+                {id:'all', icon:'🎁', title:'Penyelesaian Harian', desc:'Selesaikan keempat misi harian lainnya hari ini.', reward:'200 diamond bonus', done:!!d.chatDone && Number(d.stars||0)>=10 && Number(d.shopPurchases||0)>=1 && Number(d.minutes||0)>=10, diamond:200}
+            ];
+            const weekly = [
+                {id:'daily10', icon:'📋', title:'Rajin Menyelesaikan Misi', desc:'Selesaikan 10 misi harian selama minggu ini.', reward:'300 diamond', progress:dailyCount, target:10, done:dailyCount>=10, diamond:300},
+                {id:'stars50', icon:'⭐', title:'Kolektor Bintang', desc:'Dapatkan 50 star baru selama minggu ini.', reward:'500 diamond', progress:Number(w.stars||0), target:50, done:Number(w.stars||0)>=50, diamond:500},
+                {id:'time60', icon:'⏱️', title:'Betah di Ruang Mabar', desc:'Habiskan 60 menit di website selama minggu ini, termasuk waktu AFK saat login.', reward:'500 diamond', progress:Number(w.minutes||0), target:60, done:Number(w.minutes||0)>=60, diamond:500},
+                {id:'shop3', icon:'🛍️', title:'Pembeli Mingguan', desc:'Beli 3 item dari Shop Resmi selama minggu ini.', reward:'300 diamond', progress:Number(w.shopPurchases||0), target:3, done:Number(w.shopPurchases||0)>=3, diamond:300},
+                {id:'login7', icon:'📅', title:'Login 7 Hari', desc:'Login selama 7 hari berturut-turut.', reward:'500 diamond + 5 star', progress:Number(q.loginStreak||0), target:7, done:Number(q.loginStreak||0)>=7, diamond:500, star:5}
+            ];
+            const special = [
+                {id:'star100', icon:'🥉', title:'Bintang 100', desc:'Capai total 100 star pada akunmu.', reward:'300 diamond', done:Number(member.bintang||0)>=100, diamond:300},
+                {id:'star250', icon:'🥈', title:'Bintang 250', desc:'Capai total 250 star pada akunmu.', reward:'500 diamond', done:Number(member.bintang||0)>=250, diamond:500},
+                {id:'star500', icon:'🥇', title:'Bintang 500', desc:'Capai total 500 star pada akunmu.', reward:'1.000 diamond', done:Number(member.bintang||0)>=500, diamond:1000}
+            ];
+            return {daily, weekly, special, date, week};
+        }
+        function renderQuestCard(type, quest, claimed, period) {
+            const hasProgress = Number.isFinite(quest.progress) && quest.target;
+            const progress = hasProgress ? Math.max(0, Math.min(100, quest.progress / quest.target * 100)) : (quest.done ? 100 : 0);
+            const progressText = hasProgress ? `${Math.min(quest.progress, quest.target)}/${quest.target}` : (quest.done ? 'Selesai' : 'Belum selesai');
+            const status = claimed ? 'Sudah diklaim' : (quest.done ? 'Siap diklaim' : 'Belum selesai');
+            const disabled = claimed || !quest.done;
+            return `<div class="quest-card"><div class="quest-card-head"><div class="quest-card-icon">${quest.icon}</div><div style="flex:1;min-width:0"><h4>${quest.title}</h4><p>${quest.desc}</p><div class="quest-reward">🎁 Hadiah: ${quest.reward}</div></div></div>${hasProgress ? `<div class="quest-progress"><span style="width:${progress}%"></span></div>` : ''}<div class="quest-card-foot"><span class="quest-progress-label">${progressText} · ${status}</span><button class="quest-claim-btn" ${disabled?'disabled':''} onclick="claimQuest('${type}','${quest.id}','${period}')">${claimed?'Sudah diklaim':(quest.done?'Klaim hadiah':'Belum selesai')}</button></div></div>`;
+        }
+        function renderQuestUI() {
+            const required = document.getElementById('quest-login-required');
+            if (!required) return;
+            if (!activeLoggedInMemberKey || !globalMembersData[activeLoggedInMemberKey]) {
+                required.style.display = 'block';
+                ['daily','weekly','special'].forEach(k => { const el=document.getElementById('quest-panel-'+k); if(el) el.innerHTML=''; });
+                return;
+            }
+            required.style.display = 'none';
+            const member = globalMembersData[activeLoggedInMemberKey], defs = questDefinitions(member);
+            const d = questDailyFor(member, defs.date), w = questWeeklyFor(member, defs.week), q = questDataFor(member);
+            const dailyClaims = d.claimed || {}, weeklyClaims = w.claimed || {}, specialClaims = q.specialClaimed || {};
+            document.getElementById('quest-panel-daily').innerHTML = `<div class="quest-top-note">🌞 Reset setiap hari pukul 00.00 WIB. Progres hari ini: ${defs.daily.filter(x=>x.done && x.id!=='all').length}/4 misi utama selesai.</div>${defs.daily.map(x=>renderQuestCard('daily',x,!!dailyClaims[x.id],defs.date)).join('')}`;
+            document.getElementById('quest-panel-weekly').innerHTML = `<div class="quest-top-note">📅 Periode minggu ini: ${defs.week} sampai ${questWeekEnd(defs.week)} (batas akhir sebelum tanggal tersebut), WIB.</div>${defs.weekly.map(x=>renderQuestCard('weekly',x,!!weeklyClaims[x.id],defs.week)).join('')}`;
+            document.getElementById('quest-panel-special').innerHTML = `<div class="quest-top-note">🏆 Misi khusus hanya bisa diklaim satu kali per pencapaian akun.</div>${defs.special.map(x=>renderQuestCard('special',x,!!specialClaims[x.id],'lifetime')).join('')}`;
+        }
+        function switchQuestTab(name, button) {
+            document.querySelectorAll('.quest-subtab').forEach(b=>b.classList.remove('active'));
+            document.querySelectorAll('.quest-panel').forEach(p=>p.classList.remove('active'));
+            if (button) button.classList.add('active');
+            const panel = document.getElementById('quest-panel-'+name); if(panel) panel.classList.add('active');
+        }
+        function claimQuest(type, id, period) {
+            const key = activeLoggedInMemberKey;
+            if (!key) { alert('Silakan login terlebih dahulu!'); switchTab('personal'); return; }
+            const memberRef = database.ref(`members/${key}`);
+            memberRef.transaction(member => {
+                if (!member) return;
+                member.questData = member.questData || {};
+                const q = member.questData;
+                let quest = null, claimedObj = null;
+                if (type === 'daily') {
+                    q.daily = q.daily || {}; q.daily[period] = q.daily[period] || {};
+                    const d=q.daily[period]; d.claimed=d.claimed||{}; claimedObj=d.claimed;
+                    const fakeMember={...member,questData:q}; quest=questDefinitions(fakeMember).daily.find(x=>x.id===id);
+                    if (period !== questWibDate()) return;
+                } else if (type === 'weekly') {
+                    q.weekly=q.weekly||{}; q.weekly[period]=q.weekly[period]||{};
+                    const w=q.weekly[period]; w.claimed=w.claimed||{}; claimedObj=w.claimed;
+                    const fakeMember={...member,questData:q}; quest=questDefinitions(fakeMember).weekly.find(x=>x.id===id);
+                    if (period !== questWeekStart()) return;
+                } else if (type === 'special') {
+                    q.specialClaimed=q.specialClaimed||{}; claimedObj=q.specialClaimed;
+                    quest=questDefinitions(member).special.find(x=>x.id===id);
+                }
+                if (!quest || !quest.done || claimedObj[id]) return;
+                claimedObj[id]=true;
+                member.diamond=Number(member.diamond||0)+Number(quest.diamond||0);
+                if (quest.star) member.bintang=Number(member.bintang||0)+Number(quest.star);
+                return member;
+            }, (error, committed) => {
+                if (error) alert('Gagal mengklaim hadiah. Coba lagi.');
+                else if (committed) alert('🎉 Hadiah Quest berhasil diklaim!');
+                else alert('Misi belum selesai atau hadiah sudah pernah diklaim.');
+                renderQuestUI();
+            }, false);
+        }
+
         // LISTENERS FIREBASE
            membersRef.on('value', (snapshot) => {
             document.getElementById('loading-profil').style.display = 'none';
@@ -2648,9 +3055,20 @@
             }
 
             document.getElementById('empty-profil').style.display = 'none';
-            globalMembersData = snapshot.val();
+            const previousMembersData = globalMembersData || {};
+            const nextMembersData = snapshot.val() || {};
+            if (activeLoggedInMemberKey && previousMembersData[activeLoggedInMemberKey] && nextMembersData[activeLoggedInMemberKey]) {
+                const starMemberKey = activeLoggedInMemberKey;
+                const oldStars = Number(previousMembersData[starMemberKey].bintang || 0);
+                const newStars = Number(nextMembersData[starMemberKey].bintang || 0);
+                const knownStars = lastKnownMemberStars[starMemberKey] === undefined ? oldStars : Number(lastKnownMemberStars[starMemberKey] || 0);
+                if (newStars > knownStars && !wheelStarUpdatePending[starMemberKey]) recordQuestStars(newStars - knownStars);
+                lastKnownMemberStars[starMemberKey] = newStars;
+            }
+            globalMembersData = nextMembersData;
 
             Object.keys(globalMembersData).forEach(k => {
+                cleanupExpiredItemsForMember(k, globalMembersData[k]);
                 const m = globalMembersData[k];
                 if (m.isVip && m.vipExpiresAt && Number(m.vipExpiresAt) <= Date.now()) {
                     globalMembersData[k].isVip = false;
@@ -2681,6 +3099,11 @@
                 document.getElementById('member-edit-box').style.display = 'block';
                 updateMemberPersonalView(savedMember);
                 setMemberOnlineStatus(savedMemberKey, true);
+                if (lastKnownMemberStars[savedMemberKey] === undefined) lastKnownMemberStars[savedMemberKey] = Number(savedMember.bintang || 0);
+                if (!questTimeTicker) {
+                    recordQuestLogin(savedMemberKey);
+                    startQuestTimeTracking();
+                }
             } else if (savedMemberKey) {
                 localStorage.removeItem('ruangMabarLoggedInMemberKey');
                 activeLoggedInMemberKey = null;
@@ -2691,6 +3114,11 @@
             if (isAdminLoggedIn) {
                 populateAdminMemberList();
             }
+            if (activeLoggedInMemberKey && globalMembersData[activeLoggedInMemberKey]) {
+                const currentStars = Number(globalMembersData[activeLoggedInMemberKey].bintang || 0);
+                if (lastKnownMemberStars[activeLoggedInMemberKey] === undefined) lastKnownMemberStars[activeLoggedInMemberKey] = currentStars;
+                renderQuestUI();
+            } else renderQuestUI();
         });
 
         shopRef.on('value', (snapshot) => {
@@ -2738,7 +3166,7 @@
                     const card = document.createElement('div');
                     card.className = 'card-box';
                     card.style.cssText = 'border-color: #f59e0b; background: linear-gradient(135deg, #fffbeb, #fef3c7); margin-bottom: 12px;';
-                    card.innerHTML = `
+                                   card.innerHTML = `
                         <h3 style="color: #d97706; margin-bottom: 8px;">🎉 ${escapeHTML(item.judul || 'Event Ruang Mabar')}</h3>
                         <p style="font-size: 0.95rem; color: #1e293b; white-space: pre-line;">${escapeHTML(item.content || '')}</p>
                     `;
@@ -2782,6 +3210,55 @@
             globalCodesData = snapshot.exists() ? snapshot.val() : {};
             if (isAdminLoggedIn) populateAdminCodeList();
         });
+
+
+        // Efek tambahan dibuat sebagai elemen terpisah supaya shiny dan partikel
+        // tidak saling menimpa motif ::before/::after dari tiap hiasan.
+        function applyNewProfileDecorationEffects(element, decorationId) {
+            const effects = {
+                sakura_bersemi: { particle: '#fbcfe8', glow: 'rgba(244,114,182,.85)', symbols: ['✿','✧','•'] },
+                api_naga: { particle: '#fdba74', glow: 'rgba(249,115,22,.9)', symbols: ['•','✦','◆'] },
+                petir_neon: { particle: '#a5f3fc', glow: 'rgba(34,211,238,.9)', symbols: ['ϟ','✦','•'] },
+                emerald_venom: { particle: '#a7f3d0', glow: 'rgba(52,211,153,.9)', symbols: ['❖','✧','•'] },
+                debu_kosmik: { particle: '#ddd6fe', glow: 'rgba(167,139,250,.95)', symbols: ['✦','✧','·'] }
+            };
+            const effect = effects[String(decorationId || '')];
+            if (!element || !effect || element.querySelector('.rm-decoration-shine')) return;
+            const shine = document.createElement('span');
+            shine.className = 'rm-decoration-shine';
+            shine.style.cssText = 'position:absolute;inset:0;z-index:2;pointer-events:none;';
+            shine.setAttribute('aria-hidden', 'true');
+            element.appendChild(shine);
+
+            const particles = document.createElement('span');
+            particles.className = 'rm-decoration-particles';
+            particles.style.cssText = 'position:absolute;inset:0;z-index:2;pointer-events:none;';
+            particles.setAttribute('aria-hidden', 'true');
+            particles.style.setProperty('--particle-color', effect.particle);
+            particles.style.setProperty('--particle-glow', effect.glow);
+            const positions = [
+                [8,22],[18,68],[29,38],[39,82],[49,18],[58,57],[67,31],[76,74],
+                [86,44],[94,20],[13,48],[34,61],[54,88],[72,15],[90,63],[24,12]
+            ];
+            positions.forEach((pos, index) => {
+                const particle = document.createElement('span');
+                particle.textContent = effect.symbols[index % effect.symbols.length];
+                particle.style.left = pos[0] + '%';
+                particle.style.top = pos[1] + '%';
+                particle.style.width = (index % 4 === 0 ? '7px' : '4px');
+                particle.style.height = 'auto';
+                particle.style.background = 'transparent';
+                particle.style.borderRadius = '0';
+                particle.style.boxShadow = 'none';
+                particle.style.color = effect.particle;
+                particle.style.fontSize = (index % 4 === 0 ? '10px' : '7px');
+                particle.style.textShadow = '0 0 6px ' + effect.glow;
+                particle.style.setProperty('--particle-speed', (2.3 + (index % 5) * 0.45) + 's');
+                particle.style.setProperty('--particle-delay', (-index * 0.31) + 's');
+                particles.appendChild(particle);
+            });
+            element.appendChild(particles);
+        }
 
         // RENDER PROFIL MEMBER DENGAN EFEK SHINY DAN EMOJI PADA MASA AKTIF
         function filterAndRenderMembers() {
@@ -2904,6 +3381,7 @@
                     </div>
                     ${durationItemsCardHTML ? `<div style="margin-top: 8px;">${durationItemsCardHTML}</div>` : ''}
                 `;
+                applyNewProfileDecorationEffects(card, item.hiasanProfil);
                 memberList.appendChild(card);
             });
         }
@@ -3032,7 +3510,7 @@
                     <div style="font-weight: 600; font-size: 0.85rem; color: #334155; margin-bottom: 6px;">🎨 Hiasan Digunakan:</div>
                     <div style="font-size: 0.82rem; color: #475569; display: flex; flex-direction: column; gap: 4px;">
                         <div>✨ Hiasan Nama: <strong>${escapeHTML(hiasanNamaText)}</strong></div>
-                        <div>🖼️ Hiasan Profil: <strong>${escapeHTML(hiasanProfilText)}</strong></div>
+                                            <div>🖼️ Hiasan Profil: <strong>${escapeHTML(hiasanProfilText)}</strong></div>
                         <div>🎨 Hiasan Detail Profil: <strong>${escapeHTML(hiasanDetailText)}</strong></div>
                     </div>
                 </div>
@@ -3217,6 +3695,9 @@
                 activeLoggedInMemberKey = memberKey;
                 localStorage.setItem('ruangMabarLoggedInMemberKey', memberKey);
                 setMemberOnlineStatus(memberKey, true);
+                lastKnownMemberStars[memberKey] = Number(m.bintang || 0);
+                recordQuestLogin(memberKey);
+                startQuestTimeTracking();
                 document.getElementById('member-login-box').style.display = 'none';
                 document.getElementById('member-edit-box').style.display = 'block';
                 updateMemberPersonalView(m);
@@ -3228,6 +3709,7 @@
 
         function logoutMember() {
             if (activeLoggedInMemberKey) setMemberOnlineStatus(activeLoggedInMemberKey, false);
+            if (questTimeTicker) { clearInterval(questTimeTicker); questTimeTicker = null; }
             localStorage.removeItem('ruangMabarLoggedInMemberKey');
             activeLoggedInMemberKey = null;
             document.getElementById('member-login-box').style.display = 'block';
@@ -3377,7 +3859,7 @@
                 unlockedP.push(item.preset);
                 updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
                 updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = item.preset;
-                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
+                                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
                 else updates[`members/${activeLoggedInMemberKey}/itemExpiries/${item.preset}`] = null;
             } else if (item.tipe === 'Hiasan Detail Profil') {
                 let unlockedD = getItemArray(member.unlockedHiasanDetailProfil);
@@ -3436,7 +3918,7 @@
             }
 
             alert(`🎉 Berhasil membeli ${item.nama}!`);
-            database.ref().update(updates);
+            database.ref().update(updates).then(() => recordQuestShopPurchase()).catch(() => alert('Pembelian gagal disimpan. Coba lagi.'));
         }
 
         // RENDER MARKETPLACE
@@ -3621,7 +4103,7 @@
 
         function buyMarketplaceItem(marketKey) {
             if (!activeLoggedInMemberKey) {
-            alert("Silakan login terlebih dahulu di tab Personalisasi sebelum membeli di marketplace!");
+                alert("Silakan login terlebih dahulu di tab Personalisasi sebelum membeli di marketplace!");
                 switchTab('personal');
                 return;
             }
@@ -3744,6 +4226,7 @@
                         ${time}
                     </div>
                 `;
+                applyNewProfileDecorationEffects(chatCard, chat.hiasanProfil);
                 chatList.appendChild(chatCard);
             });
         }
@@ -3767,6 +4250,8 @@
                 osc.start(now); osc.stop(now + (type === 'wheel' ? 0.17 : 0.1));
             } catch (e) {}
         }
+
+        renderQuestUI();
 
         document.addEventListener('click', (e) => {
             const target = e.target.closest('button');
@@ -3803,30 +4288,32 @@
                 timestamp: Date.now()
             }).then(() => {
                 textInput.value = '';
+                recordQuestChat();
             });
         }
 
         // ARCADE & LUCKY WHEEL
         const wheelPrizes = [
-            { id: 'silver_shiny', name: 'Hiasan Perak', label: 'Perak', chance: 3, color: '#ef4444', type: 'hiasan_nama' },
-            { id: 'debu_kosmik', name: 'Hiasan Debu Kosmik', label: 'Debu Kosmik', chance: 2, color: '#38bdf8', type: 'hiasan_profil' },
-            { id: 'api_naga', name: 'Hiasan Api Naga', label: 'Berapi', chance: 2, color: '#14b8a6', type: 'hiasan_profil' },
+            { id: 'rainbow_shiny', name: 'Hiasan Nama Pelangi', label: 'Rainbow Shiny', chance: 0.1, color: '#ef4444', type: 'hiasan_nama' },
+            { id: 'detail_prism', name: 'Hiasan Prisma Pelangi', label: 'Prisma Pelangi', chance: 1, color: '#38bdf8', type: 'hiasan_detail_profil' },
             { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 3, color: '#a855f7', type: 'hiasan_nama' },
             { id: 'star_2', name: 'Dapat 2 Star', label: '+2 Star', chance: 15, color: '#f59e0b', type: 'star', val: 2 },
             { id: 'star_5', name: 'Dapat 5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
             { id: 'dm_100', name: 'Super Zonk! -100 Diamond', label: '-100 Diamond', chance: 1, color: '#6366f1', type: 'diamond', val: -100 },
             { id: 'dm_50', name: 'Zonk! -50 Diamond', label: '-50 Diamond', chance: 10, color: '#10b981', type: 'diamond', val: -50 },
-            { id: 'dm_20', name: 'Hadiah 20 Diamond', label: '+20 Diamond', chance: 15, color: '#06b6d4', type: 'diamond', val: 20 },
+            { id: 'dm_20', name: 'Hadiah 20 Diamond', label: '+20 Diamond', chance: 20, color: '#06b6d4', type: 'diamond', val: 20 },
             { id: 'star_10', name: 'Hadiah 10 Star', label: '+10 Star', chance: 2, color: '#3b82f6', type: 'diamond', val: 10 },
             { id: 'dm_100', name: 'Hadiah 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 },
             { id: 'dm_250', name: 'Hadiah 250 Diamond', label: '+250 Diamond', chance: 3, color: '#22c55e', type: 'diamond', val: 250 },
-            { id: 'dm_500', name: 'Hadiah 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 }
+            { id: 'dm_500', name: 'Hadiah 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 },
+            { id: 'dm_1000', name: 'HADIAH BESAR 1000 DIAMOND', label: '+1000 Diamond', chance: 0.1, color: '#14b8a6', type: 'diamond', val: 1000 }
         ];
 
-         let isSpinning = false;
-         let currentWheelRotation = 0;
+        let isSpinning = false;
+        let currentWheelRotation = 0;
+        const wheelStarUpdatePending = {};
 
-         function openLuckyWheelModal() {
+        function openLuckyWheelModal() {
             document.getElementById('luckyWheelModal').style.display = 'flex';
             if (activeLoggedInMemberKey && globalMembersData[activeLoggedInMemberKey]) {
                 const dm = globalMembersData[activeLoggedInMemberKey].diamond || 0;
@@ -3870,7 +4357,7 @@
             });
         }
 
-        function spinWheel() {
+        async function spinWheel() {
             if (isSpinning) return;
             if (!activeLoggedInMemberKey) {
                 alert("Login terlebih dahulu di tab Personalisasi untuk bermain!");
@@ -3878,7 +4365,8 @@
                 return;
             }
 
-            const member = globalMembersData[activeLoggedInMemberKey];
+            const memberKey = activeLoggedInMemberKey;
+            const member = globalMembersData[memberKey];
             const diamonds = Number(member ? member.diamond : 0);
 
             if (diamonds < 50) {
@@ -3905,43 +4393,48 @@
             const prize = wheelPrizes[winningIndex];
             const numPrizes = wheelPrizes.length;
             const arc = 360 / numPrizes;
-
             const prizeCenterAngle = (winningIndex * arc) + (arc / 2);
             let angleOffset = (270 - prizeCenterAngle) % 360;
             if (angleOffset < 0) angleOffset += 360;
-
             const currentBase = Math.ceil(currentWheelRotation / 360) * 360;
             currentWheelRotation = currentBase + (360 * 5) + angleOffset;
-
             const canvas = document.getElementById('wheelCanvas');
             canvas.style.transform = `rotate(${currentWheelRotation}deg)`;
 
-            setTimeout(() => {
-                isSpinning = false;
-                document.getElementById('spinResultMessage').innerText = `🎉 Selamat! Kamu mendapatkan: ${prize.name}!`;
+            await new Promise(resolve => setTimeout(resolve, 2500));
+            isSpinning = false;
+            document.getElementById('spinResultMessage').innerText = `🎉 Selamat! Kamu mendapatkan: ${prize.name}!`;
 
-                const updates = {};
-                let newDiamond = diamonds - 50;
-
+            let newDiamond = diamonds - 50;
+            const rewardUpdates = {};
+            try {
                 if (prize.type === 'diamond') {
-                    newDiamond += prize.val;
+                    newDiamond += Number(prize.val || 0);
                 } else if (prize.type === 'star') {
-                    updates[`members/${activeLoggedInMemberKey}/bintang`] = Number(member.bintang || 0) + prize.val;
+                    // Simpan star ke profil lebih dulu, lalu baca ulang untuk memastikan kenaikannya.
+                    const starRef = database.ref(`members/${memberKey}/bintang`);
+                    const beforeSnap = await starRef.once('value');
+                    const beforeStars = Number(beforeSnap.val() || 0);
+                    wheelStarUpdatePending[memberKey] = true;
+                    await starRef.set(beforeStars + Number(prize.val || 0));
+                    const verifySnap = await starRef.once('value');
+                    const verifiedStars = Number(verifySnap.val() || 0);
+                    if (globalMembersData[memberKey]) globalMembersData[memberKey].bintang = verifiedStars;
+                    lastKnownMemberStars[memberKey] = verifiedStars;
+                    if (verifiedStars > beforeStars) await recordQuestStars(verifiedStars - beforeStars);
                 } else if (prize.type === 'hiasan_nama') {
-                    let unlockedH = member.unlockedHiasan || [];
-                    if (!Array.isArray(unlockedH)) unlockedH = Object.values(unlockedH);
+                    let unlockedH = getItemArray(member.unlockedHiasan);
                     if (!unlockedH.includes(prize.id)) unlockedH.push(prize.id);
-                    updates[`members/${activeLoggedInMemberKey}/unlockedHiasan`] = unlockedH;
+                    rewardUpdates[`members/${memberKey}/unlockedHiasan`] = unlockedH;
 
                     let expiresAt = null;
                     if (prize.id === 'spesial_ungu') {
                         const now = Date.now();
                         const currentExp = (member.spesialUnguExpiresAt && member.spesialUnguExpiresAt > now) ? member.spesialUnguExpiresAt : now;
                         expiresAt = currentExp + (7 * 24 * 60 * 60 * 1000);
-                        updates[`members/${activeLoggedInMemberKey}/spesialUnguExpiresAt`] = expiresAt;
+                        rewardUpdates[`members/${memberKey}/spesialUnguExpiresAt`] = expiresAt;
                     }
-
-                    addItemToInventory(updates, activeLoggedInMemberKey, member, {
+                    addItemToInventory(rewardUpdates, memberKey, member, {
                         itemId: prize.id,
                         itemName: prize.name,
                         itemType: 'Hiasan Nama',
@@ -3950,20 +4443,34 @@
                         count: 1
                     });
                 } else if (prize.type === 'hiasan_profil') {
-                    addItemToInventory(updates, activeLoggedInMemberKey, member, {
+                    addItemToInventory(rewardUpdates, memberKey, member, {
                         itemId: prize.id,
                         itemName: prize.name,
                         itemType: 'Hiasan Profil',
                         count: 1
                     });
+                } else if (prize.type === 'hiasan_detail_profil') {
+                    // Tipe ini dapat dipakai untuk hadiah hiasan detail profil yang ditambahkan ke wheelPrizes.
+                    const unlockedDetail = getItemArray(member.unlockedHiasanDetailProfil);
+                    unlockedDetail.push(prize.id);
+                    rewardUpdates[`members/${memberKey}/unlockedHiasanDetailProfil`] = unlockedDetail;
                 }
 
-                updates[`members/${activeLoggedInMemberKey}/diamond`] = newDiamond;
-
-                database.ref().update(updates).then(() => {
-                    document.getElementById('luckyWheelUserDiamond').innerText = `💎 Diamond Kamu: ${newDiamond}`;
-                });
-            }, 2500);
+                // Simpan hadiah item terlebih dahulu, kemudian biaya/bonus diamond secara terpisah.
+                if (Object.keys(rewardUpdates).length) await database.ref().update(rewardUpdates);
+                await database.ref(`members/${memberKey}/diamond`).set(newDiamond);
+                if (globalMembersData[memberKey]) globalMembersData[memberKey].diamond = newDiamond;
+                const diamondLabel = document.getElementById('luckyWheelUserDiamond');
+                if (diamondLabel && activeLoggedInMemberKey === memberKey) diamondLabel.innerText = `💎 Diamond Kamu: ${newDiamond}`;
+            } catch (err) {
+                console.error('Lucky Wheel reward failed:', err);
+                document.getElementById('spinResultMessage').innerText = 'Hadiah belum berhasil disimpan. Silakan cek profil dan coba lagi.';
+            } finally {
+                wheelStarUpdatePending[memberKey] = false;
+                isSpinning = false;
+                const spinButton = document.getElementById('btnSpinWheel');
+                if (spinButton) spinButton.disabled = false;
+            }
         }
 
         // ADMIN SETTINGS & PRESETS
@@ -4098,7 +4605,7 @@
                 document.getElementById('adminCodePresetContainer').style.display = 'none';
             } else {
                 document.getElementById('adminCodeValContainer').style.display = 'block';
-                document.getElementById('adminCodePresetContainer').style.display = 'none';
+                                document.getElementById('adminCodePresetContainer').style.display = 'none';
             }
         }
 
@@ -4305,4 +4812,3 @@
     </script>
 </body>
 </html>
-            
