@@ -422,9 +422,53 @@
         .name-orange-shiny { background-image: linear-gradient(90deg,#9a3412 0%,#f97316 22%,#fff7ed 36%,#fff 46%,#fff 54%,#fff7ed 64%,#fb923c 78%,#9a3412 100%); }
         .name-silver-shiny { background-image: linear-gradient(90deg,#475569 0%,#94a3b8 22%,#f8fafc 36%,#fff 46%,#fff 54%,#f8fafc 64%,#cbd5e1 78%,#475569 100%); }
         .name-rainbow-shiny { background-image: linear-gradient(90deg,#ef4444 0%,#f97316 16%,#fde047 28%,#a7f3d0 38%,#fff 46%,#fff 54%,#93c5fd 64%,#a78bfa 76%,#ef4444 100%); }
-        @keyframes newNameWhiteShine { to { background-position: 200% center; } }
+        .name-amethyst-shiny,.name-lava-shiny,.name-mint-shiny,.name-sakura-shiny,.name-sunset-shiny,
+        .name-ocean-shiny,.name-aurora-shiny,.name-obsidian-shiny,.name-golden-sky-shiny,.name-void-shiny {
+            background-size: 200% auto; color: transparent !important; -webkit-text-fill-color: transparent !important;
+            -webkit-background-clip: text !important; background-clip: text !important; font-weight: 800;
+            display: inline-block; animation: newNameWhiteShine 3s linear infinite;
+        }
+        .name-amethyst-shiny { background-image:linear-gradient(90deg,#240046 0%,#5a189a 18%,#c77dff 34%,#f3c4fb 44%,#fff 50%,#9d4edd 62%,#3c096c 82%,#240046 100%); }
+        .name-lava-shiny { background-image:linear-gradient(90deg,#370617 0%,#9d0208 18%,#dc2f02 34%,#ffba08 45%,#fff3b0 50%,#e85d04 62%,#6a040f 82%,#370617 100%); }
+        .name-mint-shiny { background-image:linear-gradient(90deg,#132a13 0%,#31572c 18%,#90a955 32%,#ecf39e 44%,#fff 50%,#4f772d 63%,#1b4332 82%,#132a13 100%); }
+        .name-sakura-shiny { background-image:linear-gradient(90deg,#590d22 0%,#a4133c 18%,#ff4d6d 32%,#ffccd5 44%,#fff 50%,#ff8fa3 62%,#800f2f 82%,#590d22 100%); }
+        .name-sunset-shiny { background-image:linear-gradient(90deg,#3c096c 0%,#7b2cbf 18%,#f72585 32%,#ff9e00 44%,#fff3b0 50%,#ff5400 62%,#6a040f 82%,#3c096c 100%); }
+        .name-ocean-shiny { background-image:linear-gradient(90deg,#03045e 0%,#0077b6 18%,#00b4d8 32%,#90e0ef 44%,#fff 50%,#48cae4 62%,#023e8a 82%,#03045e 100%); }
+        .name-aurora-shiny { background-image:linear-gradient(90deg,#081c15 0%,#1b4332 18%,#52b788 32%,#b7e4c7 43%,#fff 50%,#72efdd 62%,#6930c3 82%,#081c15 100%); }
+        .name-obsidian-shiny { background-image:linear-gradient(90deg,#000814 0%,#001d3d 18%,#003566 32%,#ffc300 44%,#fff8e7 50%,#6c757d 62%,#212529 82%,#000814 100%); }
+                .name-golden-sky-shiny { background-image:linear-gradient(90deg,#582f0e 0%,#936639 18%,#dda15e 32%,#fefae0 44%,#fff 50%,#bc6c25 62%,#7f4f24 82%,#582f0e 100%); }
+        .name-void-shiny { background-image:linear-gradient(90deg,#10002b 0%,#240046 18%,#3c096c 30%,#7209b7 42%,#f0e6ff 50%,#560bad 62%,#10002b 82%,#10002b 100%); }
+        @keyframes newNameWhiteShine { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+
+        @keyframes rmProfileCrackShine { 0%,100% { opacity:.48; filter:brightness(.9) drop-shadow(0 0 2px currentColor); } 50% { opacity:.92; filter:brightness(1.45) drop-shadow(0 0 6px currentColor); } }
+
+        /* Hiasan nama memakai animasi dan warna asli masing-masing agar loop tetap natural. */
 
         /* 5 HIASAN DETAIL PROFIL BARU: masing-masing punya motif tersendiri */
+        .member-card.decor-phoenix-ember, .card-box.decor-phoenix-ember { position:relative; overflow:hidden; background:radial-gradient(ellipse at 50% 110%,#f97316 0%,#7f1d1d 32%,#1c1917 72%,#09090b 100%) !important; color:#fff7ed; border:2px solid #fb923c !important; box-shadow:inset 0 -12px 30px rgba(249,115,22,.25),0 8px 24px rgba(127,29,29,.3) !important; }
+        .member-card.decor-phoenix-ember::before, .card-box.decor-phoenix-ember::before { content:'♨  ✦  ♨'; position:absolute; right:12px; top:8px; color:#fed7aa; letter-spacing:5px; text-shadow:0 0 12px #f97316; pointer-events:none; }
+        .member-card.decor-neon-matrix, .card-box.decor-neon-matrix { position:relative; overflow:hidden; background:linear-gradient(135deg,#020617,#052e16 55%,#020617) !important; color:#d9f99d; border:2px solid #4ade80 !important; box-shadow:inset 0 0 24px rgba(34,197,94,.2),0 8px 24px rgba(22,163,74,.22) !important; }
+        .member-card.decor-neon-matrix::before, .card-box.decor-neon-matrix::before { content:'0101  ◇  1010'; position:absolute; right:10px; top:8px; color:rgba(134,239,172,.65); font:700 11px monospace; letter-spacing:2px; text-shadow:0 0 8px #22c55e; pointer-events:none; }
+        .member-card.decor-frost-relic, .card-box.decor-frost-relic { position:relative; overflow:hidden; background:linear-gradient(135deg,#082f49,#bae6fd 42%,#e0f2fe 50%,#075985) !important; color:#082f49; border:3px solid #e0f2fe !important; box-shadow:inset 0 0 18px rgba(255,255,255,.65),0 8px 24px rgba(14,116,144,.25) !important; }
+        .member-card.decor-frost-relic::before, .card-box.decor-frost-relic::before { content:'❄  ✧  ❄'; position:absolute; right:12px; top:8px; color:#fff; letter-spacing:5px; text-shadow:0 0 8px #0284c7; pointer-events:none; }
+        .member-card.decor-desert-mirage, .card-box.decor-desert-mirage { position:relative; overflow:hidden; background:linear-gradient(135deg,#451a03,#b45309 38%,#fcd34d 52%,#92400e 72%,#422006) !important; color:#fffbeb; border:2px solid #fbbf24 !important; box-shadow:inset 0 0 22px rgba(253,230,138,.22),0 8px 24px rgba(146,64,14,.3) !important; }
+        .member-card.decor-desert-mirage::before, .card-box.decor-desert-mirage::before { content:'☼  ◈  ☼'; position:absolute; right:12px; top:8px; color:#fef3c7; letter-spacing:5px; text-shadow:0 0 10px #f59e0b; pointer-events:none; }
+        .member-card.decor-deep-space, .card-box.decor-deep-space { position:relative; overflow:hidden; background:radial-gradient(circle at 18% 25%,#a78bfa 0 2px,transparent 3px),radial-gradient(circle at 78% 60%,#67e8f9 0 2px,transparent 3px),radial-gradient(circle at 45% 82%,#f0abfc 0 1px,transparent 2px),linear-gradient(135deg,#020617,#1e1b4b 55%,#581c87) !important; color:#f5f3ff; border:2px solid #a78bfa !important; box-shadow:inset 0 0 25px rgba(167,139,250,.2),0 8px 24px rgba(49,46,129,.3) !important; }
+        .member-card.decor-deep-space::before, .card-box.decor-deep-space::before { content:'✦  ·  ✧  ·  ✦'; position:absolute; right:12px; top:8px; color:#e9d5ff; letter-spacing:4px; text-shadow:0 0 9px #c4b5fd; pointer-events:none; }
+        .member-card.decor-phoenix-ember .member-name,.member-card.decor-phoenix-ember .member-bio,.member-card.decor-phoenix-ember .stat-item,
+        .card-box.decor-phoenix-ember .member-name,.card-box.decor-phoenix-ember .member-bio,.card-box.decor-phoenix-ember .stat-item,
+        .member-card.decor-neon-matrix .member-name,.member-card.decor-neon-matrix .member-bio,.member-card.decor-neon-matrix .stat-item,
+        .card-box.decor-neon-matrix .member-name,.card-box.decor-neon-matrix .member-bio,.card-box.decor-neon-matrix .stat-item,
+        .member-card.decor-desert-mirage .member-name,.member-card.decor-desert-mirage .member-bio,.member-card.decor-desert-mirage .stat-item,
+        .card-box.decor-desert-mirage .member-name,.card-box.decor-desert-mirage .member-bio,.card-box.decor-desert-mirage .stat-item,
+        .member-card.decor-deep-space .member-name,.member-card.decor-deep-space .member-bio,.member-card.decor-deep-space .stat-item,
+        .card-box.decor-deep-space .member-name,.card-box.decor-deep-space .member-bio,.card-box.decor-deep-space .stat-item { color:#fff !important; }
+        .member-card.decor-phoenix-ember > *, .card-box.decor-phoenix-ember > *,
+        .member-card.decor-neon-matrix > *, .card-box.decor-neon-matrix > *,
+        .member-card.decor-frost-relic > *, .card-box.decor-frost-relic > *,
+        .member-card.decor-desert-mirage > *, .card-box.decor-desert-mirage > *,
+        .member-card.decor-deep-space > *, .card-box.decor-deep-space > * { position:relative; z-index:2; }
+
         .profile-detail-aurora { position:relative; overflow:hidden; background:linear-gradient(135deg,#052e16,#0f766e,#164e63,#312e81); color:#f0fdfa; border-top:3px solid #5eead4; border-bottom:3px solid #a7f3d0; box-shadow:inset 0 0 24px rgba(94,234,212,.22); }
         .profile-detail-aurora::before { content:' '; position:absolute; inset:-30% -10%; pointer-events:none; background:repeating-linear-gradient(115deg,transparent 0 24px,rgba(167,243,208,.18) 27px 34px,transparent 38px 58px); animation:detailAuroraFlow 7s ease-in-out infinite alternate; }
         @keyframes detailAuroraFlow { from{transform:translateX(-4%) skewX(-7deg)}to{transform:translateX(5%) skewX(7deg)} }
@@ -545,6 +589,30 @@
         .duration-detail-galaxy { background-image: linear-gradient(90deg,#6d28d9,#a78bfa,#f5f3ff,#c4b5fd,#7e22ce); }
         @keyframes detailDurationShine { to { background-position: 200% center; } }
 
+        /* Masa aktif untuk 10 hiasan nama gradasi terbaru: warnanya mengikuti item */
+        .duration-amethyst-shiny,.duration-lava-shiny,.duration-mint-shiny,.duration-sakura-shiny,.duration-sunset-shiny,
+        .duration-ocean-shiny,.duration-aurora-shiny,.duration-obsidian-shiny,.duration-golden-sky-shiny,.duration-void-shiny,
+        .duration-phoenix-ember,.duration-neon-matrix,.duration-frost-relic,.duration-desert-mirage,.duration-deep-space {
+            background-size: 240% auto; color: transparent !important; -webkit-text-fill-color: transparent !important;
+            -webkit-background-clip: text !important; background-clip: text !important; font-weight: 800;
+            display: inline-block; animation: newNameWhiteShine 3s linear infinite;
+        }
+        .duration-amethyst-shiny { background-image:linear-gradient(90deg,#240046,#5a189a,#c77dff,#fff,#9d4edd,#3c096c,#240046); }
+        .duration-lava-shiny { background-image:linear-gradient(90deg,#370617,#9d0208,#dc2f02,#ffba08,#fff3b0,#e85d04,#370617); }
+        .duration-mint-shiny { background-image:linear-gradient(90deg,#132a13,#31572c,#90a955,#ecf39e,#fff,#4f772d,#132a13); }
+        .duration-sakura-shiny { background-image:linear-gradient(90deg,#590d22,#a4133c,#ff4d6d,#ffccd5,#fff,#ff8fa3,#590d22); }
+        .duration-sunset-shiny { background-image:linear-gradient(90deg,#3c096c,#7b2cbf,#f72585,#ff9e00,#fff3b0,#ff5400,#3c096c); }
+        .duration-ocean-shiny { background-image:linear-gradient(90deg,#03045e,#0077b6,#00b4d8,#90e0ef,#fff,#48cae4,#03045e); }
+        .duration-aurora-shiny { background-image:linear-gradient(90deg,#081c15,#1b4332,#52b788,#b7e4c7,#fff,#72efdd,#6930c3,#081c15); }
+        .duration-obsidian-shiny { background-image:linear-gradient(90deg,#000814,#001d3d,#003566,#ffc300,#fff8e7,#6c757d,#000814); }
+        .duration-golden-sky-shiny { background-image:linear-gradient(90deg,#582f0e,#936639,#dda15e,#fefae0,#fff,#bc6c25,#582f0e); }
+        .duration-void-shiny { background-image:linear-gradient(90deg,#10002b,#240046,#3c096c,#7209b7,#f0e6ff,#560bad,#10002b); }
+        .duration-phoenix-ember { background-image:linear-gradient(90deg,#431407,#c2410c,#fb923c,#ffedd5,#fff,#f97316,#7f1d1d); }
+        .duration-neon-matrix { background-image:linear-gradient(90deg,#052e16,#16a34a,#bef264,#f7fee7,#fff,#4ade80,#052e16); }
+        .duration-frost-relic { background-image:linear-gradient(90deg,#082f49,#0284c7,#bae6fd,#fff,#e0f2fe,#38bdf8,#082f49); }
+        .duration-desert-mirage { background-image:linear-gradient(90deg,#451a03,#b45309,#fbbf24,#fffbeb,#fff,#d97706,#451a03); }
+        .duration-deep-space { background-image:linear-gradient(90deg,#020617,#312e81,#7e22ce,#e9d5ff,#fff,#67e8f9,#581c87,#020617); }
+
         .name-vip-plus-gold {
             background: linear-gradient(90deg, #8a5a00, #d4af37, #fff7b2, #ffffff, #fff7b2, #d4af37, #8a5a00);
             background-size: 250% auto; color: transparent; -webkit-background-clip: text; background-clip: text;
@@ -566,7 +634,7 @@
         @keyframes vipPlusCardGlow { 0%,100%{background-position:0% 50%}50%{background-position:100% 50%} }
         @keyframes vipPlusBorderShine { 0%,100%{filter:brightness(1)}50%{filter:brightness(1.35) drop-shadow(0 0 7px rgba(255,255,255,.9))} }
         @keyframes vipPlusCornerShine { 0%,100%{filter:brightness(1);transform:rotate(45deg) scale(1)}50%{filter:brightness(1.5) drop-shadow(0 0 7px rgba(255,255,255,.95));transform:rotate(45deg) scale(1.08)} }
-        .vip-plus-detail-decoration { position:relative;overflow:hidden;margin:0 0 16px;padding:18px;border-radius:16px;background:linear-gradient(135deg,#6b4600,#d4af37,#fff4b0,#d4af37,#7a5100);background-size:240% 240%;border:2px solid #fff;box-shadow:0 0 0 2px #d4af37,0 8px 25px rgba(212,175,55,.45),inset 0 0 20px rgba(255,255,255,.65);animation:vipPlusDetailGlow 4s ease-in-out infinite; }
+                .vip-plus-detail-decoration { position:relative;overflow:hidden;margin:0 0 16px;padding:18px;border-radius:16px;background:linear-gradient(135deg,#6b4600,#d4af37,#fff4b0,#d4af37,#7a5100);background-size:240% 240%;border:2px solid #fff;box-shadow:0 0 0 2px #d4af37,0 8px 25px rgba(212,175,55,.45),inset 0 0 20px rgba(255,255,255,.65);animation:vipPlusDetailGlow 4s ease-in-out infinite; }
         .vip-plus-detail-decoration::before { content:'';position:absolute;width:24%;height:180%;top:-40%;left:-45%;transform:rotate(18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(255,255,255,.55),transparent);animation:vipPlusDetailShine 3.4s ease-in-out infinite;pointer-events:none; }
         .vip-plus-detail-decoration::after { content:'✦  ❖  ✦';position:absolute;top:7px;right:12px;color:#fff;letter-spacing:5px;text-shadow:0 0 9px rgba(255,255,255,.95),0 0 12px rgba(212,175,55,.9);animation:vipPlusCornerShine 2.5s ease-in-out infinite; }
         .vip-plus-detail-decoration > * { position:relative;z-index:2; } .vip-plus-detail-title{color:#fff;font-weight:900;text-shadow:0 0 7px rgba(255,255,255,.9),0 2px 4px rgba(92,55,0,.65)} .vip-plus-detail-decoration .vip-plus-detail-value{color:#fffdf0;font-weight:800;text-shadow:0 0 6px rgba(255,255,255,.8)}
@@ -961,7 +1029,7 @@
    
 
         /* PENYESUAIAN HIASAN DETAIL PROFIL BARU: memenuhi popup dan kotak bernuansa */
-        .modal-body:has(.profile-detail-aurora),
+         .modal-body:has(.profile-detail-aurora),
         .modal-body:has(.profile-detail-circuit),
         .modal-body:has(.profile-detail-ocean),
         .modal-body:has(.profile-detail-prism),
@@ -1132,7 +1200,7 @@
         .profile-detail-galaxy::before { content: none !important; display:none !important; animation:none !important; }
         .profile-detail-galaxy::after { animation: detailGalaxyStars 3.6s ease-in-out infinite !important; }
         @keyframes galaxySoftGlow {
-                        0%,100% { box-shadow: inset 0 0 25px rgba(167,139,250,.25), 0 0 10px rgba(124,58,237,.25); }
+            0%,100% { box-shadow: inset 0 0 25px rgba(167,139,250,.25), 0 0 10px rgba(124,58,237,.25); }
             50% { box-shadow: inset 0 0 34px rgba(167,139,250,.4), 0 0 22px rgba(139,92,246,.48), 0 0 30px rgba(45,212,191,.14); }
         }
 
@@ -1241,7 +1309,7 @@
             height: auto !important;
             padding: 7px 10px !important;
             text-align: right !important;
-            background: linear-gradient(112deg, transparent 0%, transparent 30%,
+                        background: linear-gradient(112deg, transparent 0%, transparent 30%,
                 rgba(255,255,255,.04) 39%, rgba(255,255,255,.12) 48%,
                 rgba(255,255,255,.05) 53%, transparent 63%, transparent 100%) !important;
             background-size: 240% 100% !important;
@@ -1568,7 +1636,7 @@
             transition:background .18s ease, color .18s ease, box-shadow .18s ease;
         }
         #tab-quest .quest-subtab.active {
-            background:#fff; color:#1d4ed8; border-color:#cbdcfb;
+                        background:#fff; color:#1d4ed8; border-color:#cbdcfb;
             box-shadow:0 2px 7px rgba(15,23,42,.08);
         }
         #tab-quest .quest-panel { display:none; }
@@ -1645,6 +1713,347 @@
             #tab-quest .quest-claim-btn { width:100%; }
         }
 
+
+        /* Upgrade efek 5 hiasan profil baru: glow berlapis, partikel, dan statistik berwarna */
+        .member-card.decor-phoenix-ember::after,.card-box.decor-phoenix-ember::after,
+        .member-card.decor-neon-matrix::after,.card-box.decor-neon-matrix::after,
+        .member-card.decor-frost-relic::after,.card-box.decor-frost-relic::after,
+        .member-card.decor-desert-mirage::after,.card-box.decor-desert-mirage::after,
+        .member-card.decor-deep-space::after,.card-box.decor-deep-space::after {
+            content:""; position:absolute; inset:0; z-index:1; pointer-events:none; border-radius:inherit;
+            background-size:100% 100%; animation:decorParticlesDrift 9s linear infinite;
+        }
+        .member-card.decor-phoenix-ember,.card-box.decor-phoenix-ember { box-shadow:inset 0 -18px 42px rgba(249,115,22,.38),inset 0 0 25px rgba(251,146,60,.16),0 0 22px rgba(249,115,22,.28),0 8px 24px rgba(127,29,29,.35) !important; }
+        .member-card.decor-phoenix-ember::after,.card-box.decor-phoenix-ember::after { background-image:radial-gradient(circle at 12% 72%,#fdba74 0 2px,transparent 3px),radial-gradient(circle at 27% 35%,#fb923c 0 1.5px,transparent 3px),radial-gradient(circle at 52% 82%,#fed7aa 0 2px,transparent 4px),radial-gradient(circle at 76% 28%,#f97316 0 2px,transparent 4px),radial-gradient(circle at 90% 70%,#fdba74 0 1.5px,transparent 3px),linear-gradient(115deg,transparent 25%,rgba(251,146,60,.13) 48%,transparent 65%); }
+        .member-card.decor-neon-matrix,.card-box.decor-neon-matrix { box-shadow:inset 0 0 32px rgba(34,197,94,.3),0 0 20px rgba(74,222,128,.24),0 8px 24px rgba(22,163,74,.22) !important; }
+        .member-card.decor-neon-matrix::after,.card-box.decor-neon-matrix::after { background-image:radial-gradient(circle at 10% 20%,#bef264 0 1.5px,transparent 3px),radial-gradient(circle at 38% 78%,#4ade80 0 2px,transparent 4px),radial-gradient(circle at 65% 35%,#86efac 0 1px,transparent 3px),radial-gradient(circle at 84% 76%,#a3e635 0 2px,transparent 4px),repeating-linear-gradient(90deg,transparent 0 28px,rgba(74,222,128,.08) 29px 30px); }
+        .member-card.decor-frost-relic,.card-box.decor-frost-relic { box-shadow:inset 0 0 32px rgba(255,255,255,.45),0 0 22px rgba(56,189,248,.3),0 8px 24px rgba(14,116,144,.25) !important; }
+        .member-card.decor-frost-relic::after,.card-box.decor-frost-relic::after { background-image:radial-gradient(circle at 14% 32%,#fff 0 2px,transparent 4px),radial-gradient(circle at 32% 75%,#bae6fd 0 1.5px,transparent 3px),radial-gradient(circle at 61% 20%,#fff 0 1.5px,transparent 3px),radial-gradient(circle at 86% 61%,#e0f2fe 0 2px,transparent 4px),linear-gradient(125deg,transparent 30%,rgba(255,255,255,.26) 48%,transparent 65%); }
+        .member-card.decor-desert-mirage,.card-box.decor-desert-mirage { box-shadow:inset 0 0 32px rgba(251,191,36,.28),0 0 24px rgba(245,158,11,.28),0 8px 24px rgba(146,64,14,.3) !important; }
+        .member-card.decor-desert-mirage::after,.card-box.decor-desert-mirage::after { background-image:radial-gradient(circle at 17% 65%,#fde68a 0 2px,transparent 4px),radial-gradient(circle at 37% 25%,#fef3c7 0 1.5px,transparent 3px),radial-gradient(circle at 69% 78%,#fbbf24 0 2px,transparent 4px),radial-gradient(circle at 88% 39%,#fff7ed 0 1.5px,transparent 3px),linear-gradient(110deg,transparent 25%,rgba(253,230,138,.2) 48%,transparent 68%); }
+        .member-card.decor-deep-space,.card-box.decor-deep-space { box-shadow:inset 0 0 34px rgba(167,139,250,.3),0 0 24px rgba(139,92,246,.25),0 8px 24px rgba(49,46,129,.3) !important; }
+        .member-card.decor-deep-space::after,.card-box.decor-deep-space::after { background-image:radial-gradient(circle at 12% 34%,#fff 0 1.5px,transparent 3px),radial-gradient(circle at 29% 72%,#c4b5fd 0 2px,transparent 4px),radial-gradient(circle at 58% 24%,#67e8f9 0 1.5px,transparent 3px),radial-gradient(circle at 73% 81%,#f0abfc 0 2px,transparent 4px),radial-gradient(circle at 91% 42%,#ddd6fe 0 1px,transparent 3px); }
+        @keyframes decorParticlesDrift { 0%{background-position:0 0,0 0,0 0,0 0,0 0,0 0} 50%{background-position:8px -5px,-5px 8px,7px 4px,-6px -7px,5px -4px,0 0} 100%{background-position:0 0,0 0,0 0,0 0,0 0,0 0} }
+        .member-card.decor-phoenix-ember .stats-grid,.card-box.decor-phoenix-ember .stats-grid { background:rgba(67,20,7,.55)!important; border:1px solid rgba(251,146,60,.65); border-radius:12px; padding:5px; }
+        .member-card.decor-neon-matrix .stats-grid,.card-box.decor-neon-matrix .stats-grid { background:rgba(2,44,24,.58)!important; border:1px solid rgba(74,222,128,.6); border-radius:12px; padding:5px; }
+        .member-card.decor-frost-relic .stats-grid,.card-box.decor-frost-relic .stats-grid { background:rgba(224,242,254,.55)!important; border:1px solid rgba(255,255,255,.8); border-radius:12px; padding:5px; }
+        .member-card.decor-desert-mirage .stats-grid,.card-box.decor-desert-mirage .stats-grid { background:rgba(69,26,3,.45)!important; border:1px solid rgba(253,230,138,.65); border-radius:12px; padding:5px; }
+        .member-card.decor-deep-space .stats-grid,.card-box.decor-deep-space .stats-grid { background:rgba(30,27,75,.58)!important; border:1px solid rgba(196,181,253,.55); border-radius:12px; padding:5px; }
+        .member-card.decor-phoenix-ember .stat-item,.card-box.decor-phoenix-ember .stat-item { background:rgba(249,115,22,.18); border:1px solid rgba(251,146,60,.24); border-radius:8px; }
+        .member-card.decor-neon-matrix .stat-item,.card-box.decor-neon-matrix .stat-item { background:rgba(34,197,94,.13); border:1px solid rgba(134,239,172,.22); border-radius:8px; }
+        .member-card.decor-frost-relic .stat-item,.card-box.decor-frost-relic .stat-item { background:rgba(255,255,255,.48); border:1px solid rgba(14,116,144,.16); border-radius:8px; }
+        .member-card.decor-desert-mirage .stat-item,.card-box.decor-desert-mirage .stat-item { background:rgba(251,191,36,.14); border:1px solid rgba(253,230,138,.22); border-radius:8px; }
+        .member-card.decor-deep-space .stat-item,.card-box.decor-deep-space .stat-item { background:rgba(139,92,246,.15); border:1px solid rgba(196,181,253,.23); border-radius:8px; }
+
+
+        /* Polish khusus lima hiasan profil baru: glow berlapis dan denyut cahaya lebih hidup. */
+        .member-card.decor-sakura-bersemi, .card-box.decor-sakura-bersemi { border-color:#f9a8d4 !important; box-shadow:0 0 9px rgba(244,114,182,.85),0 0 22px rgba(236,72,153,.65),0 0 42px rgba(244,114,182,.35),inset 0 0 22px rgba(255,255,255,.9),inset 0 0 42px rgba(249,168,212,.32) !important; animation:sakuraUltraGlow 3.2s ease-in-out infinite !important; }
+        .member-card.decor-api-naga, .card-box.decor-api-naga { border-color:#fdba74 !important; box-shadow:0 0 10px rgba(251,146,60,.9),0 0 25px rgba(249,115,22,.72),0 0 45px rgba(220,38,38,.38),inset 0 0 22px rgba(251,146,60,.3),inset 0 0 40px rgba(239,68,68,.16) !important; animation:dragonUltraGlow 2.6s ease-in-out infinite !important; }
+        .member-card.decor-petir-neon, .card-box.decor-petir-neon { border-color:#a5f3fc !important; box-shadow:0 0 10px rgba(103,232,249,.95),0 0 25px rgba(34,211,238,.8),0 0 46px rgba(59,130,246,.52),inset 0 0 22px rgba(96,165,250,.34),inset 0 0 42px rgba(34,211,238,.16) !important; animation:lightningUltraGlow 3.2s ease-in-out infinite !important; }
+        .member-card.decor-emerald-venom, .card-box.decor-emerald-venom { border-color:#a7f3d0 !important; box-shadow:0 0 10px rgba(110,231,183,.92),0 0 26px rgba(16,185,129,.76),0 0 44px rgba(5,150,105,.42),inset 0 0 22px rgba(167,243,208,.3),inset 0 0 40px rgba(16,185,129,.18) !important; animation:emeraldUltraGlow 2.9s ease-in-out infinite !important; }
+        .member-card.decor-debu-kosmik, .card-box.decor-debu-kosmik { border-color:#ddd6fe !important; box-shadow:0 0 10px rgba(221,214,254,.9),0 0 26px rgba(139,92,246,.78),0 0 48px rgba(124,58,237,.5),inset 0 0 24px rgba(196,181,253,.34),inset 0 0 44px rgba(124,58,237,.2) !important; animation:cosmicUltraGlow 3.4s ease-in-out infinite !important; }
+        @keyframes sakuraUltraGlow { 0%,100%{box-shadow:0 0 8px rgba(244,114,182,.65),0 0 20px rgba(236,72,153,.45),0 0 32px rgba(244,114,182,.25),inset 0 0 18px rgba(255,255,255,.8)}50%{box-shadow:0 0 13px rgba(249,168,212,1),0 0 32px rgba(236,72,153,.82),0 0 54px rgba(244,114,182,.48),inset 0 0 28px rgba(255,255,255,.98),inset 0 0 42px rgba(249,168,212,.38)} }
+        @keyframes dragonUltraGlow { 0%,100%{box-shadow:0 0 9px rgba(249,115,22,.7),0 0 20px rgba(220,38,38,.45),0 0 34px rgba(249,115,22,.25),inset 0 0 18px rgba(251,146,60,.18)}50%{box-shadow:0 0 15px rgba(253,186,116,1),0 0 34px rgba(249,115,22,.9),0 0 55px rgba(220,38,38,.55),inset 0 0 28px rgba(251,146,60,.38),inset 0 0 44px rgba(239,68,68,.22)} }
+        @keyframes lightningUltraGlow { 0%,100%{box-shadow:0 0 8px rgba(34,211,238,.65),0 0 20px rgba(59,130,246,.45),0 0 34px rgba(34,211,238,.25),inset 0 0 18px rgba(96,165,250,.18)}45%{box-shadow:0 0 16px rgba(165,243,252,1),0 0 35px rgba(34,211,238,.9),0 0 58px rgba(59,130,246,.58),inset 0 0 28px rgba(96,165,250,.38)}48%{box-shadow:0 0 22px rgba(255,255,255,.92),0 0 42px rgba(34,211,238,1),0 0 64px rgba(59,130,246,.72),inset 0 0 32px rgba(165,243,252,.48)}50%{box-shadow:0 0 8px rgba(34,211,238,.65),0 0 20px rgba(59,130,246,.45),0 0 34px rgba(34,211,238,.25),inset 0 0 18px rgba(96,165,250,.18)} }
+        @keyframes emeraldUltraGlow { 0%,100%{box-shadow:0 0 8px rgba(52,211,153,.65),0 0 20px rgba(16,185,129,.45),0 0 32px rgba(5,150,105,.25),inset 0 0 18px rgba(167,243,208,.18)}50%{box-shadow:0 0 14px rgba(167,243,208,1),0 0 33px rgba(16,185,129,.9),0 0 54px rgba(5,150,105,.52),inset 0 0 28px rgba(167,243,208,.38),inset 0 0 44px rgba(16,185,129,.22)} }
+        @keyframes cosmicUltraGlow { 0%,100%{box-shadow:0 0 8px rgba(167,139,250,.65),0 0 20px rgba(124,58,237,.45),0 0 34px rgba(124,58,237,.25),inset 0 0 18px rgba(196,181,253,.18)}50%{box-shadow:0 0 14px rgba(221,214,254,1),0 0 34px rgba(139,92,246,.9),0 0 58px rgba(124,58,237,.58),inset 0 0 30px rgba(196,181,253,.4),inset 0 0 46px rgba(124,58,237,.24)} }
+        .immortal-badge-row { display:flex; align-items:center; margin-top:5px; position:relative; z-index:3; }
+        .immortal-badge-row .immortal-badge { display:inline-flex; width:max-content; }
+
+
+        /* PERMINTAAN KHUSUS: Relik Es memakai teks putih untuk bio/statistik,
+           tetapi nama dan gelar tetap memakai warna item aslinya. */
+        .member-card.decor-frost-relic .member-bio,
+        .card-box.decor-frost-relic .member-bio,
+        .member-card.decor-frost-relic .stats-grid,
+        .card-box.decor-frost-relic .stats-grid,
+        .member-card.decor-frost-relic .stats-grid .stat-item,
+        .card-box.decor-frost-relic .stats-grid .stat-item,
+        .member-card.decor-frost-relic .stat-item,
+        .card-box.decor-frost-relic .stat-item {
+            color:#fff !important;
+            text-shadow:0 1px 3px rgba(3,37,65,.72), 0 0 7px rgba(255,255,255,.25);
+        }
+
+        /* Upgrade visual lima hiasan profil baru: aura berlapis, cahaya bergerak,
+           dan partikel berkilau. Nama dan gelar tidak disentuh oleh efek ini. */
+        .member-card.decor-phoenix-ember,.card-box.decor-phoenix-ember {
+            background-size:180% 180% !important;
+            box-shadow:inset 0 -18px 36px rgba(249,115,22,.48),inset 0 0 28px rgba(255,196,80,.16),
+                0 0 10px rgba(251,146,60,.75),0 0 26px rgba(239,68,68,.55),0 0 48px rgba(249,115,22,.28) !important;
+            animation:rmPhoenixAura 4s ease-in-out infinite;
+        }
+        .member-card.decor-neon-matrix,.card-box.decor-neon-matrix {
+            background-size:180% 180% !important;
+            box-shadow:inset 0 0 30px rgba(34,197,94,.36),0 0 10px rgba(74,222,128,.8),
+                0 0 26px rgba(34,197,94,.55),0 0 48px rgba(16,185,129,.25) !important;
+            animation:rmMatrixAura 3.2s ease-in-out infinite;
+        }
+        .member-card.decor-frost-relic,.card-box.decor-frost-relic {
+            background-size:220% 220% !important;
+            box-shadow:inset 0 0 28px rgba(255,255,255,.85),inset 0 0 52px rgba(56,189,248,.42),
+                0 0 10px rgba(186,230,253,.95),0 0 28px rgba(56,189,248,.65),0 0 52px rgba(14,165,233,.32) !important;
+            animation:rmFrostAura 4.5s ease-in-out infinite;
+        }
+        .member-card.decor-desert-mirage,.card-box.decor-desert-mirage {
+            background-size:220% 220% !important;
+            box-shadow:inset 0 0 28px rgba(253,230,138,.36),0 0 10px rgba(251,191,36,.8),
+                0 0 26px rgba(245,158,11,.52),0 0 48px rgba(217,119,6,.28) !important;
+            animation:rmDesertAura 4.2s ease-in-out infinite;
+        }
+        .member-card.decor-deep-space,.card-box.decor-deep-space {
+            background-size:180% 180% !important;
+            box-shadow:inset 0 0 32px rgba(167,139,250,.4),0 0 10px rgba(196,181,253,.8),
+                0 0 28px rgba(129,140,248,.6),0 0 52px rgba(91,33,182,.38) !important;
+            animation:rmSpaceAura 5s ease-in-out infinite;
+        }
+        .member-card.decor-phoenix-ember::after,.card-box.decor-phoenix-ember::after,
+        .member-card.decor-neon-matrix::after,.card-box.decor-neon-matrix::after,
+        .member-card.decor-frost-relic::after,.card-box.decor-frost-relic::after,
+        .member-card.decor-desert-mirage::after,.card-box.decor-desert-mirage::after,
+        .member-card.decor-deep-space::after,.card-box.decor-deep-space::after {
+            content:"✦  ·  ✧  ·  ✦  ·  ✧";
+            position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden;
+            display:block; padding:0; letter-spacing:9px; font-size:13px; line-height:1;
+            background:
+                radial-gradient(circle at 8% 18%,currentColor 0 1px,transparent 3px),
+                radial-gradient(circle at 19% 72%,rgba(255,255,255,.98) 0 1.2px,transparent 3px),
+                radial-gradient(circle at 31% 36%,currentColor 0 1.5px,transparent 3.5px),
+                radial-gradient(circle at 43% 86%,rgba(255,255,255,.92) 0 1px,transparent 3px),
+                radial-gradient(circle at 57% 19%,currentColor 0 1.2px,transparent 3px),
+                radial-gradient(circle at 68% 62%,rgba(255,255,255,.95) 0 1.5px,transparent 3.5px),
+                radial-gradient(circle at 82% 31%,currentColor 0 1px,transparent 3px),
+                radial-gradient(circle at 94% 82%,rgba(255,255,255,.9) 0 1.2px,transparent 3px);
+            background-size:100% 100%;
+            background-position:center;
+            animation:rmRelicParticles 3.8s ease-in-out infinite;
+            text-shadow:0 0 6px currentColor,0 0 14px currentColor;
+            opacity:.96;
+        }
+        .member-card.decor-phoenix-ember::after,.card-box.decor-phoenix-ember::after { color:#ffb45e; }
+        .member-card.decor-neon-matrix::after,.card-box.decor-neon-matrix::after { color:#86efac; }
+        .member-card.decor-frost-relic::after,.card-box.decor-frost-relic::after { color:#e0f7ff; }
+        .member-card.decor-desert-mirage::after,.card-box.decor-desert-mirage::after { color:#fde68a; }
+        .member-card.decor-deep-space::after,.card-box.decor-deep-space::after { color:#ddd6fe; }
+        .member-card.decor-phoenix-ember::before,.card-box.decor-phoenix-ember::before,
+        .member-card.decor-neon-matrix::before,.card-box.decor-neon-matrix::before,
+        .member-card.decor-frost-relic::before,.card-box.decor-frost-relic::before,
+        .member-card.decor-desert-mirage::before,.card-box.decor-desert-mirage::before,
+        .member-card.decor-deep-space::before,.card-box.decor-deep-space::before {
+            animation:rmRelicSigilGlow 2.2s ease-in-out infinite;
+        }
+        @keyframes rmRelicParticles {
+            0%,100% { transform:translate3d(0,0,0); opacity:.58; }
+                        55% { transform:translate3d(-2px,-10px,0); opacity:.78; }
+            80% { transform:translate3d(1px,-4px,0); opacity:1; }
+        }
+        @keyframes rmRelicSigilGlow {
+            0%,100% { filter:brightness(1) drop-shadow(0 0 3px currentColor); }
+            50% { filter:brightness(1.5) drop-shadow(0 0 10px currentColor); }
+        }
+        @keyframes rmPhoenixAura {
+            0%,100% { background-position:0% 45%; filter:brightness(1); }
+            50% { background-position:100% 55%; filter:brightness(1.13); }
+        }
+        @keyframes rmMatrixAura {
+            0%,100% { background-position:0% 50%; filter:brightness(1); }
+            50% { background-position:100% 50%; filter:brightness(1.16); }
+        }
+        @keyframes rmFrostAura {
+            0%,100% { background-position:0% 40%; filter:brightness(1); }
+            50% { background-position:100% 60%; filter:brightness(1.13); }
+        }
+        @keyframes rmDesertAura {
+            0%,100% { background-position:0% 50%; filter:brightness(1); }
+            50% { background-position:100% 50%; filter:brightness(1.15); }
+        }
+        @keyframes rmSpaceAura {
+            0%,100% { background-position:0% 45%; filter:brightness(1); }
+            50% { background-position:100% 55%; filter:brightness(1.14); }
+        }
+
+        /* Efek khusus: kilau berputar hanya di kotak statistik, bukan di background kartu. */
+        .member-card.decor-phoenix-ember .stats-grid,.card-box.decor-phoenix-ember .stats-grid,
+        .member-card.decor-neon-matrix .stats-grid,.card-box.decor-neon-matrix .stats-grid,
+        .member-card.decor-frost-relic .stats-grid,.card-box.decor-frost-relic .stats-grid,
+        .member-card.decor-desert-mirage .stats-grid,.card-box.decor-desert-mirage .stats-grid,
+        .member-card.decor-deep-space .stats-grid,.card-box.decor-deep-space .stats-grid {
+            position:relative; isolation:isolate; overflow:hidden;
+        }
+        .member-card.decor-phoenix-ember .stats-grid::before,.card-box.decor-phoenix-ember .stats-grid::before,
+        .member-card.decor-neon-matrix .stats-grid::before,.card-box.decor-neon-matrix .stats-grid::before,
+        .member-card.decor-frost-relic .stats-grid::before,.card-box.decor-frost-relic .stats-grid::before,
+        .member-card.decor-desert-mirage .stats-grid::before,.card-box.decor-desert-mirage .stats-grid::before,
+        .member-card.decor-deep-space .stats-grid::before,.card-box.decor-deep-space .stats-grid::before {
+            content:""; position:absolute; inset:-70%; z-index:0; pointer-events:none; border-radius:50%;
+            background:conic-gradient(from 0deg,transparent 0 65%,rgba(255,255,255,.04) 72%,rgba(255,255,255,.92) 77%,rgba(255,255,255,.12) 81%,transparent 88% 100%);
+            animation:rmStatsOrbit 3.1s linear infinite; opacity:.82;
+        }
+        .member-card.decor-phoenix-ember .stats-grid::before,.card-box.decor-phoenix-ember .stats-grid::before { filter:drop-shadow(0 0 7px #fb923c); }
+        .member-card.decor-neon-matrix .stats-grid::before,.card-box.decor-neon-matrix .stats-grid::before { filter:drop-shadow(0 0 7px #4ade80); }
+        .member-card.decor-frost-relic .stats-grid::before,.card-box.decor-frost-relic .stats-grid::before { filter:drop-shadow(0 0 7px #7dd3fc); }
+        .member-card.decor-desert-mirage .stats-grid::before,.card-box.decor-desert-mirage .stats-grid::before { filter:drop-shadow(0 0 7px #fbbf24); }
+        .member-card.decor-deep-space .stats-grid::before,.card-box.decor-deep-space .stats-grid::before { filter:drop-shadow(0 0 7px #a78bfa); }
+        .member-card.decor-phoenix-ember .stats-grid .stat-item,.card-box.decor-phoenix-ember .stats-grid .stat-item,
+        .member-card.decor-neon-matrix .stats-grid .stat-item,.card-box.decor-neon-matrix .stats-grid .stat-item,
+        .member-card.decor-frost-relic .stats-grid .stat-item,.card-box.decor-frost-relic .stats-grid .stat-item,
+        .member-card.decor-desert-mirage .stats-grid .stat-item,.card-box.decor-desert-mirage .stats-grid .stat-item,
+        .member-card.decor-deep-space .stats-grid .stat-item,.card-box.decor-deep-space .stats-grid .stat-item {
+            position:relative; z-index:1;
+        }
+        /* Tiap hiasan punya warna dan gerakan partikel tersendiri. */
+        .member-card.decor-phoenix-ember::after,.card-box.decor-phoenix-ember::after {
+            background-image:radial-gradient(circle at 10% 90%,#fff1c2 0 1.5px,transparent 4px),radial-gradient(circle at 24% 64%,#fb923c 0 2px,transparent 5px),radial-gradient(circle at 48% 82%,#f97316 0 1.5px,transparent 4px),radial-gradient(circle at 71% 60%,#ffedd5 0 1.5px,transparent 4px),radial-gradient(circle at 89% 86%,#ef4444 0 2px,transparent 5px);
+            animation:rmEmberRise 3.2s ease-in-out infinite alternate;
+        }
+        .member-card.decor-neon-matrix::after,.card-box.decor-neon-matrix::after {
+            background-image:radial-gradient(circle at 12% 20%,#bef264 0 1.5px,transparent 4px),radial-gradient(circle at 28% 75%,#4ade80 0 2px,transparent 5px),radial-gradient(circle at 52% 32%,#f7fee7 0 1px,transparent 3px),radial-gradient(circle at 76% 82%,#22c55e 0 2px,transparent 5px),radial-gradient(circle at 92% 45%,#86efac 0 1.5px,transparent 4px);
+            animation:rmMatrixFlicker 2.2s steps(2,end) infinite;
+        }
+        .member-card.decor-frost-relic::after,.card-box.decor-frost-relic::after {
+            background-image:radial-gradient(circle at 14% 30%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 34% 78%,#bae6fd 0 2px,transparent 5px),radial-gradient(circle at 54% 22%,#e0f2fe 0 1px,transparent 3px),radial-gradient(circle at 74% 68%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 91% 38%,#7dd3fc 0 2px,transparent 5px);
+            animation:rmFrostDrift 4.6s ease-in-out infinite alternate;
+        }
+        .member-card.decor-desert-mirage::after,.card-box.decor-desert-mirage::after {
+            background-image:radial-gradient(circle at 9% 70%,#fef3c7 0 1.5px,transparent 4px),radial-gradient(circle at 30% 34%,#fbbf24 0 2px,transparent 5px),radial-gradient(circle at 51% 84%,#fff7ae 0 1.5px,transparent 4px),radial-gradient(circle at 72% 25%,#d97706 0 2px,transparent 5px),radial-gradient(circle at 91% 63%,#fde68a 0 1.5px,transparent 4px);
+            animation:rmMirageWave 5s ease-in-out infinite alternate;
+        }
+        .member-card.decor-deep-space::after,.card-box.decor-deep-space::after {
+            background-image:radial-gradient(circle at 11% 24%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 29% 78%,#c4b5fd 0 2px,transparent 5px),radial-gradient(circle at 49% 38%,#e9d5ff 0 1px,transparent 3px),radial-gradient(circle at 73% 70%,#818cf8 0 2px,transparent 5px),radial-gradient(circle at 90% 18%,#ddd6fe 0 1.5px,transparent 4px);
+            animation:rmCosmicDrift 6s linear infinite;
+        }
+        @keyframes rmStatsOrbit { to { transform:rotate(360deg); } }
+        @keyframes rmEmberRise { from { transform:translateY(7px) scale(1); opacity:.65; } to { transform:translateY(-12px) scale(1.025); opacity:1; } }
+        @keyframes rmMatrixFlicker { 0%,100% { transform:translate(0,0); opacity:.65; } 50% { transform:translate(2px,-5px); opacity:1; } }
+        @keyframes rmFrostDrift { from { transform:translate(-2px,5px); opacity:.65; } to { transform:translate(3px,-8px); opacity:1; } }
+        @keyframes rmMirageWave { from { transform:translate(-3px,3px); opacity:.7; } to { transform:translate(4px,-6px); opacity:1; } }
+        @keyframes rmCosmicDrift { from { transform:translate(-3px,4px) rotate(0deg); opacity:.62; } to { transform:translate(4px,-7px) rotate(2deg); opacity:1; } }
+
+
+
+        /* Revisi partikel: hilangkan ornamen teks di bagian atas; partikel tersebar di area dalam kartu. */
+        .member-card.decor-phoenix-ember::after,.card-box.decor-phoenix-ember::after,
+        .member-card.decor-neon-matrix::after,.card-box.decor-neon-matrix::after,
+        .member-card.decor-frost-relic::after,.card-box.decor-frost-relic::after,
+        .member-card.decor-desert-mirage::after,.card-box.decor-desert-mirage::after,
+        .member-card.decor-deep-space::after,.card-box.decor-deep-space::after {
+            content:"" !important;
+            inset:24px 9px 9px !important;
+            padding:0 !important;
+            letter-spacing:0 !important;
+            font-size:0 !important;
+            line-height:0 !important;
+            background-size:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100% !important;
+            background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0 !important;
+            opacity:.96;
+        }
+        .member-card.decor-phoenix-ember::after,.card-box.decor-phoenix-ember::after {
+            background-image:radial-gradient(circle at 8% 78%,#fff1c2 0 1.4px,transparent 4px),radial-gradient(circle at 17% 38%,#fb923c 0 2px,transparent 5px),radial-gradient(circle at 27% 63%,#f97316 0 1.4px,transparent 4px),radial-gradient(circle at 38% 22%,#ffedd5 0 1.5px,transparent 4px),radial-gradient(circle at 49% 81%,#ef4444 0 2px,transparent 5px),radial-gradient(circle at 59% 47%,#fdba74 0 1.5px,transparent 4px),radial-gradient(circle at 69% 70%,#fff7ed 0 1px,transparent 3px),radial-gradient(circle at 78% 28%,#f97316 0 2px,transparent 5px),radial-gradient(circle at 91% 57%,#ffedd5 0 1.5px,transparent 4px),radial-gradient(circle at 14% 15%,#fb923c 0 1px,transparent 3px),radial-gradient(circle at 57% 12%,#fff1c2 0 1px,transparent 3px),radial-gradient(circle at 86% 88%,#ef4444 0 1.5px,transparent 4px) !important;
+            animation:rmEmberInterior 4.1s ease-in-out infinite alternate !important;
+        }
+        .member-card.decor-neon-matrix::after,.card-box.decor-neon-matrix::after {
+            background-image:radial-gradient(circle at 9% 26%,#bef264 0 1.5px,transparent 4px),radial-gradient(circle at 19% 70%,#4ade80 0 2px,transparent 5px),radial-gradient(circle at 31% 48%,#f7fee7 0 1px,transparent 3px),radial-gradient(circle at 42% 16%,#22c55e 0 2px,transparent 5px),radial-gradient(circle at 51% 77%,#86efac 0 1.5px,transparent 4px),radial-gradient(circle at 63% 39%,#d9f99d 0 1px,transparent 3px),radial-gradient(circle at 74% 63%,#22c55e 0 2px,transparent 5px),radial-gradient(circle at 87% 24%,#bbf7d0 0 1.5px,transparent 4px),radial-gradient(circle at 94% 83%,#4ade80 0 1px,transparent 3px),radial-gradient(circle at 28% 88%,#f7fee7 0 1px,transparent 3px),radial-gradient(circle at 68% 10%,#86efac 0 1px,transparent 3px),radial-gradient(circle at 5% 54%,#22c55e 0 1.5px,transparent 4px) !important;
+            animation:rmMatrixInterior 2.8s ease-in-out infinite !important;
+        }
+        .member-card.decor-frost-relic::after,.card-box.decor-frost-relic::after {
+            background-image:radial-gradient(circle at 7% 43%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 18% 77%,#bae6fd 0 2px,transparent 5px),radial-gradient(circle at 29% 23%,#e0f2fe 0 1px,transparent 3px),radial-gradient(circle at 39% 61%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 51% 35%,#7dd3fc 0 2px,transparent 5px),radial-gradient(circle at 61% 82%,#e0f2fe 0 1px,transparent 3px),radial-gradient(circle at 72% 17%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 82% 56%,#bae6fd 0 2px,transparent 5px),radial-gradient(circle at 94% 31%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 43% 11%,#7dd3fc 0 1px,transparent 3px),radial-gradient(circle at 12% 12%,#fff 0 1px,transparent 3px),radial-gradient(circle at 88% 88%,#e0f2fe 0 1.5px,transparent 4px) !important;
+            animation:rmFrostInterior 5.3s ease-in-out infinite alternate !important;
+        }
+        .member-card.decor-desert-mirage::after,.card-box.decor-desert-mirage::after {
+            background-image:radial-gradient(circle at 8% 65%,#fef3c7 0 1.5px,transparent 4px),radial-gradient(circle at 18% 31%,#fbbf24 0 2px,transparent 5px),radial-gradient(circle at 29% 82%,#fff7ae 0 1.5px,transparent 4px),radial-gradient(circle at 39% 47%,#d97706 0 2px,transparent 5px),radial-gradient(circle at 48% 18%,#fde68a 0 1px,transparent 3px),radial-gradient(circle at 59% 68%,#fbbf24 0 1.5px,transparent 4px),radial-gradient(circle at 70% 35%,#fff7ae 0 2px,transparent 5px),radial-gradient(circle at 81% 76%,#d97706 0 1.5px,transparent 4px),radial-gradient(circle at 92% 49%,#fde68a 0 1px,transparent 3px),radial-gradient(circle at 33% 12%,#fff7ae 0 1px,transparent 3px),radial-gradient(circle at 67% 89%,#fbbf24 0 1px,transparent 3px),radial-gradient(circle at 96% 14%,#fef3c7 0 1.5px,transparent 4px) !important;
+            animation:rmDesertInterior 6.2s ease-in-out infinite alternate !important;
+        }
+        .member-card.decor-deep-space::after,.card-box.decor-deep-space::after {
+            background-image:radial-gradient(circle at 7% 24%,#fff 0 1.5px,transparent 4px),radial-gradient(circle at 17% 72%,#c4b5fd 0 2px,transparent 5px),radial-gradient(circle at 28% 44%,#e9d5ff 0 1px,transparent 3px),radial-gradient(circle at 38% 15%,#818cf8 0 2px,transparent 5px),radial-gradient(circle at 49% 78%,#ddd6fe 0 1.5px,transparent 4px),radial-gradient(circle at 59% 39%,#a78bfa 0 1px,transparent 3px),radial-gradient(circle at 70% 61%,#fff 0 2px,transparent 5px),radial-gradient(circle at 81% 27%,#c4b5fd 0 1.5px,transparent 4px),radial-gradient(circle at 93% 83%,#ddd6fe 0 2px,transparent 5px),radial-gradient(circle at 31% 91%,#fff 0 1px,transparent 3px),radial-gradient(circle at 65% 11%,#a78bfa 0 1.5px,transparent 4px),radial-gradient(circle at 90% 12%,#e9d5ff 0 1px,transparent 3px) !important;
+            animation:rmSpaceInterior 7s linear infinite !important;
+        }
+        /* Kilau berputar hanya pada bingkai/border kotak statistik, tidak menimpa isinya. */
+        .member-card.decor-phoenix-ember .stats-grid::before,.card-box.decor-phoenix-ember .stats-grid::before,
+        .member-card.decor-neon-matrix .stats-grid::before,.card-box.decor-neon-matrix .stats-grid::before,
+        .member-card.decor-frost-relic .stats-grid::before,.card-box.decor-frost-relic .stats-grid::before,
+        .member-card.decor-desert-mirage .stats-grid::before,.card-box.decor-desert-mirage .stats-grid::before,
+        .member-card.decor-deep-space .stats-grid::before,.card-box.decor-deep-space .stats-grid::before {
+            inset:0 !important; z-index:2 !important; border-radius:inherit !important;
+            padding:2px !important; background:conic-gradient(from 0deg,transparent 0 72%,rgba(255,255,255,.15) 76%,#fff 79%,rgba(255,255,255,.15) 82%,transparent 86% 100%) !important;
+            -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0) !important;
+            -webkit-mask-composite:xor !important;
+            mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0) !important;
+            mask-composite:exclude !important;
+            animation:rmStatsOrbit 3.1s linear infinite !important;
+            opacity:.95 !important; filter:none !important;
+        }
+        .member-card.decor-phoenix-ember .stats-grid::before,.card-box.decor-phoenix-ember .stats-grid::before { box-shadow:0 0 8px #fb923c; }
+        .member-card.decor-neon-matrix .stats-grid::before,.card-box.decor-neon-matrix .stats-grid::before { box-shadow:0 0 8px #4ade80; }
+        .member-card.decor-frost-relic .stats-grid::before,.card-box.decor-frost-relic .stats-grid::before { box-shadow:0 0 8px #7dd3fc; }
+        .member-card.decor-desert-mirage .stats-grid::before,.card-box.decor-desert-mirage .stats-grid::before { box-shadow:0 0 8px #fbbf24; }
+        .member-card.decor-deep-space .stats-grid::before,.card-box.decor-deep-space .stats-grid::before { box-shadow:0 0 8px #a78bfa; }
+        @keyframes rmEmberInterior { 0%{transform:translate(0,7px);opacity:.65;filter:brightness(.9)} 100%{transform:translate(2px,-7px);opacity:1;filter:brightness(1.35)} }
+        @keyframes rmMatrixInterior { 0%,100%{transform:translate(0,0);opacity:.7;filter:brightness(.9)} 50%{transform:translate(2px,-3px);opacity:1;filter:brightness(1.5)} }
+        @keyframes rmFrostInterior { 0%{transform:translate(-2px,5px);opacity:.65;filter:brightness(1)} 100%{transform:translate(3px,-5px);opacity:1;filter:brightness(1.4)} }
+        @keyframes rmDesertInterior { 0%{transform:translate(-2px,3px);opacity:.6;filter:brightness(.9)} 100%{transform:translate(2px,-4px);opacity:1;filter:brightness(1.45)} }
+        @keyframes rmSpaceInterior { 0%{transform:translate(-2px,4px);opacity:.7;filter:brightness(.9)} 50%{transform:translate(3px,-2px);opacity:1;filter:brightness(1.4)} 100%{transform:translate(-2px,4px);opacity:.7;filter:brightness(.9)} }
+
+
+        /* Lencana profil pilihan admin: kilau hanya berada pada lencana. */
+        .profile-badges-row { display:flex; flex-wrap:wrap; align-items:center; gap:5px; margin-top:5px; position:relative; z-index:4; }
+        .profile-badge { position:relative; display:inline-flex; align-items:center; gap:4px; width:max-content; max-width:100%; overflow:hidden; padding:3px 9px; border-radius:999px; font-size:.7rem; line-height:1.25; font-weight:800; color:#fff; isolation:isolate; }
+        .profile-badge::after { content:""; position:absolute; inset:-20% auto -20% -45%; width:32%; transform:skewX(-22deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),rgba(255,255,255,.25),transparent); animation:profileBadgeShine 2.6s ease-in-out infinite; pointer-events:none; z-index:1; }
+        .profile-badge > span { position:relative; z-index:2; }
+        .profile-badge.immortal { background:linear-gradient(135deg,#b45309,#f59e0b,#78350f); border:1px solid #fde68a; box-shadow:0 0 9px rgba(245,158,11,.55); }
+        .profile-badge.demon-king { background:linear-gradient(135deg,#190712,#7f1d1d,#dc2626,#450a0a); border:1px solid #fca5a5; box-shadow:0 0 10px rgba(239,68,68,.65),inset 0 0 7px rgba(255,255,255,.2); }
+        .profile-badge.first-season { background:linear-gradient(135deg,#082f49,#2563eb,#7c3aed); border:1px solid #bfdbfe; box-shadow:0 0 10px rgba(96,165,250,.65),inset 0 0 7px rgba(255,255,255,.18); }
+        @keyframes profileBadgeShine { 0%,15% { left:-45%; opacity:0; } 30% { opacity:1; } 65% { left:125%; opacity:1; } 80%,100% { left:125%; opacity:0; } }
+
+        /* Retakan kristal berbeda warna untuk lima hiasan baru; partikel tetap di dalam kartu. */
+        .member-card.decor-phoenix-ember::before,.card-box.decor-phoenix-ember::before,
+        .member-card.decor-neon-matrix::before,.card-box.decor-neon-matrix::before,
+        .member-card.decor-frost-relic::before,.card-box.decor-frost-relic::before,
+        .member-card.decor-desert-mirage::before,.card-box.decor-desert-mirage::before,
+        .member-card.decor-deep-space::before,.card-box.decor-deep-space::before {
+            content:"" !important; inset:0 !important; right:auto !important; top:0 !important; z-index:1 !important;
+            display:block !important; opacity:.62; pointer-events:none; letter-spacing:normal !important;
+            background-repeat:no-repeat !important; background-size:100% 100% !important;
+            animation:rmDistinctCracks 3.4s ease-in-out infinite !important;
+        }
+        .member-card.decor-phoenix-ember::before,.card-box.decor-phoenix-ember::before {
+            background-image:linear-gradient(132deg,transparent 0 18%,rgba(255,210,150,.9) 18.3%,transparent 18.8% 100%),linear-gradient(42deg,transparent 0 39%,rgba(249,115,22,.95) 39.3%,transparent 39.8% 100%),linear-gradient(166deg,transparent 0 66%,rgba(255,237,213,.75) 66.3%,transparent 66.8% 100%),linear-gradient(78deg,transparent 0 83%,rgba(239,68,68,.9) 83.3%,transparent 83.8% 100%) !important;
+            filter:drop-shadow(0 0 3px #f97316);
+        }
+        .member-card.decor-neon-matrix::before,.card-box.decor-neon-matrix::before {
+                   .member-card.decor-neon-matrix::before,.card-box.decor-neon-matrix::before {
+            background-image:linear-gradient(115deg,transparent 0 23%,rgba(190,242,100,.95) 23.3%,transparent 23.8% 100%),linear-gradient(58deg,transparent 0 47%,rgba(74,222,128,.95) 47.3%,transparent 47.8% 100%),linear-gradient(170deg,transparent 0 71%,rgba(217,249,157,.8) 71.3%,transparent 71.8% 100%),linear-gradient(25deg,transparent 0 86%,rgba(34,197,94,.95) 86.3%,transparent 86.8% 100%) !important;
+            filter:drop-shadow(0 0 3px #22c55e);
+        }
+        .member-card.decor-frost-relic::before,.card-box.decor-frost-relic::before {
+            background-image:linear-gradient(128deg,transparent 0 20%,rgba(255,255,255,.98) 20.3%,transparent 20.8% 100%),linear-gradient(48deg,transparent 0 43%,rgba(125,211,252,.98) 43.3%,transparent 43.8% 100%),linear-gradient(163deg,transparent 0 63%,rgba(255,255,255,.92) 63.3%,transparent 63.8% 100%),linear-gradient(92deg,transparent 0 82%,rgba(186,230,253,.95) 82.3%,transparent 82.8% 100%) !important;
+            filter:drop-shadow(0 0 3px #7dd3fc);
+        }
+        .member-card.decor-desert-mirage::before,.card-box.decor-desert-mirage::before {
+            background-image:linear-gradient(138deg,transparent 0 16%,rgba(255,247,174,.95) 16.3%,transparent 16.8% 100%),linear-gradient(54deg,transparent 0 37%,rgba(251,191,36,.98) 37.3%,transparent 37.8% 100%),linear-gradient(168deg,transparent 0 69%,rgba(254,243,199,.9) 69.3%,transparent 69.8% 100%),linear-gradient(96deg,transparent 0 88%,rgba(217,119,6,.95) 88.3%,transparent 88.8% 100%) !important;
+            filter:drop-shadow(0 0 3px #fbbf24);
+        }
+        .member-card.decor-deep-space::before,.card-box.decor-deep-space::before {
+            background-image:linear-gradient(125deg,transparent 0 21%,rgba(221,214,254,.98) 21.3%,transparent 21.8% 100%),linear-gradient(45deg,transparent 0 42%,rgba(167,139,250,.98) 42.3%,transparent 42.8% 100%),linear-gradient(160deg,transparent 0 64%,rgba(103,232,249,.9) 64.3%,transparent 64.8% 100%),linear-gradient(88deg,transparent 0 79%,rgba(233,213,255,.95) 79.3%,transparent 79.8% 100%) !important;
+            filter:drop-shadow(0 0 3px #a78bfa);
+        }
+        @keyframes rmDistinctCracks { 0%,100% { opacity:.42; filter:brightness(.9) drop-shadow(0 0 2px currentColor); } 48% { opacity:.88; filter:brightness(1.45) drop-shadow(0 0 6px currentColor); } }
+        /* Nonaktifkan kilau berputar pada kotak statistik sesuai permintaan. */
+        .member-card.decor-phoenix-ember .stats-grid::before,.card-box.decor-phoenix-ember .stats-grid::before,
+        .member-card.decor-neon-matrix .stats-grid::before,.card-box.decor-neon-matrix .stats-grid::before,
+        .member-card.decor-frost-relic .stats-grid::before,.card-box.decor-frost-relic .stats-grid::before,
+        .member-card.decor-desert-mirage .stats-grid::before,.card-box.decor-desert-mirage .stats-grid::before,
+        .member-card.decor-deep-space .stats-grid::before,.card-box.decor-deep-space .stats-grid::before { content:none !important; display:none !important; animation:none !important; }
+
+        /* Revisi khusus: retakan Relik Es dibuat lebih redup agar tidak bertumpuk dengan teks/statistik. */
+        @keyframes rmFrostCrackShine {
+            0%,100% { opacity:.22; filter:brightness(.92) drop-shadow(0 0 1px rgba(125,211,252,.45)); }
+            50% { opacity:.38; filter:brightness(1.08) drop-shadow(0 0 2px rgba(125,211,252,.55)); }
+        }
+        /* Border kontras untuk beberapa hiasan profil baru, tetap terpisah dari glow luarnya. */
+        .member-card.decor-phoenix-ember,.card-box.decor-phoenix-ember { border:2px solid #ffedd5 !important; }
+        .member-card.decor-neon-matrix,.card-box.decor-neon-matrix { border:2px solid #bbf7d0 !important; }
+        .member-card.decor-desert-mirage,.card-box.decor-desert-mirage { border:2px solid #fef3c7 !important; }
+        .member-card.decor-deep-space,.card-box.decor-deep-space { border:2px solid #c4b5fd !important; }
 </style>
 </head>
 <body>
@@ -1704,6 +2113,10 @@
 
         <!-- TAB PERSONALISASI -->
         <div id="tab-personal" class="tab-content">
+            <div id="member-personal-profile-preview" style="display:none; margin-bottom:16px;">
+                <h4 style="margin:0 0 10px;color:#0f172a;">👤 Profil Kamu</h4>
+                <div id="member-personal-profile-card"></div>
+            </div>
             <div class="card-box">
                 <h3 style="margin-bottom: 14px; color: #0f172a;">🔑 Login Member</h3>
                 
@@ -1756,6 +2169,14 @@
                             <option value="default">Default (Putih)</option>
                             <option value="vip_plus_gold">Hiasan Detail Profil VIP Plus</option>
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>🏅 Lencana yang Ditampilkan:</label>
+                        <select id="editSelfBadgeSelect">
+                            <option value="">-- Tanpa Lencana --</option>
+                        </select>
+                        <small style="display:block;color:#64748b;margin-top:4px;">Pilih satu lencana yang didapatkan melalui kode redeem.</small>
                     </div>
 
                     <div class="form-group">
@@ -1915,7 +2336,7 @@
             </div>
             <div class="modal-body">
                 <div class="arcade-card" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); border-color: #60a5fa; margin-bottom: 16px; text-align: center;" onclick="openSellItemModal()">
-                    <h3 style="font-size: 1.15rem; color: white;">➕ Jual Hiasan Nama / Profil Kamu</h3>
+                                       <h3 style="font-size: 1.15rem; color: white;">➕ Jual Hiasan Nama / Profil Kamu</h3>
                     <p style="font-size: 0.8rem; opacity: 0.9;">Minimal punya 2 item untuk bisa dijual 1!</p>
                 </div>
 
@@ -1947,7 +2368,7 @@
                 </div>
                 <div class="form-group">
                     <label>Jumlah Stok Dipasang:</label>
-                    <input type="number" id="inputMarketSellStok" value="1" min="1" readonly style="background: #f1f5f9; color: #64748b;">
+                    <input type="number" id="inputMarketSellStok" value="1" min="1" step="1">
                     <small id="sellStockNotice" style="color: #64748b; font-size: 0.75rem;"></small>
                 </div>
                 <button class="btn-action" style="margin-top: 10px;" onclick="submitSellItemMarketplace()">Jual Sekarang</button>
@@ -2035,11 +2456,6 @@
                             <label>⚡ Boost Multiplier:</label>
                             <input type="number" id="adminMemberBoost" value="1" step="0.1">
                         </div>
-                    </div>
-
-                    <div class="form-group" style="display: flex; align-items: center; gap: 8px; flex-direction: row;">
-                        <input type="checkbox" id="adminMemberImmortal" style="width: auto;">
-                        <label for="adminMemberImmortal" style="margin: 0; cursor: pointer;">🏅 Berikan Lencana Immortal</label>
                     </div>
 
                     <div style="display: flex; gap: 10px; margin-bottom: 20px;">
@@ -2134,7 +2550,9 @@
                                 <option value="diamond">Diamond</option>
                                 <option value="star">Star / Bintang</option>
                                 <option value="hiasan_nama">Hiasan Nama</option>
-                                <option value="hiasan_profil">Hiasan Profil (Diamond)</option>
+                                <option value="hiasan_profil">Hiasan Profil</option>
+                                <option value="hiasan_detail_profil">Hiasan Detail Profil</option>
+                                <option value="lencana">Lencana Profil</option>
                                 <option value="gelar">Gelar</option>
                                 <option value="vip_plus">VIP Plus Status</option>
                             </select>
@@ -2144,16 +2562,8 @@
                             <input type="number" id="adminCodeValue" value="50" min="1">
                         </div>
                         <div class="form-group" id="adminCodePresetContainer" style="display: none;">
-                            <label>Pilih Hiasan:</label>
-                            <select id="adminCodePresetSelect">
-                                <option value="biru_bercahaya">Hiasan Profil Diamond</option>
-                                <option value="kuning_border_ijo">Hiasan Profil Kuning</option>
-                                <option value="hitam_ornamen">Hiasan Profil Hitam Ornamen</option>
-                                <option value="hijau_ornamen">Hiasan Profil Hijau Ornamen</option>
-                                <option value="crystal_ungu">Hiasan Profil Crystal Ungu</option>
-                                <option value="vip_gold">Hiasan Nama VIP Gold</option>
-                                <option value="limited_shiny">Hiasan Nama Limited Shiny</option>
-                            </select>
+                            <label id="adminCodePresetLabel">Pilih Hiasan:</label>
+                            <select id="adminCodePresetSelect"></select>
                         </div>
                         <div class="form-group" id="adminCodeGelarContainer" style="display: none;">
                             <label>🏷️ Gelar yang akan diberikan:</label>
@@ -2252,7 +2662,7 @@
             if (isOnline) {
                 statusRef.onDisconnect().set(false);
                 statusRef.set(true);
-                presenceMemberKey = memberKey;
+                                 presenceMemberKey = memberKey;
             } else {
                 statusRef.onDisconnect().cancel();
                 statusRef.set(false);
@@ -2277,7 +2687,17 @@
             'cyan_shiny': 'Biru Cyan Shiny',
             'orange_shiny': 'Jingga Api Shiny',
             'silver_shiny': 'Perak Kristal Shiny',
-            'rainbow_shiny': 'Pelangi Prisma Shiny'
+            'rainbow_shiny': 'Pelangi Prisma Shiny',
+            'amethyst_shiny': 'Amethyst Nebula',
+            'lava_shiny': 'Lava Core',
+            'mint_shiny': 'Mint Glacier',
+            'sakura_shiny': 'Sakura Moon',
+            'sunset_shiny': 'Senja Astral',
+            'ocean_shiny': 'Ocean Abyss',
+            'aurora_shiny': 'Aurora Borealis',
+            'obsidian_shiny': 'Obsidian Flame',
+            'golden_sky_shiny': 'Golden Sky',
+            'void_shiny': 'Void Eclipse'
         };
 
         const hiasanProfilMap = {
@@ -2292,7 +2712,12 @@
             'api_naga': 'Hiasan Profil Api Naga',
             'petir_neon': 'Hiasan Profil Petir Neon',
             'emerald_venom': 'Hiasan Profil Racun Emerald',
-            'debu_kosmik': 'Hiasan Profil Debu Kosmik'
+            'debu_kosmik': 'Hiasan Profil Debu Kosmik',
+            'phoenix_ember': 'Hiasan Profil Phoenix Ember',
+            'neon_matrix': 'Hiasan Profil Neon Matrix',
+            'frost_relic': 'Hiasan Profil Relik Es',
+            'desert_mirage': 'Hiasan Profil Mirage Gurun',
+            'deep_space': 'Hiasan Profil Deep Space'
         };
         const hiasanDetailProfilMap = {
             'vip_plus_gold': 'Hiasan Detail Profil VIP Plus',
@@ -2305,7 +2730,12 @@
         const hiasanNamaClassMap = {
             'rose_shiny':'name-rose-shiny','cyan_shiny':'name-cyan-shiny',
             'orange_shiny':'name-orange-shiny','silver_shiny':'name-silver-shiny',
-            'rainbow_shiny':'name-rainbow-shiny'
+            'rainbow_shiny':'name-rainbow-shiny',
+            'amethyst_shiny':'name-amethyst-shiny','lava_shiny':'name-lava-shiny',
+            'mint_shiny':'name-mint-shiny','sakura_shiny':'name-sakura-shiny',
+            'sunset_shiny':'name-sunset-shiny','ocean_shiny':'name-ocean-shiny',
+            'aurora_shiny':'name-aurora-shiny','obsidian_shiny':'name-obsidian-shiny',
+            'golden_sky_shiny':'name-golden-sky-shiny','void_shiny':'name-void-shiny'
         };
         const hiasanDetailClassMap = {
             'vip_plus_gold':'profile-detail-vip-plus-card','detail_aurora':'profile-detail-aurora',
@@ -2377,10 +2807,33 @@
                     return 'duration-silver-shiny';
                 case 'rainbow_shiny':
                     return 'duration-rainbow-shiny';
+                case 'amethyst_shiny': return 'duration-amethyst-shiny';
+                case 'lava_shiny': return 'duration-lava-shiny';
+                case 'mint_shiny': return 'duration-mint-shiny';
+                case 'sakura_shiny': return 'duration-sakura-shiny';
+                case 'sunset_shiny': return 'duration-sunset-shiny';
+                case 'ocean_shiny': return 'duration-ocean-shiny';
+                case 'aurora_shiny': return 'duration-aurora-shiny';
+                case 'obsidian_shiny': return 'duration-obsidian-shiny';
+                case 'golden_sky_shiny': return 'duration-golden-sky-shiny';
+                case 'void_shiny': return 'duration-void-shiny';
+                case 'phoenix_ember': return 'duration-phoenix-ember';
+                case 'neon_matrix': return 'duration-neon-matrix';
+                case 'frost_relic': return 'duration-frost-relic';
+                case 'desert_mirage': return 'duration-desert-mirage';
+                case 'deep_space': return 'duration-deep-space';
                 case 'hitam_ornamen':
-                    return 'duration-diamond-shiny';
+                    return 'duration-silver-shiny';
                 case 'hijau_ornamen':
                     return 'duration-green-shiny';
+                case 'kuning_border_ijo': return 'duration-yellow-shiny';
+                case 'aurora_cerah': return 'duration-aurora-shiny';
+                case 'crystal_ungu': return 'duration-purple-shiny';
+                case 'sakura_bersemi': return 'duration-rose-shiny';
+                case 'api_naga': return 'duration-orange-shiny';
+                case 'petir_neon': return 'duration-cyan-shiny';
+                case 'emerald_venom': return 'duration-green-shiny';
+                case 'debu_kosmik': return 'duration-void-shiny';
                 case 'detail_aurora':
                     return 'duration-detail-aurora';
                 case 'detail_circuit':
@@ -2635,7 +3088,7 @@
             if (!member) return;
 
             const today = new Date().toDateString();
-            if (member.lastAbsen === today) {
+                        if (member.lastAbsen === today) {
                 alert("⚠️ Member tersebut sudah melakukan absen hari ini!");
                 return;
             }
@@ -2717,7 +3170,6 @@
                 document.getElementById('adminMemberDiamond').value = 0;
                 document.getElementById('adminMemberLevel').value = 1;
                 document.getElementById('adminMemberBoost').value = 1;
-                document.getElementById('adminMemberImmortal').checked = false;
                 return;
             }
             const m = globalMembersData[key];
@@ -2727,7 +3179,6 @@
             document.getElementById('adminMemberDiamond').value = m.diamond || 0;
             document.getElementById('adminMemberLevel').value = m.level || 1;
             document.getElementById('adminMemberBoost').value = m.boost || 1;
-            document.getElementById('adminMemberImmortal').checked = !!m.lencanaImmortal;
         }
 
         function adminSaveMemberStats() {
@@ -2742,7 +3193,6 @@
             updates[`members/${key}/diamond`] = Number(document.getElementById('adminMemberDiamond').value || 0);
             updates[`members/${key}/level`] = Number(document.getElementById('adminMemberLevel').value || 1);
             updates[`members/${key}/boost`] = Number(document.getElementById('adminMemberBoost').value || 1);
-            updates[`members/${key}/lencanaImmortal`] = document.getElementById('adminMemberImmortal').checked;
 
             alert("✅ Data member berhasil diperbarui!");
             database.ref().update(updates).catch(err => {
@@ -2764,7 +3214,8 @@
                 boost: 1,
                 gelar: "-",
                 bio: "Member Ruang Mabar",
-                lencanaImmortal: false
+                lencanaImmortal: false,
+                lencanaProfil: ''
             });
             alert("✅ Member baru berhasil ditambahkan!");
         }
@@ -2815,6 +3266,15 @@
             } else if (codeData.type === 'hiasan_profil') {
                 addItemToInventory(updates, activeLoggedInMemberKey, member, { itemId: codeData.preset, itemType: 'Hiasan Profil' });
                 stackItemDuration(updates, activeLoggedInMemberKey, member, codeData.preset, 7);
+            } else if (codeData.type === 'hiasan_detail_profil') {
+                const unlockedDetail = getItemArray(member.unlockedHiasanDetailProfil);
+                if (!unlockedDetail.includes(codeData.preset)) unlockedDetail.push(codeData.preset);
+                updates[`members/${activeLoggedInMemberKey}/unlockedHiasanDetailProfil`] = unlockedDetail;
+                stackItemDuration(updates, activeLoggedInMemberKey, member, codeData.preset, 7);
+            } else if (codeData.type === 'lencana') {
+                const unlockedBadges = getItemArray(member.unlockedBadges);
+                if (!unlockedBadges.includes(codeData.preset)) unlockedBadges.push(codeData.preset);
+                updates[`members/${activeLoggedInMemberKey}/unlockedBadges`] = unlockedBadges;
             } else if (codeData.type === 'vip_plus') {
                 updates[`members/${activeLoggedInMemberKey}/isVip`] = true;
                 updates[`members/${activeLoggedInMemberKey}/isVipPlus`] = true;
@@ -2872,7 +3332,7 @@
         function questDailyFor(member, date = questWibDate()) { return questDataFor(member).daily?.[date] || {}; }
         function questWeeklyFor(member, start = questWeekStart()) { return questDataFor(member).weekly?.[start] || {}; }
         function mutateQuestData(memberKey, mutator) {
-              if (!memberKey) return Promise.resolve();
+            if (!memberKey) return Promise.resolve();
             return database.ref(`members/${memberKey}/questData`).transaction(current => {
                 current = current && typeof current === 'object' ? current : {};
                 mutator(current);
@@ -2968,7 +3428,7 @@
                 {id:'daily10', icon:'📋', title:'Rajin Menyelesaikan Misi', desc:'Selesaikan 10 misi harian selama minggu ini.', reward:'300 diamond', progress:dailyCount, target:10, done:dailyCount>=10, diamond:300},
                 {id:'stars50', icon:'⭐', title:'Kolektor Bintang', desc:'Dapatkan 50 star baru selama minggu ini.', reward:'500 diamond', progress:Number(w.stars||0), target:50, done:Number(w.stars||0)>=50, diamond:500},
                 {id:'time60', icon:'⏱️', title:'Betah di Ruang Mabar', desc:'Habiskan 60 menit di website selama minggu ini, termasuk waktu AFK saat login.', reward:'500 diamond', progress:Number(w.minutes||0), target:60, done:Number(w.minutes||0)>=60, diamond:500},
-                {id:'shop3', icon:'🛍️', title:'Pembeli Mingguan', desc:'Beli 3 item dari Shop Resmi selama minggu ini.', reward:'300 diamond', progress:Number(w.shopPurchases||0), target:3, done:Number(w.shopPurchases||0)>=3, diamond:300},
+                                {id:'shop3', icon:'🛍️', title:'Pembeli Mingguan', desc:'Beli 3 item dari Shop Resmi selama minggu ini.', reward:'300 diamond', progress:Number(w.shopPurchases||0), target:3, done:Number(w.shopPurchases||0)>=3, diamond:300},
                 {id:'login7', icon:'📅', title:'Login 7 Hari', desc:'Login selama 7 hari berturut-turut.', reward:'500 diamond + 5 star', progress:Number(q.loginStreak||0), target:7, done:Number(q.loginStreak||0)>=7, diamond:500, star:5}
             ];
             const special = [
@@ -3097,6 +3557,7 @@
                 if (savedSelect) savedSelect.value = savedMemberKey;
                 document.getElementById('member-login-box').style.display = 'none';
                 document.getElementById('member-edit-box').style.display = 'block';
+                document.getElementById('member-personal-profile-preview').style.display = 'block';
                 updateMemberPersonalView(savedMember);
                 setMemberOnlineStatus(savedMemberKey, true);
                 if (lastKnownMemberStars[savedMemberKey] === undefined) lastKnownMemberStars[savedMemberKey] = Number(savedMember.bintang || 0);
@@ -3166,7 +3627,7 @@
                     const card = document.createElement('div');
                     card.className = 'card-box';
                     card.style.cssText = 'border-color: #f59e0b; background: linear-gradient(135deg, #fffbeb, #fef3c7); margin-bottom: 12px;';
-                                   card.innerHTML = `
+                    card.innerHTML = `
                         <h3 style="color: #d97706; margin-bottom: 8px;">🎉 ${escapeHTML(item.judul || 'Event Ruang Mabar')}</h3>
                         <p style="font-size: 0.95rem; color: #1e293b; white-space: pre-line;">${escapeHTML(item.content || '')}</p>
                     `;
@@ -3223,7 +3684,25 @@
                 debu_kosmik: { particle: '#ddd6fe', glow: 'rgba(167,139,250,.95)', symbols: ['✦','✧','·'] }
             };
             const effect = effects[String(decorationId || '')];
-            if (!element || !effect || element.querySelector('.rm-decoration-shine')) return;
+            const crackStyles = {
+                phoenix_ember: { color2: 'rgba(249,115,22,.95)', lines: 'linear-gradient(132deg,transparent 0 18%,rgba(255,237,213,.98) 18.3%,transparent 18.8% 100%),linear-gradient(48deg,transparent 0 42%,rgba(249,115,22,.95) 42.3%,transparent 42.8% 100%),linear-gradient(164deg,transparent 0 67%,rgba(251,146,60,.95) 67.3%,transparent 67.8% 100%),linear-gradient(24deg,transparent 0 82%,rgba(254,215,170,.95) 82.3%,transparent 82.8% 100%)' },
+                neon_matrix: { color2: 'rgba(34,197,94,.98)', lines: 'linear-gradient(132deg,transparent 0 18%,rgba(217,249,157,.98) 18.3%,transparent 18.8% 100%),linear-gradient(48deg,transparent 0 42%,rgba(34,197,94,.98) 42.3%,transparent 42.8% 100%),linear-gradient(164deg,transparent 0 67%,rgba(74,222,128,.95) 67.3%,transparent 67.8% 100%),linear-gradient(24deg,transparent 0 82%,rgba(190,242,100,.95) 82.3%,transparent 82.8% 100%)' },
+                frost_relic: { color2: 'rgba(125,211,252,.98)', lines: 'linear-gradient(132deg,transparent 0 18%,rgba(255,255,255,.99) 18.3%,transparent 18.8% 100%),linear-gradient(48deg,transparent 0 42%,rgba(125,211,252,.98) 42.3%,transparent 42.8% 100%),linear-gradient(164deg,transparent 0 67%,rgba(224,242,254,.98) 67.3%,transparent 67.8% 100%),linear-gradient(24deg,transparent 0 82%,rgba(186,230,253,.98) 82.3%,transparent 82.8% 100%)' },
+                desert_mirage: { color2: 'rgba(251,191,36,.98)', lines: 'linear-gradient(132deg,transparent 0 18%,rgba(255,247,174,.98) 18.3%,transparent 18.8% 100%),linear-gradient(48deg,transparent 0 42%,rgba(217,119,6,.98) 42.3%,transparent 42.8% 100%),linear-gradient(164deg,transparent 0 67%,rgba(254,243,199,.95) 67.3%,transparent 67.8% 100%),linear-gradient(24deg,transparent 0 82%,rgba(251,191,36,.98) 82.3%,transparent 82.8% 100%)' },
+                deep_space: { color2: 'rgba(167,139,250,.98)', lines: 'linear-gradient(132deg,transparent 0 18%,rgba(233,213,255,.98) 18.3%,transparent 18.8% 100%),linear-gradient(48deg,transparent 0 42%,rgba(167,139,250,.98) 42.3%,transparent 42.8% 100%),linear-gradient(164deg,transparent 0 67%,rgba(103,232,249,.95) 67.3%,transparent 67.8% 100%),linear-gradient(24deg,transparent 0 82%,rgba(196,181,253,.98) 82.3%,transparent 82.8% 100%)' }
+            };
+            const crackStyle = crackStyles[String(decorationId || '')];
+            if (!element || (!effect && !crackStyle) || element.querySelector('.rm-decoration-shine')) return;
+            if (crackStyle) {
+                const cracks = document.createElement('span');
+                cracks.className = 'rm-profile-cracks';
+                cracks.setAttribute('aria-hidden', 'true');
+                const isFrostRelic = String(decorationId || '') === 'frost_relic';
+                cracks.style.cssText = 'position:absolute;inset:0;z-index:2;pointer-events:none;background-repeat:no-repeat;background-size:100% 100%;opacity:' + (isFrostRelic ? '.34' : '.78') + ';mix-blend-mode:screen;filter:drop-shadow(0 0 ' + (isFrostRelic ? '1px' : '3px') + ' ' + crackStyle.color2 + ');animation:' + (isFrostRelic ? 'rmFrostCrackShine' : 'rmProfileCrackShine') + ' 3.4s ease-in-out infinite;';
+                cracks.style.backgroundImage = crackStyle.lines;
+                element.appendChild(cracks);
+            }
+            if (!effect) return;
             const shine = document.createElement('span');
             shine.className = 'rm-decoration-shine';
             shine.style.cssText = 'position:absolute;inset:0;z-index:2;pointer-events:none;';
@@ -3237,7 +3716,7 @@
             particles.style.setProperty('--particle-color', effect.particle);
             particles.style.setProperty('--particle-glow', effect.glow);
             const positions = [
-                [8,22],[18,68],[29,38],[39,82],[49,18],[58,57],[67,31],[76,74],
+                                [8,22],[18,68],[29,38],[39,82],[49,18],[58,57],[67,31],[76,74],
                 [86,44],[94,20],[13,48],[34,61],[54,88],[72,15],[90,63],[24,12]
             ];
             positions.forEach((pos, index) => {
@@ -3261,6 +3740,24 @@
         }
 
         // RENDER PROFIL MEMBER DENGAN EFEK SHINY DAN EMOJI PADA MASA AKTIF
+        function getProfileBadgesHTML(member) {
+            const badgeNames = {
+                immortal: { icon: '🏅', label: 'Immortal', cls: 'immortal' },
+                demon_king: { icon: '🌙', label: 'Demon King', cls: 'demon-king' },
+                first_season: { icon: '🌟', label: 'First Season', cls: 'first-season' }
+            };
+            let selected = member && (member.lencanaDitampilkan ?? member.lencanaProfil);
+            if (Array.isArray(selected)) selected = selected[0] || '';
+            selected = selected ? String(selected) : '';
+            if (member && member.lencanaDitampilkan == null && !selected && member.lencanaImmortal) selected = 'immortal';
+            const earned = getItemArray(member && member.unlockedBadges);
+            const legacy = Array.isArray(member && member.lencanaProfil) ? member.lencanaProfil : [member && member.lencanaProfil].filter(Boolean);
+            const allowed = [...new Set([...earned, ...legacy, ...(member && member.lencanaImmortal ? ['immortal'] : [])])];
+            if (!badgeNames[selected] || (allowed.length && !allowed.includes(selected))) return '';
+            const badge = badgeNames[selected];
+            return `<span class="profile-badge ${badge.cls}"><span>${badge.icon} ${badge.label}</span></span>`;
+        }
+
         function filterAndRenderMembers() {
             const memberList = document.getElementById('member-list');
             memberList.innerHTML = '';
@@ -3307,6 +3804,16 @@
                     decorClass += " decor-emerald-venom";
                 } else if (item.hiasanProfil === 'debu_kosmik') {
                     decorClass += " decor-debu-kosmik";
+                } else if (item.hiasanProfil === 'phoenix_ember') {
+                    decorClass += " decor-phoenix-ember";
+                } else if (item.hiasanProfil === 'neon_matrix') {
+                    decorClass += " decor-neon-matrix";
+                } else if (item.hiasanProfil === 'frost_relic') {
+                    decorClass += " decor-frost-relic";
+                } else if (item.hiasanProfil === 'desert_mirage') {
+                    decorClass += " decor-desert-mirage";
+                } else if (item.hiasanProfil === 'deep_space') {
+                    decorClass += " decor-deep-space";
                 }
 
                 let nameClass = "member-name";
@@ -3331,7 +3838,7 @@
                 let isGelarVip = (item.gelar && item.gelar.toLowerCase().includes('vip'));
                 const gelarClass = isGelarVipPlus ? "member-gelar vip-plus" : (isGelarVip ? "member-gelar vip" : "member-gelar");
                 const gelarHTML = (item.gelar && item.gelar !== '-') ? `<span class="${gelarClass}">${escapeHTML(item.gelar)}</span>` : '';
-                const immortalBadgeHTML = item.lencanaImmortal ? `<span class="immortal-badge">🏅 Immortal</span>` : '';
+                const profileBadgesHTML = getProfileBadgesHTML(item);
 
                 const calculatedRank = getRankFromBintang(item.bintang, item.rank);
 
@@ -3365,8 +3872,9 @@
 
                 const card = document.createElement('div');
                 card.className = decorClass;
+                card.dataset.memberKey = key;
                 card.innerHTML = `
-                    <button class="btn-profile-detail" title="Lihat Detail Profil" onclick="openProfileDetailModal('${key}')">ℹ</button>
+                    <button type="button" class="btn-profile-detail" title="Lihat Detail Profil" aria-label="Lihat Detail Profil">ℹ</button>
                     <div class="member-header-row">
                         <span class="${nameClass}">${escapeHTML(item.nama || 'Tanpa Nama')}</span>
                         ${gelarHTML}
@@ -3377,13 +3885,49 @@
                         <div class="stat-item">⭐ Bintang: ${item.bintang || 0}</div>
                         <div class="stat-item">💎 Diamond: ${item.diamond || 0}</div>
                         <div class="stat-item">⚡ Boost: ${item.boost || 1}x</div>
-                        <div class="stat-item">📊 Lvl: ${item.level || 1} ${immortalBadgeHTML}</div>
+                        <div class="stat-item">📊 Lvl: ${item.level || 1}</div>
+                        ${profileBadgesHTML ? `<div class="stat-item" style="display:flex;align-items:center;min-width:0;overflow:hidden;">${profileBadgesHTML}</div>` : ''}
                     </div>
                     ${durationItemsCardHTML ? `<div style="margin-top: 8px;">${durationItemsCardHTML}</div>` : ''}
                 `;
+                const detailButton = card.querySelector('.btn-profile-detail');
+                if (detailButton) {
+                    detailButton.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        openProfileDetailModal(key);
+                    });
+                }
                 applyNewProfileDecorationEffects(card, item.hiasanProfil);
                 memberList.appendChild(card);
             });
+            if (!isRefreshingPersonalProfilePreview) refreshMemberPersonalProfilePreview();
+        }
+
+        let isRefreshingPersonalProfilePreview = false;
+        function refreshMemberPersonalProfilePreview() {
+            const target = document.getElementById('member-personal-profile-card');
+            if (!target || !activeLoggedInMemberKey || isRefreshingPersonalProfilePreview) return;
+            let sourceCard = Array.from(document.querySelectorAll('#member-list .member-card')).find(card => card.dataset.memberKey === activeLoggedInMemberKey);
+            if (!sourceCard) {
+                const searchInput = document.getElementById('searchProfileInput');
+                if (!searchInput) return;
+                isRefreshingPersonalProfilePreview = true;
+                const previousQuery = searchInput.value;
+                searchInput.value = '';
+                filterAndRenderMembers();
+                sourceCard = Array.from(document.querySelectorAll('#member-list .member-card')).find(card => card.dataset.memberKey === activeLoggedInMemberKey);
+                searchInput.value = previousQuery;
+                filterAndRenderMembers();
+                isRefreshingPersonalProfilePreview = false;
+                // Ambil ulang node setelah daftar dirender kembali agar preview tidak memakai card yang sudah terlepas.
+                sourceCard = Array.from(document.querySelectorAll('#member-list .member-card')).find(card => card.dataset.memberKey === activeLoggedInMemberKey);
+            }
+            if (!sourceCard) return;
+            // Salinan dibuat persis dari card profil asli tanpa mengubah class, ukuran, atau gayanya.
+            const copy = sourceCard.cloneNode(true);
+            copy.dataset.personalProfileCopy = 'true';
+            target.replaceChildren(copy);
         }
 
         // BUKA DETAIL PROFIL MODAL DENGAN MASA AKTIF SHINY DAN EMOJI VARIATIF
@@ -3497,8 +4041,10 @@
                     <div class="stat-item">⭐ Bintang: ${member.bintang || 0}</div>
                     <div class="stat-item">💎 Diamond: ${member.diamond || 0}</div>
                     <div class="stat-item">⚡ Boost: ${member.boost || 1}x</div>
-                    <div class="stat-item">📊 Level: ${member.level || 1}${member.lencanaImmortal ? '<div style="margin-top: 6px;"><span class="immortal-badge">🏅 Immortal</span></div>' : ''}</div>
+                    <div class="stat-item" style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">📊 Level: ${member.level || 1}${getProfileBadgesHTML(member) ? ` ${getProfileBadgesHTML(member)}` : ''}</div>
                     <div class="stat-item">🎮 Game: ${escapeHTML(member.gameKesukaan || '-')}</div>
+                                        <div class="stat-item">🏅 Rank Tertinggi Season Lalu: ${escapeHTML(member.rankTertinggiSeasonLalu || member.rankSeasonLalu || member.seasonLaluRank || '-')}</div>
+                    <div class="stat-item">⭐ Bintang Season Lalu: ${escapeHTML(String(member.bintangSeasonLalu ?? member.seasonLaluBintang ?? member.starsSeasonLalu ?? 0))}</div>
                 </div>
 
                 <div style="background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 14px;">
@@ -3510,7 +4056,7 @@
                     <div style="font-weight: 600; font-size: 0.85rem; color: #334155; margin-bottom: 6px;">🎨 Hiasan Digunakan:</div>
                     <div style="font-size: 0.82rem; color: #475569; display: flex; flex-direction: column; gap: 4px;">
                         <div>✨ Hiasan Nama: <strong>${escapeHTML(hiasanNamaText)}</strong></div>
-                                            <div>🖼️ Hiasan Profil: <strong>${escapeHTML(hiasanProfilText)}</strong></div>
+                        <div>🖼️ Hiasan Profil: <strong>${escapeHTML(hiasanProfilText)}</strong></div>
                         <div>🎨 Hiasan Detail Profil: <strong>${escapeHTML(hiasanDetailText)}</strong></div>
                     </div>
                 </div>
@@ -3524,7 +4070,11 @@
                 ${detailCardEnd}
             `;
 
-            openModal('profileDetailModal');
+            const detailModal = document.getElementById('profileDetailModal');
+            if (detailModal) {
+                detailModal.style.display = 'flex';
+                detailModal.style.zIndex = '10000';
+            }
         }
 
         // RENDER INVENTORY SESUAI FORMAT YANG DIMINTA
@@ -3580,6 +4130,26 @@
             }
             document.getElementById('editSelfBio').value = member.bio || '';
             document.getElementById('editSelfGameKesukaan').value = member.gameKesukaan || '';
+
+            const badgeSelect = document.getElementById('editSelfBadgeSelect');
+            if (badgeSelect) {
+                badgeSelect.innerHTML = '<option value="">-- Tanpa Lencana --</option>';
+                const badgeCatalog = {
+                    immortal: '🏅 Immortal',
+                    demon_king: '🌙 Demon King',
+                    first_season: '🌟 First Season'
+                };
+                const earnedBadges = [...new Set(getItemArray(member.unlockedBadges))];
+                const legacyBadges = Array.isArray(member.lencanaProfil) ? member.lencanaProfil : (member.lencanaProfil ? [member.lencanaProfil] : (member.lencanaImmortal ? ['immortal'] : []));
+                [...new Set([...earnedBadges, ...legacyBadges, ...(member.lencanaImmortal ? ['immortal'] : [])])].filter(id => badgeCatalog[id]).forEach(id => {
+                    const opt = document.createElement('option');
+                    opt.value = id;
+                    opt.textContent = badgeCatalog[id];
+                    badgeSelect.appendChild(opt);
+                });
+                const selectedBadge = Array.isArray(member.lencanaDitampilkan) ? (member.lencanaDitampilkan[0] || '') : (member.lencanaDitampilkan ?? (Array.isArray(member.lencanaProfil) ? (member.lencanaProfil[0] || '') : (member.lencanaProfil || (member.lencanaImmortal ? 'immortal' : ''))));
+                badgeSelect.value = [...badgeSelect.options].some(opt => opt.value === selectedBadge) ? selectedBadge : '';
+            }
 
             const gelarSelect = document.getElementById('editSelfGelarSelect');
             gelarSelect.innerHTML = '<option value="-">Tanpa Gelar (-)</option>';
@@ -3700,7 +4270,9 @@
                 startQuestTimeTracking();
                 document.getElementById('member-login-box').style.display = 'none';
                 document.getElementById('member-edit-box').style.display = 'block';
+                document.getElementById('member-personal-profile-preview').style.display = 'block';
                 updateMemberPersonalView(m);
+                refreshMemberPersonalProfilePreview();
                 alert(`Selamat datang kembali, ${m.nama}!`);
             } else {
                 alert(" Sandi / PIN salah!");
@@ -3714,6 +4286,9 @@
             activeLoggedInMemberKey = null;
             document.getElementById('member-login-box').style.display = 'block';
             document.getElementById('member-edit-box').style.display = 'none';
+            document.getElementById('member-personal-profile-preview').style.display = 'none';
+            const personalProfileCard = document.getElementById('member-personal-profile-card');
+            if (personalProfileCard) personalProfileCard.innerHTML = '';
             document.getElementById('inputMemberPin').value = '';
             alert("🔒 Berhasil keluar.");
         }
@@ -3729,6 +4304,8 @@
             const newHiasanProfil = document.getElementById('editSelfHiasanProfilSelect').value.trim();
             const newHiasanDetailProfil = document.getElementById('editSelfHiasanDetailProfilSelect').value.trim();
             const newPin = document.getElementById('editSelfPin').value.trim();
+            const badgeSelect = document.getElementById('editSelfBadgeSelect');
+            const selectedBadge = badgeSelect ? badgeSelect.value : '';
 
             const currentMember = globalMembersData[activeLoggedInMemberKey];
             if (newHiasanDetailProfil === 'vip_plus_gold' && !hasActiveVipPlus(currentMember)) {
@@ -3753,6 +4330,7 @@
             }
 
             const updates = {};
+            updates[`members/${activeLoggedInMemberKey}/lencanaDitampilkan`] = selectedBadge;
             updates[`members/${activeLoggedInMemberKey}/nama`] = newNama;
             updates[`members/${activeLoggedInMemberKey}/bio`] = newBio;
             updates[`members/${activeLoggedInMemberKey}/gameKesukaan`] = newGame;
@@ -3789,14 +4367,14 @@
                 card.className = 'shop-item-card';
                 card.style.flexDirection = 'column';
                 card.style.alignItems = 'stretch';
-                card.innerHTML = `
+              card.innerHTML = `
                     <div>
                         <div class="shop-title">${escapeHTML(item.nama)}</div>
                         <div class="shop-type-tag">Tipe: ${escapeHTML(item.tipe)}${escapeHTML(benefitText)}</div>
                         <div style="font-size: 0.8rem; color: #64748b; margin-top: 2px;">Masa Berlaku: <strong>${escapeHTML(masaBerlakuText)}</strong></div>
                     </div>
                     <div style="display:grid; grid-template-columns:1fr 1fr auto; align-items:center; gap:10px; width:100%; margin-top:8px; padding-top:10px; border-top:1px solid #e2e8f0;">
-                        <div class="shop-price">💎 ${item.harga || 0}</div>
+                        <div class="shop-price">💎 ${item.harga || 0} / item</div>
                         <div class="shop-stock" style="justify-self:start;">Stok: ${item.stok || 0}</div>
                         <button class="btn-buy" onclick="buyShopItem('${key}')">Beli</button>
                     </div>
@@ -3859,7 +4437,7 @@
                 unlockedP.push(item.preset);
                 updates[`members/${activeLoggedInMemberKey}/unlockedHiasanProfil`] = unlockedP;
                 updates[`members/${activeLoggedInMemberKey}/hiasanProfil`] = item.preset;
-                                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
+                if (addedDays > 0) stackItemDuration(updates, activeLoggedInMemberKey, member, item.preset, addedDays);
                 else updates[`members/${activeLoggedInMemberKey}/itemExpiries/${item.preset}`] = null;
             } else if (item.tipe === 'Hiasan Detail Profil') {
                 let unlockedD = getItemArray(member.unlockedHiasanDetailProfil);
@@ -3939,7 +4517,7 @@
 
             keys.forEach(key => {
                 const item = globalMarketplaceData[key];
-                const itemName = hiasanNamaMap[item.itemId] || hiasanProfilMap[item.itemId] || item.itemId;
+                const itemName = hiasanNamaMap[item.itemId] || hiasanProfilMap[item.itemId] || hiasanDetailProfilMap[item.itemId] || item.itemId;
 
                 const card = document.createElement('div');
                 card.className = 'shop-item-card';
@@ -3975,30 +4553,27 @@
             const select = document.getElementById('inputMarketSellItemSelect');
             select.innerHTML = '<option value="">-- Pilih Hiasan --</option>';
 
-            const hiasanCounts = getItemCounts(getItemArray(member.unlockedHiasan));
-            Object.keys(hiasanCounts).forEach(id => {
-                if (['vip_gold', 'vip_plus_gold'].includes(id)) return;
-                if (hiasanCounts[id] >= 2) {
+            const categories = [
+                { key: 'nama', field: 'unlockedHiasan', map: hiasanNamaMap, label: 'Hiasan Nama' },
+                { key: 'profil', field: 'unlockedHiasanProfil', map: hiasanProfilMap, label: 'Hiasan Profil' },
+                { key: 'detail', field: 'unlockedHiasanDetailProfil', map: hiasanDetailProfilMap, label: 'Hiasan Detail Profil' }
+            ];
+            categories.forEach(cat => {
+                const available = getItemArray(member[cat.field]).filter(id => isItemAvailable(member, id));
+                const counts = getItemCounts(available);
+                Object.keys(counts).forEach(id => {
+                    if (['vip_gold', 'vip_plus_gold'].includes(id)) return;
+                    if (counts[id] < 2) return;
                     const opt = document.createElement('option');
-                    opt.value = `nama|${id}`;
-                    opt.textContent = `Hiasan Nama: ${hiasanNamaMap[id] || id} (${hiasanCounts[id]} dimiliki)`;
+                    opt.value = `${cat.key}|${id}`;
+                    opt.textContent = `${cat.label}: ${cat.map[id] || id} (${counts[id]} dimiliki)`;
                     select.appendChild(opt);
-                }
-            });
-
-            const profilCounts = getItemCounts(getItemArray(member.unlockedHiasanProfil));
-            Object.keys(profilCounts).forEach(id => {
-                if (['vip_gold', 'vip_plus_gold'].includes(id)) return;
-                if (profilCounts[id] >= 2) {
-                    const opt = document.createElement('option');
-                    opt.value = `profil|${id}`;
-                    opt.textContent = `Hiasan Profil: ${hiasanProfilMap[id] || id} (${profilCounts[id]} dimiliki)`;
-                    select.appendChild(opt);
-                }
+                });
             });
 
             closeModal('marketplaceModal');
             openModal('sellItemModal');
+            updateSellItemMaxStock();
         }
 
         function updateSellItemMaxStock() {
@@ -4010,78 +4585,87 @@
             if (!val || !activeLoggedInMemberKey) {
                 tipeInput.value = '';
                 stokInput.value = 1;
-                if (notice) notice.textContent = '';
+                stokInput.max = 1;
+                if (notice) notice.textContent = 'Pilih item yang memiliki minimal 2 stok.';
                 return;
             }
 
             const [tipe, itemId] = val.split('|');
             const member = globalMembersData[activeLoggedInMemberKey];
-            const counts = (tipe === 'nama') ? getItemCounts(getItemArray(member.unlockedHiasan)) : getItemCounts(getItemArray(member.unlockedHiasanProfil));
+            const field = tipe === 'nama' ? 'unlockedHiasan' : tipe === 'profil' ? 'unlockedHiasanProfil' : 'unlockedHiasanDetailProfil';
+            const counts = getItemCounts(getItemArray(member[field]).filter(id => isItemAvailable(member, id)));
             const totalOwned = counts[itemId] || 0;
-            const maxSellable = totalOwned - 1;
-
-            tipeInput.value = tipe === 'nama' ? 'Hiasan Nama' : 'Hiasan Profil';
-            stokInput.value = 1;
-            if (notice) notice.textContent = `Kamu punya ${totalOwned}, min. sisa 1 untuk dipakai. Bisa jual maksimal 1 stok.`;
+            const maxSellable = Math.max(0, totalOwned - 1);
+            tipeInput.value = tipe === 'nama' ? 'Hiasan Nama' : tipe === 'profil' ? 'Hiasan Profil' : 'Hiasan Detail Profil';
+            stokInput.readOnly = false;
+            stokInput.max = maxSellable;
+            stokInput.min = 1;
+            stokInput.value = maxSellable > 0 ? 1 : 0;
+            if (notice) notice.textContent = `Kamu punya ${totalOwned} item. Maksimal dijual ${maxSellable}; minimal 1 item harus tetap tersisa di inventory.`;
         }
 
         function submitSellItemMarketplace() {
             if (!activeLoggedInMemberKey) return;
             const val = document.getElementById('inputMarketSellItemSelect').value;
             const harga = Number(document.getElementById('inputMarketSellHarga').value || 0);
+            const stokInput = document.getElementById('inputMarketSellStok');
+            const stok = Math.floor(Number(stokInput.value || 0));
 
             if (!val) { alert("Pilih hiasan yang ingin dijual!"); return; }
-            if (harga <= 0) { alert("Harga jual minimal 1 Diamond!"); return; }
+            if (!Number.isFinite(harga) || harga <= 0) { alert("Harga jual minimal 1 Diamond!"); return; }
+            if (!Number.isFinite(stok) || stok < 1) { alert("Jumlah stok jual minimal 1!"); return; }
 
             const [tipeKey, itemId] = val.split('|');
             if (['vip_gold', 'vip_plus_gold'].includes(itemId) || tipeKey === 'vip' || tipeKey === 'vip_plus') {
-                alert(" Manfaat VIP / VIP Plus tidak dapat dijual di Marketplace!");
+                alert("Manfaat VIP / VIP Plus tidak dapat dijual di Marketplace!");
                 return;
             }
             const member = globalMembersData[activeLoggedInMemberKey];
             const memberKey = activeLoggedInMemberKey;
-
-            const isNama = (tipeKey === 'nama');
-            let unlockedArr = getItemArray(isNama ? member.unlockedHiasan : member.unlockedHiasanProfil);
-
-            const index = unlockedArr.indexOf(itemId);
-            if (index === -1) {
-                alert("Item tidak ditemukan di koleksi kamu!");
+            const field = tipeKey === 'nama' ? 'unlockedHiasan' : tipeKey === 'profil' ? 'unlockedHiasanProfil' : 'unlockedHiasanDetailProfil';
+            const unlockedArr = getItemArray(member[field]);
+            const availableArr = unlockedArr.filter(id => isItemAvailable(member, id));
+            const totalOwned = availableArr.filter(id => id === itemId).length;
+            if (stok > totalOwned - 1) {
+                alert(`Stok tidak cukup. Kamu punya ${totalOwned}; maksimal bisa menjual ${Math.max(0, totalOwned - 1)} dan harus menyisakan 1 item.`);
+                updateSellItemMaxStock();
                 return;
             }
 
-            unlockedArr.splice(index, 1);
-
+            let remainingToRemove = stok;
+            const newUnlockedArr = unlockedArr.filter(id => {
+                if (id !== itemId || remainingToRemove <= 0) return true;
+                remainingToRemove--;
+                return false;
+            });
             const updates = {};
-            if (isNama) {
-                updates[`members/${memberKey}/unlockedHiasan`] = unlockedArr;
-                if (member.hiasanNama === itemId && unlockedArr.indexOf(itemId) === -1) {
-                    updates[`members/${memberKey}/hiasanNama`] = 'default';
-                }
-            } else {
-                updates[`members/${memberKey}/unlockedHiasanProfil`] = unlockedArr;
-                if (member.hiasanProfil === itemId && unlockedArr.indexOf(itemId) === -1) {
-                    updates[`members/${memberKey}/hiasanProfil`] = 'default';
-                }
+            updates[`members/${memberKey}/${field}`] = newUnlockedArr;
+
+            if (tipeKey === 'nama' && member.hiasanNama === itemId && newUnlockedArr.indexOf(itemId) === -1) {
+                updates[`members/${memberKey}/hiasanNama`] = 'default';
+            } else if (tipeKey === 'profil' && member.hiasanProfil === itemId && newUnlockedArr.indexOf(itemId) === -1) {
+                updates[`members/${memberKey}/hiasanProfil`] = 'default';
+            } else if (tipeKey === 'detail' && member.hiasanDetailProfil === itemId && newUnlockedArr.indexOf(itemId) === -1) {
+                updates[`members/${memberKey}/hiasanDetailProfil`] = 'default';
             }
 
             const newMarketRef = marketplaceRef.push();
             updates[`marketplace/${newMarketRef.key}`] = {
                 itemId: itemId,
-                tipe: isNama ? 'Hiasan Nama' : 'Hiasan Profil',
+                tipe: tipeKey === 'nama' ? 'Hiasan Nama' : tipeKey === 'profil' ? 'Hiasan Profil' : 'Hiasan Detail Profil',
                 harga: harga,
-                stok: 1,
+                stok: stok,
                 sellerKey: memberKey,
                 sellerName: member.nama || 'Member',
                 createdAt: Date.now()
             };
 
             closeModal('sellItemModal');
-            alert("✅ Hiasan berhasil dipasang di Marketplace!");
-            database.ref().update(updates);
+            alert(`Hiasan berhasil dipasang di Marketplace sebanyak ${stok} stok!`);
+            database.ref().update(updates).catch(err => alert('Gagal memasang item: ' + (err.message || 'coba lagi')));
         }
 
-        function editMarketplacePrice(marketKey) {
+                function editMarketplacePrice(marketKey) {
             if (!activeLoggedInMemberKey) return;
             const item = globalMarketplaceData[marketKey];
             if (!item) return;
@@ -4110,49 +4694,47 @@
 
             const marketItem = globalMarketplaceData[marketKey];
             if (!marketItem) return;
-
             if (marketItem.sellerKey === activeLoggedInMemberKey) {
-                alert(" Kamu tidak bisa membeli item yang kamu jual sendiri!");
+                alert("Kamu tidak bisa membeli item yang kamu jual sendiri!");
                 return;
             }
 
             const buyerKey = activeLoggedInMemberKey;
             const buyer = globalMembersData[buyerKey];
+            if (!buyer) return;
             const price = Number(marketItem.harga || 0);
+            const stock = Math.floor(Number(marketItem.stok || 0));
             const buyerDiamond = Number(buyer.diamond || 0);
-
+            if (stock < 1) {
+                marketplaceRef.child(marketKey).remove();
+                alert("Stok item sudah habis.");
+                return;
+            }
             if (buyerDiamond < price) {
-                alert(" Diamond kamu tidak cukup!");
+                alert("Diamond kamu tidak cukup!");
                 return;
             }
 
             const sellerKey = marketItem.sellerKey;
             const seller = globalMembersData[sellerKey] || {};
-            const sellerDiamond = Number(seller.diamond || 0);
-
             const updates = {};
             updates[`members/${buyerKey}/diamond`] = buyerDiamond - price;
-            if (globalMembersData[sellerKey]) {
-                updates[`members/${sellerKey}/diamond`] = sellerDiamond + price;
-            }
+            if (globalMembersData[sellerKey]) updates[`members/${sellerKey}/diamond`] = Number(seller.diamond || 0) + price;
 
-            const isNama = marketItem.tipe === 'Hiasan Nama';
-            let buyerUnlocked = getItemArray(isNama ? buyer.unlockedHiasan : buyer.unlockedHiasanProfil);
+            const type = marketItem.tipe;
+            const field = type === 'Hiasan Nama' ? 'unlockedHiasan' : type === 'Hiasan Profil' ? 'unlockedHiasanProfil' : 'unlockedHiasanDetailProfil';
+            const buyerUnlocked = getItemArray(buyer[field]);
             buyerUnlocked.push(marketItem.itemId);
+            updates[`members/${buyerKey}/${field}`] = buyerUnlocked;
 
-            if (isNama) {
-                updates[`members/${buyerKey}/unlockedHiasan`] = buyerUnlocked;
-            } else {
-                updates[`members/${buyerKey}/unlockedHiasanProfil`] = buyerUnlocked;
-            }
+            if (stock <= 1) updates[`marketplace/${marketKey}`] = null;
+                        else updates[`marketplace/${marketKey}/stok`] = stock - 1;
 
-            updates[`marketplace/${marketKey}`] = null;
-
-            alert("🎉 Berhasil membeli item dari Marketplace!");
-            database.ref().update(updates);
+            alert("Berhasil membeli 1 item dari Marketplace!");
+            database.ref().update(updates).catch(err => alert('Pembelian gagal: ' + (err.message || 'coba lagi')));
         }
 
-        // RENDER CHAT
+                // RENDER CHAT
         function renderChats() {
             const chatList = document.getElementById('chat-list');
             if (!chatList) return;
@@ -4190,6 +4772,16 @@
                     decorClass += " decor-emerald-venom";
                 } else if (chat.hiasanProfil === 'debu_kosmik') {
                     decorClass += " decor-debu-kosmik";
+                } else if (chat.hiasanProfil === 'phoenix_ember') {
+                    decorClass += " decor-phoenix-ember";
+                } else if (chat.hiasanProfil === 'neon_matrix') {
+                    decorClass += " decor-neon-matrix";
+                } else if (chat.hiasanProfil === 'frost_relic') {
+                    decorClass += " decor-frost-relic";
+                } else if (chat.hiasanProfil === 'desert_mirage') {
+                    decorClass += " decor-desert-mirage";
+                } else if (chat.hiasanProfil === 'deep_space') {
+                    decorClass += " decor-deep-space";
                 }
 
                 const chatCard = document.createElement('div');
@@ -4294,21 +4886,22 @@
 
         // ARCADE & LUCKY WHEEL
         const wheelPrizes = [
-            { id: 'rainbow_shiny', name: 'Hiasan Nama Pelangi', label: 'Rainbow Shiny', chance: 0.1, color: '#ef4444', type: 'hiasan_nama' },
-            { id: 'detail_prism', name: 'Hiasan Prisma Pelangi', label: 'Prisma Pelangi', chance: 0.5, color: '#38bdf8', type: 'hiasan_detail_profil' },
+            { id: 'sunset_shiny', name: 'Hiasan Senja Shiny', label: 'Sunset Shiny', chance: 1, color: '#ef4444', type: 'hiasan_nama' },
+            { id: 'frost_relic', name: 'Hiasan Relik Es', label: 'Relik Es', chance: 1, color: '#eab308', type: 'hiasan_profil' },
+            { id: 'detail_circuit', name: 'Hiasan Cyber Circuit', label: 'Cyber Circuit', chance: 0.5, color: '#38bdf8', type: 'hiasan_detail_profil' },
             { id: 'spesial_ungu', name: 'Hiasan Spesial Ungu (7 Hari)', label: 'Spesial Ungu', chance: 3, color: '#a855f7', type: 'hiasan_nama' },
             { id: 'star_2', name: 'Dapat 2 Star', label: '+2 Star', chance: 15, color: '#f59e0b', type: 'star', val: 2 },
             { id: 'star_5', name: 'Dapat 5 Star', label: '+5 Star', chance: 5, color: '#eab308', type: 'star', val: 5 },
-            { id: 'dm_150', name: 'Super Zonk! -200 Diamond', label: '-200 Diamond', chance: 1, color: '#6366f1', type: 'diamond', val: -200 },
             { id: 'star_2', name: 'Kamu Kalah -2 Star', label: '-2 Star', chance: 10, color: '#10b981', type: 'Star', val: -2 },
             { id: 'star_1', name: 'Bintang kamu turun 1', label: '-1 Star', chance: 20, color: '#06b6d4', type: 'star', val: -1 },
             { id: 'star_10', name: 'Hadiah 10 Star', label: '+10 Star', chance: 2, color: '#3b82f6', type: 'diamond', val: 10 },
+            { id: 'dm_200', name: 'Super Zonk! -200 Diamond', label: '-200 Diamond', chance: 1, color: '#6366f1', type: 'diamond', val: -200 },
             { id: 'dm_100', name: 'Hadiah 100 Diamond', label: '+100 Diamond', chance: 5, color: '#8b5cf6', type: 'diamond', val: 100 },
             { id: 'dm_250', name: 'Hadiah 250 Diamond', label: '+250 Diamond', chance: 3, color: '#22c55e', type: 'diamond', val: 250 },
             { id: 'dm_500', name: 'Hadiah 500 Diamond', label: '+500 Diamond', chance: 1, color: '#f59e0b', type: 'diamond', val: 500 },
             { id: 'dm_1000', name: 'HADIAH BESAR 1000 DIAMOND', label: '+1000 Diamond', chance: 0.1, color: '#14b8a6', type: 'diamond', val: 1000 }
         ];
-        
+
         let isSpinning = false;
         let currentWheelRotation = 0;
         const wheelStarUpdatePending = {};
@@ -4493,7 +5086,17 @@
                     { val: 'cyan_shiny', label: 'Biru Cyan Shiny' },
                     { val: 'orange_shiny', label: 'Jingga Api Shiny' },
                     { val: 'silver_shiny', label: 'Perak Kristal Shiny' },
-                    { val: 'rainbow_shiny', label: 'Pelangi Prisma Shiny' }
+                    { val: 'rainbow_shiny', label: 'Pelangi Prisma Shiny' },
+                    { val: 'amethyst_shiny', label: 'Amethyst Nebula' },
+                    { val: 'lava_shiny', label: 'Lava Core' },
+                    { val: 'mint_shiny', label: 'Mint Glacier' },
+                    { val: 'sakura_shiny', label: 'Sakura Moon' },
+                    { val: 'sunset_shiny', label: 'Senja Astral' },
+                    { val: 'ocean_shiny', label: 'Ocean Abyss' },
+                    { val: 'aurora_shiny', label: 'Aurora Borealis' },
+                    { val: 'obsidian_shiny', label: 'Obsidian Flame' },
+                    { val: 'golden_sky_shiny', label: 'Golden Sky' },
+                    { val: 'void_shiny', label: 'Void Eclipse' }
                 ];
                 opts.forEach(o => {
                     const opt = document.createElement('option');
@@ -4514,7 +5117,12 @@
                     { val: 'api_naga', label: 'Hiasan Profil Api Naga' },
                     { val: 'petir_neon', label: 'Hiasan Profil Petir Neon' },
                     { val: 'emerald_venom', label: 'Hiasan Profil Racun Emerald' },
-                    { val: 'debu_kosmik', label: 'Hiasan Profil Debu Kosmik' }
+                    { val: 'debu_kosmik', label: 'Hiasan Profil Debu Kosmik' },
+                    { val: 'phoenix_ember', label: 'Hiasan Profil Phoenix Ember' },
+                    { val: 'neon_matrix', label: 'Hiasan Profil Neon Matrix' },
+                    { val: 'frost_relic', label: 'Hiasan Profil Relik Es' },
+                    { val: 'desert_mirage', label: 'Hiasan Profil Mirage Gurun' },
+                    { val: 'deep_space', label: 'Hiasan Profil Deep Space' }
                 ];
                 opts.forEach(o => {
                     const opt = document.createElement('option');
@@ -4596,18 +5204,60 @@
 
         function toggleAdminRewardInput() {
             const type = document.getElementById('adminCodeRewardType').value;
-            document.getElementById('adminCodeGelarContainer').style.display = type === 'gelar' ? 'block' : 'none';
-            if (type === 'hiasan_nama' || type === 'hiasan_profil') {
-                document.getElementById('adminCodeValContainer').style.display = 'none';
-                document.getElementById('adminCodePresetContainer').style.display = 'block';
-            } else if (type === 'gelar' || type === 'vip_plus') {
-                document.getElementById('adminCodeValContainer').style.display = 'none';
-                document.getElementById('adminCodePresetContainer').style.display = 'none';
-            } else {
-                document.getElementById('adminCodeValContainer').style.display = 'block';
-                                document.getElementById('adminCodePresetContainer').style.display = 'none';
+            const valueContainer = document.getElementById('adminCodeValContainer');
+            const presetContainer = document.getElementById('adminCodePresetContainer');
+            const presetSelect = document.getElementById('adminCodePresetSelect');
+            const presetLabel = document.getElementById('adminCodePresetLabel');
+            const gelarContainer = document.getElementById('adminCodeGelarContainer');
+            gelarContainer.style.display = type === 'gelar' ? 'block' : 'none';
+
+            const optionSets = {
+                hiasan_nama: hiasanNamaMap,
+                hiasan_profil: hiasanProfilMap,
+                hiasan_detail_profil: hiasanDetailProfilMap,
+                lencana: {
+                    immortal: 'Immortal',
+                    demon_king: 'Demon King',
+                    first_season: 'First Season'
+                }
+            };
+            const labels = {
+                hiasan_nama: 'Pilih Hiasan Nama:',
+                hiasan_profil: 'Pilih Hiasan Profil:',
+                hiasan_detail_profil: 'Pilih Hiasan Detail Profil:',
+                lencana: 'Pilih Lencana:'
+            };
+            const needsPreset = Object.prototype.hasOwnProperty.call(optionSets, type);
+            valueContainer.style.display = ['gelar', 'vip_plus', 'hiasan_nama', 'hiasan_profil', 'hiasan_detail_profil', 'lencana'].includes(type) ? 'none' : 'block';
+            presetContainer.style.display = needsPreset ? 'block' : 'none';
+            if (needsPreset) {
+                presetLabel.textContent = labels[type];
+                const previous = presetSelect.value;
+                presetSelect.innerHTML = '';
+                Object.entries(optionSets[type]).forEach(([id, label]) => {
+                    const option = document.createElement('option');
+                    option.value = id;
+                    option.textContent = (type === 'lencana' ? ({ immortal: '🏅 ', demon_king: '🌙 ', first_season: '🌟 ' }[id] || '') : '') + label;
+                    presetSelect.appendChild(option);
+                });
+                if ([...presetSelect.options].some(option => option.value === previous)) presetSelect.value = previous;
             }
         }
+
+        // Isi pilihan reward redeem sesuai kategori agar hiasan nama, profil, detail, dan lencana tidak tercampur.
+        document.addEventListener('DOMContentLoaded', () => {
+            toggleAdminRewardInput();
+            document.addEventListener('click', event => {
+                const button = event.target.closest && event.target.closest('.btn-profile-detail');
+                if (!button) return;
+                const card = button.closest('.member-card');
+                const key = card && card.dataset.memberKey;
+                if (!key) return;
+                event.preventDefault();
+                event.stopPropagation();
+                openProfileDetailModal(key);
+            });
+        });
 
         function adminCreateCode() {
             const codeText = document.getElementById('adminCodeText').value.trim().toUpperCase();
@@ -4628,7 +5278,7 @@
                 preset: preset,
                 gelar: gelar,
                 redeemMode: redeemMode,
-                label: type === 'gelar' ? gelar : (type === 'vip_plus' ? 'VIP Plus Member' : ((type === 'hiasan_nama' || type === 'hiasan_profil') ? preset : `${value} ${type}`))
+                label: type === 'gelar' ? gelar : (type === 'vip_plus' ? 'VIP Plus Member' : (['hiasan_nama','hiasan_profil','hiasan_detail_profil','lencana'].includes(type) ? ((type === 'hiasan_nama' ? hiasanNamaMap[preset] : type === 'hiasan_profil' ? hiasanProfilMap[preset] : type === 'hiasan_detail_profil' ? hiasanDetailProfilMap[preset] : ({immortal:'Immortal',demon_king:'Demon King',first_season:'First Season'}[preset])) || preset) : `${value} ${type}`))
             };
 
             alert(`✅ Kode reward ${codeText} berhasil dibuat!`);
